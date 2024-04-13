@@ -1,12 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
 
 import { LandingPage } from "../../screens/Landing";
-import { Layout } from "../../Layout";
+import { LandingLayout } from "../../LandingLayout";
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <Layout />,
+    element: <LandingLayout />,
     children: [
       {
         index: true,
