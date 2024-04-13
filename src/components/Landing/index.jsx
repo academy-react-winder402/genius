@@ -1,5 +1,7 @@
+import { LandingHeroSection } from "./LandingHeroSection";
+
 const Landing = () => {
-  return <div>Landing</div>;
+  return <LandingHeroSection />;
 };
 
 export { Landing };
