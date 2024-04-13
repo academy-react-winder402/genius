@@ -17,8 +17,7 @@
 html,
 body {
   direction: rtl;
-  font-family: "iranYekan";
-  oveflow-x: hidden !important;
+  overflow-x: hidden !important;
 }
 
 html {
