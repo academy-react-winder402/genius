@@ -8,11 +8,13 @@ import { Menu } from "./Menu";
 const Header = ({ isLanding }) => {
   return (
     <div
-      className={`flex items-center justify-between py-[32px] px-[80px] ${
+      className={`flex items-center justify-between py-[32px] px-10 lg:px-[80px] ${
         isLanding && "bg-[#e3f2fd]"
       }`}
     >
-      <Logo />
+      <div className="hidden lg:block w-[13%]">
+        <Logo />
+      </div>
       <Menu />
       <div className="flex items-center gap-4">
         <BasketButton />

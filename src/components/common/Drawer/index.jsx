@@ -1,1 +1,3 @@
-export { default as drawer } from "@mui/material/Drawer";
+import Drawer from "@mui/material/Drawer";
+
+export { Drawer };
