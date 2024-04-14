@@ -2,11 +2,11 @@ import { landingHeroSectionFeaturesItems } from "./landingHeroSectionFeaturesIte
 
 const LandingHeroSectionFeatures = () => {
   return (
-    <div className="mt-14 flex gap-4 justify-center">
+    <div className="mt-14 flex flex-col lg:flex-row gap-4 justify-center items-center">
       {landingHeroSectionFeaturesItems.map((feature) => (
         <div
           key={feature.label}
-          className="border border-solid border-white rounded-[16px] px-[24px] py-[16px] flex flex-col justify-center items-center w-[200px] bg-[#ffffff8f]"
+          className="border border-solid border-white rounded-[16px] px-[24px] py-[16px] flex flex-col justify-center items-center w-[90%] lg:w-[200px] bg-[#ffffff8f]"
         >
           <div className="bg-primary w-[64px] h-[64px] flex justify-center items-center rounded-[16px]">
             <img src={feature.icon} />
