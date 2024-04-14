@@ -10,7 +10,8 @@ export default {
         headerBg: "url('/src/assets/images/Header/header-bg.png')",
         headerBgBottom:
           "url('/src/assets/images/Landing/header-bg-bottom.png')",
-        landingPageProgrammingLanguagesIcon: "url('/src/assets/images/Landing/Icons.png')"
+        landingPageProgrammingLanguagesIcon:
+          "url('/src/assets/images/Landing/Icons.png')",
       },
       colors: {
         text1: "#263238",
@@ -19,6 +20,9 @@ export default {
       },
       fontFamily: {
         yekanBakh: "YekanBakh",
+      },
+      boxShadow: {
+        serviceShadow: "0px 0px 50px 0px #0000000D",
       },
     },
   },

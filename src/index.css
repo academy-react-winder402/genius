@@ -12,6 +12,9 @@
   .basketTotalCoursesAdded {
     @apply absolute -top-[6px] right-0 bg-primary text-white text-[8px] rounded-full p-1 px-[7px];
   }
+  .serviceBox {
+    @apply flex flex-col justify-center items-center rounded-[24px] border-[1px] border-solid border-[#ECEFF1] h-[280px] px-6 transition-shadow hover:bg-white lg:w-[405px] hover:shadow-serviceShadow
+  }
 }
 
 html,
@@ -22,4 +25,8 @@ body {
 
 html {
   scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-[#FAFBFC];
 }
