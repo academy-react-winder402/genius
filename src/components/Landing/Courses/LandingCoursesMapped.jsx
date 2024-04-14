@@ -1,7 +1,7 @@
 import { CourseItem } from "../../common/CourseItem";
 
 const LandingCoursesMapped = () => {
-  return <CourseItem />;
+  return <CourseItem title="test" />;
 };
 
 export { LandingCoursesMapped };

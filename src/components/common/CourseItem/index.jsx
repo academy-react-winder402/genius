@@ -10,7 +10,7 @@ const CourseItem = ({
   studentsCount,
   price,
 }) => {
-  return <div>CourseItem</div>;
+  return <div>{title}</div>;
 };
 
 CourseItem.propTypes = {
