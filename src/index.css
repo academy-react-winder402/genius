@@ -27,6 +27,9 @@
   .courseItemDetailsBoxText {
     @apply font-[500] text-[12px];
   }
+  .categoryItem {
+    @apply w-[94%] lg:w-[328px] h-[328px] shadow-landingCategoryItemShadow rounded-[32px] bg-white flex flex-col justify-center items-center mt-4;
+  }
 }
 
 html,
