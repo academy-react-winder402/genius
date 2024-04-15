@@ -6,7 +6,7 @@ import backgroundDots from "../../assets/images/Landing/LandingCategories/bg-dot
 
 const LandingCategories = () => {
   return (
-    <div className="pr-7 flex flex-col gap-0 my-32">
+    <div className="pr-7 flex flex-col justify-center items-center gap-0 my-32 mx-auto lg:w-[1290px]">
       <div className="hidden lg:flex justify-end">
         <img className="w-[70%] h-[500px]" src={itemsAfter} />
       </div>
