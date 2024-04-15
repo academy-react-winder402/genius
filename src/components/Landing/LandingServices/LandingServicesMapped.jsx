@@ -3,7 +3,7 @@ import { landingServiceItems } from "./landingServiceItems";
 const LandingServicesMapped = () => {
   return (
     <div className="flex justify-center">
-      <div className="flex gap-7 flex-col lg:flex-row mt-9 w-[90%]">
+      <div className="flex justify-center gap-7 flex-col lg:flex-row mt-9 w-[90%]">
         {landingServiceItems.map((service) => (
           <div key={service.label} className="serviceBox">
             <img src={service.icon} className="w-[80px] h-[80px]" />

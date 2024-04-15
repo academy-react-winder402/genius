@@ -1,9 +1,19 @@
+
 import { Up } from "../../components/Courses/coursesHeroSection";
 
 
-const CoursesPage = () => {
+const CoursesHead = () => {
 
     return <Up/>;
 };
 
-export {CoursesPage};
+export {CoursesHead};
+
+import { Courses } from "../../components/Courses";
+
+const CoursesPage = () => {
+  return <Courses />;
+};
+
+export { CoursesPage };
+
