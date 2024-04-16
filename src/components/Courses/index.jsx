@@ -1,5 +1,7 @@
+import { Up } from "./coursesHeroSection";
+
 const Courses = () => {
-  return <div>Courses</div>;
+  return <Up/>
 };
 
 export { Courses };
