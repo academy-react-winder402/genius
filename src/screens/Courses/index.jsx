@@ -1,13 +1,10 @@
-
 import { Up } from "../../components/Courses/coursesHeroSection";
 
-
 const CoursesHead = () => {
-
-    return <Up/>;
+  return <Up />;
 };
 
-export {CoursesHead};
+export { CoursesHead };
 
 import { Courses } from "../../components/Courses";
 
@@ -16,4 +13,3 @@ const CoursesPage = () => {
 };
 
 export { CoursesPage };
-
