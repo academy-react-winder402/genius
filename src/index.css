@@ -45,3 +45,28 @@ html {
 body {
   @apply bg-[#FAFBFC];
 }
+
+/* Swiper */
+.swiper-button-prev,
+.swiper-button-next {
+  @apply w-[100px] h-[100px] bg-[url("/src/assets/images/Landing/LandingTeachers/Icons/prev-arrow.svg")];
+}
+.swiper-button-next {
+  @apply bg-[url("/src/assets/images/Landing/LandingTeachers/Icons/next-arrow.svg")];
+}
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  @apply hidden;
+}
+.swiper-pagination-bullet {
+  @apply w-[20px] h-[20px] bg-center bg-[url('/src/assets/images/Landing/LandingTeachers/Icons/default-pagination.svg')];
+}
+.swiper-pagination-bullet.swiper-pagination-bullet-active {
+  @apply bg-transparent bg-[url('/src/assets/images/Landing/LandingTeachers/Icons/active-pagination.svg')];
+}
+.swiper-pagination {
+  @apply gap-3 flex justify-center;
+}
+.swiper-wrapper {
+  @apply mb-12;
+}
