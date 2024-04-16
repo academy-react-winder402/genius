@@ -1,12 +1,19 @@
 import PropTypes from "prop-types";
 
+import awardIcon from "../../../assets/images/Landing/LandingTeachers/Icons/award.svg";
+
 const TeacherItem = ({ teacher }) => {
   return (
     <>
       <div className="w-full flex flex-col justify-center items-center">
-        <div>
+        <div className="relative">
           <img src={teacher.teacherImage} />
-          <span></span>
+          <div className="landingTeacherItemCoursesCount">
+            <img src={awardIcon} className="w-[16px] h-[16px]" />
+            <span className="font-[500] text-[14px] text-primaryColor">
+              {teacher.teacherCoursesCount} دوره
+            </span>
+          </div>
         </div>
         <h4 className="-mt-2 font-[700] text-[24px] text-text1">
           {teacher.teacherName}
