@@ -1,8 +1,7 @@
 import { Head } from "./Head";
 
 const Up = () => {
-
-    return <Head/>
+  return <Head />;
 };
 
-export {Up};
+export { Up };
