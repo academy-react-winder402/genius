@@ -5,6 +5,7 @@ export default {
     extend: {
       backgroundColor: {
         primary: "#2196F3",
+        secondary: "#DAEEFF",
       },
       backgroundImage: {
         headerBg: "url('/src/assets/images/Header/header-bg.png')",
