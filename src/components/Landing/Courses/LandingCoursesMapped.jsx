@@ -9,11 +9,6 @@ const LandingCoursesMapped = () => {
           <CourseItem key={course.id} course={course} />
         ))}
       </div>
-      <div className="flex justify-center mt-8">
-        <button className="bg-primary text-white w-[131px] h-[48px] rounded-full">
-          مشاهده همه
-        </button>
-      </div>
     </>
   );
 };
