@@ -36,6 +36,9 @@
   .landingBlogItemsStyleTwoColor {
     @apply font-[500] text-primaryColor mt-[1px];
   }
+  .landingTeacherItemCoursesCount {
+    @apply absolute top-14 right-14 flex justify-center items-center w-[88px] h-[36px] bg-white rounded-[50px] shadow-landingTeacherCoursesCount;
+  }
 }
 
 html,

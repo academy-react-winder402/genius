@@ -31,6 +31,7 @@ export default {
       boxShadow: {
         primaryShadow: "0px 0px 50px 0px #0000000D",
         landingCategoryItemShadow: "0px 10px 50px 0px #0000000D",
+        landingTeacherCoursesCount: "0px 0px 20px 0px #0000004D",
       },
     },
   },
