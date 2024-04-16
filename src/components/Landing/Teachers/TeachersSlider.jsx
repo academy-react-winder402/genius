@@ -19,7 +19,7 @@ const TeachersSlider = () => {
       }}
       navigation={true}
       modules={[Pagination, Navigation]}
-      className="my-swiper"
+      className="my-swiper lg:w-[1320px]"
       breakpoints={{
         768: {
           slidesPerView: 1,
