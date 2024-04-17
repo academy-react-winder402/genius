@@ -1,3 +1,4 @@
+import { LandingBlogs } from "./LandingBlogs";
 import { LandingCategories } from "./LandingCategories";
 import { LandingCourses } from "./LandingCourses";
 import { LandingHeroSection } from "./LandingHeroSection";
@@ -12,6 +13,7 @@ const Landing = () => {
       <LandingCourses />
       <LandingCategories />
       <LandingTeachers />
+      <LandingBlogs />
     </>
   );
 };

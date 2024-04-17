@@ -30,6 +30,39 @@
   .categoryItem {
     @apply w-[94%] lg:w-[328px] h-[328px] shadow-landingCategoryItemShadow rounded-[32px] bg-white flex flex-col justify-center items-center mt-4;
   }
+  .landingBlogItemStyleTwoBackground {
+    @apply flex gap-1 justify-center items-center bg-secondary w-[102px] h-[40px] rounded-[80px];
+  }
+  .landingBlogItemsStyleTwoColor {
+    @apply font-[500] text-primaryColor mt-[1px];
+  }
+  .landingTeacherItemCoursesCount {
+    @apply absolute top-14 right-14 flex justify-center items-center w-[88px] h-[36px] bg-white rounded-[50px] shadow-landingTeacherCoursesCount;
+  }
+  .footer {
+    @apply bg-footerBackground mt-16 flex flex-col justify-center items-center pt-12 pb-14;
+  }
+  .footerLogoDescriptionBox {
+    @apply flex flex-col items-center bg-inherit w-[420px] text-center;
+  }
+  .footerLogoDescriptionBoxButton {
+    @apply absolute top-2 right-14 lg:right-3 shadow-footerJoinButtonShadow bg-primary text-white w-[77px] h-[40px] rounded-[80px];
+  }
+  .footerLogoDescriptionBoxInput {
+    @apply placeholder:text-text3 shadow-footerJoinInputShadow w-[80%] lg:w-[480px] py-4 rounded-[50px] px-5 pr-20 outline-0;
+  }
+  .footerMenuItems {
+    @apply font-[400] text-white border-l-[1px] pl-5 group-last:border-0 group-last:pl-0;
+  }
+  .footerCopyright {
+    @apply bg-footerCopyRightBackground flex flex-col lg:flex-row justify-between px-10 py-4 rounded-[16px] lg:w-[1280px] lg:h-[64px] mt-9;
+  }
+  .footerSocialMediaBox {
+    @apply flex justify-between items-center gap-2 mt-7 lg:mt-0;
+  }
+  .footerSocialMediaItem {
+    @apply flex justify-center items-center w-[32px] h-[32px] rounded-[50px] bg-socialMediaIcon;
+  }
 }
 
 html,
@@ -44,4 +77,29 @@ html {
 
 body {
   @apply bg-[#FAFBFC];
+}
+
+/* Swiper */
+.swiper-button-prev,
+.swiper-button-next {
+  @apply w-[100px] h-[100px] bg-[url("/src/assets/images/Landing/LandingTeachers/Icons/prev-arrow.svg")];
+}
+.swiper-button-next {
+  @apply bg-[url("/src/assets/images/Landing/LandingTeachers/Icons/next-arrow.svg")];
+}
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  @apply hidden;
+}
+.swiper-pagination-bullet {
+  @apply w-[20px] h-[20px] bg-center bg-[url('/src/assets/images/Landing/LandingTeachers/Icons/default-pagination.svg')];
+}
+.swiper-pagination-bullet.swiper-pagination-bullet-active {
+  @apply bg-transparent bg-[url('/src/assets/images/Landing/LandingTeachers/Icons/active-pagination.svg')];
+}
+.swiper-pagination {
+  @apply gap-3 flex justify-center;
+}
+.swiper-wrapper {
+  @apply mb-12;
 }
