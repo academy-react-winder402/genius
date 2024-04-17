@@ -39,6 +39,30 @@
   .landingTeacherItemCoursesCount {
     @apply absolute top-14 right-14 flex justify-center items-center w-[88px] h-[36px] bg-white rounded-[50px] shadow-landingTeacherCoursesCount;
   }
+  .footer {
+    @apply bg-footerBackground mt-16 flex flex-col justify-center items-center pt-12 pb-14;
+  }
+  .footerLogoDescriptionBox {
+    @apply flex flex-col items-center bg-inherit w-[420px] text-center;
+  }
+  .footerLogoDescriptionBoxButton {
+    @apply absolute top-2 right-14 lg:right-3 shadow-footerJoinButtonShadow bg-primary text-white w-[77px] h-[40px] rounded-[80px];
+  }
+  .footerLogoDescriptionBoxInput {
+    @apply placeholder:text-text3 shadow-footerJoinInputShadow w-[80%] lg:w-[480px] py-4 rounded-[50px] px-5 pr-20 outline-0;
+  }
+  .footerMenuItems {
+    @apply font-[400] text-white border-l-[1px] pl-5 group-last:border-0 group-last:pl-0;
+  }
+  .footerCopyright {
+    @apply bg-footerCopyRightBackground flex flex-col lg:flex-row justify-between px-10 py-4 rounded-[16px] lg:w-[1280px] lg:h-[64px] mt-9;
+  }
+  .footerSocialMediaBox {
+    @apply flex justify-between items-center gap-2 mt-7 lg:mt-0;
+  }
+  .footerSocialMediaItem {
+    @apply flex justify-center items-center w-[32px] h-[32px] rounded-[50px] bg-socialMediaIcon;
+  }
 }
 
 html,
