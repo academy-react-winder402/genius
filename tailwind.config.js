@@ -20,6 +20,10 @@ export default {
           "url('/src/assets/images/Landing/LandingCategories/title-after.svg')",
         landingCategoriesItemsAfter:
           "url('/src/assets/images/Landing/LandingCategories/items-after.svg')",
+        coursesLandingPageDots:
+          "url('/src/assets/images/Courses/HeroSection/dots.svg')",
+        coursesLandingPageDotsTwo:
+          "url('/src/assets/images/Courses/HeroSection/dots2.svg')",
       },
       colors: {
         primaryColor: "#2196F3",
