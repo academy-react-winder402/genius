@@ -13,7 +13,7 @@ const Header = ({ isLanding }) => {
       }`}
     >
       <div className="hidden lg:block w-[13%]">
-        <Logo />
+        <Logo isFilter />
       </div>
       <Menu />
       <div className="flex items-center gap-4">
