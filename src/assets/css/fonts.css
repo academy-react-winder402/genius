@@ -71,6 +71,7 @@ p,
 span,
 input,
 textarea,
-blockquote {
-  font-family: YekanBakh;
+blockquote,
+label {
+  font-family: YekanBakh !important;
 }
