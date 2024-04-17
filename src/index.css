@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  html,
+  body {
+    direction: rtl;
+    overflow-x: hidden !important;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-[#FAFBFC];
+  }
+}
+
 @layer components {
   .loginButton {
     @apply bg-primary text-white rounded-full w-[133px] h-[48px];
@@ -63,20 +77,9 @@
   .footerSocialMediaItem {
     @apply flex justify-center items-center w-[32px] h-[32px] rounded-[50px] bg-socialMediaIcon;
   }
-}
-
-html,
-body {
-  direction: rtl;
-  overflow-x: hidden !important;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  @apply bg-[#FAFBFC];
+  .filterRangeText {
+    @apply font-[500] text-[12px] text-text3;
+  }
 }
 
 /* Swiper */
@@ -102,4 +105,47 @@ body {
 }
 .swiper-wrapper {
   @apply mb-12;
+}
+
+/* Material UI */
+.MuiPaper-root {
+  @apply !shadow-none;
+}
+
+.MuiButtonBase-root {
+  @apply !pr-[22px] !pl-[13px];
+}
+
+.MuiFormControlLabel-root {
+  @apply !m-0;
+}
+
+.MuiAccordionDetails-root {
+  @apply !p-0 !pb-3;
+}
+
+.MuiPaper-root.Mui-expanded {
+  @apply !mt-0;
+}
+
+span.MuiTypography-root {
+  @apply font-[500] text-[14px] text-text2;
+}
+
+.priceFilterCheckbox .MuiButtonBase-root {
+  @apply !p-0 !pl-2;
+}
+
+/* Range Slider Input */
+.range-slider {
+  @apply bg-rangeSlider h-[5px];
+}
+
+.range-slider__range,
+.range-slider__thumb {
+  @apply !bg-rangeSliderCompleted;
+}
+
+.range-slider__thumb {
+  @apply !w-[15px] !h-[15px];
 }

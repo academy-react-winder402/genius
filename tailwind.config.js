@@ -9,6 +9,9 @@ export default {
         footerBackground: "#252641",
         footerCopyRightBackground: "#00000033",
         socialMediaIcon: "#263238",
+        filterTitle: "#ECEFF1",
+        rangeSlider: "#C8E6C9",
+        rangeSliderCompleted: "#60B764",
       },
       backgroundImage: {
         headerBg: "url('/src/assets/images/Header/header-bg.png')",
@@ -41,6 +44,9 @@ export default {
         landingTeacherCoursesCount: "0px 0px 20px 0px #0000004D",
         footerJoinInputShadow: "0px 0px 20px 0px #00000005",
         footerJoinButtonShadow: "0px 0px 20px 0px #2196F333",
+      },
+      borderColor: {
+        filterAccordionBorder: "#ECEFF1",
       },
     },
   },
