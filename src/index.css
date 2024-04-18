@@ -80,6 +80,21 @@
   .filterRangeText {
     @apply font-[500] text-[12px] text-text3;
   }
+  .coursesGridView {
+    @apply bg-filterGridView rounded-[16px] p-[8px] w-[100px] h-[50px] flex gap-2 justify-center items-center;
+  }
+  .coursesGridViewItems {
+    @apply w-[40px] h-[40px] flex justify-center items-center rounded-[16px];
+  }
+  .coursesGridViewItemsActive {
+    @apply bg-white w-[40px] h-[40px] flex justify-center items-center rounded-[16px];
+  }
+  .coursesSelectBoxWrapper {
+    @apply relative after:content-[''] after:absolute after:top-1 after:left-3 after:bg-coursesSelectOptionBackground after:w-[40px] after:h-[40px] after:bg-no-repeat after:bg-left before:absolute before:top-3 before:right-2 before:bg-coursesSelectOptionSort before:w-[24px] before:h-[24px];
+  }
+  .coursesSelectBox {
+    @apply w-full h-[50px] pr-10 rounded-[16px] outline-none appearance-none;
+  }
 }
 
 /* Swiper */

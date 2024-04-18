@@ -1,10 +1,14 @@
 import PropTypes from "prop-types";
 
+import { priceWithCommas } from "../../../core/utils/number-helper.utils";
+
 import noteIcon from "../../../assets/images/Landing/LandingCourses/note.svg";
 import clockIcon from "../../../assets/images/Landing/LandingCourses/clock.svg";
 import calenderIcon from "../../../assets/images/Landing/LandingCourses/calendar.svg";
 
 const CourseItem = ({ course }) => {
+  const formattedPrice = priceWithCommas(course.price);
+
   return (
     <div className="courseItem">
       <img src={course.image} className="courseItemImage" />
@@ -53,7 +57,7 @@ const CourseItem = ({ course }) => {
         </div>
         <div className="font-[500] text-[12px] text-text1 flex">
           <span className="text-primaryColor text-[16px] font-[700] ml-2">
-            {course.price}
+            {formattedPrice}
           </span>{" "}
           تومان
         </div>

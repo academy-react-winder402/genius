@@ -18,7 +18,7 @@ const PaginatedCourses = ({ courses, itemsPerPage }) => {
   };
   return (
     <div className="flex flex-col gap-4">
-      <div className="flex flex-wrap justify-center gap-x-3">
+      <div className="flex flex-wrap justify-cente gap-x-3">
         {currentItems &&
           currentItems.map((course) => (
             <CourseItem key={course.id} course={course} />

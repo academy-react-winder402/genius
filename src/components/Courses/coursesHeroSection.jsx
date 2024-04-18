@@ -3,7 +3,7 @@ import heroSectionDotsTwo from "../../assets/images/Courses/HeroSection/dots2.sv
 
 const CoursesHeroSection = () => {
   return (
-    <div className="flex flex-col-reverse lg:flex-row justify-between items-center lg:w-[1120px] mx-auto mt-5 bg-coursesLandingPageDots bg-no-repeat bg-[right_bottom_0rem]">
+    <div className="flex flex-col-reverse lg:flex-row justify-between items-center lg:w-[1120px] mx-auto mt-5 lg:bg-coursesLandingPageDots lg:bg-no-repeat lg:bg-[right_bottom_0rem]">
       <div className="relative">
         <img
           src={heroSectionDotsTwo}
