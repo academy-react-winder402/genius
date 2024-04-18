@@ -1,9 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
 
-import { Layout } from "../../Layout";
 import { LandingLayout } from "../../LandingLayout";
-import { LandingPage } from "../../screens/Landing";
+import { Layout } from "../../Layout";
+import { CourseDetailsPage } from "../../screens/CourseDetails";
 import { CoursesPage } from "../../screens/Courses";
+import { LandingPage } from "../../screens/Landing";
 
 export const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ export const router = createBrowserRouter([
       {
         index: true,
         element: <CoursesPage />,
+      },
+      {
+        path: "/courses/:id",
+        element: <CourseDetailsPage />,
       },
     ],
   },
