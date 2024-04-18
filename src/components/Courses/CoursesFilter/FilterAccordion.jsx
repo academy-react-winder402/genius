@@ -10,7 +10,7 @@ const FilterAccordion = ({ title, children, isOpen }) => {
   return (
     <Accordion
       classes={{
-        root: "before:hidden border-solid border-b-[1px] border-filterAccordionBorder",
+        root: "before:hidden border-solid border-b-[1px] last:border-b-[0px] border-filterAccordionBorder",
       }}
       defaultExpanded={isOpen}
     >
