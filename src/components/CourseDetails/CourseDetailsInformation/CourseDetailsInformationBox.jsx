@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 
 const CourseDetailsInformationBox = ({ imageURL, label, value }) => {
   return (
-    <div className="border-b border-b-courseDetailsInformationBox mx-auto py-6">
+    <div className="border-b border-b-courseDetailsInformationBox mx-auto py-5">
       <div className="flex justify-between items-center">
         <div className="flex items-center gap-2">
           <div className="w-[40px] h-[40px] rounded-full bg-primary flex justify-center items-center">

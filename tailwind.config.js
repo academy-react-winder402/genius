@@ -52,6 +52,7 @@ export default {
         footerJoinInputShadow: "0px 0px 20px 0px #00000005",
         footerJoinButtonShadow: "0px 0px 20px 0px #2196F333",
         courseAddToCarButtonShadow: "0px 0px 20px 0px #0000000D",
+        courseAddCommentButton: "0px 0px 20px 0px #0000000D",
       },
       borderColor: {
         filterAccordionBorder: "#ECEFF1",
