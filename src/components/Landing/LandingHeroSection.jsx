@@ -1,5 +1,5 @@
+import { SearchBox } from "../common/SearchBox";
 import { LandingHeroSectionFeatures } from "./HeroSection/LandingHeroSectionFeatures";
-import { LandingHeroSectionSearchBox } from "./HeroSection/LandingHeroSectionSearchBox";
 
 const LandingHeroSection = () => {
   return (
@@ -17,7 +17,12 @@ const LandingHeroSection = () => {
             زبان فارسی .
           </p>
         </div>
-        <LandingHeroSectionSearchBox />
+        <SearchBox
+          placeholder="چی میخوای یاد بگیری ؟"
+          inputWidth="620px"
+          isMarginTop
+          display="flex justify-center items-center"
+        />
         <LandingHeroSectionFeatures />
       </div>
     </div>

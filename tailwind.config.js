@@ -9,6 +9,12 @@ export default {
         footerBackground: "#252641",
         footerCopyRightBackground: "#00000033",
         socialMediaIcon: "#263238",
+        filterTitle: "#ECEFF1",
+        rangeSlider: "#C8E6C9",
+        rangeSliderCompleted: "#60B764",
+        paginationPreviousBackground: "#ECEFF1",
+        filterGridView: "#ECEFF1",
+        courseStyleTwoDetails: "#ECEFF1",
       },
       backgroundImage: {
         headerBg: "url('/src/assets/images/Header/header-bg.png')",
@@ -24,6 +30,10 @@ export default {
           "url('/src/assets/images/Courses/HeroSection/dots.svg')",
         coursesLandingPageDotsTwo:
           "url('/src/assets/images/Courses/HeroSection/dots2.svg')",
+        coursesSelectOptionBackground:
+          "url('/src/assets/images/Courses/Icons/select-icon.svg')",
+        coursesSelectOptionSort:
+          "url('/src/assets/images/Courses/Icons/sort.svg')",
       },
       colors: {
         primaryColor: "#2196F3",
@@ -41,6 +51,9 @@ export default {
         landingTeacherCoursesCount: "0px 0px 20px 0px #0000004D",
         footerJoinInputShadow: "0px 0px 20px 0px #00000005",
         footerJoinButtonShadow: "0px 0px 20px 0px #2196F333",
+      },
+      borderColor: {
+        filterAccordionBorder: "#ECEFF1",
       },
     },
   },
