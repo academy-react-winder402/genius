@@ -10,6 +10,7 @@ import courseStatusIcon from "../../assets/images/CourseDetails/Information/moni
 import calenderIcon from "../../assets/images/CourseDetails/Information/calendar.svg";
 import calenderTickIcon from "../../assets/images/CourseDetails/Information/calendar-tick.svg";
 import { CourseTeacher } from "./CourseDetailsInformation/CourseTeacher";
+import { CourseLikeBox } from "../common/CourseLikeBox";
 
 const CourseDetails = () => {
   const { id } = useParams();
@@ -18,13 +19,16 @@ const CourseDetails = () => {
 
   const formattedPrice = priceWithCommas(course.price);
 
-  console.log(course);
-
   return (
     <div className="w-[1100px] mx-auto flex gap-5">
       <div className="w-[70%]">
-        <div>
+        <div className="relative">
           <img src={course.image} className="rounded-[24px]" />
+          <CourseLikeBox classes="absolute top-10 right-8 bg-white" />
+          <div className="flex">
+            <div></div>
+            <div></div>
+          </div>
         </div>
       </div>
       <div className="w-[405px]">
