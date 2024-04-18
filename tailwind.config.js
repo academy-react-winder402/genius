@@ -14,6 +14,7 @@ export default {
         rangeSliderCompleted: "#60B764",
         paginationPreviousBackground: "#ECEFF1",
         filterGridView: "#ECEFF1",
+        courseStyleTwoDetails: "#ECEFF1",
       },
       backgroundImage: {
         headerBg: "url('/src/assets/images/Header/header-bg.png')",
