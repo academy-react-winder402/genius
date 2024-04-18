@@ -4,12 +4,16 @@ import { priceWithCommas } from "../../core/utils/number-helper.utils";
 
 import { courseItems } from "../Courses/CourseItems/courseItems";
 import { CourseDetailsInformationBox } from "./CourseDetailsInformation/CourseDetailsInformationBox";
+import { CourseTeacher } from "./CourseDetailsInformation/CourseTeacher";
+import { CourseLikeBox } from "../common/CourseLikeBox";
+import { CourseSatisfaction } from "./CourseSatisfaction";
 
 import studentsCountIcon from "../../assets/images/CourseDetails/Information/profile-user.svg";
 import courseStatusIcon from "../../assets/images/CourseDetails/Information/monitor-recorder.svg";
 import calenderIcon from "../../assets/images/CourseDetails/Information/calendar.svg";
 import calenderTickIcon from "../../assets/images/CourseDetails/Information/calendar-tick.svg";
-import { CourseTeacher } from "./CourseDetailsInformation/CourseTeacher";
+import noteIcon from "../../assets/images/CourseDetails/Icons/note.svg";
+import clockIcon from "../../assets/images/CourseDetails/Icons/clock.svg";
 
 const CourseDetails = () => {
   const { id } = useParams();
@@ -18,14 +22,33 @@ const CourseDetails = () => {
 
   const formattedPrice = priceWithCommas(course.price);
 
-  console.log(course);
-
   return (
-    <div className="w-[1100px] mx-auto flex gap-5">
+    <div className="w-[1100px] mx-auto flex gap-5 mt-5">
       <div className="w-[70%]">
-        <div>
+        <div className="relative">
           <img src={course.image} className="rounded-[24px]" />
+          <CourseLikeBox classes="absolute top-10 right-8 bg-white" />
+          <div className="flex gap-4 absolute bottom-5 left-5">
+            <div className="courseDetailImageBox">
+              <img src={noteIcon} className="-mt-[3px]" />
+              <span className="courseDetailImageBoxTitle">
+                {course.lessonsCount} درس
+              </span>
+            </div>
+            <div className="courseDetailImageBox">
+              <img src={clockIcon} className="-mt-[3px]" />
+              <span className="courseDetailImageBoxTitle">
+                {course.hour} ساعت
+              </span>
+            </div>
+            <div></div>
+          </div>
         </div>
+        <div className="mt-7">
+          <h1 className="font-[700] text-[32px] text-text1">{course.title}</h1>
+          <p className="font-[500] text-text2 mt-2">{course.description}</p>
+        </div>
+        <CourseSatisfaction />
       </div>
       <div className="w-[405px]">
         <div className="bg-white shadow-primaryShadow rounded-[24px] py-2 pb-8 px-2">
