@@ -43,6 +43,10 @@ const CourseDetails = () => {
             <div></div>
           </div>
         </div>
+        <div className="mt-7">
+          <h1 className="font-[700] text-[32px] text-text1">{course.title}</h1>
+          <p className="font-[500] text-text2">{course.description}</p>
+        </div>
       </div>
       <div className="w-[405px]">
         <div className="bg-white shadow-primaryShadow rounded-[24px] py-2 pb-8 px-2">
