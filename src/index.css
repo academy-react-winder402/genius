@@ -95,6 +95,21 @@
   .coursesSelectBox {
     @apply w-full h-[50px] pr-10 rounded-[16px] outline-none appearance-none;
   }
+  .courseLikeBox {
+    @apply flex justify-center items-center bg-[#FFEBEE] cursor-pointer rounded-[24px] w-[51px] h-[32px] font-[500] text-red gap-1 -mt-1;
+  }
+  .courseItemStyleTwo {
+    @apply w-full bg-white shadow-primaryShadow rounded-[24px] lg:h-[212px] px-3 py-2 flex flex-col lg:flex-row justify-center items-center gap-3;
+  }
+  .courseItemStyleTwoDetailsWrapperFlexBox {
+    @apply flex flex-col lg:flex-row gap-3 items-center mt-5;
+  }
+  .courseItemStyleTwoDetailsWrapper {
+    @apply bg-courseStyleTwoDetails w-full lg:w-[493px] lg:h-[44px] rounded-[24px] flex flex-col lg:flex-row gap-3 justify-center items-center;
+  }
+  .courseItemStyleTwoDescription {
+    @apply text-justify font-[500] text-[14px] text-text2 mt-1 w-full lg:w-[97%];
+  }
 }
 
 /* Swiper */

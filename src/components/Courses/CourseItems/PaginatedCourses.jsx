@@ -3,12 +3,12 @@ import PropTypes from "prop-types";
 
 import { Pagination } from "../../common/Pagination";
 import { CourseItem } from "../../common/CourseItem";
+import { CourseItemStyleTwo } from "../../common/CourseItemStyleTwo";
 
-const PaginatedCourses = ({ courses, itemsPerPage }) => {
+const PaginatedCourses = ({ courses, itemsPerPage, coursesStyle }) => {
   const [itemOffset, setItemOffset] = useState(0);
   const endOffset = itemOffset + itemsPerPage;
   const currentItems = courses.slice(itemOffset, endOffset);
-  console.log(currentItems, "test");
   const pageCount = Math.ceil(courses.length, itemsPerPage);
 
   const handlePageClick = (event) => {
@@ -20,9 +20,13 @@ const PaginatedCourses = ({ courses, itemsPerPage }) => {
     <div className="flex flex-col gap-4">
       <div className="flex flex-wrap justify-center gap-x-3 gap-y-5 lg:mt-3">
         {currentItems &&
-          currentItems.map((course) => (
-            <CourseItem key={course.id} course={course} />
-          ))}
+          currentItems.map((course) =>
+            coursesStyle === 1 ? (
+              <CourseItem key={course.id} course={course} />
+            ) : (
+              <CourseItemStyleTwo key={course.id} course={course} />
+            )
+          )}
       </div>
       <Pagination handlePageClick={handlePageClick} pageCount={pageCount} />
     </div>
@@ -32,6 +36,7 @@ const PaginatedCourses = ({ courses, itemsPerPage }) => {
 PaginatedCourses.propTypes = {
   courses: PropTypes.array,
   itemsPerPage: PropTypes.number,
+  coursesStyle: PropTypes.any,
 };
 
 export { PaginatedCourses };

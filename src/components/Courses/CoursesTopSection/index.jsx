@@ -1,18 +1,34 @@
+import PropTypes from "prop-types";
+
 import { SearchBox } from "../../common/SearchBox";
 import { MobileFilter } from "../CoursesFilter/MobileFilter";
 
 import gridStyleOne from "../../../assets/images/Courses/Icons/grid-1.svg";
 import gridStyleTwo from "../../../assets/images/Courses/Icons/grid-2.svg";
 
-const CoursesTopSection = () => {
+const CoursesTopSection = ({ coursesStyle, setCoursesStyle }) => {
   return (
     <>
       <div className="flex flex-wrap-reverse items-center gap-4 mt-4 lg:mt-0">
         <div className="coursesGridView">
-          <button className="coursesGridViewItemsActive">
+          <button
+            className={`${
+              coursesStyle === 1
+                ? "coursesGridViewItemsActive"
+                : "coursesGridViewItems"
+            }`}
+            onClick={() => setCoursesStyle(1)}
+          >
             <img src={gridStyleOne} />
           </button>
-          <button className="coursesGridViewItems">
+          <button
+            className={`${
+              coursesStyle === 2
+                ? "coursesGridViewItemsActive"
+                : "coursesGridViewItems"
+            }`}
+            onClick={() => setCoursesStyle(2)}
+          >
             <img src={gridStyleTwo} />
           </button>
         </div>
@@ -35,6 +51,11 @@ const CoursesTopSection = () => {
       </div>
     </>
   );
+};
+
+CoursesTopSection.propTypes = {
+  coursesStyle: PropTypes.any,
+  setCoursesStyle: PropTypes.any,
 };
 
 export { CoursesTopSection };

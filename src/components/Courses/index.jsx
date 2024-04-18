@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import { courseItems } from "./CourseItems/courseItems";
 import { PaginatedCourses } from "./CourseItems/PaginatedCourses";
 import { Filters } from "./CoursesFilter/Filters";
@@ -6,6 +8,8 @@ import { CoursesHeroSection } from "./CoursesHeroSection";
 import { CoursesTopSection } from "./CoursesTopSection";
 
 const Courses = () => {
+  const [coursesStyle, setCoursesStyle] = useState(1);
+
   return (
     <>
       <CoursesHeroSection />
@@ -18,9 +22,16 @@ const Courses = () => {
             <Filters />
           </div>
         </div>
-        <div className="lg:w-[79%]">
-          <CoursesTopSection />
-          <PaginatedCourses courses={courseItems} itemsPerPage={9} />
+        <div className="lg:w-[957px]">
+          <CoursesTopSection
+            coursesStyle={coursesStyle}
+            setCoursesStyle={setCoursesStyle}
+          />
+          <PaginatedCourses
+            courses={courseItems}
+            itemsPerPage={9}
+            coursesStyle={coursesStyle}
+          />
         </div>
       </div>
     </>
