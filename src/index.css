@@ -105,7 +105,7 @@
     @apply flex flex-col lg:flex-row gap-3 items-center mt-5;
   }
   .courseItemStyleTwoDetailsWrapper {
-    @apply bg-courseStyleTwoDetails w-full lg:w-[493px] lg:h-[44px] rounded-[24px] flex flex-col lg:flex-row gap-3 justify-center items-center;
+    @apply bg-courseStyleTwoDetails w-full lg:w-[493px] lg:h-[44px] rounded-[24px] flex flex-col lg:flex-row gap-3 justify-center items-center py-3;
   }
   .courseItemStyleTwoDescription {
     @apply text-justify font-[500] text-[14px] text-text2 mt-1 w-full lg:w-[97%];

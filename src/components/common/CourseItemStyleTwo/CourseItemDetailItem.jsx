@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-const CourseItemDetail = ({ imageURL, label }) => {
+const CourseItemDetailItem = ({ imageURL, label }) => {
   return (
     <div className="flex gap-1">
       <img src={imageURL} />
@@ -9,9 +9,9 @@ const CourseItemDetail = ({ imageURL, label }) => {
   );
 };
 
-CourseItemDetail.propTypes = {
+CourseItemDetailItem.propTypes = {
   imageURL: PropTypes.string,
   label: PropTypes.string,
 };
 
-export { CourseItemDetail };
+export { CourseItemDetailItem };
