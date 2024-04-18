@@ -51,9 +51,11 @@ export default {
         landingTeacherCoursesCount: "0px 0px 20px 0px #0000004D",
         footerJoinInputShadow: "0px 0px 20px 0px #00000005",
         footerJoinButtonShadow: "0px 0px 20px 0px #2196F333",
+        courseAddToCarButtonShadow: "0px 0px 20px 0px #0000000D",
       },
       borderColor: {
         filterAccordionBorder: "#ECEFF1",
+        courseDetailsInformationBox: "#ECEFF1",
       },
     },
   },
