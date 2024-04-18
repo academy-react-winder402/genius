@@ -28,15 +28,17 @@ const CourseDetails = () => {
           <img src={course.image} className="rounded-[24px]" />
           <CourseLikeBox classes="absolute top-10 right-8 bg-white" />
           <div className="flex gap-4 absolute bottom-5 left-5">
-            <div className="flex gap-1 justify-center items-center bg-white w-[119px] h-[48px] rounded-[50px]">
+            <div className="courseDetailImageBox">
               <img src={noteIcon} className="-mt-[3px]" />
-              <span className="font-[500] text-text1">
+              <span className="courseDetailImageBoxTitle">
                 {course.lessonsCount} درس
               </span>
             </div>
-            <div className="flex gap-1 justify-center items-center bg-white w-[119px] h-[48px] rounded-[50px]">
+            <div className="courseDetailImageBox">
               <img src={clockIcon} className="-mt-[3px]" />
-              <span className="font-[500] text-text1">{course.hour} ساعت</span>
+              <span className="courseDetailImageBoxTitle">
+                {course.hour} ساعت
+              </span>
             </div>
             <div></div>
           </div>

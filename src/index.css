@@ -110,6 +110,12 @@
   .courseItemStyleTwoDescription {
     @apply text-justify font-[500] text-[14px] text-text2 mt-1 w-full lg:w-[97%];
   }
+  .courseDetailImageBox {
+    @apply flex gap-1 justify-center items-center bg-white w-[119px] h-[48px] rounded-[50px];
+  }
+  .courseDetailImageBoxTitle {
+    @apply font-[500] text-text1;
+  }
 }
 
 /* Swiper */
