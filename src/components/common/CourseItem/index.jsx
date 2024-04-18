@@ -3,14 +3,10 @@ import PropTypes from "prop-types";
 import noteIcon from "../../../assets/images/Landing/LandingCourses/note.svg";
 import clockIcon from "../../../assets/images/Landing/LandingCourses/clock.svg";
 import calenderIcon from "../../../assets/images/Landing/LandingCourses/calendar.svg";
-import { Search } from "../../Courses/Search";
 
 const CourseItem = ({ course }) => {
   return (
     <div className="courseItem">
-      <div className=" absolute bottom-2 left-80">
-        <Search />
-      </div>
       <img src={course.image} className="courseItemImage" />
       <h4 className="font-[700] text-text1 mt-4">{course.title}</h4>
       <div className="bg-[#ECEFF1] rounded-[24px] flex justify-between items-center mt-5 h-[40px] px-3">

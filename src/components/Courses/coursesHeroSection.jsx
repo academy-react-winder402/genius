@@ -1,6 +1,5 @@
 import heroSectionLeftImage from "../../assets/images/Courses/HeroSection/hero-section-left-image.svg";
 import heroSectionDotsTwo from "../../assets/images/Courses/HeroSection/dots2.svg";
-import { Search } from "./Search";
 
 const CoursesHeroSection = () => {
   return (
