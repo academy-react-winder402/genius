@@ -6,8 +6,6 @@ import { FilterAccordion } from "../FilterAccordion";
 const PriceFilter = () => {
   const [priceValue, setPriceValue] = useState([150000, 1450000]);
 
-  console.log(priceValue);
-
   return (
     <FilterAccordion title="قیمت" isOpen={true}>
       <div className="flex justify-between px-5">

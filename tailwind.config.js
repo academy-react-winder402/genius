@@ -13,6 +13,7 @@ export default {
         rangeSlider: "#C8E6C9",
         rangeSliderCompleted: "#60B764",
         paginationPreviousBackground: "#ECEFF1",
+        filterGridView: "#ECEFF1",
       },
       backgroundImage: {
         headerBg: "url('/src/assets/images/Header/header-bg.png')",
@@ -28,6 +29,10 @@ export default {
           "url('/src/assets/images/Courses/HeroSection/dots.svg')",
         coursesLandingPageDotsTwo:
           "url('/src/assets/images/Courses/HeroSection/dots2.svg')",
+        coursesSelectOptionBackground:
+          "url('/src/assets/images/Courses/Icons/select-icon.svg')",
+        coursesSelectOptionSort:
+          "url('/src/assets/images/Courses/Icons/sort.svg')",
       },
       colors: {
         primaryColor: "#2196F3",
