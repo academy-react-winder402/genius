@@ -12,6 +12,7 @@ export default {
         filterTitle: "#ECEFF1",
         rangeSlider: "#C8E6C9",
         rangeSliderCompleted: "#60B764",
+        paginationPreviousBackground: "#ECEFF1",
       },
       backgroundImage: {
         headerBg: "url('/src/assets/images/Header/header-bg.png')",
