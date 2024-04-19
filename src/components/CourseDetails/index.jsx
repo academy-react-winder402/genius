@@ -24,7 +24,7 @@ const CourseDetails = () => {
 
   return (
     <div className="w-[1100px] mx-auto flex gap-5 mt-5">
-      <div className="w-[70%]">
+      <div className="w-[75%]">
         <div className="relative">
           <img src={course.image} className="rounded-[24px]" />
           <CourseLikeBox classes="absolute top-10 right-8 bg-white" />

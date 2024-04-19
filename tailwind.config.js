@@ -15,6 +15,7 @@ export default {
         paginationPreviousBackground: "#ECEFF1",
         filterGridView: "#ECEFF1",
         courseStyleTwoDetails: "#ECEFF1",
+        likeDislikeIcon: "#ECEFF1",
       },
       backgroundImage: {
         headerBg: "url('/src/assets/images/Header/header-bg.png')",
