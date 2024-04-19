@@ -19,9 +19,9 @@ const LandingHeroSection = () => {
         </div>
         <SearchBox
           placeholder="چی میخوای یاد بگیری ؟"
-          inputWidth="620px"
           isMarginTop
           display="flex justify-center items-center"
+          inputClasses="lg:w-[620px]"
         />
         <LandingHeroSectionFeatures />
       </div>

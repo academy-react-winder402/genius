@@ -9,7 +9,6 @@ const TeacherFilter = () => {
         <SearchBox
           placeholder="جستجوی استاد"
           inputClasses="border-[1px] border-filterAccordionBorder"
-          inputWidth="500px"
         />
       </div>
       <FilterCheckbox label="دکتر بحرالعلوم" />
