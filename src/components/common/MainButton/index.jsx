@@ -1,15 +1,21 @@
 import PropTypes from "prop-types";
 
-const MainButton = ({ text }) => {
+import { Link } from "../Link";
+
+const MainButton = ({ text, href }) => {
   return (
-    <button className="bg-primary text-white w-[131px] h-[48px] rounded-full">
+    <Link
+      to={href}
+      className="bg-primary text-white w-[131px] h-[48px] rounded-full flex justify-center items-center"
+    >
       {text}
-    </button>
+    </Link>
   );
 };
 
 MainButton.propTypes = {
   text: PropTypes.any,
+  href: PropTypes.string,
 };
 
 export { MainButton };

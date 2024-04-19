@@ -8,7 +8,7 @@ const LandingCourses = () => {
       <Heading title="دوره‌های اموزشی" />
       <LandingCoursesMapped />
       <div className="flex justify-center mt-8">
-        <MainButton text="مشاهده همه" />
+        <MainButton text="مشاهده همه" href="/courses" />
       </div>
     </div>
   );

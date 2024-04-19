@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { priceWithCommas } from "../../../core/utils/number-helper.utils";
 
 import { CourseLikeBox } from "../CourseLikeBox";
+import { Link } from "../Link";
 
 import noteIcon from "../../../assets/images/Landing/LandingCourses/note.svg";
 import clockIcon from "../../../assets/images/Landing/LandingCourses/clock.svg";
@@ -13,8 +14,12 @@ const CourseItem = ({ course }) => {
 
   return (
     <div className="courseItem w-full lg:w-[296px] mt-0">
-      <img src={course.image} className="courseItemImage" />
-      <h4 className="font-[700] text-text1 mt-4">{course.title}</h4>
+      <Link to={`/courses/${course.id}`}>
+        <img src={course.image} className="courseItemImage" />
+      </Link>
+      <h4 className="font-[700] text-text1 mt-4">
+        <Link to={`/courses/${course.id}`}>{course.title}</Link>
+      </h4>
       <div className="bg-[#ECEFF1] rounded-[24px] flex justify-between items-center mt-5 h-[40px] px-3">
         <div className="courseItemDetailsBox">
           <img src={noteIcon} />

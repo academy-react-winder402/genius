@@ -9,6 +9,6 @@ export const footerMenuItems = [
   },
   {
     label: "قوانین و مقررات",
-    href: "#",
+    href: "/",
   },
 ];
