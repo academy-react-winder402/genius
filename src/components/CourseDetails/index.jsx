@@ -2,18 +2,19 @@ import { useParams } from "react-router-dom";
 
 import { priceWithCommas } from "../../core/utils/number-helper.utils";
 
+import { CourseLikeBox } from "../common/CourseLikeBox";
 import { courseItems } from "../Courses/CourseItems/courseItems";
 import { CourseDetailsInformationBox } from "./CourseDetailsInformation/CourseDetailsInformationBox";
 import { CourseTeacher } from "./CourseDetailsInformation/CourseTeacher";
-import { CourseLikeBox } from "../common/CourseLikeBox";
 import { CourseSatisfaction } from "./CourseSatisfaction";
+import { CourseTabs } from "./CourseTabs";
 
-import studentsCountIcon from "../../assets/images/CourseDetails/Information/profile-user.svg";
-import courseStatusIcon from "../../assets/images/CourseDetails/Information/monitor-recorder.svg";
-import calenderIcon from "../../assets/images/CourseDetails/Information/calendar.svg";
-import calenderTickIcon from "../../assets/images/CourseDetails/Information/calendar-tick.svg";
-import noteIcon from "../../assets/images/CourseDetails/Icons/note.svg";
 import clockIcon from "../../assets/images/CourseDetails/Icons/clock.svg";
+import noteIcon from "../../assets/images/CourseDetails/Icons/note.svg";
+import calenderTickIcon from "../../assets/images/CourseDetails/Information/calendar-tick.svg";
+import calenderIcon from "../../assets/images/CourseDetails/Information/calendar.svg";
+import courseStatusIcon from "../../assets/images/CourseDetails/Information/monitor-recorder.svg";
+import studentsCountIcon from "../../assets/images/CourseDetails/Information/profile-user.svg";
 
 const CourseDetails = () => {
   const { id } = useParams();
@@ -24,7 +25,7 @@ const CourseDetails = () => {
 
   return (
     <div className="w-[1100px] mx-auto flex gap-5 mt-5">
-      <div className="w-[70%]">
+      <div className="w-[75%]">
         <div className="relative">
           <img src={course.image} className="rounded-[24px]" />
           <CourseLikeBox classes="absolute top-10 right-8 bg-white" />
@@ -49,6 +50,7 @@ const CourseDetails = () => {
           <p className="font-[500] text-text2 mt-2">{course.description}</p>
         </div>
         <CourseSatisfaction />
+        <CourseTabs />
       </div>
       <div className="w-[405px]">
         <div className="bg-white shadow-primaryShadow rounded-[24px] py-2 pb-8 px-2">

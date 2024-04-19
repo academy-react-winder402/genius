@@ -1,7 +1,9 @@
 import PropTypes from "prop-types";
-import { priceWithCommas } from "../../../core/utils/number-helper.utils";
-import { CourseLikeBox } from "../CourseLikeBox";
 
+import { priceWithCommas } from "../../../core/utils/number-helper.utils";
+
+import { CourseLikeBox } from "../CourseLikeBox";
+import { Link } from "../Link";
 import { CourseItemDetails } from "./CourseItemDetails";
 
 const CourseItemStyleTwo = ({ course }) => {
@@ -11,11 +13,15 @@ const CourseItemStyleTwo = ({ course }) => {
     <div className="w-full">
       <div className="courseItemStyleTwo">
         <div className="lg:w-[264px] lg:h-[180px] relative">
-          <img src={course.image} className="rounded-[20px] lg:h-[180px]" />
+          <Link to={`/courses/${course.id}`}>
+            <img src={course.image} className="rounded-[20px] lg:h-[180px]" />
+          </Link>
           <CourseLikeBox classes="absolute top-4 right-3" />
         </div>
         <div className="lg:w-[75%]">
-          <h3 className="font-[700] text-text1">{course.title}</h3>
+          <h3 className="font-[700] text-text1">
+            <Link to={`/courses/${course.id}`}>{course.title}</Link>
+          </h3>
           <p className="courseItemStyleTwoDescription">{course.description}</p>
           <div className="courseItemStyleTwoDetailsWrapperFlexBox">
             <CourseItemDetails course={course} />

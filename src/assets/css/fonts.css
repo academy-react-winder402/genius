@@ -72,6 +72,7 @@ span,
 input,
 textarea,
 blockquote,
-label {
+label,
+button {
   font-family: YekanBakh !important;
 }

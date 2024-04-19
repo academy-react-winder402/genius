@@ -1,1 +1,1 @@
-export const handleScroll = window.scrollTo(0, 0);
+export const handleScroll = () => window.scrollTo(0, 0);

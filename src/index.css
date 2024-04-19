@@ -116,6 +116,18 @@
   .courseDetailImageBoxTitle {
     @apply font-[500] text-text1;
   }
+  .likeDislikeButton {
+    @apply flex gap-2 justify-center items-center w-[83px] h-[48px] rounded-[50px] bg-likeDislikeIcon;
+  }
+  .likeDislikeButtonText {
+    @apply font-[500] text-[20px] text-text1 mt-[6px];
+  }
+  .courseDetailsTitle {
+    @apply font-[700] text-[20px] text-text1 mb-3 my-3;
+  }
+  .courseDetailsParagraph {
+    @apply font-[500] text-text2 text-justify;
+  }
 }
 
 /* Swiper */

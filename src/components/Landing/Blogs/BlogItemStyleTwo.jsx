@@ -1,9 +1,12 @@
 import PropTypes from "prop-types";
 
-import eyeIcon from "../../../assets/images/Landing/LandingBlogs/Icons/eye.svg";
+import { Link } from "../../common/Link";
+
 import calenderIcon from "../../../assets/images/Landing/LandingBlogs/Icons/calendar.svg";
+import eyeIcon from "../../../assets/images/Landing/LandingBlogs/Icons/eye.svg";
 
 const BlogItemStyleTwo = ({
+  id,
   image,
   allSeas,
   createdAt,
@@ -12,7 +15,9 @@ const BlogItemStyleTwo = ({
 }) => {
   return (
     <div className="flex flex-col gap-4 px-4">
-      <img src={image} className="cursor-pointer" />
+      <Link to={`/blogs/${id}`}>
+        <img src={image} className="cursor-pointer" />
+      </Link>
       <div className="flex gap-4 mt-4">
         <div className="landingBlogItemStyleTwoBackground">
           <img src={eyeIcon} className="-mt-[2px]" />
@@ -26,7 +31,7 @@ const BlogItemStyleTwo = ({
         </div>
       </div>
       <h3 className="font-[700] text-[20px] lg:text-[32px] text-text1 cursor-pointer">
-        {title}
+        <Link to={`/blogs/${id}`}>{title}</Link>
       </h3>
       <p className="font-[500] text-text2 text-justify">{description}</p>
     </div>
@@ -34,6 +39,7 @@ const BlogItemStyleTwo = ({
 };
 
 BlogItemStyleTwo.propTypes = {
+  id: PropTypes.number,
   image: PropTypes.string,
   allSeas: PropTypes.number,
   createdAt: PropTypes.string,

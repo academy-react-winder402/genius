@@ -10,7 +10,7 @@ const LandingBlogs = () => {
         <LandingBlogItemsMapped />
       </div>
       <div className="flex justify-center items-center mt-12">
-        <MainButton text="مشاهده همه" />
+        <MainButton text="مشاهده همه" href="/blogs" />
       </div>
     </div>
   );
