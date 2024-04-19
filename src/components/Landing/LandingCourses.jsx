@@ -6,7 +6,9 @@ const LandingCourses = () => {
   return (
     <div className="mt-14">
       <Heading title="دوره‌های اموزشی" />
-      <LandingCoursesMapped />
+      <div className="mt-5">
+        <LandingCoursesMapped />
+      </div>
       <div className="flex justify-center mt-8">
         <MainButton text="مشاهده همه" href="/courses" />
       </div>
