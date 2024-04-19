@@ -122,6 +122,12 @@
   .likeDislikeButtonText {
     @apply font-[500] text-[20px] text-text1 mt-[6px];
   }
+  .courseDetailsTitle {
+    @apply font-[700] text-[20px] text-text1 mb-3 my-3;
+  }
+  .courseDetailsParagraph {
+    @apply font-[500] text-text2 text-justify;
+  }
 }
 
 /* Swiper */

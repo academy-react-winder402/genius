@@ -58,6 +58,7 @@ export default {
       borderColor: {
         filterAccordionBorder: "#ECEFF1",
         courseDetailsInformationBox: "#ECEFF1",
+        courseDetailsTabsBorder: "#ECEFF1",
       },
     },
   },
