@@ -1,15 +1,19 @@
 import { useState } from "react";
 
+import { CourseLessonType } from "../../../types/course-lessons";
+
 import { a11Props } from "./a11Props";
 
 import { Tabs } from "../../common/Tabs";
 import { Tab } from "../../common/Tabs/Tab";
-import { Accordion } from "../../common/Accordion";
-import { AccordionSummary } from "../../common/Accordion/AccordionSummary";
-import { AccordionDetails } from "../../common/Accordion/AccordionDetails";
+import { CourseDetailsAccordion } from "./CourseDetailsAccordion";
 import { CustomTabPanel } from "./CustomTabPanel";
 
-const CourseTabs = () => {
+interface CourseTabsProps {
+  courseLessons: CourseLessonType[];
+}
+
+const CourseTabs = ({ courseLessons }: CourseTabsProps) => {
   const [value, setValue] = useState<number>(0);
 
   const handleChange = (event: any, newValue: any) => {
@@ -18,7 +22,7 @@ const CourseTabs = () => {
 
   return (
     <div
-      className="bg-white shadow-primaryShadow rounded-[24px] h-[472px] mt-10 px-7 py-5"
+      className="bg-white shadow-primaryShadow rounded-[24px] mt-10 px-7 py-5"
       aria-label="تب های صفحه جزئیات دوره"
     >
       <div className="border-b border-courseDetailsTabsBorder">
@@ -58,10 +62,11 @@ const CourseTabs = () => {
         </p>
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
-        <Accordion>
-          <AccordionSummary expandIcon={<img />}>dsds</AccordionSummary>
-          <AccordionDetails>ds</AccordionDetails>
-        </Accordion>
+        <div className="pr-3 flex flex-col gap-3 mt-2 ">
+          {courseLessons.map((lesson) => (
+            <CourseDetailsAccordion lesson={lesson} />
+          ))}
+        </div>
       </CustomTabPanel>
       <CustomTabPanel value={value} index={2}>
         ddsj

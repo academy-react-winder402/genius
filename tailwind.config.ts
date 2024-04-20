@@ -16,6 +16,7 @@ export default {
         filterGridView: "#ECEFF1",
         courseStyleTwoDetails: "#ECEFF1",
         likeDislikeIcon: "#ECEFF1",
+        courseDetailsAccordion: "#ECEFF1",
       },
       backgroundImage: {
         headerBg: "url('/src/assets/images/Header/header-bg.png')",

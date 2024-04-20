@@ -1,6 +1,8 @@
+import { CourseLessonType } from "./course-lessons";
+
 export interface CourseItemsInterface {
-  slice: any;
-  length: number;
+  slice?: any;
+  length?: number;
   id: React.Key;
   image: string;
   title: string;
@@ -15,4 +17,5 @@ export interface CourseItemsInterface {
   price: number;
   courseStatus: string;
   courseEndTime: string;
+  courseLessons: CourseLessonType[];
 }
