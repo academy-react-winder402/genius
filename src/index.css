@@ -184,6 +184,18 @@ span.MuiTypography-root {
   @apply !p-0 !pl-2;
 }
 
+.MuiAccordionSummary-expandIconWrapper.Mui-expanded.css-yw020d-MuiAccordionSummary-expandIconWrapper
+  img:last-child {
+  @apply !block;
+}
+.MuiAccordionSummary-expandIconWrapper.Mui-expanded.css-yw020d-MuiAccordionSummary-expandIconWrapper
+  img:first-child {
+  @apply !hidden;
+}
+.css-eqpfi5-MuiAccordionSummary-content.Mui-expanded {
+  @apply !my-[12px];
+}
+
 /* Range Slider Input */
 .range-slider {
   @apply bg-rangeSlider h-[5px];
