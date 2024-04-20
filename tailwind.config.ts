@@ -60,6 +60,7 @@ export default {
         filterAccordionBorder: "#ECEFF1",
         courseDetailsInformationBox: "#ECEFF1",
         courseDetailsTabsBorder: "#ECEFF1",
+        courseDetailsCommentsTextareaBorder: "#CFD8DC",
       },
     },
   },
