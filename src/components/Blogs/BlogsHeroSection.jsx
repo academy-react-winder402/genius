@@ -1,8 +1,8 @@
-import heroSectionDots from "../../assets/images/blogs/Dots.png";
-import heroSectionDot from "../../assets/images/blogs/Dot.png";
-import heroSectionLeftImage from "../../assets/images/blogs/Asset.png";
-import heroSectionRightImage from "../../assets/images/blogs/Rectangle.png";
-import heroSectionGerd from "../../assets/images/blogs/Ellipse.png";
+import heroSectionDots from "../../assets/images/blogs/Dots.svg";
+import heroSectionDot from "../../assets/images/blogs/Dot.svg";
+import heroSectionLeftImage from "../../assets/images/blogs/Asset.svg";
+import heroSectionRightImage from "../../assets/images/blogs/Rectangle.svg";
+import heroSectionGerd from "../../assets/images/blogs/Ellipse.svg";
 
 const BlogsHeroSection = () => {
   return (
@@ -10,7 +10,7 @@ const BlogsHeroSection = () => {
       <div className="relative">
         <img
           src={heroSectionDots}
-          className="absolute top-24 -left-24 w-[398px] h-[110px]"
+          className="absolute top-24 -left-32 w-[398px] h-[110px]"
         />
         <img
           src={heroSectionDot}
@@ -18,11 +18,11 @@ const BlogsHeroSection = () => {
         />
         <img
           src={heroSectionRightImage}
-          className="absolute -top-24 -right-36 w-[389px] h-[262px] z-10"
+          className="absolute -top-24 -right-36 w-[400px] h-[262px] z-10"
         />
         <img
           src={heroSectionGerd}
-          className="absolute -bottom-24 right-44 w-[120px] h-[120px]"
+          className="absolute -bottom-20 right-32 w-[100px] h-[100px]"
         />
         <div className="relative bottom-7 pr-9 z-20">
           <h1 className="font-[800] text-[40px] text-text1 mt-5 w-[85%]">
