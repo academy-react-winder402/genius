@@ -1,5 +1,3 @@
-import PropTypes from "prop-types";
-
 import { priceWithCommas } from "../../../core/utils/number-helper.utils";
 
 import { CourseLikeBox } from "../CourseLikeBox";
@@ -38,10 +36,6 @@ const CourseItemStyleTwo = ({ course }: CourseItemStyleTwoProps) => {
       </div>
     </div>
   );
-};
-
-CourseItemStyleTwo.propTypes = {
-  course: PropTypes.object,
 };
 
 export { CourseItemStyleTwo };
