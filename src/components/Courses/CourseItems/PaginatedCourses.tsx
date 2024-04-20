@@ -7,7 +7,7 @@ import { CourseItem } from "../../common/CourseItem";
 import { CourseItemStyleTwo } from "../../common/CourseItemStyleTwo";
 
 interface PaginatedCoursesProps {
-  courses: CourseItemsInterface;
+  courses: CourseItemsInterface[];
   itemsPerPage: number;
   coursesStyle: number;
 }
@@ -17,7 +17,7 @@ const PaginatedCourses = ({
   itemsPerPage,
   coursesStyle,
 }: PaginatedCoursesProps) => {
-  const [itemOffset, setItemOffset] = useState(0);
+  const [itemOffset, setItemOffset] = useState<number>(0);
   const endOffset = itemOffset + itemsPerPage;
   const currentItems: CourseItemsInterface[] = courses.slice(
     itemOffset,

@@ -1,10 +1,11 @@
 import { useState } from "react";
+
 import { FilterCheckbox } from "../../../common/FilterCheckbox";
 import { RageInput } from "../../../common/RangeInput";
 import { FilterAccordion } from "../FilterAccordion";
 
 const PriceFilter = () => {
-  const [priceValue, setPriceValue] = useState([150000, 1450000]);
+  const [priceValue, setPriceValue] = useState<any>([150000, 1450000]);
 
   return (
     <FilterAccordion title="قیمت" isOpen={true}>
