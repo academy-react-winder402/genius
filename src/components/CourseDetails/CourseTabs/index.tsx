@@ -10,7 +10,7 @@ import { AccordionDetails } from "../../common/Accordion/AccordionDetails";
 import { CustomTabPanel } from "./CustomTabPanel";
 
 const CourseTabs = () => {
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState<number>(0);
 
   const handleChange = (event: any, newValue: any) => {
     setValue(newValue);

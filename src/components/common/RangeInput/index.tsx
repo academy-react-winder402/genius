@@ -1,11 +1,11 @@
-import React from "react";
+import React, { Dispatch, SetStateAction } from "react";
 
 import { RangeSlider } from "../Slider";
 import { priceWithCommas } from "../../../core/utils/number-helper.utils";
 
 interface RageInputProps {
-  value: number | [number, number];
-  setValue: () => void;
+  value: number | Record<number, number>;
+  setValue: Dispatch<SetStateAction<number[]>>;
 }
 
 const RageInput = ({ value, setValue }: RageInputProps) => {

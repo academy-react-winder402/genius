@@ -8,7 +8,7 @@ import { CoursesHeroSection } from "./CoursesHeroSection";
 import { CoursesTopSection } from "./CoursesTopSection";
 
 const Courses = () => {
-  const [coursesStyle, setCoursesStyle] = useState(1);
+  const [coursesStyle, setCoursesStyle] = useState<number>(1);
 
   return (
     <>
