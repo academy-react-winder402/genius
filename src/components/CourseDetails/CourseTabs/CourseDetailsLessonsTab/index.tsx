@@ -13,7 +13,7 @@ const CourseDetailsLessonsTab = ({
 }: CourseDetailsLessonsTabProps) => {
   return (
     <CustomTabPanel value={value} index={1}>
-      <div className="pr-3 flex flex-col gap-3 mt-2 ">
+      <div className="flex flex-col gap-3 mt-2">
         {courseLessons.map((lesson) => (
           <CourseDetailsAccordion lesson={lesson} />
         ))}

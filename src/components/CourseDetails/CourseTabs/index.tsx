@@ -46,4 +46,3 @@ const CourseTabs = ({ courseLessons }: CourseTabsProps) => {
 };
 
 export { CourseTabs };
-

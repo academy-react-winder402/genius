@@ -128,6 +128,15 @@
   .courseDetailsParagraph {
     @apply font-[500] text-text2 text-justify;
   }
+  .courseDetailsAddCommentTextarea {
+    @apply border-[1px] border-solid border-courseDetailsCommentsTextareaBorder outline-none w-full min-h-[100px] rounded-[10px] px-4 py-4 font-[400] text-[14px] text-text3;
+  }
+  .mainButton {
+    @apply bg-primary text-white w-[131px] h-[48px] rounded-full flex justify-center items-center;
+  }
+  .courseDetailAddComment {
+    @apply bg-primary text-white w-[81px] h-[32px] rounded-[50px] outline-none shadow-courseAddCommentButton font-[700] text-[12px] mt-2;
+  }
 }
 
 /* Swiper */
