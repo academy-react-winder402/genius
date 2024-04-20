@@ -1,14 +1,14 @@
-import { CourseLessonType } from "../../../types/course-lessons";
+import { CourseLessonType } from "../../../../types/course-lessons";
 
-import { Accordion } from "../../common/Accordion";
-import { AccordionSummary } from "../../common/Accordion/AccordionSummary";
-import { AccordionDetails } from "../../common/Accordion/AccordionDetails";
+import { Accordion } from "../../../common/Accordion";
+import { AccordionSummary } from "../../../common/Accordion/AccordionSummary";
+import { AccordionDetails } from "../../../common/Accordion/AccordionDetails";
 
-import addIcon from "../../../assets/images/CourseDetails/Icons/add.svg";
-import minusIcon from "../../../assets/images/CourseDetails/Icons/minus.svg";
-import clockWhiteIcon from "../../../assets/images/CourseDetails/Icons/clock-white.svg";
-import clockDarkIcon from "../../../assets/images/CourseDetails/Icons/clock-dark.svg";
-import importIcon from "../../../assets/images/CourseDetails/Icons/import.svg";
+import addIcon from "../../../../assets/images/CourseDetails/Icons/add.svg";
+import minusIcon from "../../../../assets/images/CourseDetails/Icons/minus.svg";
+import clockWhiteIcon from "../../../../assets/images/CourseDetails/Icons/clock-white.svg";
+import clockDarkIcon from "../../../../assets/images/CourseDetails/Icons/clock-dark.svg";
+import importIcon from "../../../../assets/images/CourseDetails/Icons/import.svg";
 
 interface CourseDetailsAccordionProps {
   lesson: CourseLessonType;

@@ -6,8 +6,9 @@ import { a11Props } from "./a11Props";
 
 import { Tabs } from "../../common/Tabs";
 import { Tab } from "../../common/Tabs/Tab";
-import { CourseDetailsAccordion } from "./CourseDetailsAccordion";
-import { CustomTabPanel } from "./CustomTabPanel";
+import { CourseDetailsCommentsTab } from "./CourseDetailsCommentsTab";
+import { CourseDetailsDescriptionTab } from "./CourseDetailsDescriptionTab";
+import { CourseDetailsLessonsTab } from "./CourseDetailsLessonsTab";
 
 interface CourseTabsProps {
   courseLessons: CourseLessonType[];
@@ -37,42 +38,12 @@ const CourseTabs = ({ courseLessons }: CourseTabsProps) => {
           <Tab label="نظرات کاربران" {...a11Props(2)} />
         </Tabs>
       </div>
-      <CustomTabPanel value={value} index={0}>
-        <h1 className="courseDetailsTitle">اموزش رایگان html</h1>
-        <p className="courseDetailsParagraph">
-          محبوب ترین کتابخانه ی جاوااسکریپت حل مساله به روش کدنویسی پیشرفته و
-          تمیز؛ برای مسائل واقعی دنیای نرم افزار محبوب ترین کتابخانه ی
-          جاوااسکریپت محبوب ترین کتابخانه ی جاوااسکریپت حل مساله به روش کدنویسی
-          پیشرفته و تمیز؛ محبوب ترین کتابخانه ی جاوااسکریپت حل مساله به روش
-          کدنویسی پیشرفته و تمیز.
-        </p>
-        <h1 className="courseDetailsTitle">
-          اموزش رایگان html برای چه کسانی مناسب است ؟
-        </h1>
-        <p className="courseDetailsParagraph">
-          محبوب ترین کتابخانه ی جاوااسکریپت حل مساله به روش کدنویسی پیشرفته و
-          تمیز؛ برای مسائل واقعی دنیای نرم افزار محبوب ترین کتابخانه ی
-          جاوااسکریپت محبوب ترین کتابخانه ی جاوااسکریپت حل مساله به روش کدنویسی
-          پیشرفته و تمیز؛ محبوب ترین کتابخانه ی جاوااسکریپت حل مساله به روش
-          کدنویسی پیشرفته و تمیز؛ محبوب ترین کتابخانه ی جاوااسکریپت حل مساله به
-          روش کدنویسی پیشرفته و تمیز؛ برای مسائل واقعی دنیای نرم افزار محبوب
-          ترین کتابخانه ی جاوااسکریپت محبوب ترین کتابخانه ی جاوااسکریپت حل مساله
-          به روش کدنویسی پیشرفته و تمیز؛ محبوب ترین کتابخانه ی جاوااسکریپت حل
-          مساله به روش کدنویسی پیشرفته و تمیز؛
-        </p>
-      </CustomTabPanel>
-      <CustomTabPanel value={value} index={1}>
-        <div className="pr-3 flex flex-col gap-3 mt-2 ">
-          {courseLessons.map((lesson) => (
-            <CourseDetailsAccordion lesson={lesson} />
-          ))}
-        </div>
-      </CustomTabPanel>
-      <CustomTabPanel value={value} index={2}>
-        ddsj
-      </CustomTabPanel>
+      <CourseDetailsDescriptionTab value={value} />
+      <CourseDetailsLessonsTab value={value} courseLessons={courseLessons} />
+      <CourseDetailsCommentsTab value={value} />
     </div>
   );
 };
 
 export { CourseTabs };
+
