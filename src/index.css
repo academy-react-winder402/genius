@@ -186,7 +186,7 @@ span.MuiTypography-root {
 
 .MuiAccordionSummary-expandIconWrapper.Mui-expanded.css-yw020d-MuiAccordionSummary-expandIconWrapper
   img:last-child {
-  @apply !block mb-2;
+  @apply !block;
 }
 .MuiAccordionSummary-expandIconWrapper.Mui-expanded.css-yw020d-MuiAccordionSummary-expandIconWrapper
   img:first-child {

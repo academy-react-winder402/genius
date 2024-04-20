@@ -26,8 +26,8 @@ const CourseDetailsAccordion = ({ lesson }: CourseDetailsAccordionProps) => {
       <AccordionSummary
         expandIcon={
           <div>
-            <img src={addIcon} />
-            <img src={minusIcon} className="hidden" />
+            <img src={addIcon} className="mt-1" />
+            <img src={minusIcon} className="hidden mb-1" />
           </div>
         }
         classes={{
