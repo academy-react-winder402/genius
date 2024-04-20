@@ -18,7 +18,7 @@ const CourseDetailsAccordion = ({ lesson }: CourseDetailsAccordionProps) => {
   return (
     <Accordion
       key={lesson.id}
-      expanded={lesson.isOpen}
+      defaultExpanded={lesson.isOpen}
       classes={{
         root: "flex flex-col justify-center",
       }}
@@ -31,7 +31,7 @@ const CourseDetailsAccordion = ({ lesson }: CourseDetailsAccordionProps) => {
           </div>
         }
         classes={{
-          root: "!bg-primary !text-white !rounded-[12px] !font-[400] min-h-[56px] ",
+          root: "!bg-primary !text-white !rounded-[12px] !font-[400] !min-h-[56px] !h-[56px] ",
           expandIconWrapper: "absolute top-[7px] right-2",
           content: "px-4",
         }}
