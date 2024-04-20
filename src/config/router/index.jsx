@@ -4,6 +4,7 @@ import { Layout } from "../../Layout";
 import { LandingLayout } from "../../LandingLayout";
 import { LandingPage } from "../../screens/Landing";
 import { CoursesPage } from "../../screens/Courses";
+import { BlogsPage } from "../../screens/Blogs";
 
 export const router = createBrowserRouter([
   {
@@ -23,6 +24,16 @@ export const router = createBrowserRouter([
       {
         index: true,
         element: <CoursesPage />,
+      },
+    ],
+  },
+  {
+    path: "/blogs",
+    element: <Layout />,
+    children: [
+      {
+        index: true,
+        element: <BlogsPage />,
       },
     ],
   },
