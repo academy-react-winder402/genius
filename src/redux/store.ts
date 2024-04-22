@@ -16,7 +16,7 @@ const darkModePersistedReducer = persistReducer(
 
 export const store = configureStore({
   reducer: {
-    darkMode: darkModeSlice,
+    darkMode: darkModePersistedReducer,
   },
 });
 

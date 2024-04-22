@@ -1,3 +1,4 @@
+import { DarkModeButton } from "../common/DarkModeButton";
 import { BasketButton } from "./BasketButton";
 import { LoginButton } from "./LoginButton";
 import { Logo } from "./Logo";
@@ -19,6 +20,7 @@ const Header = ({ isLanding }: HeaderProps) => {
       </div>
       <Menu />
       <div className="flex items-center gap-4">
+        <DarkModeButton />
         <BasketButton />
         <LoginButton />
       </div>

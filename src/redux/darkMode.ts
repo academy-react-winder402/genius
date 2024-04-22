@@ -1,4 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { useSelector } from "react-redux";
 
 export interface DarkModeState {
   dark: boolean;
@@ -19,5 +20,8 @@ const darkModeSlice = createSlice({
 });
 
 export const { onDarkModeChange } = darkModeSlice.actions;
+
+export const useDarkModeSelector = () =>
+  useSelector((reducer) => reducer.darkMode.dark);
 
 export default darkModeSlice.reducer;
