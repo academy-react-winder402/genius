@@ -90,10 +90,10 @@
     @apply bg-white w-[40px] h-[40px] flex justify-center items-center rounded-[16px];
   }
   .coursesSelectBoxWrapper {
-    @apply relative after:content-[''] after:absolute after:top-1 after:left-3 after:bg-coursesSelectOptionBackground after:w-[40px] after:h-[40px] after:bg-no-repeat after:bg-left before:absolute before:top-3 before:right-3 before:bg-coursesSelectOptionSort before:w-[24px] before:h-[24px];
+    @apply relative after:content-[''] after:absolute after:top-1 after:left-3 after:bg-coursesSelectOptionBackground after:dark:bg-coursesSelectOptionBackgroundDark after:w-[40px] after:h-[40px] after:bg-no-repeat after:bg-left before:absolute before:top-3 before:right-3 before:bg-coursesSelectOptionSort before:dark:bg-coursesSelectOptionSortDark before:w-[24px] before:h-[24px];
   }
   .coursesSelectBox {
-    @apply w-full h-[50px] pr-10 rounded-[16px] outline-none appearance-none;
+    @apply w-full h-[50px] pr-10 rounded-[16px] outline-none appearance-none dark:bg-gray-900;
   }
   .courseLikeBox {
     @apply flex justify-center items-center bg-[#FFEBEE] cursor-pointer rounded-[24px] w-[51px] h-[32px] font-[500] text-red gap-1 -mt-1;

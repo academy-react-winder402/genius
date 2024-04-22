@@ -7,7 +7,7 @@ import { Header } from "./components/Header";
 
 const Layout = () => {
   return (
-    <div className="dark:bg-darkBackground !text-darkText">
+    <div className="dark:bg-darkBackground dark:!text-darkText">
       <Header />
       <Outlet />
       <Footer />

@@ -36,8 +36,12 @@ export default {
           "url('/src/assets/images/Courses/HeroSection/dots-dark.svg')",
         coursesSelectOptionBackground:
           "url('/src/assets/images/Courses/Icons/select-icon.svg')",
+        coursesSelectOptionBackgroundDark:
+          "url('/src/assets/images/Courses/Icons/select-icon-dark.svg')",
         coursesSelectOptionSort:
           "url('/src/assets/images/Courses/Icons/sort.svg')",
+        coursesSelectOptionSortDark:
+          "url('/src/assets/images/Courses/Icons/sort-dark.svg')",
       },
       colors: {
         primaryColor: "#2196F3",
