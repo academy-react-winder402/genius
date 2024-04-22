@@ -5,6 +5,7 @@ import { Layout } from "../../Layout";
 import { CourseDetailsPage } from "../../screens/CourseDetails";
 import { CoursesPage } from "../../screens/Courses";
 import { LandingPage } from "../../screens/Landing";
+import { LoginPage } from "../../screens/Login";
 import { NotFoundPage } from "../../screens/NotFound";
 
 export const router = createBrowserRouter([
@@ -29,6 +30,10 @@ export const router = createBrowserRouter([
       {
         path: "/courses/:id",
         element: <CourseDetailsPage />,
+      },
+      {
+        path: "/login",
+        element: <LoginPage />,
       },
       {
         path: "*",

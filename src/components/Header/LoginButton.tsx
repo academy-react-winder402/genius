@@ -1,9 +1,11 @@
+import { Link } from "react-router-dom";
+
 const LoginButton = () => {
   return (
     <div>
-      <button className="loginButton">
+      <Link to="/login" className="loginButton">
         ورود به حساب
-      </button>
+      </Link>
     </div>
   );
 };

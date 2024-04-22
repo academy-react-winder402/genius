@@ -1,7 +1,6 @@
-import React from "react";
-
-import { Link } from "../common/Link";
+  import { Link } from "../common/Link";
 import { footerSocialMediaItems } from "./footerSocialMediaItems";
+import { SocialMedia } from "../common/SocialMedia";
 
 import copyrightIcon from "../../assets/images/Footer/copyright.svg";
 
@@ -14,17 +13,7 @@ const FooterCopyright = () => {
           تمام حقوق مادی و معنوی این مجموعه متعلق به genius میباشد
         </span>
       </div>
-      <div className="footerSocialMediaBox">
-        {footerSocialMediaItems.map((socialMediaItem) => (
-          <Link
-            key={socialMediaItem.icon}
-            to={socialMediaItem.href}
-            className="footerSocialMediaItem"
-          >
-            <img src={socialMediaItem.icon} />
-          </Link>
-        ))}
-      </div>
+      <SocialMedia />
     </div>
   );
 };
