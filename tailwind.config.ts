@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: "class",
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
@@ -17,6 +18,7 @@ export default {
         courseStyleTwoDetails: "#ECEFF1",
         likeDislikeIcon: "#ECEFF1",
         courseDetailsAccordion: "#ECEFF1",
+        darkBackground: "#1A1A2E",
       },
       backgroundImage: {
         headerBg: "url('/src/assets/images/Header/header-bg.png')",
@@ -30,12 +32,16 @@ export default {
           "url('/src/assets/images/Landing/LandingCategories/items-after.svg')",
         coursesLandingPageDots:
           "url('/src/assets/images/Courses/HeroSection/dots.svg')",
-        coursesLandingPageDotsTwo:
-          "url('/src/assets/images/Courses/HeroSection/dots2.svg')",
+        coursesLandingPageDotsDark:
+          "url('/src/assets/images/Courses/HeroSection/dots-dark.svg')",
         coursesSelectOptionBackground:
           "url('/src/assets/images/Courses/Icons/select-icon.svg')",
+        coursesSelectOptionBackgroundDark:
+          "url('/src/assets/images/Courses/Icons/select-icon-dark.svg')",
         coursesSelectOptionSort:
           "url('/src/assets/images/Courses/Icons/sort.svg')",
+        coursesSelectOptionSortDark:
+          "url('/src/assets/images/Courses/Icons/sort-dark.svg')",
       },
       colors: {
         primaryColor: "#2196F3",
@@ -43,6 +49,7 @@ export default {
         text2: "#455A64",
         text3: "#607D8B",
         red: "#F44336",
+        darkText: "#CCCCCC",
       },
       fontFamily: {
         yekanBakh: "YekanBakh",
