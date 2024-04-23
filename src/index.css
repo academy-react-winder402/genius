@@ -140,6 +140,9 @@
   .coursesHeroSectionSpanText {
     @apply font-[700] text-[24px] text-primaryColor dark:text-darkText lg:bg-no-repeat lg:bg-[right_top_2.4rem] h-[50px] pr-10 pt-20 pb-9;
   }
+  .blogItemText {
+    @apply font-[500] text-[14px] text-primaryColor;
+  }
 }
 
 /* Swiper */
