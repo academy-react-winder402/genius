@@ -27,7 +27,7 @@
     @apply absolute -top-[6px] right-0 bg-primary text-white text-[8px] rounded-full p-1 px-[7px];
   }
   .serviceBox {
-    @apply flex flex-col justify-center items-center rounded-[24px] border-[1px] border-solid border-[#ECEFF1] h-[280px] px-6 transition-shadow hover:bg-white lg:w-[390px] hover:shadow-primaryShadow;
+    @apply flex flex-col justify-center items-center rounded-[24px] border-[1px] border-solid border-[#ECEFF1] h-[280px] px-6 transition-shadow hover:bg-white dark:hover:bg-gray-900 lg:w-[390px] hover:shadow-primaryShadow;
   }
   .courseItem {
     @apply mt-10 w-[90%] lg:w-[296px] pb-3 lg:pb-0 lg:h-[389px] rounded-[24px] shadow-primaryShadow px-4;
