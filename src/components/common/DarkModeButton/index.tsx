@@ -20,7 +20,7 @@ const DarkModeButton = () => {
   return (
     <button
       onClick={handleDarkModeChange}
-      className={`w-[48px] h-[48px] bg-white rounded-full outline-none ${
+      className={`w-[48px] h-[48px] bg-white dark:bg-gray-800 rounded-full outline-none ${
         darkMode === true ? "" : ""
       }`}
     >
