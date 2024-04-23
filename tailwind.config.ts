@@ -29,6 +29,8 @@ export default {
           "url('/src/assets/images/Landing/Icons.png')",
         landingCategoriesTitleAfter:
           "url('/src/assets/images/Landing/LandingCategories/title-after.svg')",
+        landingCategoriesTitleDarkAfter:
+          "url('/src/assets/images/Landing/LandingCategories/title-after-dark.svg')",
         landingCategoriesItemsAfter:
           "url('/src/assets/images/Landing/LandingCategories/items-after.svg')",
         coursesLandingPageDots:

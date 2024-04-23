@@ -1,17 +1,6 @@
-import React from "react";
+import { LandingCategoryItemsInterface } from "../../../types/landing-category-items";
 
-interface Props {
-  id: React.Key;
-  marginTop?: any;
-  items: {
-    image: string;
-    title: string;
-    description: string;
-    imageBackground: string;
-  }
-}[]
-
-export const landingCategoryItems: Props = [
+export const landingCategoryItems: LandingCategoryItemsInterface[] = [
   {
     id: 1,
     marginTop: -40,
