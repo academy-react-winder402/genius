@@ -15,7 +15,9 @@ const CourseRating = () => {
         value={parseFloat("3.4")}
         dir="ltr"
       />
-      <span className="font-[500] text-text1 mt-2">امتیاز 20 نفر</span>
+      <span className="font-[500] text-text1 dark:text-darkText mt-2">
+        امتیاز 20 نفر
+      </span>
       <button className="courseDetailAddComment">ثبت دیدگاه</button>
     </div>
   );
