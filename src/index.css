@@ -110,26 +110,46 @@
   .courseItemStyleTwoDescription {
     @apply text-justify font-[500] text-[14px] text-text2 dark:text-darkText mt-1 w-full lg:w-[97%];
   }
+
+  /* Course Details */
+  .courseDetailsBox {
+    @apply w-[95%] lg:w-[1100px] mx-auto flex flex-col lg:flex-row gap-5 mt-5;
+  }
   .courseDetailImageBox {
-    @apply flex gap-1 justify-center items-center bg-white w-[119px] h-[48px] rounded-[50px];
+    @apply flex gap-1 justify-center items-center bg-white dark:bg-gray-900 w-[119px] h-[48px] rounded-[50px];
   }
   .courseDetailImageBoxTitle {
-    @apply font-[500] text-text1;
+    @apply font-[500] text-text1 dark:text-darkText;
+  }
+  .courseDetailsSatisfaction {
+    @apply mt-5 flex flex-col lg:flex-row gap-5 lg:gap-0 justify-between items-center;
   }
   .likeDislikeButton {
-    @apply flex gap-2 justify-center items-center w-[83px] h-[48px] rounded-[50px] bg-likeDislikeIcon;
+    @apply flex gap-2 justify-center items-center w-[83px] h-[48px] rounded-[50px] bg-likeDislikeIcon dark:bg-gray-900;
   }
   .likeDislikeButtonText {
-    @apply font-[500] text-[20px] text-text1 mt-[6px];
+    @apply font-[500] text-[20px] text-text1 dark:text-darkText mt-[6px];
   }
   .courseDetailsTitle {
-    @apply font-[700] text-[20px] text-text1 mb-3 my-3;
+    @apply font-[700] text-[20px] text-text1 dark:text-darkText mb-3 my-3;
   }
   .courseDetailsParagraph {
-    @apply font-[500] text-text2 text-justify;
+    @apply font-[500] text-text2 dark:text-darkText text-justify;
   }
   .courseDetailsAddCommentTextarea {
-    @apply border-[1px] border-solid border-courseDetailsCommentsTextareaBorder outline-none w-full min-h-[100px] rounded-[10px] px-4 py-4 font-[400] text-[14px] text-text3;
+    @apply border-[1px] border-solid border-courseDetailsCommentsTextareaBorder dark:border-darkBorder outline-none w-full min-h-[100px] rounded-[10px] px-4 py-4 font-[400] text-[14px] text-text3 dark:bg-gray-900;
+  }
+  .courseDetailsSidebar {
+    @apply bg-white dark:bg-gray-900 shadow-primaryShadow rounded-[24px] py-2 pb-8 px-2;
+  }
+  .courseDetailsSidebarShowInformationText {
+    @apply font-[700] text-[24px] text-text1 dark:text-darkText text-center mt-4;
+  }
+  .courseDetailsInformationItemsWrapper {
+    @apply border-t border-courseDetailsInformationBox dark:border-[#403f3f] mt-5 py-0 w-[90%] mx-auto;
+  }
+  .courseDetailsTeacherBox {
+    @apply flex gap-3 items-center shadow-primaryShadow px-7 w-full h-[112px] mt-5 bg-white dark:bg-gray-900 rounded-[24px];
   }
   .mainButton {
     @apply bg-primary text-white w-[131px] h-[48px] rounded-full flex justify-center items-center;
@@ -153,9 +173,11 @@
 .swiper-button-next {
   @apply w-[100px] h-[100px] bg-[url("/src/assets/images/Landing/LandingTeachers/Icons/prev-arrow.svg")];
 }
+
 .swiper-button-next {
-  @apply bg-[url("/src/assets/images/Landing/LandingTeachers/Icons/next-arrow.svg")];
+  @apply w-[100px] h-[100px] bg-[url("/src/assets/images/Landing/LandingTeachers/Icons/next-arrow.svg")];
 }
+
 .swiper-button-prev::after,
 .swiper-button-next::after {
   @apply hidden;
