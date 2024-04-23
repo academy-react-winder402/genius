@@ -45,13 +45,13 @@
     @apply w-[94%] lg:w-[328px] h-[328px] shadow-landingCategoryItemShadow rounded-[32px] bg-white flex flex-col justify-center items-center mt-4;
   }
   .landingBlogItemStyleTwoBackground {
-    @apply flex gap-1 justify-center items-center bg-secondary w-[102px] h-[40px] rounded-[80px];
+    @apply flex gap-1 justify-center items-center bg-secondary dark:bg-gray-900 w-[102px] h-[40px] rounded-[80px];
   }
   .landingBlogItemsStyleTwoColor {
     @apply font-[500] text-primaryColor mt-[1px];
   }
   .landingTeacherItemCoursesCount {
-    @apply absolute top-14 right-14 flex justify-center items-center w-[88px] h-[36px] bg-white rounded-[50px] shadow-landingTeacherCoursesCount;
+    @apply absolute top-14 right-14 flex justify-center items-center w-[88px] h-[36px] bg-white dark:bg-gray-900 rounded-[50px] shadow-landingTeacherCoursesCount;
   }
   .footer {
     @apply bg-footerBackground mt-16 flex flex-col justify-center items-center pt-12 pb-14;
@@ -139,6 +139,9 @@
   }
   .coursesHeroSectionSpanText {
     @apply font-[700] text-[24px] text-primaryColor dark:text-darkText lg:bg-no-repeat lg:bg-[right_top_2.4rem] h-[50px] pr-10 pt-20 pb-9;
+  }
+  .blogItemText {
+    @apply font-[500] text-[14px] text-primaryColor;
   }
 }
 

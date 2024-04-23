@@ -1,10 +1,9 @@
-import React from "react";
+import { BlogItemInterface } from "../../../types/blog-items";
 
 import { Link } from "../../common/Link";
 
 import calenderIcon from "../../../assets/images/Landing/LandingBlogs/Icons/calendar.svg";
 import eyeIcon from "../../../assets/images/Landing/LandingBlogs/Icons/eye.svg";
-import { BlogItemInterface } from "../../../types/blog-items";
 
 const BlogItemStyleTwo = ({
   id,
@@ -31,10 +30,12 @@ const BlogItemStyleTwo = ({
           <span className="landingBlogItemsStyleTwoColor">{createdAt}</span>
         </div>
       </div>
-      <h3 className="font-[700] text-[20px] lg:text-[32px] text-text1 cursor-pointer">
+      <h3 className="font-[700] text-[20px] lg:text-[32px] text-text1 dark:text-darkText cursor-pointer">
         <Link to={`/blogs/${id}`}>{title}</Link>
       </h3>
-      <p className="font-[500] text-text2 text-justify">{description}</p>
+      <p className="font-[500] text-text2 dark:text-darkText text-justify">
+        {description}
+      </p>
     </div>
   );
 };
