@@ -2,10 +2,10 @@ import React from "react";
 
 import { Outlet } from "react-router-dom";
 
-import { Footer } from "./components/Footer";
-import { Header } from "./components/Header";
+import { Footer } from "../Footer";
+import { Header } from "../Header";
 
-const Layout = () => {
+const MainLayout = () => {
   return (
     <div className="dark:bg-darkBackground dark:!text-darkText">
       <Header />
@@ -15,4 +15,4 @@ const Layout = () => {
   );
 };
 
-export { Layout };
+export { MainLayout };

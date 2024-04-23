@@ -1,12 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
 
-import { LandingLayout } from "../../LandingLayout";
-import { Layout } from "../../Layout";
 import { CourseDetailsPage } from "../../screens/CourseDetails";
 import { CoursesPage } from "../../screens/Courses";
 import { LandingPage } from "../../screens/Landing";
 import { LoginPage } from "../../screens/Login";
 import { NotFoundPage } from "../../screens/NotFound";
+import { LandingLayout } from "../../components/Layout/LandingLayout";
+import { MainLayout } from "../../components/Layout/Layout";
 
 export const router = createBrowserRouter([
   {
@@ -21,7 +21,7 @@ export const router = createBrowserRouter([
   },
   {
     path: "/",
-    element: <Layout />,
+    element: <MainLayout />,
     children: [
       {
         path: "/courses",

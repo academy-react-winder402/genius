@@ -1,15 +1,15 @@
 import { Outlet } from "react-router-dom";
 
-import { Footer } from "./components/Footer";
-import { Header } from "./components/Header";
+import { Footer } from "../Footer";
+import { Header } from "../Header";
 
 const LandingLayout = () => {
   return (
-    <>
+    <div className="dark:bg-darkBackground dark:!text-darkText">
       <Header isLanding />
       <Outlet />
       <Footer />
-    </>
+    </div>
   );
 };
 
