@@ -7,10 +7,12 @@ const LandingServicesMapped = () => {
         {landingServiceItems.map((service) => (
           <div key={service.label} className="serviceBox">
             <img src={service.icon} className="w-[80px] h-[80px]" />
-            <h4 className="font-[900] text-[24px] text-text1 mt-4">
+            <h4 className="font-[900] text-[24px] text-text1 dark:text-darkText mt-4">
               {service.label}
             </h4>
-            <p className="text-text2 mt-2 text-center">{service.description}</p>
+            <p className="text-text2 dark:text-darkText mt-2 text-center">
+              {service.description}
+            </p>
           </div>
         ))}
       </div>

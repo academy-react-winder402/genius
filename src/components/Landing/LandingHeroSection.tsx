@@ -29,7 +29,8 @@ const LandingHeroSection = () => {
           placeholder="چی میخوای یاد بگیری ؟"
           isMarginTop
           display="flex justify-center items-center"
-          inputClasses="lg:w-[620px] dark:!bg-gray-800"
+          inputClasses="lg:w-[620px]"
+          isLanding={true}
         />
         <LandingHeroSectionFeatures />
       </div>
