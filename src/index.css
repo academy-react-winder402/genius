@@ -78,16 +78,16 @@
     @apply flex justify-center items-center w-[32px] h-[32px] rounded-[50px] bg-socialMediaIcon;
   }
   .filterRangeText {
-    @apply font-[500] text-[12px] text-text3;
+    @apply font-[500] text-[12px] text-text3 dark:text-darkText;
   }
   .coursesGridView {
-    @apply bg-filterGridView rounded-[16px] p-[8px] w-[100px] h-[50px] flex gap-2 justify-center items-center;
+    @apply bg-filterGridView dark:bg-gray-900 rounded-[16px] p-[8px] w-[100px] h-[50px] flex gap-2 justify-center items-center;
   }
   .coursesGridViewItems {
     @apply w-[40px] h-[40px] flex justify-center items-center rounded-[16px];
   }
   .coursesGridViewItemsActive {
-    @apply bg-white w-[40px] h-[40px] flex justify-center items-center rounded-[16px];
+    @apply bg-white dark:bg-gray-800 w-[40px] h-[40px] flex justify-center items-center rounded-[16px];
   }
   .coursesSelectBoxWrapper {
     @apply relative after:content-[''] after:absolute after:top-1 after:left-3 after:bg-coursesSelectOptionBackground after:dark:bg-coursesSelectOptionBackgroundDark after:w-[40px] after:h-[40px] after:bg-no-repeat after:bg-left before:absolute before:top-3 before:right-3 before:bg-coursesSelectOptionSort before:dark:bg-coursesSelectOptionSortDark before:w-[24px] before:h-[24px];
@@ -96,19 +96,19 @@
     @apply w-full h-[50px] pr-10 rounded-[16px] outline-none appearance-none dark:bg-gray-900;
   }
   .courseLikeBox {
-    @apply flex justify-center items-center bg-[#FFEBEE] cursor-pointer rounded-[24px] w-[51px] h-[32px] font-[500] text-red gap-1 -mt-1;
+    @apply flex justify-center items-center bg-[#FFEBEE] dark:bg-gray-800 dark:text-darkText cursor-pointer rounded-[24px] w-[51px] h-[32px] font-[500] text-red gap-1 -mt-1;
   }
   .courseItemStyleTwo {
-    @apply w-full bg-white shadow-primaryShadow rounded-[24px] lg:h-[212px] px-3 py-2 flex flex-col lg:flex-row justify-center items-center gap-3;
+    @apply w-full bg-white dark:bg-gray-900 shadow-primaryShadow rounded-[24px] lg:h-[212px] px-3 py-2 flex flex-col lg:flex-row justify-center items-center gap-3;
   }
   .courseItemStyleTwoDetailsWrapperFlexBox {
     @apply flex flex-col lg:flex-row gap-3 items-center mt-5;
   }
   .courseItemStyleTwoDetailsWrapper {
-    @apply bg-courseStyleTwoDetails w-full lg:w-[493px] lg:h-[44px] rounded-[24px] flex flex-col lg:flex-row gap-3 justify-center items-center py-3;
+    @apply bg-courseStyleTwoDetails dark:bg-darkBackground w-full lg:w-[493px] lg:h-[44px] rounded-[24px] flex flex-col lg:flex-row gap-3 justify-center items-center py-3;
   }
   .courseItemStyleTwoDescription {
-    @apply text-justify font-[500] text-[14px] text-text2 mt-1 w-full lg:w-[97%];
+    @apply text-justify font-[500] text-[14px] text-text2 dark:text-darkText mt-1 w-full lg:w-[97%];
   }
   .courseDetailImageBox {
     @apply flex gap-1 justify-center items-center bg-white w-[119px] h-[48px] rounded-[50px];
@@ -206,6 +206,14 @@ span.MuiTypography-root {
 }
 .css-eqpfi5-MuiAccordionSummary-content.Mui-expanded {
   @apply !my-[12px];
+}
+
+.dark .css-i4bv87-MuiSvgIcon-root {
+  @apply fill-white;
+}
+
+span.MuiTypography-root {
+  @apply dark:text-darkText;
 }
 
 /* Range Slider Input */

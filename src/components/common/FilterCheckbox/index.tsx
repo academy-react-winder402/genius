@@ -1,10 +1,9 @@
+import { FormControlLabel } from "@mui/material";
 import { Checkbox } from "../CheckBox";
 import { FormGroup } from "../FormGroup";
 
 import checkboxIcon from "../../../assets/images/Courses/Filter/checkbox.svg";
-import checkedIcon from "../../../assets/images/Courses/Filter/checkbox-checked.png";
-import { FormControlLabel } from "@mui/material";
-import React from "react";
+import checkedIcon from "../../../assets/images/Courses/Filter/checked.png";
 
 interface FilterCheckboxProps {
   label: string;
@@ -25,7 +24,7 @@ const FilterCheckbox = ({
             <Checkbox
               icon={<img src={checkboxIcon} />}
               checkedIcon={
-                <div className="bg-primary rounded-[8px]">
+                <div>
                   <img src={checkedIcon} className="w-full" />
                 </div>
               }

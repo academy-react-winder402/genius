@@ -14,14 +14,14 @@ const FilterAccordion = ({ title, children, isOpen }: FilterAccordionProps) => {
   return (
     <Accordion
       classes={{
-        root: "before:hidden border-solid border-b-[1px] last:border-b-[0px] border-filterAccordionBorder",
+        root: "before:hidden border-solid border-b-[1px] last:border-b-[0px] border-filterAccordionBorder dark:border-[#262121] bg-transparent",
       }}
       defaultExpanded={isOpen}
     >
       <AccordionSummary
         expandIcon={<ExpandMoreIcon />}
         aria-controls="panel1-content"
-        className="font-[500] text-text1"
+        className="font-[500] text-text1 dark:text-darkText"
       >
         {title}
       </AccordionSummary>

@@ -1,7 +1,7 @@
 import React from "react";
 
 interface CourseLikeBoxProps {
-  classes: string;
+  classes?: string;
 }
 
 const CourseLikeBox = ({ classes }: CourseLikeBoxProps) => {
