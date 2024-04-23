@@ -1,6 +1,10 @@
-import React from "react";
+import { CategoryItemsInterface } from "../../../types/category-item";
 
-const CategoryItem = ({ categoryItem } : CategoryItemProps) => {
+interface CategoryItemProps {
+  categoryItem: CategoryItemsInterface;
+}
+
+const CategoryItem = ({ categoryItem }: CategoryItemProps) => {
   return (
     <div className="categoryItem">
       <div
