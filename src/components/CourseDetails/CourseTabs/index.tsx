@@ -23,7 +23,7 @@ const CourseTabs = ({ courseLessons }: CourseTabsProps) => {
 
   return (
     <div
-      className="bg-white shadow-primaryShadow rounded-[24px] mt-10 px-7 py-5"
+      className="bg-white dark:bg-gray-900 shadow-primaryShadow rounded-[24px] mt-10 px-7 py-5"
       aria-label="تب های صفحه جزئیات دوره"
     >
       <div className="border-b border-courseDetailsTabsBorder">
@@ -32,10 +32,26 @@ const CourseTabs = ({ courseLessons }: CourseTabsProps) => {
           onChange={handleChange}
           className="text-text3"
           indicatorColor="primary"
+          classes={{
+            root: "border-[#000]",
+            vertical: "border-[#000]",
+          }}
         >
-          <Tab label="توضیحات" {...a11Props(0)} />
-          <Tab label="پیش‌نمایش‌ها" {...a11Props(1)} />
-          <Tab label="نظرات کاربران" {...a11Props(2)} />
+          <Tab
+            label="توضیحات"
+            classes={{ textColorPrimary: "dark:text-darkText" }}
+            {...a11Props(0)}
+          />
+          <Tab
+            label="پیش‌نمایش‌ها"
+            classes={{ textColorPrimary: "dark:text-darkText" }}
+            {...a11Props(1)}
+          />
+          <Tab
+            label="نظرات کاربران"
+            classes={{ textColorPrimary: "dark:text-darkText" }}
+            {...a11Props(2)}
+          />
         </Tabs>
       </div>
       <CourseDetailsDescriptionTab value={value} />
