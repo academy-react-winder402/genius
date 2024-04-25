@@ -10,8 +10,8 @@ const Register = () => {
   const [currentStep, setCurrentStep] = useState<number>(1);
 
   return (
-    <div className="flex flex-col lg:flex-row lg:w-[82%] mx-auto shadow-primaryShadow rounded-md overflow-hidden px-4 lg:px-0">
-      <div className="bg-[#191b23] lg:w-[37%] lg:h-[520px] pt-14 pb-4 flex flex-col justify-between items-center rounded-t-md">
+    <div className="authPageWrapper">
+      <div className="authPageSidebar lg:h-[520px]">
         <div>
           <div className="pr-12">
             <Logo isFilter isDark />
@@ -40,11 +40,9 @@ const Register = () => {
         <SocialMedia />
       </div>
       <div className="lg:w-[63%] pt-10">
-        <div className="flex flex-col items-center pt-6 px-5">
-          <h1 className="font-[700] text-[30px] text-text1 dark:text-darkText">
-            ثبت نام در سایت
-          </h1>
-          <p className="font-[400] text-text3 dark:text-darkText">
+        <div className="registerLeftSide">
+          <h1 className="registerToSiteText">ثبت نام در سایت</h1>
+          <p className="registerToSiteDescription">
             برای ثبت نام باید سه مرحله را طی کنید
           </p>
           <RegisterForm

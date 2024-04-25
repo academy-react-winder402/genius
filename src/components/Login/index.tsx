@@ -4,8 +4,8 @@ import { LoginForm } from "./LoginForm";
 
 const Login = () => {
   return (
-    <div className="flex flex-col lg:flex-row lg:w-[82%] mx-auto shadow-primaryShadow rounded-md overflow-hidden px-4 lg:px-0">
-      <div className="bg-[#191b23] lg:w-[37%] lg:h-[500px] pt-14 pb-4 flex flex-col justify-between items-center rounded-t-md">
+    <div className="authPageWrapper">
+      <div className="authPageSidebar">
         <Logo isFilter isDark />
         <SocialMedia />
       </div>
