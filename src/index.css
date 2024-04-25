@@ -171,7 +171,7 @@
     @apply w-[356px] h-[47px] rounded-md border-[1px] border-authInputBorder shadow-authInputShadow px-4 my-2 outline-none dark:bg-darkBackground dark:border-darkBorder;
   }
   .doYouHaveAnyAccountOrDoNotHaveAccountText {
-    @apply font-[500] text-[14px] text-text2 mt-4 dark:text-darkText;
+    @apply font-[500] text-[14px] text-text2 dark:text-darkText text-center mt-4;
   }
   .doYouHaveAnyAccountOrDoNotHaveAccountLink {
     @apply text-primaryColor;

@@ -5,7 +5,6 @@ import { SocialMedia } from "../common/SocialMedia";
 import { RegisterForm } from "./RegisterForm";
 
 import { RegisterStep } from "./RegisterStep";
-import { Link } from "../common/Link";
 
 const Register = () => {
   const [currentStep, setCurrentStep] = useState<number>(1);
@@ -52,15 +51,6 @@ const Register = () => {
             currentStep={currentStep}
             setCurrentValue={setCurrentStep}
           />
-          <h5 className="doYouHaveAnyAccountOrDoNotHaveAccountText">
-            حساب کاربری دارید؟{" "}
-            <Link
-              to="/login"
-              className="doYouHaveAnyAccountOrDoNotHaveAccountLink"
-            >
-              وارد شوید
-            </Link>
-          </h5>
         </div>
       </div>
     </div>

@@ -8,6 +8,7 @@ import {
   onPhoneNumberChange,
   useRegisterSelector,
 } from "../../../redux/register";
+import { Link } from "../../common/Link";
 
 interface RegisterStepOneFormProps {
   setCurrentValue: (step: number) => void;
@@ -61,6 +62,12 @@ const RegisterStepOneForm = ({ setCurrentValue }: RegisterStepOneFormProps) => {
           </Form>
         )}
       </Formik>
+      <h5 className="doYouHaveAnyAccountOrDoNotHaveAccountText">
+        حساب کاربری دارید؟{" "}
+        <Link to="/login" className="doYouHaveAnyAccountOrDoNotHaveAccountLink">
+          وارد شوید
+        </Link>
+      </h5>
     </div>
   );
 };
