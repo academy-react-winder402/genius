@@ -1,12 +1,20 @@
+import { useState } from "react";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 
 import { loginFormSchema } from "../../core/validations/login-form.validation";
 import { Link } from "../common/Link";
 
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+
 const LoginForm = () => {
+  const [isPassword, setIsPassword] = useState(true);
+
+  const handleIsPasswordChange = () => setIsPassword((prevValue) => !prevValue);
+
   const onSubmit = (values: {
-    userName: string;
-    email: string;
+    phoneOrGmail: string;
+    password: string;
     rememberMe: boolean;
   }) => {
     console.log(values);
@@ -15,35 +23,42 @@ const LoginForm = () => {
   return (
     <div className="w-full flex justify-center">
       <Formik
-        initialValues={{ userName: "", email: "", rememberMe: true }}
+        initialValues={{ phoneOrGmail: "", password: "", rememberMe: true }}
         onSubmit={onSubmit}
         validationSchema={loginFormSchema}
       >
         <Form>
           <div className="mt-7 flex flex-col gap-3">
             <div className="flex flex-col w-full">
-              <p className="font-bold">نام کاربری</p>
+              <p className="font-bold">ایمیل یا شماره موبایل</p>
               <Field
-                name="userName"
-                placeholder="نام کاربری"
+                name="phoneOrGmail"
+                placeholder="ایمیل یا شماره موبایل"
                 className="authInput"
               />
               <ErrorMessage
-                name="userName"
+                name="phoneOrGmail"
                 className="!text-red-500"
                 component="p"
               />
             </div>
-            <div className="flex flex-col w-full">
-              <p className="font-bold">ایمیل</p>
+            <div className="flex flex-col w-full relative">
+              <p className="font-bold">رمز عبور</p>
               <Field
-                name="email"
-                type="email"
-                placeholder="ایمیل"
+                name="password"
+                type={isPassword ? "password" : "text"}
+                placeholder="رمز عبور"
                 className="authInput"
               />
+              <div className="absolute top-11 left-2 cursor-pointer">
+                {isPassword ? (
+                  <VisibilityOffIcon onClick={handleIsPasswordChange} />
+                ) : (
+                  <VisibilityIcon onClick={handleIsPasswordChange} />
+                )}
+              </div>
               <ErrorMessage
-                name="userName"
+                name="password"
                 className="!text-red-500"
                 component="p"
               />
