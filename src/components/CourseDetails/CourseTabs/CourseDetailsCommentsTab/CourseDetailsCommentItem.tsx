@@ -23,7 +23,7 @@ const CourseDetailsCommentItem = ({
 
   return (
     <div
-      className={isChildren ? "border-r border-courseDetailsCommentsBorder mr-8 pr-5" : ""}
+      className={isChildren ? "border-r border-courseDetailsCommentsBorder dark:border-darkBorder mr-8 pr-5" : ""}
     >
       <div className="flex justify-between">
         <div className="flex items-center gap-2">
