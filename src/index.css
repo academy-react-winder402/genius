@@ -166,6 +166,46 @@
   .landingCategorySectionTitleAfter {
     @apply lg:w-[40%] bg-landingCategoriesTitleAfter dark:bg-landingCategoriesTitleDarkAfter bg-right-top bg-no-repeat lg:pr-[40px] lg:pt-[60px] px-5 lg:px-0;
   }
+  /* Auth Pages */
+  .authInput {
+    @apply w-[356px] h-[47px] rounded-md border-[1px] border-authInputBorder shadow-authInputShadow px-4 my-2 outline-none dark:bg-darkBackground dark:border-darkBorder;
+  }
+  .doYouHaveAnyAccountOrDoNotHaveAccountOrForgotPasswordText {
+    @apply font-[500] text-[14px] text-text2 dark:text-darkText text-center;
+  }
+  .doYouHaveAnyAccountOrDoNotHaveAccountLink {
+    @apply text-primaryColor;
+  }
+  .authDisableButton {
+    @apply opacity-70 cursor-not-allowed;
+  }
+  .authPhoneNumberInputContainer {
+    @apply flex flex-row-reverse gap-4;
+  }
+  .authPhoneNumberInput {
+    @apply w-[50px] h-[50px] outline-none px-5 rounded-[16px] border-[1px] dark:bg-darkBackground dark:border-darkBorder;
+  }
+  .authSendVerificationCodeTime {
+    @apply font-[500] text-[24px] text-primaryColor flex justify-center my-4;
+  }
+  .authPageWrapper {
+    @apply flex flex-col lg:flex-row lg:w-[82%] mx-auto shadow-primaryShadow rounded-md overflow-hidden px-4 lg:px-0;
+  }
+  .authPageSidebar {
+    @apply bg-[#191b23] lg:w-[37%] lg:h-[520px] pt-14 pb-4 flex flex-col justify-between items-center rounded-t-md;
+  }
+  .authToSiteText {
+    @apply font-[700] text-[30px] text-text1 dark:text-darkText text-center;
+  }
+  .authToSiteDescription {
+    @apply font-[400] text-text3 dark:text-darkText text-center;
+  }
+  .authLeftSide {
+    @apply flex flex-col items-center pt-6 px-5;
+  }
+  .registerCodeNotSend {
+    @apply font-[500] text-[14px] text-text2 dark:text-darkText text-center mt-5;
+  }
 }
 
 /* Swiper */

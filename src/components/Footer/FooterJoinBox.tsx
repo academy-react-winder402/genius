@@ -1,5 +1,3 @@
-import React from "react";
-
 const FooterJoinBox = () => {
   return (
     <div className="mt-8 w-full lg:w-auto">

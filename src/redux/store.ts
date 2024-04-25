@@ -1,8 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
+import { persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
 import darkModeSlice from "./darkMode";
-import { persistReducer, persistStore } from "redux-persist";
+import registerSlice from "./register";
 
 const darkModePersistConfig = {
   key: "root",
@@ -17,6 +18,7 @@ const darkModePersistedReducer = persistReducer(
 export const store = configureStore({
   reducer: {
     darkMode: darkModePersistedReducer,
+    register: registerSlice,
   },
 });
 

@@ -1,5 +1,3 @@
-import React from "react";
-
 import { Logo } from "../Header/Logo";
 
 const FooterLogoDescription = () => {

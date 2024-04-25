@@ -65,6 +65,7 @@ export default {
         footerJoinButtonShadow: "0px 0px 20px 0px #2196F333",
         courseAddToCarButtonShadow: "0px 0px 20px 0px #0000000D",
         courseAddCommentButton: "0px 0px 20px 0px #0000000D",
+        authInputShadow: "0px 0px 20px 0px #00000005",
       },
       borderColor: {
         filterAccordionBorder: "#ECEFF1",
@@ -72,6 +73,8 @@ export default {
         courseDetailsTabsBorder: "#ECEFF1",
         courseDetailsCommentsTextareaBorder: "#CFD8DC",
         darkBorder: "#585454",
+        authInputBorder: "#CFD8DC",
+        authNumberInputBorder: "1px solid #CFD8DC",
       },
     },
   },
