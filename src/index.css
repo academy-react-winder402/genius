@@ -168,16 +168,25 @@
   }
   /* Auth Pages */
   .authInput {
-    @apply w-[356px] h-[47px] rounded-md border-[1px] border-authInputBorder shadow-authInputShadow px-4 my-2 outline-none;
+    @apply w-[356px] h-[47px] rounded-md border-[1px] border-authInputBorder shadow-authInputShadow px-4 my-2 outline-none dark:bg-darkBackground dark:border-darkBorder;
   }
   .doYouHaveAnyAccountOrDoNotHaveAccountText {
-    @apply font-[500] text-[14px] text-text2 mt-4;
+    @apply font-[500] text-[14px] text-text2 mt-4 dark:text-darkText;
   }
   .doYouHaveAnyAccountOrDoNotHaveAccountLink {
     @apply text-primaryColor;
   }
   .authDisableButton {
     @apply opacity-70 cursor-not-allowed;
+  }
+  .authPhoneNumberInputContainer {
+    @apply flex flex-row-reverse gap-4;
+  }
+  .authPhoneNumberInput {
+    @apply w-[50px] h-[50px] outline-none px-5 rounded-[16px] border-[1px] dark:bg-darkBackground dark:border-darkBorder;
+  }
+  .authSendVerificationCodeTime {
+    @apply font-[500] text-[24px] text-primaryColor flex justify-center my-4;
   }
 }
 

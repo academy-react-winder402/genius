@@ -42,8 +42,10 @@ const Register = () => {
       </div>
       <div className="lg:w-[63%] pt-10">
         <div className="flex flex-col items-center pt-6 px-5">
-          <h1 className="font-[700] text-[30px] text-text1">ثبت نام در سایت</h1>
-          <p className="font-[400] text-text3">
+          <h1 className="font-[700] text-[30px] text-text1 dark:text-darkText">
+            ثبت نام در سایت
+          </h1>
+          <p className="font-[400] text-text3 dark:text-darkText">
             برای ثبت نام باید سه مرحله را طی کنید
           </p>
           <RegisterForm

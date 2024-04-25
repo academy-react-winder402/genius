@@ -25,7 +25,7 @@ const RegisterStepTwoForm = ({ setCurrentValue }: RegisterStepTwoFormProps) => {
 
   return (
     <div>
-      <h4 className="font-[500] text-[14px] text-text2 mt-5">
+      <h4 className="font-[500] text-[14px] text-text2 dark:text-darkText mt-5">
         کد به شماره {phoneNumber} کد ارسال نشد؟{" "}
         <button
           className="text-primaryColor"
@@ -49,14 +49,14 @@ const RegisterStepTwoForm = ({ setCurrentValue }: RegisterStepTwoFormProps) => {
                 render={() => (
                   <AuthCode
                     onChange={(e) => dispatch(onVerifyCodeChange(e))}
-                    inputClassName="w-[50px] h-[50px] outline-none px-5 rounded-[16px] border-[1px] border-primaryBorder"
-                    containerClassName="flex flex-row-reverse gap-4"
+                    inputClassName="authPhoneNumberInput"
+                    containerClassName="authPhoneNumberInputContainer"
                   />
                 )}
               />
               <ErrorMessage name="verifyCode" component="p" />
             </div>
-            <span className="font-[500] text-[24px] text-primaryColor flex justify-center my-4">
+            <span className="authSendVerificationCodeTime">
               1:34
             </span>
             <div className="flex gap-3 justify-center items-center mt-7">
