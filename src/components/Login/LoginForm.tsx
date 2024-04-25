@@ -94,7 +94,7 @@ const LoginForm = () => {
             </span>
             <h5 className="doYouHaveAnyAccountOrDoNotHaveAccountOrForgotPasswordText -mt-1">
               رمز عبور خود را فراموش کرده اید ؟{" "}
-              <Link to="/forget-password" className="text-primaryColor">
+              <Link to="/forgot-password" className="text-primaryColor">
                 تغییر
               </Link>
             </h5>
