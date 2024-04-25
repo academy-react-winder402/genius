@@ -3,8 +3,7 @@ import { useState } from "react";
 import { Logo } from "../Header/Logo";
 import { SocialMedia } from "../common/SocialMedia";
 import { RegisterForm } from "./RegisterForm";
-
-import { RegisterStep } from "./RegisterStep";
+import { FormStep } from "../common/FormStep";
 
 const Register = () => {
   const [currentStep, setCurrentStep] = useState<number>(1);
@@ -17,19 +16,19 @@ const Register = () => {
             <Logo isFilter isDark />
           </div>
           <div className="flex flex-col gap-6 mt-3">
-            <RegisterStep
+            <FormStep
               title="شماره موبایل"
               description="در این مرحله باید شماره موبایل خود را وارد نمایید."
               step={1}
               currentStep={currentStep}
             />
-            <RegisterStep
+            <FormStep
               title="کد تایید"
               description="در این مرحله باید کد تایید را وارد نمایید."
               currentStep={currentStep}
               step={2}
             />
-            <RegisterStep
+            <FormStep
               title="نام کاربری و پسورد"
               description="در این مرحله باید نام کاربری و پسور خود را انتخاب کنید."
               currentStep={currentStep}

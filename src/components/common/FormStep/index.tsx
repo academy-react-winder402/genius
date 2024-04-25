@@ -1,7 +1,4 @@
-import { Dispatch, SetStateAction } from "react";
-
-import { RiCheckboxCircleLine } from "react-icons/ri";
-import { RiCheckboxCircleFill } from "react-icons/ri";
+import { RiCheckboxCircleFill, RiCheckboxCircleLine } from "react-icons/ri";
 
 interface RegisterStepProps {
   title: string;
@@ -10,7 +7,7 @@ interface RegisterStepProps {
   currentStep: number;
 }
 
-const RegisterStep = ({
+const FormStep = ({
   title,
   description,
   step,
@@ -31,4 +28,4 @@ const RegisterStep = ({
   );
 };
 
-export { RegisterStep };
+export { FormStep };

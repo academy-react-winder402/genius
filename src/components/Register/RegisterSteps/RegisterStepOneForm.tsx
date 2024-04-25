@@ -62,7 +62,7 @@ const RegisterStepOneForm = ({ setCurrentValue }: RegisterStepOneFormProps) => {
           </Form>
         )}
       </Formik>
-      <h5 className="doYouHaveAnyAccountOrDoNotHaveAccountText">
+      <h5 className="doYouHaveAnyAccountOrDoNotHaveAccountOrForgotPasswordText mt-5">
         حساب کاربری دارید؟{" "}
         <Link to="/login" className="doYouHaveAnyAccountOrDoNotHaveAccountLink">
           وارد شوید
