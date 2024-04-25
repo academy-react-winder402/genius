@@ -25,7 +25,7 @@ const RegisterStepTwoForm = ({ setCurrentValue }: RegisterStepTwoFormProps) => {
 
   return (
     <div>
-      <h4 className="font-[500] text-[14px] text-text2 dark:text-darkText mt-5">
+      <h4 className="registerCodeNotSend">
         کد به شماره {phoneNumber} کد ارسال نشد؟{" "}
         <button
           className="text-primaryColor"
@@ -56,9 +56,7 @@ const RegisterStepTwoForm = ({ setCurrentValue }: RegisterStepTwoFormProps) => {
               />
               <ErrorMessage name="verifyCode" component="p" />
             </div>
-            <span className="authSendVerificationCodeTime">
-              1:34
-            </span>
+            <span className="authSendVerificationCodeTime">1:34</span>
             <div className="flex gap-3 justify-center items-center mt-7">
               <button
                 type="button"

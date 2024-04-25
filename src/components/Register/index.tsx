@@ -41,8 +41,8 @@ const Register = () => {
       </div>
       <div className="lg:w-[63%] pt-10">
         <div className="registerLeftSide">
-          <h1 className="registerToSiteText">ثبت نام در سایت</h1>
-          <p className="registerToSiteDescription">
+          <h1 className="authToSiteText">ثبت نام در سایت</h1>
+          <p className="authToSiteDescription">
             برای ثبت نام باید سه مرحله را طی کنید
           </p>
           <RegisterForm

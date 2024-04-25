@@ -195,13 +195,16 @@
     @apply bg-[#191b23] lg:w-[37%] lg:h-[500px] pt-14 pb-4 flex flex-col justify-between items-center rounded-t-md;
   }
   .authToSiteText {
-    @apply font-[700] text-[30px] text-text1 dark:text-darkText;
+    @apply font-[700] text-[30px] text-text1 dark:text-darkText text-center;
   }
   .authToSiteDescription {
-    @apply font-[400] text-text3 dark:text-darkText;
+    @apply font-[400] text-text3 dark:text-darkText text-center;
   }
   .authLeftSide {
     @apply flex flex-col items-center pt-6 px-5;
+  }
+  .registerCodeNotSend {
+    @apply font-[500] text-[14px] text-text2 dark:text-darkText text-center mt-5;
   }
 }
 
