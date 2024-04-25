@@ -170,8 +170,8 @@
   .authInput {
     @apply w-[356px] h-[47px] rounded-md border-[1px] border-authInputBorder shadow-authInputShadow px-4 my-2 outline-none dark:bg-darkBackground dark:border-darkBorder;
   }
-  .doYouHaveAnyAccountOrDoNotHaveAccountText {
-    @apply font-[500] text-[14px] text-text2 dark:text-darkText text-center mt-4;
+  .doYouHaveAnyAccountOrDoNotHaveAccountOrForgotPasswordText {
+    @apply font-[500] text-[14px] text-text2 dark:text-darkText text-center;
   }
   .doYouHaveAnyAccountOrDoNotHaveAccountLink {
     @apply text-primaryColor;
@@ -192,7 +192,7 @@
     @apply flex flex-col lg:flex-row lg:w-[82%] mx-auto shadow-primaryShadow rounded-md overflow-hidden px-4 lg:px-0;
   }
   .authPageSidebar {
-    @apply bg-[#191b23] lg:w-[37%] lg:h-[500px] pt-14 pb-4 flex flex-col justify-between items-center rounded-t-md;
+    @apply bg-[#191b23] lg:w-[37%] lg:h-[520px] pt-14 pb-4 flex flex-col justify-between items-center rounded-t-md;
   }
   .authToSiteText {
     @apply font-[700] text-[30px] text-text1 dark:text-darkText text-center;

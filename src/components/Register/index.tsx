@@ -11,7 +11,7 @@ const Register = () => {
 
   return (
     <div className="authPageWrapper">
-      <div className="authPageSidebar lg:h-[520px]">
+      <div className="authPageSidebar">
         <div>
           <div className="pr-12">
             <Logo isFilter isDark />

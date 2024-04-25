@@ -5,15 +5,13 @@ import { LoginForm } from "./LoginForm";
 const Login = () => {
   return (
     <div className="authPageWrapper">
-      <div className="authPageSidebar">
+      <div className="authPageSidebar h-[570px]">
         <Logo isFilter isDark />
         <SocialMedia />
       </div>
-      <div className="lg:w-[63%] pt-10">
+      <div className="lg:w-[63%] pt-10 h-[570px]">
         <div className="flex flex-col items-center px-5">
-          <h1 className="authToSiteText">
-            ورود به حساب کاربری
-          </h1>
+          <h1 className="authToSiteText">ورود به حساب کاربری</h1>
           <p className="authToSiteDescription">
             لطفا نام و ایمیل خود را وارد نمایید.
           </p>

@@ -38,7 +38,7 @@ const LoginForm = () => {
               />
               <ErrorMessage
                 name="phoneOrGmail"
-                className="!text-red-500"
+                className="text-[14px] text-[red]"
                 component="p"
               />
             </div>
@@ -59,7 +59,7 @@ const LoginForm = () => {
               </div>
               <ErrorMessage
                 name="password"
-                className="!text-red-500"
+                className="text-[14px] text-[red]"
                 component="p"
               />
             </div>
@@ -68,7 +68,11 @@ const LoginForm = () => {
                 <Field type="checkbox" name="rememberMe" />
                 <p className="font-bold mt-1">مرا به خاطر بسپار</p>
               </div>
-              <ErrorMessage name="rememberMe" component="p" />
+              <ErrorMessage
+                name="rememberMe"
+                component="p"
+                className="text-[14px] text-[red]"
+              />
             </div>
             <button
               className="bg-primary text-white h-[40px] rounded-md shadow-primaryShadow mt-2 cursor-pointer"
@@ -76,13 +80,22 @@ const LoginForm = () => {
             >
               ورود
             </button>
-            <h5 className="doYouHaveAnyAccountOrDoNotHaveAccountText">
+            <h5 className="doYouHaveAnyAccountOrDoNotHaveAccountOrForgotPasswordText mt-1">
               حساب کاربری ندارید؟{" "}
               <Link
                 to="/register"
                 className="doYouHaveAnyAccountOrDoNotHaveAccountLink"
               >
                 ثبت نام{" "}
+              </Link>
+            </h5>
+            <span className="doYouHaveAnyAccountOrDoNotHaveAccountOrForgotPasswordText -mt-1">
+              یا
+            </span>
+            <h5 className="doYouHaveAnyAccountOrDoNotHaveAccountOrForgotPasswordText -mt-1">
+              رمز عبور خود را فراموش کرده اید ؟{" "}
+              <Link to="/forget-password" className="text-primaryColor">
+                تغییر
               </Link>
             </h5>
           </div>
