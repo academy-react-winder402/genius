@@ -1,18 +1,13 @@
 import { RiCheckboxCircleFill, RiCheckboxCircleLine } from "react-icons/ri";
 
-interface RegisterStepProps {
+interface FormStepProps {
   title: string;
   description: string;
   step: number;
   currentStep: number;
 }
 
-const FormStep = ({
-  title,
-  description,
-  step,
-  currentStep,
-}: RegisterStepProps) => {
+const FormStep = ({ title, description, step, currentStep }: FormStepProps) => {
   return (
     <div className="flex gap-2">
       {step <= currentStep ? (

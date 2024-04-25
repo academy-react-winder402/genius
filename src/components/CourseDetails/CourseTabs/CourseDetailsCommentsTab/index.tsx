@@ -1,4 +1,5 @@
 import { CustomTabPanel } from "../CustomTabPanel";
+import { CourseDetailComments } from "./CourseDetailComments";
 import { CourseDetailsAddComment } from "./CourseDetailsAddComment";
 
 interface CourseDetailsCommentsTabProps {
@@ -10,6 +11,7 @@ const CourseDetailsCommentsTab = ({ value }: CourseDetailsCommentsTabProps) => {
     <CustomTabPanel value={value} index={2}>
       <div className="mt-3">
         <CourseDetailsAddComment />
+        <CourseDetailComments />
       </div>
     </CustomTabPanel>
   );
