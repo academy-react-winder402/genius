@@ -78,7 +78,7 @@ const RegisterStepTwoForm = ({ setCurrentValue }: RegisterStepTwoFormProps) => {
                   !registerVerifyCode && "authDisableButton"
                 }`}
               >
-                دریافت کد تایید
+                ارسال کد تایید
               </button>
             </div>
           </Form>

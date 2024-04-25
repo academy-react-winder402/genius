@@ -67,7 +67,7 @@ const RegisterStepThreeForm = ({
                   (!values.password || !values.gmail) && "authDisableButton"
                 }`}
               >
-                دریافت کد تایید
+                ثبت نام
               </button>
             </div>
           </Form>
