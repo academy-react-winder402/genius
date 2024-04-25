@@ -166,6 +166,19 @@
   .landingCategorySectionTitleAfter {
     @apply lg:w-[40%] bg-landingCategoriesTitleAfter dark:bg-landingCategoriesTitleDarkAfter bg-right-top bg-no-repeat lg:pr-[40px] lg:pt-[60px] px-5 lg:px-0;
   }
+  /* Auth Pages */
+  .authInput {
+    @apply w-[356px] h-[47px] rounded-md border-[1px] border-authInputBorder shadow-authInputShadow px-4 my-2 outline-none;
+  }
+  .doYouHaveAnyAccountOrDoNotHaveAccountText {
+    @apply font-[500] text-[14px] text-text2 mt-4;
+  }
+  .doYouHaveAnyAccountOrDoNotHaveAccountLink {
+    @apply text-primaryColor;
+  }
+  .authDisableButton {
+    @apply opacity-70 cursor-not-allowed;
+  }
 }
 
 /* Swiper */

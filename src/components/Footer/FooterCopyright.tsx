@@ -1,4 +1,4 @@
-  import { Link } from "../common/Link";
+import { Link } from "../common/Link";
 import { footerSocialMediaItems } from "./footerSocialMediaItems";
 import { SocialMedia } from "../common/SocialMedia";
 
