@@ -11,10 +11,10 @@ const Login = () => {
       </div>
       <div className="lg:w-[63%] pt-10">
         <div className="flex flex-col items-center px-5">
-          <h1 className="font-[700] text-[30px] text-text1">
+          <h1 className="authToSiteText">
             ورود به حساب کاربری
           </h1>
-          <p className="font-[400] text-text3">
+          <p className="authToSiteDescription">
             لطفا نام و ایمیل خود را وارد نمایید.
           </p>
           <LoginForm />
