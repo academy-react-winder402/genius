@@ -18,15 +18,10 @@ const BlogsTopSection = () => {
         <div className="w-[65%]">
           <Search placeholder="چی میخوای یاد بگیری ؟" />
         </div>
-        <div className="w-[94%] lg:w-[20%]">
-          <div className=" w-[455px] absolute top-[600px] left-44">
+        <div className="w-[94% lg:w-[20%] absolute left-96 top-[600px lg:top-[90%]]">
+          <div className=" w-[391px] bg-white rounded-2xl">
             <Box>
-              <Tabs
-                value={value}
-                onChange={handleChange}
-                textColor="secondary"
-                indicatorColor="secondary"
-              >
+              <Tabs value={value} onChange={handleChange} textColor="secondary">
                 <Tab value="one" label="همه" />
                 <Tab value="two" label="محبوب‌ترین‌ها" />
                 <Tab value="three" label="پربازدیدترین‌ها" />
