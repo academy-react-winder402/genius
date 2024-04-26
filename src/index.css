@@ -18,16 +18,16 @@
 
 @layer components {
   .loginButton {
-    @apply bg-primary text-white rounded-full w-[133px] h-[48px];
+    @apply bg-primary text-white rounded-full w-[133px] h-[48px] flex justify-center items-center;
   }
   .basket {
-    @apply bg-white flex justify-center items-center w-[48px] h-[48px] rounded-full relative;
+    @apply bg-white dark:bg-gray-800 flex justify-center items-center w-[48px] h-[48px] rounded-full relative;
   }
   .basketTotalCoursesAdded {
     @apply absolute -top-[6px] right-0 bg-primary text-white text-[8px] rounded-full p-1 px-[7px];
   }
   .serviceBox {
-    @apply flex flex-col justify-center items-center rounded-[24px] border-[1px] border-solid border-[#ECEFF1] h-[280px] px-6 transition-shadow hover:bg-white lg:w-[390px] hover:shadow-primaryShadow;
+    @apply flex flex-col justify-center items-center rounded-[24px] border-[1px] border-solid border-[#ECEFF1] h-[280px] px-6 transition-shadow hover:bg-white dark:hover:bg-gray-900 lg:w-[390px] hover:shadow-primaryShadow;
   }
   .courseItem {
     @apply mt-10 w-[90%] lg:w-[296px] pb-3 lg:pb-0 lg:h-[389px] rounded-[24px] shadow-primaryShadow px-4;
@@ -42,16 +42,16 @@
     @apply font-[500] text-[12px];
   }
   .categoryItem {
-    @apply w-[94%] lg:w-[328px] h-[328px] shadow-landingCategoryItemShadow rounded-[32px] bg-white flex flex-col justify-center items-center mt-4;
+    @apply w-[94%] lg:w-[328px] h-[328px] shadow-landingCategoryItemShadow rounded-[32px] bg-white dark:bg-gray-900 flex flex-col justify-center items-center mt-4;
   }
   .landingBlogItemStyleTwoBackground {
-    @apply flex gap-1 justify-center items-center bg-secondary w-[102px] h-[40px] rounded-[80px];
+    @apply flex gap-1 justify-center items-center bg-secondary dark:bg-gray-900 w-[102px] h-[40px] rounded-[80px];
   }
   .landingBlogItemsStyleTwoColor {
     @apply font-[500] text-primaryColor mt-[1px];
   }
   .landingTeacherItemCoursesCount {
-    @apply absolute top-14 right-14 flex justify-center items-center w-[88px] h-[36px] bg-white rounded-[50px] shadow-landingTeacherCoursesCount;
+    @apply absolute top-14 right-14 flex justify-center items-center w-[88px] h-[36px] bg-white dark:bg-gray-900 rounded-[50px] shadow-landingTeacherCoursesCount;
   }
   .footer {
     @apply bg-footerBackground mt-16 flex flex-col justify-center items-center pt-12 pb-14;
@@ -78,37 +78,133 @@
     @apply flex justify-center items-center w-[32px] h-[32px] rounded-[50px] bg-socialMediaIcon;
   }
   .filterRangeText {
-    @apply font-[500] text-[12px] text-text3;
+    @apply font-[500] text-[12px] text-text3 dark:text-darkText;
   }
   .coursesGridView {
-    @apply bg-filterGridView rounded-[16px] p-[8px] w-[100px] h-[50px] flex gap-2 justify-center items-center;
+    @apply bg-filterGridView dark:bg-gray-900 rounded-[16px] p-[8px] w-[100px] h-[50px] flex gap-2 justify-center items-center;
   }
   .coursesGridViewItems {
     @apply w-[40px] h-[40px] flex justify-center items-center rounded-[16px];
   }
   .coursesGridViewItemsActive {
-    @apply bg-white w-[40px] h-[40px] flex justify-center items-center rounded-[16px];
+    @apply bg-white dark:bg-gray-800 w-[40px] h-[40px] flex justify-center items-center rounded-[16px];
   }
   .coursesSelectBoxWrapper {
-    @apply relative after:content-[''] after:absolute after:top-1 after:left-3 after:bg-coursesSelectOptionBackground after:w-[40px] after:h-[40px] after:bg-no-repeat after:bg-left before:absolute before:top-3 before:right-3 before:bg-coursesSelectOptionSort before:w-[24px] before:h-[24px];
+    @apply relative after:content-[''] after:absolute after:top-1 after:left-3 after:bg-coursesSelectOptionBackground after:dark:bg-coursesSelectOptionBackgroundDark after:w-[40px] after:h-[40px] after:bg-no-repeat after:bg-left before:absolute before:top-3 before:right-3 before:bg-coursesSelectOptionSort before:dark:bg-coursesSelectOptionSortDark before:w-[24px] before:h-[24px];
   }
   .coursesSelectBox {
-    @apply w-full h-[50px] pr-10 rounded-[16px] outline-none appearance-none;
+    @apply w-full h-[50px] pr-10 rounded-[16px] outline-none appearance-none dark:bg-gray-900;
   }
   .courseLikeBox {
-    @apply flex justify-center items-center bg-[#FFEBEE] cursor-pointer rounded-[24px] w-[51px] h-[32px] font-[500] text-red gap-1 -mt-1;
+    @apply flex justify-center items-center bg-[#FFEBEE] dark:bg-gray-800 dark:text-darkText cursor-pointer rounded-[24px] w-[51px] h-[32px] font-[500] text-red gap-1 -mt-1;
   }
   .courseItemStyleTwo {
-    @apply w-full bg-white shadow-primaryShadow rounded-[24px] lg:h-[212px] px-3 py-2 flex flex-col lg:flex-row justify-center items-center gap-3;
+    @apply w-full bg-white dark:bg-gray-900 shadow-primaryShadow rounded-[24px] lg:h-[212px] px-3 py-2 flex flex-col lg:flex-row justify-center items-center gap-3;
   }
   .courseItemStyleTwoDetailsWrapperFlexBox {
     @apply flex flex-col lg:flex-row gap-3 items-center mt-5;
   }
   .courseItemStyleTwoDetailsWrapper {
-    @apply bg-courseStyleTwoDetails w-full lg:w-[493px] lg:h-[44px] rounded-[24px] flex flex-col lg:flex-row gap-3 justify-center items-center py-3;
+    @apply bg-courseStyleTwoDetails dark:bg-darkBackground w-full lg:w-[493px] lg:h-[44px] rounded-[24px] flex flex-col lg:flex-row gap-3 justify-center items-center py-3;
   }
   .courseItemStyleTwoDescription {
-    @apply text-justify font-[500] text-[14px] text-text2 mt-1 w-full lg:w-[97%];
+    @apply text-justify font-[500] text-[14px] text-text2 dark:text-darkText mt-1 w-full lg:w-[97%];
+  }
+
+  /* Course Details */
+  .courseDetailsBox {
+    @apply w-[95%] lg:w-[1100px] mx-auto flex flex-col lg:flex-row gap-5 mt-5;
+  }
+  .courseDetailImageBox {
+    @apply flex gap-1 justify-center items-center bg-white dark:bg-gray-900 w-[119px] h-[48px] rounded-[50px];
+  }
+  .courseDetailImageBoxTitle {
+    @apply font-[500] text-text1 dark:text-darkText;
+  }
+  .courseDetailsSatisfaction {
+    @apply mt-5 flex flex-col lg:flex-row gap-5 lg:gap-0 justify-between items-center;
+  }
+  .likeDislikeButton {
+    @apply flex gap-2 justify-center items-center w-[83px] h-[48px] rounded-[50px] bg-likeDislikeIcon dark:bg-gray-900;
+  }
+  .likeDislikeButtonText {
+    @apply font-[500] text-[20px] text-text1 dark:text-darkText mt-[6px];
+  }
+  .courseDetailsTitle {
+    @apply font-[700] text-[20px] text-text1 dark:text-darkText mb-3 my-3;
+  }
+  .courseDetailsParagraph {
+    @apply font-[500] text-text2 dark:text-darkText text-justify;
+  }
+  .courseDetailsAddCommentTextarea {
+    @apply border-[1px] border-solid border-courseDetailsCommentsBorder dark:border-darkBorder outline-none w-full min-h-[100px] rounded-[10px] px-4 py-4 font-[400] text-[14px] text-text3 dark:text-darkText dark:bg-gray-900;
+  }
+  .courseDetailsSidebar {
+    @apply bg-white dark:bg-gray-900 shadow-primaryShadow rounded-[24px] py-2 pb-8 px-2;
+  }
+  .courseDetailsSidebarShowInformationText {
+    @apply font-[700] text-[24px] text-text1 dark:text-darkText text-center mt-4;
+  }
+  .courseDetailsInformationItemsWrapper {
+    @apply border-t border-courseDetailsInformationBox dark:border-[#403f3f] mt-5 py-0 w-[90%] mx-auto;
+  }
+  .courseDetailsTeacherBox {
+    @apply flex gap-3 items-center shadow-primaryShadow px-7 w-full h-[112px] mt-5 bg-white dark:bg-gray-900 rounded-[24px];
+  }
+  .mainButton {
+    @apply bg-primary text-white w-[131px] h-[48px] rounded-full flex justify-center items-center;
+  }
+  .courseDetailAddComment {
+    @apply bg-primary text-white w-[81px] h-[32px] rounded-[50px] outline-none shadow-courseAddCommentButton font-[700] text-[12px] mt-2;
+  }
+  .coursesHeroSectionSpanText {
+    @apply font-[700] text-[24px] text-primaryColor dark:text-darkText lg:bg-no-repeat lg:bg-[right_top_2.4rem] h-[50px] pr-10 pt-20 pb-9;
+  }
+  .blogItemText {
+    @apply font-[500] text-[14px] text-primaryColor;
+  }
+  .landingCategorySectionTitleAfter {
+    @apply lg:w-[40%] bg-landingCategoriesTitleAfter dark:bg-landingCategoriesTitleDarkAfter bg-right-top bg-no-repeat lg:pr-[40px] lg:pt-[60px] px-5 lg:px-0;
+  }
+  /* Auth Pages */
+  .authInput {
+    @apply w-[356px] h-[47px] rounded-md border-[1px] border-authInputBorder shadow-authInputShadow px-4 my-2 outline-none dark:bg-darkBackground dark:border-darkBorder;
+  }
+  .doYouHaveAnyAccountOrDoNotHaveAccountOrForgotPasswordText {
+    @apply font-[500] text-[14px] text-text2 dark:text-darkText text-center;
+  }
+  .doYouHaveAnyAccountOrDoNotHaveAccountLink {
+    @apply text-primaryColor;
+  }
+  .authDisableButton {
+    @apply opacity-70 cursor-not-allowed;
+  }
+  .authPhoneNumberInputContainer {
+    @apply flex flex-row-reverse gap-4;
+  }
+  .authPhoneNumberInput {
+    @apply w-[50px] h-[50px] outline-none px-5 rounded-[16px] border-[1px] dark:bg-darkBackground dark:border-darkBorder;
+  }
+  .authSendVerificationCodeTime {
+    @apply font-[500] text-[24px] text-primaryColor flex justify-center my-4;
+  }
+  .authPageWrapper {
+    @apply flex flex-col lg:flex-row lg:w-[82%] mx-auto shadow-primaryShadow rounded-md overflow-hidden px-4 lg:px-0;
+  }
+  .authPageSidebar {
+    @apply bg-[#191b23] lg:w-[37%] lg:h-[520px] pt-14 pb-4 flex flex-col justify-between items-center rounded-t-md;
+  }
+  .authToSiteText {
+    @apply font-[700] text-[30px] text-text1 dark:text-darkText text-center;
+  }
+  .authToSiteDescription {
+    @apply font-[400] text-text3 dark:text-darkText text-center;
+  }
+  .authLeftSide {
+    @apply flex flex-col items-center pt-6 px-5;
+  }
+  .registerCodeNotSend {
+    @apply font-[500] text-[14px] text-text2 dark:text-darkText text-center mt-5;
   }
 }
 
@@ -117,9 +213,11 @@
 .swiper-button-next {
   @apply w-[100px] h-[100px] bg-[url("/src/assets/images/Landing/LandingTeachers/Icons/prev-arrow.svg")];
 }
+
 .swiper-button-next {
-  @apply bg-[url("/src/assets/images/Landing/LandingTeachers/Icons/next-arrow.svg")];
+  @apply w-[100px] h-[100px] bg-[url("/src/assets/images/Landing/LandingTeachers/Icons/next-arrow.svg")];
 }
+
 .swiper-button-prev::after,
 .swiper-button-next::after {
   @apply hidden;
@@ -164,6 +262,26 @@ span.MuiTypography-root {
 
 .priceFilterCheckbox .MuiButtonBase-root {
   @apply !p-0 !pl-2;
+}
+
+.MuiAccordionSummary-expandIconWrapper.Mui-expanded.css-yw020d-MuiAccordionSummary-expandIconWrapper
+  img:last-child {
+  @apply !block;
+}
+.MuiAccordionSummary-expandIconWrapper.Mui-expanded.css-yw020d-MuiAccordionSummary-expandIconWrapper
+  img:first-child {
+  @apply !hidden;
+}
+.css-eqpfi5-MuiAccordionSummary-content.Mui-expanded {
+  @apply !my-[12px];
+}
+
+.dark .css-i4bv87-MuiSvgIcon-root {
+  @apply fill-white;
+}
+
+span.MuiTypography-root {
+  @apply dark:text-darkText;
 }
 
 /* Range Slider Input */
