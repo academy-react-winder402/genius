@@ -3,8 +3,8 @@ import { BlogsHeroSection } from "./BlogsHeroSection";
 import { useState } from "react";
 
 // import { courseItems } from "../Courses/CourseItems/courseItems";
-import { blogsItems } from "../Blogs/BlogsItems/blogsItems.js";
-import { PaginatedBlogs } from "../Blogs/BlogsItems/PaginatedBlogs.jsx";
+import { blogsItems } from "./BlogsItems/blogsItems.js";
+import { PaginatedBlogs } from "./BlogsItems/PaginatedBlogs.jsx";
 import { BlogsTopSection } from "./BlogsTopSection";
 
 const Blogs = () => {

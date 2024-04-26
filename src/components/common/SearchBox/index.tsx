@@ -21,7 +21,7 @@ const SearchBox = ({
       <div className="relative w-[100%] lg:w-auto flex justify-center">
         <input
           placeholder={placeholder}
-          className={`outline-none px-3 pl-12 rounded-[16px] placeholder:text-text-2 w-[97%] lg:w-[${inputWidth}] h-[50px] ${inputClasses}`}
+          className={`outline-none px-3 pl-12 rounded-[16px] placeholder:text-text-2 w-[97%] lg:w-[] h-[50px] ${inputClasses}`}
           className={`outline-none px-3 pl-12 rounded-[8px] placeholder:text-text-2 dark:text-darkText w-[97%] h-[50px] ${inputClasses} ${
             isLanding === true ? "dark:!bg-gray-800" : "dark:bg-gray-900"
           }`}

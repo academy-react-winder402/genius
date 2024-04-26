@@ -1,4 +1,4 @@
-import { CoursesHeroSection } from "../Courses/coursesHeroSection";
+import { CoursesHeroSection } from "../Courses/CoursesHeroSection";
 
 import { useState } from "react";
 
