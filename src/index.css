@@ -206,6 +206,17 @@
   .registerCodeNotSend {
     @apply font-[500] text-[14px] text-text2 dark:text-darkText text-center mt-5;
   }
+  /* Blogs Page */
+  .blogsSortTab {
+    @apply !px-4 !h-[20px] !rounded-[12px];
+  }
+  .blogsSortActiveTab {
+    @apply !bg-primary !text-white flex justify-center items-center shadow-blogsSortActiveTabShadow;
+  }
+  /* Courses */
+  .coursesHeroSection {
+    @apply flex flex-col-reverse lg:flex-row justify-between items-center lg:w-[1120px] mx-auto mt-5 lg:bg-coursesLandingPageDots dark:lg:bg-coursesLandingPageDotsDark lg:bg-no-repeat lg:bg-[right_bottom_0rem];
+  }
 }
 
 /* Swiper */

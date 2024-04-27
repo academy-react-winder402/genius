@@ -8,7 +8,7 @@ const CoursesHeroSection = () => {
   const darkMode = useDarkModeSelector();
 
   return (
-    <div className="flex flex-col-reverse lg:flex-row justify-between items-center lg:w-[1120px] mx-auto mt-5 lg:bg-coursesLandingPageDots dark:lg:bg-coursesLandingPageDotsDark lg:bg-no-repeat lg:bg-[right_bottom_0rem]">
+    <div className="coursesHeroSection">
       <div className="relative">
         {darkMode ? (
           <img

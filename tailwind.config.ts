@@ -66,6 +66,8 @@ export default {
         courseAddToCarButtonShadow: "0px 0px 20px 0px #0000000D",
         courseAddCommentButton: "0px 0px 20px 0px #0000000D",
         authInputShadow: "0px 0px 20px 0px #00000005",
+        courseDetailsHeroSectionSearchBoxShadow: "0px 0px 20px 0px #0000000D",
+        blogsSortActiveTabShadow: "0px 0px 20px 0px #0000001A",
       },
       borderColor: {
         filterAccordionBorder: "#ECEFF1",

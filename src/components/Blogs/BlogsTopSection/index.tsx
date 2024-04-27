@@ -14,18 +14,52 @@ const BlogsTopSection = () => {
 
   return (
     <>
-      <div className="flex flex-wrap-reverse justify-center items-center gap-4 mt-4 lg:mt-0">
-        <div className="w-[65%]">
-          <SearchBox placeholder="چی میخوای یاد بگیری ؟" />
+      <div className="flex justify-center items-center gap-4 mt-4 lg:mt-0">
+        <div>
+          <SearchBox placeholder="دنبال چی میگردی" isBlogs={true} />
         </div>
-        <div className="w-[94% lg:w-[20%] absolute left-96 top-[600px lg:top-[90%]]">
-          <div className=" w-[391px] bg-white rounded-2xl">
+        <div>
+          <div className="w-[450px] bg-white rounded-2xl px-4 py-1">
             <Box>
-              <Tabs value={value} onChange={handleChange} textColor="secondary">
-                <Tab value="one" label="همه" />
-                <Tab value="two" label="محبوب‌ترین‌ها" />
-                <Tab value="three" label="پربازدیدترین‌ها" />
-                <Tab value="four" label="جدیدترین‌ها" />
+              <Tabs
+                value={value}
+                onChange={handleChange}
+                classes={{
+                  indicator: "hidden",
+                }}
+              >
+                <Tab
+                  value="one"
+                  label="همه"
+                  classes={{
+                    root: "blogsSortTab",
+                    selected: "blogsSortActiveTab",
+                  }}
+                />
+                <Tab
+                  value="two"
+                  label="محبوب‌ترین‌ها"
+                  classes={{
+                    root: "blogsSortTab",
+                    selected: "blogsSortActiveTab",
+                  }}
+                />
+                <Tab
+                  value="three"
+                  label="پربازدیدترین‌ها"
+                  classes={{
+                    root: "blogsSortTab",
+                    selected: "blogsSortActiveTab",
+                  }}
+                />
+                <Tab
+                  value="four"
+                  label="جدیدترین‌ها"
+                  classes={{
+                    root: "blogsSortTab",
+                    selected: "blogsSortActiveTab",
+                  }}
+                />
               </Tabs>
             </Box>
           </div>

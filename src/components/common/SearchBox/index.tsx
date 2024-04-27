@@ -7,6 +7,7 @@ interface SearchBoxProps {
   isMarginTop?: boolean;
   display?: string;
   isLanding?: boolean;
+  isBlogs?: boolean;
 }
 
 const SearchBox = ({
@@ -15,6 +16,7 @@ const SearchBox = ({
   isMarginTop,
   display,
   isLanding,
+  isBlogs,
 }: SearchBoxProps) => {
   return (
     <div className={`${display} ${isMarginTop ? "mt-10" : ""}`}>
@@ -22,8 +24,9 @@ const SearchBox = ({
         <input
           placeholder={placeholder}
           className={`outline-none px-3 pl-12 rounded-[8px] placeholder:text-text-2 dark:text-darkText w-[97%] h-[50px] ${inputClasses} ${
-            isLanding === true ? "dark:!bg-gray-800" : "dark:bg-gray-900"
-          }`}
+            isBlogs === true &&
+            "lg:!w-[755px] !shadow-courseDetailsHeroSectionSearchBoxShadow"
+          } ${isLanding === true ? "dark:!bg-gray-800" : "dark:bg-gray-900"}`}
         />
         <img src={searchIcon} className="absolute left-6 lg:left-4 top-3" />
       </div>
