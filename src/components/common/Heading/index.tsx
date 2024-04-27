@@ -1,15 +1,11 @@
-import React from "react";
+import { PropsWithChildren } from "react";
 
 import titleAfter from "../../../assets/images/Landing/LandingServices/title.svg";
 
-interface HeadingProps {
-  title: string;
-}
-
-const Heading = ({ title }: HeadingProps) => {
+const Heading = ({ children }: PropsWithChildren) => {
   return (
-    <div className="flex flex-col justify-center items-center text-text1 dark:text-darkText">
-      <h3 className="font-[900] text-[40px]">{title}</h3>
+    <div className="headingWrapper">
+      <h3 className="font-[900] text-[40px]">{children}</h3>
       <img src={titleAfter} />
     </div>
   );

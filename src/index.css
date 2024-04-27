@@ -113,7 +113,7 @@
 
   /* Course Details */
   .courseDetailsBox {
-    @apply w-[95%] lg:w-[1100px] mx-auto flex flex-col lg:flex-row gap-5 mt-5;
+    @apply w-[95%] lg:w-[1100px] flex flex-col lg:flex-row gap-5 mx-auto;
   }
   .courseDetailImageBox {
     @apply flex gap-1 justify-center items-center bg-white dark:bg-gray-900 w-[119px] h-[48px] rounded-[50px];
@@ -219,6 +219,10 @@
   /* Courses */
   .coursesHeroSection {
     @apply flex flex-col-reverse lg:flex-row justify-between items-center lg:w-[1120px] mx-auto mt-5 lg:bg-coursesLandingPageDots dark:lg:bg-coursesLandingPageDotsDark lg:bg-no-repeat lg:bg-[right_bottom_0rem];
+  }
+  /* Heading */
+  .headingWrapper {
+    @apply flex flex-col justify-center items-center text-text1 dark:text-darkText;
   }
 }
 

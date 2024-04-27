@@ -1,5 +1,4 @@
 import { courseDetailsComments } from "./course-details-comments";
-
 import { CourseDetailsCommentItem } from "./CourseDetailsCommentItem";
 
 const CourseDetailComments = () => {

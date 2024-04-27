@@ -6,7 +6,7 @@ import { LandingServicesMapped } from "./LandingServices/LandingServicesMapped";
 const LandingServices = () => {
   return (
     <div className="mt-14">
-      <Heading title="خدمات ما" />
+      <Heading>خدمات ما</Heading>
       <div>
         <LandingServicesMapped />
       </div>

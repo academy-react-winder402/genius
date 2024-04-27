@@ -18,15 +18,19 @@ import calenderDarkIcon from "../../../assets/images/Landing/LandingCourses/cale
 
 interface CourseItemProps {
   course: CourseItemsInterface;
+  isCourseDetail?: boolean;
 }
 
-const CourseItem = ({ course }: CourseItemProps) => {
+const CourseItem = ({ course, isCourseDetail }: CourseItemProps) => {
   const darkMode = useDarkModeSelector();
   const formattedPrice = priceWithCommas(course.price);
 
   return (
     <div className="courseItem w-full lg:w-[296px] mt-0 dark:bg-gray-900">
-      <Link to={`/courses/${course.id}`} className={""}>
+      <Link
+        to={`/courses/${course.id}`}
+        className={isCourseDetail === true ? "mt-8" : ""}
+      >
         <img src={course.image} className="courseItemImage" />
       </Link>
       <h4 className="font-[700] text-text1 dark:text-darkText mt-4">

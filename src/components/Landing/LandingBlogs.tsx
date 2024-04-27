@@ -7,7 +7,7 @@ import { LandingBlogItemsMapped } from "./Blogs/LandingBlogItemsMapped";
 const LandingBlogs = () => {
   return (
     <div className="mt-14 lg:w-[1240px] mx-auto">
-      <Heading title="اخبار و مقالات" />
+      <Heading>اخبار و مقالات</Heading>
       <div className="lg:w-[1300px] mx-auto">
         <LandingBlogItemsMapped />
       </div>
