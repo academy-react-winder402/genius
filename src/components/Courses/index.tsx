@@ -1,7 +1,6 @@
-import { CoursesHeroSection } from "../Courses/CoursesHeroSection";
-
 import { useState } from "react";
 
+import { CoursesHeroSection } from "../Courses/CoursesHeroSection";
 import { courseItems } from "./CourseItems/courseItems";
 import { PaginatedCourses } from "./CourseItems/PaginatedCourses";
 import { Filters } from "./CoursesFilter/Filters";

@@ -27,6 +27,7 @@ const CourseDetailComments = () => {
           ))}
         </>
       ))}
+      <span className="font-[500] text-[14px] text-center text-primaryColor cursor-pointer mb-2">مشاهده 12 نظر دیگر</span>
     </div>
   );
 };
