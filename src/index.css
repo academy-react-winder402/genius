@@ -166,6 +166,9 @@
   .landingCategorySectionTitleAfter {
     @apply lg:w-[40%] bg-landingCategoriesTitleAfter dark:bg-landingCategoriesTitleDarkAfter bg-right-top bg-no-repeat lg:pr-[40px] lg:pt-[60px] px-5 lg:px-0;
   }
+  .showMoreComments {
+    @apply font-[500] text-[14px] text-center text-primaryColor cursor-pointer mb-2;
+  }
   /* Auth Pages */
   .authInput {
     @apply w-[356px] h-[47px] rounded-md border-[1px] border-authInputBorder shadow-authInputShadow px-4 my-2 outline-none dark:bg-darkBackground dark:border-darkBorder;
