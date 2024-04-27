@@ -1,26 +1,32 @@
-import { CourseDetailsCommentItem } from "./CourseDetailsCommentItem";
+import { courseDetailsComments } from "./course-details-comments";
 
-import avatarOne from "../../../../assets/images/CourseDetails/Comments/Avatars/avatar-1.png";
-import avatarTwo from "../../../../assets/images/CourseDetails/Comments/Avatars/avatar-2.png";
+import { CourseDetailsCommentItem } from "./CourseDetailsCommentItem";
 
 const CourseDetailComments = () => {
   return (
     <div className="mt-7 flex flex-col gap-7">
-      <CourseDetailsCommentItem
-        avatarImage={avatarOne}
-        createdAt="2 روز پیش"
-        name="محمد زمانی"
-        message="لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
-        از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون."
-      />
-      <CourseDetailsCommentItem
-        avatarImage={avatarTwo}
-        createdAt="دیروز"
-        name="محمد زمانی"
-        message="لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
-        از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون."
-        isChildren
-      />
+      {courseDetailsComments.map((comment) => (
+        <>
+          <CourseDetailsCommentItem
+            key={comment.id}
+            avatarImage={comment.image}
+            createdAt={comment.createdAt}
+            name={comment.title}
+            message={comment.message}
+            isChildren={comment.isChildren}
+          />
+          {comment.children?.map((childMessage) => (
+            <CourseDetailsCommentItem
+              key={childMessage.id}
+              avatarImage={childMessage.image}
+              createdAt={childMessage.createdAt}
+              name={childMessage.title}
+              message={childMessage.message}
+              isChildren={childMessage.isChildren}
+            />
+          ))}
+        </>
+      ))}
     </div>
   );
 };
