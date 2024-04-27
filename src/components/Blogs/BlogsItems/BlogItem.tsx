@@ -14,9 +14,9 @@ const BlogItem = ({ blog }: BlogItemProps) => {
     <div className="w-[400px]">
       <Link to={`/blogs/${blog.id}`}>
         <img src={blog.image} />
-        <h4 className="font-[700] text-[20px] text-text1 mt-5">{blog.title}</h4>
+        <h4 className="font-[700] text-[20px] text-text1 dark:text-darkText mt-5">{blog.title}</h4>
       </Link>
-      <p className="w-[405px] font-[500] text-[14px] text-text2 mt-2">
+      <p className="w-[405px] font-[500] text-[14px] text-text2 dark:text-darkText mt-2">
         {blog.description}
       </p>
       <div className="flex gap-3 items-center mt-3">
