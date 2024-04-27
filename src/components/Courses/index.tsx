@@ -1,10 +1,11 @@
+import { CoursesHeroSection } from "../Courses/CoursesHeroSection";
+
 import { useState } from "react";
 
 import { courseItems } from "./CourseItems/courseItems";
 import { PaginatedCourses } from "./CourseItems/PaginatedCourses";
 import { Filters } from "./CoursesFilter/Filters";
 import { FilterTitleTrash } from "./CoursesFilter/FilterTitleTrash";
-import { CoursesHeroSection } from "./CoursesHeroSection";
 import { CoursesTopSection } from "./CoursesTopSection";
 
 const Courses = () => {
