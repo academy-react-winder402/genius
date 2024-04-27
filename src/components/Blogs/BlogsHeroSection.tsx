@@ -6,7 +6,7 @@ import heroSectionGerd from "../../assets/images/blogs/Ellipse.svg";
 
 const BlogsHeroSection = () => {
   return (
-    <div className="flex flex-col-reverse lg:flex-row justify-between items-center lg:w-[1120px] mx-auto mt-5">
+    <div className="flex flex-col-reverse lg:flex-row justify-center items-center lg:w-[1120px] mx-auto mt-5">
       <div className="relative">
         <img
           src={heroSectionDots}

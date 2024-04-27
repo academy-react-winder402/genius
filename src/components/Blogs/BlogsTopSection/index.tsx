@@ -14,7 +14,7 @@ const BlogsTopSection = () => {
 
   return (
     <>
-      <div className="flex flex-wrap-reverse items-center gap-4 mt-4 lg:mt-0">
+      <div className="flex flex-wrap-reverse justify-center items-center gap-4 mt-4 lg:mt-0">
         <div className="w-[65%]">
           <SearchBox placeholder="چی میخوای یاد بگیری ؟" />
         </div>

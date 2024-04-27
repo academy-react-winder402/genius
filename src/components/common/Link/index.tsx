@@ -12,7 +12,7 @@ interface LinkProps {
 const Link = ({ children, className, to, ...rest }: LinkProps) => {
   return (
     <ReactRouterLink
-      to={to}
+      to={to!}
       className={className}
       onClick={handleScroll}
       {...rest}
