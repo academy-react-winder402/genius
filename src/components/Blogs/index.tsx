@@ -1,10 +1,9 @@
-import { BlogsHeroSection } from "./BlogsHeroSection";
-
 import { useState } from "react";
 
-// import { courseItems } from "../Courses/CourseItems/courseItems";
-import { blogsItems } from "./BlogsItems/blogsItems.js";
-import { PaginatedBlogs } from "./BlogsItems/PaginatedBlogs.jsx";
+import { blogItems } from "./BlogsItems/blogItems";
+
+import { BlogsHeroSection } from "./BlogsHeroSection";
+import { PaginatedBlogs } from "./BlogsItems/PaginatedBlogs";
 import { BlogsTopSection } from "./BlogsTopSection";
 
 const Blogs = () => {
@@ -15,12 +14,9 @@ const Blogs = () => {
       <BlogsHeroSection />
       <div className="flex flex-col lg:flex-row justify-center gap-x-5 w-[90%] mx-auto mt-32 px-5 lg:px-0">
         <div className="lg:w-[957px]">
-          <BlogsTopSection
-            coursesStyle={coursesStyle}
-            setCoursesStyle={setCoursesStyle}
-          />
+          <BlogsTopSection />
           <PaginatedBlogs
-            courses={blogsItems}
+            courses={blogItems}
             itemsPerPage={9}
             coursesStyle={coursesStyle}
           />

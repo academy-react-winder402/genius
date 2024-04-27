@@ -9,6 +9,7 @@ import { LandingPage } from "../../screens/Landing";
 import { LoginPage } from "../../screens/Login";
 import { NotFoundPage } from "../../screens/NotFound";
 import { RegisterPage } from "../../screens/Register";
+import { BlogsPage } from "../../screens/Blogs";
 
 export const router = createBrowserRouter([
   {
@@ -44,6 +45,10 @@ export const router = createBrowserRouter([
       {
         path: "/forgot-password",
         element: <ForgotPasswordPage />,
+      },
+      {
+        path: "/blogs",
+        element: <BlogsPage />,
       },
       {
         path: "*",

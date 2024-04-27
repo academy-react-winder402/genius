@@ -1,22 +1,22 @@
-import PropTypes from "prop-types";
+import { useState } from "react";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 import Tabs from "@mui/material/Tabs";
-import * as React from "react";
 
-import { Search } from "../Search/index";
+import { SearchBox } from "../../common/SearchBox";
 
 const BlogsTopSection = () => {
-  const [value, setValue] = React.useState("one");
+  const [value, setValue] = useState("one");
 
-  const handleChange = (event, newValue) => {
+  const handleChange = (event: any, newValue: string) => {
     setValue(newValue);
   };
+
   return (
     <>
       <div className="flex flex-wrap-reverse items-center gap-4 mt-4 lg:mt-0">
         <div className="w-[65%]">
-          <Search placeholder="چی میخوای یاد بگیری ؟" />
+          <SearchBox placeholder="چی میخوای یاد بگیری ؟" />
         </div>
         <div className="w-[94% lg:w-[20%] absolute left-96 top-[600px lg:top-[90%]]">
           <div className=" w-[391px] bg-white rounded-2xl">
@@ -33,11 +33,6 @@ const BlogsTopSection = () => {
       </div>
     </>
   );
-};
-
-BlogsTopSection.propTypes = {
-  coursesStyle: PropTypes.any,
-  setCoursesStyle: PropTypes.any,
 };
 
 export { BlogsTopSection };
