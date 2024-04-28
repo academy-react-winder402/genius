@@ -1,7 +1,7 @@
 import { useDarkModeSelector } from "../../redux/darkMode";
 
-import dotsIcon from "../../assets/images/Blogs/Dots.svg";
-import dotIcon from "../../assets/images/Blogs/Dot.svg";
+import dotIcon from "../../assets/images/Blogs/dot.svg";
+import dotDarkIcon from "../../assets/images/Blogs/dot.svg";
 import heroSectionLeftImage from "../../assets/images/Blogs/blogs-hero-section-left-image.svg";
 
 const BlogsHeroSection = () => {
@@ -16,7 +16,7 @@ const BlogsHeroSection = () => {
           <img src={dotIcon} className="absolute top-2 lg:-top-14 left-44" />
         )}
         <div className="relative pr-20 lg:pr-14 mt-10">
-          <h1 className="font-[800] text-[40px] text-text1 dark:text-darkText mt-5 w-[85%]">
+          <h1 className="blogsTitle">
             اخبار و مقالات نابغه
           </h1>
           <p className="font-[500] text-text2 dark:text-darkText text-justify mt-3 w-[72%]">

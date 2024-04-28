@@ -214,13 +214,16 @@
   }
   /* Blogs Page */
   .blogsHeroSectionWrapper {
-    @apply relative flex flex-col-reverse lg:flex-row justify-between items-center lg:w-[1120px] mx-auto mt-5 lg:bg-coursesLandingPageDots dark:lg:bg-coursesLandingPageDotsDark lg:bg-no-repeat lg:bg-[bottom_left_10rem] after:hidden lg:after:block after:absolute after:top-0 after:right-0 after:w-[320px] after:h-[320px] after:bg-blogsHeroSectionTitleDescriptionBeforeBackground after:bg-no-repeat after:z-0 before:hidden lg:before:block before:absolute before:top-64 before:right-72 before:w-[120px] before:h-[120px] before:bg-blogsHeroSectionTitleDescriptionCircleBackground before:bg-no-repeat;
+    @apply relative flex flex-col-reverse lg:flex-row justify-between items-center lg:w-[1120px] mx-auto mt-5 lg:bg-coursesLandingPageDots dark:lg:bg-coursesLandingPageDotsDark lg:bg-no-repeat lg:bg-[bottom_left_10rem] after:hidden lg:after:block after:absolute after:top-0 after:right-0 after:w-[320px] after:h-[320px] after:bg-blogsHeroSectionTitleDescriptionBeforeBackground dark:after:bg-blogsHeroSectionTitleDescriptionBeforeDarkBackground after:bg-no-repeat after:z-0 before:hidden lg:before:block before:absolute before:top-64 before:right-72 before:w-[120px] before:h-[120px] before:bg-blogsHeroSectionTitleDescriptionCircleBackground before:bg-no-repeat;
   }
   .blogsSortTab {
     @apply !px-4 !h-[20px] !rounded-[12px];
   }
   .blogsSortActiveTab {
     @apply !bg-primary !text-white flex justify-center items-center shadow-blogsSortActiveTabShadow;
+  }
+  .blogsTitle {
+    @apply relative font-[800] text-[40px] text-text1 dark:text-darkText mt-5 w-[85%] after:absolute after:-top-8 after:-right-8 after:bg-blogsHeroSectionTitleDescriptionBackground dark:after:hidden after:w-[112px] after:h-[112px] after:-z-10;
   }
   /* Courses */
   .coursesHeroSection {

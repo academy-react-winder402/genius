@@ -47,8 +47,12 @@ export default {
           "url('/src/assets/images/Courses/Icons/sort-dark.svg')",
         blogsHeroSectionTitleDescriptionBeforeBackground:
           "url('/src/assets/images/Blogs/blogs-hero-section-right-image.svg')",
+        blogsHeroSectionTitleDescriptionBeforeDarkBackground:
+          "url('/src/assets/images/Blogs/blogs-hero-section-right-image-dark.svg')",
         blogsHeroSectionTitleDescriptionCircleBackground:
           "url('/src/assets/images/Blogs/blogs-hero-section-circle.svg')",
+        blogsHeroSectionTitleDescriptionBackground:
+          "url('/src/assets/images/Blogs/dots.svg')",
       },
       colors: {
         primaryColor: "#2196F3",
