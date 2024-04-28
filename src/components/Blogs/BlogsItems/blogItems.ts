@@ -3,7 +3,7 @@ import { BlogItemInterface } from "../../../types/blog-items";
 export const blogItems: BlogItemInterface[] = [
   {
     id: 1,
-    image: "/src/assets/images/blogs/items/p1.png",
+    image: "/src/assets/images/Blogs/items/p1.png",
     title: "چگونه مطالعه موثر را برای شما آسانتر کنیم.",
     description:
       "لورم  ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ  و با استفاده از  طراحان گرافیک است   چاپگرها و متون بلکه روزنامه و مجله در ستون و  سطرآنچنان که لازم است   و برای شرایط فعلی تکنولوژی مورد.",
@@ -13,7 +13,7 @@ export const blogItems: BlogItemInterface[] = [
   },
   {
     id: 2,
-    image: "/src/assets/images/blogs/items/p2.png",
+    image: "/src/assets/images/Blogs/items/p2.png",
     title: "چگونه مطالعه موثر را برای شما آسانتر کنیم.",
     description:
       "لورم  ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ  و با استفاده از  طراحان گرافیک است   چاپگرها و متون بلکه روزنامه و مجله در ستون و  سطرآنچنان که لازم است   و برای شرایط فعلی تکنولوژی مورد.",
@@ -23,7 +23,7 @@ export const blogItems: BlogItemInterface[] = [
   },
   {
     id: 3,
-    image: "/src/assets/images/blogs/items/p3.png",
+    image: "/src/assets/images/Blogs/items/p3.png",
     title: "چگونه مطالعه موثر را برای شما آسانتر کنیم.",
     description:
       "لورم  ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ  و با استفاده از  طراحان گرافیک است   چاپگرها و متون بلکه روزنامه و مجله در ستون و  سطرآنچنان که لازم است   و برای شرایط فعلی تکنولوژی مورد.",
@@ -33,7 +33,7 @@ export const blogItems: BlogItemInterface[] = [
   },
   {
     id: 4,
-    image: "/src/assets/images/blogs/items/p4.png",
+    image: "/src/assets/images/Blogs/items/p4.png",
     title: "چگونه مطالعه موثر را برای شما آسانتر کنیم.",
     description:
       "لورم  ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ  و با استفاده از  طراحان گرافیک است   چاپگرها و متون بلکه روزنامه و مجله در ستون و  سطرآنچنان که لازم است   و برای شرایط فعلی تکنولوژی مورد.",
@@ -43,7 +43,7 @@ export const blogItems: BlogItemInterface[] = [
   },
   {
     id: 5,
-    image: "/src/assets/images/blogs/items/p5.png",
+    image: "/src/assets/images/Blogs/items/p5.png",
     title: "چگونه مطالعه موثر را برای شما آسانتر کنیم.",
     description:
       "لورم  ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ  و با استفاده از  طراحان گرافیک است   چاپگرها و متون بلکه روزنامه و مجله در ستون و  سطرآنچنان که لازم است   و برای شرایط فعلی تکنولوژی مورد.",
@@ -53,7 +53,7 @@ export const blogItems: BlogItemInterface[] = [
   },
   {
     id: 6,
-    image: "/src/assets/images/blogs/items/p6.png",
+    image: "/src/assets/images/Blogs/items/p6.png",
     title: "چگونه مطالعه موثر را برای شما آسانتر کنیم.",
     description:
       "لورم  ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ  و با استفاده از  طراحان گرافیک است   چاپگرها و متون بلکه روزنامه و مجله در ستون و  سطرآنچنان که لازم است   و برای شرایط فعلی تکنولوژی مورد.",
@@ -63,7 +63,7 @@ export const blogItems: BlogItemInterface[] = [
   },
   {
     id: 7,
-    image: "/src/assets/images/blogs/items/p7.png",
+    image: "/src/assets/images/Blogs/items/p7.png",
     title: "چگونه مطالعه موثر را برای شما آسانتر کنیم.",
     description:
       "لورم  ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ  و با استفاده از  طراحان گرافیک است   چاپگرها و متون بلکه روزنامه و مجله در ستون و  سطرآنچنان که لازم است   و برای شرایط فعلی تکنولوژی مورد.",
@@ -73,7 +73,7 @@ export const blogItems: BlogItemInterface[] = [
   },
   {
     id: 8,
-    image: "/src/assets/images/blogs/items/p8.png",
+    image: "/src/assets/images/Blogs/items/p8.png",
     title: "چگونه مطالعه موثر را برای شما آسانتر کنیم.",
     description:
       "لورم  ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ  و با استفاده از  طراحان گرافیک است   چاپگرها و متون بلکه روزنامه و مجله در ستون و  سطرآنچنان که لازم است   و برای شرایط فعلی تکنولوژی مورد.",
@@ -83,7 +83,7 @@ export const blogItems: BlogItemInterface[] = [
   },
   {
     id: 9,
-    image: "/src/assets/images/blogs/items/p9.png",
+    image: "/src/assets/images/Blogs/items/p9.png",
     title: "چگونه مطالعه موثر را برای شما آسانتر کنیم.",
     description:
       "لورم  ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ  و با استفاده از  طراحان گرافیک است   چاپگرها و متون بلکه روزنامه و مجله در ستون و  سطرآنچنان که لازم است   و برای شرایط فعلی تکنولوژی مورد.",

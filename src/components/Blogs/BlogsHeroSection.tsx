@@ -1,10 +1,10 @@
 import { useDarkModeSelector } from "../../redux/darkMode";
 
-import dotsIcon from "../../assets/images/blogs/Dots.svg";
-import dotIcon from "../../assets/images/blogs/Dot.svg";
-import heroSectionLeftImage from "../../assets/images/blogs/blogs-hero-section-left-image.svg";
-import rightImage from "../../assets/images/blogs/blogs-hero-section-right-image.svg";
-import circleIcon from "../../assets/images/blogs/blogs-hero-section-circle.svg";
+import dotsIcon from "../../assets/images/Blogs/Dots.svg";
+import dotIcon from "../../assets/images/Blogs/Dot.svg";
+import heroSectionLeftImage from "../../assets/images/Blogs/blogs-hero-section-left-image.svg";
+import rightImage from "../../assets/images/Blogs/blogs-hero-section-right-image.svg";
+import circleIcon from "../../assets/images/Blogs/blogs-hero-section-circle.svg";
 
 const BlogsHeroSection = () => {
   const darkMode = useDarkModeSelector();

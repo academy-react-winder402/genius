@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 
-import clockIcon from "../../../assets/images/blogs/eye.svg";
-import calenderIcon from "../../../assets/images/blogs/calendar.svg";
+import clockIcon from "../../../assets/images/Blogs/eye.svg";
+import calenderIcon from "../../../assets/images/Blogs/calendar.svg";
 
 const BlogItem = ({ blog }) => {
   return (
