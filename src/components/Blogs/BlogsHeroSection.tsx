@@ -3,22 +3,19 @@ import { useDarkModeSelector } from "../../redux/darkMode";
 import dotsIcon from "../../assets/images/Blogs/Dots.svg";
 import dotIcon from "../../assets/images/Blogs/Dot.svg";
 import heroSectionLeftImage from "../../assets/images/Blogs/blogs-hero-section-left-image.svg";
-import rightImage from "../../assets/images/Blogs/blogs-hero-section-right-image.svg";
-import circleIcon from "../../assets/images/Blogs/blogs-hero-section-circle.svg";
 
 const BlogsHeroSection = () => {
   const darkMode = useDarkModeSelector();
 
   return (
-    <div className="flex flex-col-reverse lg:flex-row justify-between items-center lg:w-[1120px] mx-auto mt-5 lg:bg-coursesLandingPageDots dark:lg:bg-coursesLandingPageDotsDark lg:bg-no-repeat lg:bg-[right_bottom_0rem]">
-      <div className="relative">
+    <div className="blogsHeroSectionWrapper">
+      <div className="relative z-50">
         {darkMode ? (
-          <img src={dotIcon} className="absolute top-2 lg:-top-30 left-16" />
+          <img src={dotIcon} className="absolute top-2 lg:-top-3 left-32" />
         ) : (
-          <img src={dotIcon} className="absolute top-2 lg:-top-10 left-16" />
+          <img src={dotIcon} className="absolute top-2 lg:-top-14 left-44" />
         )}
-
-        <div className="relative pr-9">
+        <div className="relative pr-20 lg:pr-14 mt-10">
           <h1 className="font-[800] text-[40px] text-text1 dark:text-darkText mt-5 w-[85%]">
             اخبار و مقالات نابغه
           </h1>
