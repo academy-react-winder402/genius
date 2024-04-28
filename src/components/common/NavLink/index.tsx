@@ -1,20 +1,20 @@
-import { Link as ReactRouterLink } from "react-router-dom";
+import { NavLink as ReactRouterNavLink } from "react-router-dom";
 
 import { LinkProps } from "../../../types/link-nav-link-props";
 
 import { handleScroll } from "../../../core/utils/scroll-helper.utils";
 
-const Link = ({ children, to, className, ...rest }: LinkProps) => {
+const NavLink = ({ children, to, className, ...rest }: LinkProps) => {
   return (
-    <ReactRouterLink
+    <ReactRouterNavLink
       to={to!}
       className={className}
       onClick={handleScroll}
       {...rest}
     >
       {children}
-    </ReactRouterLink>
+    </ReactRouterNavLink>
   );
 };
 
-export { Link };
+export { NavLink };
