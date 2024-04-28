@@ -10,15 +10,13 @@ const BlogsHeroSection = () => {
     <div className="blogsHeroSectionWrapper">
       <div className="relative z-50">
         {darkMode ? (
-          <img src={dotIcon} className="absolute top-2 lg:-top-3 left-32" />
+          <img src={dotIcon} className="blogsHeroSectionDot" />
         ) : (
-          <img src={dotIcon} className="absolute top-2 lg:-top-14 left-44" />
+          <img src={dotIcon} className="blogsHeroSectionDot" />
         )}
         <div className="relative pr-20 lg:pr-14 mt-10">
-          <h1 className="blogsTitle">
-            اخبار و مقالات نابغه
-          </h1>
-          <p className="font-[500] text-text2 dark:text-darkText text-justify mt-3 w-[72%]">
+          <h1 className="blogsTitle">اخبار و مقالات نابغه</h1>
+          <p className="blogsDescription">
             آموزش برنامه نویسی یکی از دوره‌های محبوب در حوزه فناوری اطلاعات است.
             برنامه نویسی مهارتی است که به افراد امکان می‌دهد تا نرم‌افزارهای
             کامپیوتری را ایجاد و توسعه دهند.{" "}

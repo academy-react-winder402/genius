@@ -14,12 +14,12 @@ const BlogsTopSection = () => {
 
   return (
     <>
-      <div className="flex flex-col lg:flex-row justify-center items-center gap-4 mt-4 lg:mt-0">
+      <div className="blogsSearchSortWrapper">
         <div className="w-[95%] lg:w-auto">
           <SearchBox placeholder="دنبال چی میگردی" isBlogs={true} />
         </div>
-        <div>
-          <div className="lg:w-[450px] bg-white dark:bg-gray-900 rounded-2xl px-4 py-1">
+        <div className="w-[92%] lg:w-auto">
+          <div className="blogsSortTabsBoxWrapper">
             <Box>
               <Tabs
                 value={value}

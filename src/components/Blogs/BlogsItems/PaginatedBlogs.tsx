@@ -23,7 +23,7 @@ const PaginatedBlogs = ({ blogs, itemsPerPage }: PaginatedBlogsProps) => {
   };
   return (
     <div className="flex flex-col gap-4 mt-5">
-      <div className="flex flex-wrap justify-center gap-x-6 gap-y-10 lg:mt-3">
+      <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-10 lg:mt-3">
         {currentItems &&
           currentItems.map((blog) => <BlogItem key={blog.id} blog={blog} />)}
       </div>
