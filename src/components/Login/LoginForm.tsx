@@ -48,7 +48,7 @@ const LoginForm = () => {
                 name="password"
                 type={isPassword ? "password" : "text"}
                 placeholder="رمز عبور"
-                className="authInput"
+                className="authInput !pl-10"
               />
               <div className="absolute top-11 left-2 cursor-pointer">
                 {isPassword ? (
