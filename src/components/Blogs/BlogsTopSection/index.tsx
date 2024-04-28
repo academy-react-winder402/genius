@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 import Tabs from "@mui/material/Tabs";
@@ -15,12 +14,12 @@ const BlogsTopSection = () => {
 
   return (
     <>
-      <div className="flex justify-center items-center gap-4 mt-4 lg:mt-0">
-        <div>
+      <div className="flex flex-col lg:flex-row justify-center items-center gap-4 mt-4 lg:mt-0">
+        <div className="w-[95%] lg:w-auto">
           <SearchBox placeholder="دنبال چی میگردی" isBlogs={true} />
         </div>
         <div>
-          <div className="w-[450px] bg-white dark:bg-gray-900 rounded-2xl px-4 py-1">
+          <div className="lg:w-[450px] bg-white dark:bg-gray-900 rounded-2xl px-4 py-1">
             <Box>
               <Tabs
                 value={value}
