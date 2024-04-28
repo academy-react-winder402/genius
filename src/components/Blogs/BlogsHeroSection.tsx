@@ -11,9 +11,9 @@ const BlogsHeroSection = () => {
     <div className="blogsHeroSectionWrapper">
       <div className="relative z-50">
         {darkMode ? (
-          <img src={dotIcon} className="absolute top-2 lg:-top-3 left-32" />
+          <img src={dotDarkIcon} className="blogsHeroSectionDotsIcon" />
         ) : (
-          <img src={dotIcon} className="absolute top-2 lg:-top-14 left-44" />
+          <img src={dotIcon} className="blogsHeroSectionDotsIcon" />
         )}
         <div className="relative pr-20 lg:pr-14 mt-10">
           <h1 className="blogsTitle">
