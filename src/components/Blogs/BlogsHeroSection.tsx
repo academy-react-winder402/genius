@@ -15,7 +15,7 @@ const BlogsHeroSection = () => {
           <img src={dotIcon} className="absolute top-2 lg:-top-14 left-44" />
         )}
         <div className="relative pr-20 lg:pr-14 mt-10">
-          <h1 className="">
+          <h1 className="blogsTitle">
             اخبار و مقالات نابغه
           </h1>
           <p className="font-[500] text-text2 dark:text-darkText text-justify mt-3 w-[72%]">

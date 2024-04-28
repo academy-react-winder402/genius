@@ -113,7 +113,6 @@
   .courseItemStyleTwoDescription {
     @apply text-justify font-[500] text-[14px] text-text2 dark:text-darkText mt-1 w-full lg:w-[97%];
   }
-
   /* Course Details */
   .courseDetailsBox {
     @apply w-[95%] lg:w-[1100px] flex flex-col lg:flex-row gap-5 mx-auto;
