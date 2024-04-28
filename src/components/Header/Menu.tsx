@@ -9,22 +9,24 @@ import activeBeforeMenuIcon from "../../assets/images/Header/menu-item-active-be
 const Menu = () => {
   const { pathname } = useLocation();
 
+  console.log("pathname", pathname);
+
   return (
     <>
       <ul className="hidden lg:flex gap-[48px]">
-        {menuItems.map((item) => {
-          return (
-            <li key={item.label}>
-              <NavLink
-                to={item.href}
-                className={({ isActive }) => (isActive ? "activeMenuItem" : "")}
-              >
-                <span>{item.label}</span>
-                {item.href === pathname && <img src={activeBeforeMenuIcon} />}
-              </NavLink>
-            </li>
-          );
-        })}
+        {menuItems.map((item) => (
+          <li key={item.label}>
+            <NavLink
+              to={item.href}
+              className={({ isActive }) => (isActive ? "activeMenuItem" : "")}
+            >
+              <span>{item.label}</span>
+              {pathname.startsWith(item.href) && (
+                <img src={activeBeforeMenuIcon} />
+              )}
+            </NavLink>
+          </li>
+        ))}
       </ul>
       <HeaderMobileMenu />
     </>
