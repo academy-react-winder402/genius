@@ -20,7 +20,7 @@ const BlogsTopSection = () => {
           <SearchBox placeholder="دنبال چی میگردی" isBlogs={true} />
         </div>
         <div>
-          <div className="w-[450px] bg-white rounded-2xl px-4 py-1">
+          <div className="w-[450px] bg-white dark:bg-gray-900 rounded-2xl px-4 py-1">
             <Box>
               <Tabs
                 value={value}
