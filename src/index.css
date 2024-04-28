@@ -26,6 +26,9 @@
   .basketTotalCoursesAdded {
     @apply absolute -top-[6px] right-0 bg-primary text-white text-[8px] rounded-full p-1 px-[7px];
   }
+  .activeMenuItem {
+    @apply text-primaryColor flex flex-col justify-center items-center;
+  }
   .serviceBox {
     @apply flex flex-col justify-center items-center rounded-[24px] border-[1px] border-solid border-[#ECEFF1] h-[280px] px-6 transition-shadow hover:bg-white dark:hover:bg-gray-900 lg:w-[390px] hover:shadow-primaryShadow;
   }

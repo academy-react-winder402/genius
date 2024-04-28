@@ -2,7 +2,7 @@ import { blogItems } from "./BlogsItems/blogItems";
 
 import { BlogsHeroSection } from "./BlogsHeroSection";
 import { PaginatedBlogs } from "./BlogsItems/PaginatedBlogs";
-import { BlogsTopSection } from "./BlogsHeroSection";
+import { BlogsTopSection } from "./BlogsTopSection";
 
 const Blogs = () => {
   return (
