@@ -32,7 +32,7 @@ export const router = createBrowserRouter([
         element: <CoursesPage />,
       },
       {
-        path: "/courses/:id",
+        path: "/courses/:courseId",
         element: <CourseDetailsPage />,
       },
       {
@@ -40,7 +40,7 @@ export const router = createBrowserRouter([
         element: <BlogsPage />,
       },
       {
-        path: "/blogs/:id",
+        path: "/blogs/:blogId",
         element: <BlogDetailsPage />,
       },
       {

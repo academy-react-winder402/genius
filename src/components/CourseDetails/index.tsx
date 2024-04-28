@@ -24,10 +24,10 @@ import courseStatusIcon from "../../assets/images/CourseDetails/Information/moni
 import studentsCountIcon from "../../assets/images/CourseDetails/Information/profile-user.svg";
 
 const CourseDetails = () => {
-  const { id } = useParams();
+  const { courseId } = useParams();
 
   const course: CourseItemsInterface = courseItems.find(
-    (course) => course.id == id
+    (course) => course.id == courseId
   )!;
 
   const darkMode = useDarkModeSelector();

@@ -3,6 +3,7 @@ export interface BlogItemInterface {
   image: string;
   title: string;
   description: string;
+  longDescription: string;
   hour: number;
   allSeas: number;
   createdAt: string;
