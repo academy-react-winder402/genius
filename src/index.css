@@ -263,6 +263,18 @@
   .blogDetailsWriterName {
     @apply font-[700] text-text1 dark:text-darkText;
   }
+  .blogDetailsMainSectionTitle {
+    @apply font-[700] text-[24px] text-text1 dark:text-darkText mb-3;
+  }
+  .blogDetailsMainSectionDescription {
+    @apply font-[400] text-text2 dark:text-darkText leading-[28px];
+  }
+  .blogDetailsMainSectionLiSpan {
+    @apply font-[500] text-text1 dark:text-darkText;
+  }
+  .blogDetailsMainSectionListItem {
+    @apply mr-4 pr-2 list-image-[url('/src/assets/images/BlogDetails/Icons/list-item-dot.svg')];
+  }
 }
 
 /* Swiper */

@@ -20,6 +20,7 @@ export default {
         likeDislikeIcon: "#ECEFF1",
         courseDetailsAccordion: "#ECEFF1",
         darkBackground: "#1A1A2E",
+        blogDetailsShareBox: "#ECEFF1",
       },
       backgroundImage: {
         headerBg: "url('/src/assets/images/Header/header-bg.png')",
