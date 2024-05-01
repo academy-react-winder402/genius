@@ -12,6 +12,8 @@ export const blogItems: BlogItemInterface[] = [
     hour: 22,
     allSeas: 22,
     createdAt: "1402/7/2",
+    writerImage: "/src/assets/images/BlogDetails/Writers/1.jpg",
+    writerName: "بهاره یزدانی",
   },
   {
     id: 2,
@@ -24,6 +26,8 @@ export const blogItems: BlogItemInterface[] = [
     hour: 22,
     allSeas: 22,
     createdAt: "1402/7/2",
+    writerImage: "/src/assets/images/BlogDetails/Writers/1.jpg",
+    writerName: "بهاره یزدانی",
   },
   {
     id: 3,
@@ -36,6 +40,8 @@ export const blogItems: BlogItemInterface[] = [
     hour: 22,
     allSeas: 22,
     createdAt: "1402/7/2",
+    writerImage: "/src/assets/images/BlogDetails/Writers/1.jpg",
+    writerName: "بهاره یزدانی",
   },
   {
     id: 4,
@@ -48,6 +54,8 @@ export const blogItems: BlogItemInterface[] = [
     hour: 22,
     allSeas: 22,
     createdAt: "1402/7/2",
+    writerImage: "/src/assets/images/BlogDetails/Writers/1.jpg",
+    writerName: "بهاره یزدانی",
   },
   {
     id: 5,
@@ -60,6 +68,8 @@ export const blogItems: BlogItemInterface[] = [
     hour: 22,
     allSeas: 22,
     createdAt: "1402/7/2",
+    writerImage: "/src/assets/images/BlogDetails/Writers/1.jpg",
+    writerName: "بهاره یزدانی",
   },
   {
     id: 6,
@@ -72,6 +82,8 @@ export const blogItems: BlogItemInterface[] = [
     hour: 22,
     allSeas: 22,
     createdAt: "1402/7/2",
+    writerImage: "/src/assets/images/BlogDetails/Writers/1.jpg",
+    writerName: "بهاره یزدانی",
   },
   {
     id: 7,
@@ -84,6 +96,8 @@ export const blogItems: BlogItemInterface[] = [
     hour: 22,
     allSeas: 22,
     createdAt: "1402/7/2",
+    writerImage: "/src/assets/images/BlogDetails/Writers/1.jpg",
+    writerName: "بهاره یزدانی",
   },
   {
     id: 8,
@@ -96,6 +110,8 @@ export const blogItems: BlogItemInterface[] = [
     hour: 22,
     allSeas: 22,
     createdAt: "1402/7/2",
+    writerImage: "/src/assets/images/BlogDetails/Writers/1.jpg",
+    writerName: "بهاره یزدانی",
   },
   {
     id: 9,
@@ -108,5 +124,7 @@ export const blogItems: BlogItemInterface[] = [
     hour: 22,
     allSeas: 22,
     createdAt: "1402/7/2",
+    writerImage: "/src/assets/images/BlogDetails/Writers/1.jpg",
+    writerName: "بهاره یزدانی",
   },
 ];

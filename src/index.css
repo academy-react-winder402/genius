@@ -248,6 +248,21 @@
     @apply flex flex-col justify-center items-center text-text1 dark:text-darkText;
   }
   /* Blog Details */
+  .blogDetailsTitle {
+    @apply font-[700] text-[32px] text-text1 dark:text-darkText;
+  }
+  .blogDetailsDescription {
+    @apply font-[400] text-text2 dark:text-darkText mt-2;
+  }
+  .blogDetailsWriterWrapper {
+    @apply flex gap-3 items-center bg-white dark:bg-gray-900 shadow-primaryShadow w-[186px] h-[64px] rounded-[16px] px-3;
+  }
+  .blogDetailsWriterImage {
+    @apply w-[40px] h-[40px] rounded-[12px];
+  }
+  .blogDetailsWriterName {
+    @apply font-[700] text-text1 dark:text-darkText;
+  }
 }
 
 /* Swiper */

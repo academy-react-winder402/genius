@@ -7,4 +7,6 @@ export interface BlogItemInterface {
   hour: number;
   allSeas: number;
   createdAt: string;
+  writerImage: string;
+  writerName: string;
 }
