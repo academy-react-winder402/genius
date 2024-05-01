@@ -82,7 +82,7 @@ export default {
         filterAccordionBorder: "#ECEFF1",
         courseDetailsInformationBox: "#ECEFF1",
         courseDetailsTabsBorder: "#ECEFF1",
-        courseDetailsCommentsBorder: "#CFD8DC",
+        commentsBorder: "#CFD8DC",
         darkBorder: "#585454",
         authInputBorder: "#CFD8DC",
         authNumberInputBorder: "#CFD8DC",

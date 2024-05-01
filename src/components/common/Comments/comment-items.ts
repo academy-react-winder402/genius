@@ -1,6 +1,6 @@
-import { CourseDetailsCommentsInterface } from "../../../../types/course-details-comments-interface";
+import { CommentItemsInterface } from "../../../types/course-details-comments-interface";
 
-export const courseDetailsComments: CourseDetailsCommentsInterface[] = [
+export const commentItems: CommentItemsInterface[] = [
   {
     id: 1,
     image: "/src/assets/images/CourseDetails/Comments/Avatars/avatar-1.png",

@@ -135,9 +135,6 @@
   .courseDetailsParagraph {
     @apply font-[500] text-text2 dark:text-darkText text-justify;
   }
-  .courseDetailsAddCommentTextarea {
-    @apply border-[1px] border-solid border-courseDetailsCommentsBorder dark:border-darkBorder outline-none w-full min-h-[100px] rounded-[10px] px-4 py-4 font-[400] text-[14px] text-text3 dark:text-darkText dark:bg-gray-900;
-  }
   .courseDetailsSidebar {
     @apply bg-white dark:bg-gray-900 shadow-primaryShadow rounded-[24px] py-2 pb-8 px-2;
   }
@@ -272,9 +269,45 @@
   .blogDetailsMainSectionListItem {
     @apply mr-4 pr-2 list-image-[url('/src/assets/images/BlogDetails/Icons/list-item-dot.svg')];
   }
+  .blogDetailsCommentsSection {
+    @apply bg-white dark:bg-gray-900 shadow-primaryShadow rounded-[24px] mt-12 px-8 py-6;
+  }
+  .blogDetailsCommentsText {
+    @apply font-[700] text-[24px] text-text1 dark:text-darkText text-center mb-6;
+  }
   /* Common */
   .satisfaction {
     @apply mt-5 flex flex-col lg:flex-row gap-5 lg:gap-0 justify-between items-center;
+  }
+  .addCommentTextarea {
+    @apply border-[1px] border-solid border-commentsBorder dark:border-darkBorder outline-none w-full min-h-[100px] rounded-[10px] px-4 py-4 font-[400] text-[14px] text-text3 dark:text-darkText dark:bg-gray-900;
+  }
+  .addCommentDotImage {
+    @apply border-[1px] border-solid border-commentsBorder dark:border-darkBorder outline-none w-full min-h-[100px] rounded-[10px] px-4 py-4 font-[400] text-[14px] text-text3 dark:text-darkText dark:bg-gray-900;
+  }
+  .childrenComment {
+    @apply border-r border-commentsBorder dark:border-darkBorder mr-8 pr-5;
+  }
+  .commentAvatarImage {
+    @apply w-[32px] h-[32px];
+  }
+  .commentName {
+    @apply font-[500] text-text1 dark:text-darkText;
+  }
+  .addCommentSection {
+    @apply flex gap-4 flex-col items-center;
+  }
+  .commentCreatedAtText {
+    @apply font-[400] text-[12px] text-text3 dark:text-darkText;
+  }
+  .commentMessageText {
+    @apply font-[400] text-[14px] text-text2 dark:text-darkText mt-2;
+  }
+  .commentLikeCount {
+    @apply font-[700] text-[14px] text-red;
+  }
+  .commentAnswerText {
+    @apply font-[400] text-[14px] text-text2 dark:text-darkText;
   }
 }
 

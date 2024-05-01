@@ -7,6 +7,8 @@ import { ShareBox } from "./ShareBox";
 
 import videoPlayerImage from "../../assets/images/BlogDetails/video-player.png";
 import { Satisfaction } from "../common/Satisfaction";
+import { AddComment } from "../common/AddComment";
+import { Comments } from "../common/Comments";
 
 const BlogDetails = () => {
   const { blogId } = useParams();
@@ -89,6 +91,11 @@ const BlogDetails = () => {
           </p>
           <ShareBox />
           <Satisfaction nameData="مقاله" />
+          <div className="blogDetailsCommentsSection">
+            <h3 className="blogDetailsCommentsText">نظر کاربران درباره این مقاله</h3>
+            <AddComment />
+            <Comments />
+          </div>
         </div>
       </div>
     </div>

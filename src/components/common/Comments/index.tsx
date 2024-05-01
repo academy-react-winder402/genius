@@ -1,12 +1,13 @@
-import { courseDetailsComments } from "./course-details-comments";
-import { CourseDetailsCommentItem } from "./CourseDetailsCommentItem";
+import { commentItems } from "./comment-items";
 
-const CourseDetailComments = () => {
+import { CommentItem } from "./CommentItem";
+
+const Comments = () => {
   return (
     <div className="mt-7 flex flex-col gap-7">
-      {courseDetailsComments.map((comment) => (
+      {commentItems.map((comment) => (
         <>
-          <CourseDetailsCommentItem
+          <CommentItem
             key={comment.id}
             avatarImage={comment.image}
             createdAt={comment.createdAt}
@@ -15,7 +16,7 @@ const CourseDetailComments = () => {
             isChildren={comment.isChildren}
           />
           {comment.children?.map((childMessage) => (
-            <CourseDetailsCommentItem
+            <CommentItem
               key={childMessage.id}
               avatarImage={childMessage.image}
               createdAt={childMessage.createdAt}
@@ -31,4 +32,4 @@ const CourseDetailComments = () => {
   );
 };
 
-export { CourseDetailComments };
+export { Comments };
