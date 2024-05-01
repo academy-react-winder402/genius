@@ -123,9 +123,6 @@
   .courseDetailImageBoxTitle {
     @apply font-[500] text-text1 dark:text-darkText;
   }
-  .courseDetailsSatisfaction {
-    @apply mt-5 flex flex-col lg:flex-row gap-5 lg:gap-0 justify-between items-center;
-  }
   .likeDislikeButton {
     @apply flex gap-2 justify-center items-center w-[83px] h-[48px] rounded-[50px] bg-likeDislikeIcon dark:bg-gray-900;
   }
@@ -274,6 +271,10 @@
   }
   .blogDetailsMainSectionListItem {
     @apply mr-4 pr-2 list-image-[url('/src/assets/images/BlogDetails/Icons/list-item-dot.svg')];
+  }
+  /* Common */
+  .satisfaction {
+    @apply mt-5 flex flex-col lg:flex-row gap-5 lg:gap-0 justify-between items-center;
   }
 }
 

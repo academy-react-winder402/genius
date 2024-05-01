@@ -10,7 +10,6 @@ import { CourseLikeBox } from "../common/CourseLikeBox";
 import { courseItems } from "../Courses/CourseItems/courseItems";
 import { CourseDetailsInformationBox } from "./CourseDetailsInformation/CourseDetailsInformationBox";
 import { CourseTeacher } from "./CourseDetailsInformation/CourseTeacher";
-import { CourseSatisfaction } from "./CourseSatisfaction";
 import { CourseTabs } from "./CourseTabs";
 import { RelatedCourses } from "./RelatedCourses";
 
@@ -22,6 +21,7 @@ import calenderTickIcon from "../../assets/images/CourseDetails/Information/cale
 import calenderIcon from "../../assets/images/CourseDetails/Information/calendar.svg";
 import courseStatusIcon from "../../assets/images/CourseDetails/Information/monitor-recorder.svg";
 import studentsCountIcon from "../../assets/images/CourseDetails/Information/profile-user.svg";
+import { Satisfaction } from "../common/Satisfaction";
 
 const CourseDetails = () => {
   const { courseId } = useParams();
@@ -69,7 +69,7 @@ const CourseDetails = () => {
               {course.description}
             </p>
           </div>
-          <CourseSatisfaction />
+          <Satisfaction nameData="دوره" />
           <CourseTabs courseLessons={course.courseLessons} />
         </div>
         <div className="lg:w-[405px]">

@@ -1,12 +1,12 @@
-import { Rating } from "../../common/Rating";
+import { Rating as CommonRating } from "../Rating";
 
 import emptyRatingIcon from "../../../assets/images/CourseDetails/Icons/star-empty.svg";
 import ratingIcon from "../../../assets/images/CourseDetails/Icons/star.svg";
 
-const CourseRating = () => {
+const Rating = () => {
   return (
     <div className="flex items-center gap-4">
-      <Rating
+      <CommonRating
         name="امتیاز دهی دوره"
         readOnly={true}
         icon={<img src={ratingIcon} />}
@@ -23,4 +23,4 @@ const CourseRating = () => {
   );
 };
 
-export { CourseRating };
+export { Rating };
