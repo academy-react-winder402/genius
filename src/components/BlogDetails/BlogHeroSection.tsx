@@ -9,7 +9,7 @@ interface BlogHeroSectionProps {
 
 const BlogHeroSection = ({ blog }: BlogHeroSectionProps) => {
   return (
-    <div className="flex gap-5">
+    <div className="flex flex-col lg:flex-row gap-5">
       <img src={blog?.image} />
       <div>
         <h1 className="blogDetailsTitle">{blog?.title}</h1>
