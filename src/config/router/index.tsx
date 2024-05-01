@@ -1,7 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
 
+// Layouts
+import { DashboardLayout } from "../../components/Layout/DashboardLayout";
 import { LandingLayout } from "../../components/Layout/LandingLayout";
 import { MainLayout } from "../../components/Layout/Layout";
+
 import { BlogDetailsPage } from "../../screens/BlogDetails";
 import { BlogsPage } from "../../screens/Blogs";
 import { CourseDetailsPage } from "../../screens/CourseDetails";
@@ -60,5 +63,9 @@ export const router = createBrowserRouter([
         element: <NotFoundPage />,
       },
     ],
+  },
+  {
+    path: "/dashboard",
+    element: <DashboardLayout />,
   },
 ]);

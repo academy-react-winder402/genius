@@ -275,6 +275,37 @@
   .blogDetailsCommentsText {
     @apply font-[700] text-[24px] text-text1 dark:text-darkText text-center mb-6;
   }
+  /* Dashboard */
+  .dashboardWrapper {
+    @apply flex flex-col lg:flex-row h-full min-h-screen;
+  }
+  .dashboardSidebar {
+    @apply bg-primary lg:w-[320px] min-h-screen flex flex-col items-center pt-5;
+  }
+  .dashboardSideBarTopSectionWrapper {
+    @apply w-full px-7 flex justify-between items-center;
+  }
+  .dashboardSidebarUserInfoWrapper {
+    @apply flex items-center gap-3;
+  }
+  .dashboardSidebarAvatar {
+    @apply w-[64px] h-[64px] rounded-[100px];
+  }
+  .dashboardSidebarUsername {
+    @apply font-[700] text-[20px] text-white;
+  }
+  .dashboardSidebarUserPhoneNumber {
+    @apply font-[400] text-[14px] text-white;
+  }
+  .dashboardSideBarNotificationWrapper {
+    @apply relative w-[43px] h-[43px] shadow-dashboardNotificationShadow rounded-full flex justify-center items-center cursor-pointer;
+  }
+  .dashboardSideBarNotificationIcon {
+    @apply w-[20px] h-[20px];
+  }
+  .dashboardSideBarNotificationCount {
+    @apply absolute -top-1 right-0 w-[16px] h-[16px] rounded-full bg-white flex justify-center items-center text-[13px] text-center pt-[4px];
+  }
   /* Common */
   .satisfaction {
     @apply mt-5 flex flex-col lg:flex-row gap-5 lg:gap-0 justify-between items-center;
