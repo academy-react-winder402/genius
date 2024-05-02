@@ -275,7 +275,7 @@
   .blogDetailsCommentsText {
     @apply font-[700] text-[24px] text-text1 dark:text-darkText text-center mb-6;
   }
-  /* Dashboard */
+  /* Dashboard Layout */
   .dashboardWrapper {
     @apply flex flex-col lg:flex-row h-full min-h-screen;
   }
@@ -329,6 +329,16 @@
   }
   .dashboardHomeIcon {
     @apply w-[20px] h-[20px];
+  }
+  /* Dashboard Page */
+  .dashboardInformationBoxLabel {
+    @apply font-[500] text-text2;
+  }
+  .dashboardInformationBoxValue {
+    @apply text-primaryColor font-[700];
+  }
+  .dashboardEditProfileLink {
+    @apply mr-auto font-[500] text-primaryColor border-t border-r border-solid border-dashboardUserInfoEditProfileBorder w-[120px] h-[40px] mt-0 absolute bottom-0 left-0 rounded-tr-[12px] flex justify-center items-center;
   }
   /* Common */
   .satisfaction {
