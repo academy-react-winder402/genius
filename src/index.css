@@ -280,7 +280,7 @@
     @apply flex flex-col lg:flex-row h-full min-h-screen;
   }
   .dashboardSidebar {
-    @apply bg-primary lg:w-[320px] min-h-screen flex flex-col pt-5;
+    @apply bg-primary lg:w-[320px] min-h-screen flex flex-col py-5;
   }
   .dashboardSideBarTopSectionWrapper {
     @apply w-full px-7 flex justify-between items-center;
@@ -298,13 +298,37 @@
     @apply font-[400] text-[14px] text-white;
   }
   .dashboardSideBarNotificationWrapper {
-    @apply relative w-[43px] h-[43px] shadow-dashboardNotificationShadow rounded-full flex justify-center items-center cursor-pointer;
+    @apply relative w-[43px] h-[43px] shadow-dashboardNotificationHomeShadow rounded-full flex justify-center items-center cursor-pointer;
   }
   .dashboardSideBarNotificationIcon {
     @apply w-[20px] h-[20px];
   }
   .dashboardSideBarNotificationCount {
     @apply absolute -top-1 right-0 w-[16px] h-[16px] rounded-full bg-white flex justify-center items-center text-[13px] text-center pt-[4px];
+  }
+  .dashboardDivider {
+    @apply w-full h-[1px] bg-blue-400 mt-7;
+  }
+  .dashboardMappedMenuItemsWrapper {
+    @apply flex flex-col gap-1 px-4 mt-10;
+  }
+  .dashboardMenuItem {
+    @apply flex items-center gap-3 lg:w-[288px] h-[56px] rounded-[10px] px-5;
+  }
+  .dashboardMenuItemHover {
+    @apply hover:bg-dashboardHoverMenuItem transition-colors duration-100;
+  }
+  .dashboardMenuItemLabel {
+    @apply font-[400] text-white;
+  }
+  .dashboardBottomSection {
+    @apply mt-auto px-9 flex justify-between items-center;
+  }
+  .dashboardHomeLink {
+    @apply w-[40px] h-[40px] bg-dashboardHomeBackground shadow-dashboardNotificationHomeShadow rounded-full flex justify-center items-center mt-3;
+  }
+  .dashboardHomeIcon {
+    @apply w-[20px] h-[20px];
   }
   /* Common */
   .satisfaction {

@@ -1,5 +1,3 @@
-import React from "react";
-
 import { Link } from "../common/Link";
 
 import logoImage from "../../assets/images/Header/logo.png";

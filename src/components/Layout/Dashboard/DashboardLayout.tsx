@@ -1,9 +1,12 @@
-import { Link, Outlet, useLocation } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 
 import { dashboardMenuItems } from "./dashboardMenuItems";
+import { Link } from "../../common/Link";
 
 import avatarImage from "../../../assets/images/Dashboard/Avatars/avatar.png";
 import notificationIcon from "../../../assets/images/Dashboard/Icons/notification.svg";
+import dashboardLogo from "../../../assets/images/Dashboard/Icons/dashboard-logo.svg";
+import homeIcon from "../../../assets/images/Dashboard/Icons/home.svg";
 
 const DashboardLayout = () => {
   const { pathname } = useLocation();
@@ -31,22 +34,30 @@ const DashboardLayout = () => {
             </div>
           </div>
         </div>
-        <div className="w-full h-[1px] bg-blue-400 mt-7" />
-        <div className="flex flex-col gap-1 px-4 mt-10">
+        <div className="dashboardDivider" />
+        <div className="dashboardMappedMenuItemsWrapper">
           {dashboardMenuItems.map((item) => (
             <Link
               key={item.icon}
               to={item.href}
-              className={`flex items-center gap-3 lg:w-[288px] h-[56px] rounded-[10px] px-5  ${
+              className={`dashboardMenuItem  ${
                 pathname.startsWith(item.href)
-                  ? "bg-[#00000099]"
-                  : "hover:bg-[#0000001A] transition-colors duration-100"
+                  ? "bg-dashboardActiveMenuItem"
+                  : "dashboardMenuItemHover"
               }`}
             >
               <img src={item.icon} />
-              <span className="font-[400] text-white">{item.label}</span>
+              <span className="dashboardMenuItemLabel">{item.label}</span>
             </Link>
           ))}
+        </div>
+        <div className="dashboardBottomSection">
+          <Link to="/" className="w-[70%]">
+            <img src={dashboardLogo} />
+          </Link>
+          <Link to="/dashboard" className="dashboardHomeLink">
+            <img src={homeIcon} className="dashboardHomeIcon" />
+          </Link>
         </div>
       </div>
       <div className="lg:w-[80%]">

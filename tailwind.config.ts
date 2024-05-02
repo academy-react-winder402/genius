@@ -21,6 +21,9 @@ export default {
         courseDetailsAccordion: "#ECEFF1",
         darkBackground: "#1A1A2E",
         blogDetailsShareBox: "#ECEFF1",
+        dashboardActiveMenuItem: "#00000099",
+        dashboardHoverMenuItem: "#0000001A",
+        dashboardHomeBackground: "#FFFFFF33",
       },
       backgroundImage: {
         headerBg: "url('/src/assets/images/Header/header-bg.png')",
@@ -77,7 +80,7 @@ export default {
         authInputShadow: "0px 0px 20px 0px #00000005",
         courseDetailsHeroSectionSearchBoxShadow: "0px 0px 20px 0px #0000000D",
         blogsSortActiveTabShadow: "0px 0px 20px 0px #0000001A",
-        dashboardNotificationShadow: "0px 0px 20px 0px #0000000D",
+        dashboardNotificationHomeShadow: "0px 0px 20px 0px #0000000D",
       },
       borderColor: {
         filterAccordionBorder: "#ECEFF1",
