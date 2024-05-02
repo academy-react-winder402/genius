@@ -9,6 +9,7 @@ import { BlogDetailsPage } from "../../screens/BlogDetails";
 import { BlogsPage } from "../../screens/Blogs";
 import { CourseDetailsPage } from "../../screens/CourseDetails";
 import { CoursesPage } from "../../screens/Courses";
+import { DashboardPage } from "../../screens/Dashboard";
 import { ForgotPasswordPage } from "../../screens/ForgotPassword";
 import { LandingPage } from "../../screens/Landing";
 import { LoginPage } from "../../screens/Login";
@@ -67,5 +68,11 @@ export const router = createBrowserRouter([
   {
     path: "/dashboard",
     element: <DashboardLayout />,
+    children: [
+      {
+        index: true,
+        element: <DashboardPage />,
+      },
+    ],
   },
 ]);
