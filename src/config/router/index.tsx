@@ -15,6 +15,7 @@ import { LandingPage } from "../../screens/Landing";
 import { LoginPage } from "../../screens/Login";
 import { NotFoundPage } from "../../screens/NotFound";
 import { RegisterPage } from "../../screens/Register";
+import { MyCoursesPage } from "../../screens/MyCourses";
 
 export const router = createBrowserRouter([
   {
@@ -72,6 +73,10 @@ export const router = createBrowserRouter([
       {
         index: true,
         element: <DashboardPage />,
+      },
+      {
+        path: "/dashboard/my-courses",
+        element: <MyCoursesPage />,
       },
     ],
   },

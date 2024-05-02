@@ -41,7 +41,7 @@ const DashboardLayout = () => {
               key={item.icon}
               to={item.href}
               className={`dashboardMenuItem  ${
-                pathname.startsWith(item.href)
+                pathname === item.href
                   ? "bg-dashboardActiveMenuItem"
                   : "dashboardMenuItemHover"
               }`}

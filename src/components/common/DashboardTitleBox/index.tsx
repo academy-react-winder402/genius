@@ -1,11 +1,9 @@
-interface DashboardTitleBoxProps {
-  title: string;
-}
+import { PropsWithChildren } from "react";
 
-const DashboardTitleBox = ({ title }: DashboardTitleBoxProps) => {
+const DashboardTitleBox = ({ children }: PropsWithChildren) => {
   return (
     <div className="dashboardTitleBoxWrapper">
-      <span className="dashboardTitleBoxTitle">{title}</span>
+      <span className="dashboardTitleBoxTitle">{children}</span>
     </div>
   );
 };

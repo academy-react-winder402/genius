@@ -373,6 +373,19 @@
   .dashboardCourseItemPrice {
     @apply font-[500] text-primaryColor truncate;
   }
+  /* My Courses Page */
+  .myCoursesTopSection {
+    @apply flex flex-col lg:flex-row gap-4 lg:gap-0 justify-between mt-10;
+  }
+  .myCoursesSearchBox {
+    @apply pl-4 !w-full;
+  }
+  .myCoursesPerPageFilter {
+    @apply relative w-[300px] lg:w-[10%] after:content-[''] after:absolute after:top-4 after:left-44 lg:after:left-5 after:w-[40px] after:h-[40px] after:bg-dashboardMyCoursesSortIcon after:bg-no-repeat;
+  }
+  .myCoursesPerPageFilterSelectBox {
+    @apply w-[50%] lg:w-full h-[50px] lg:h-full px-6 outline-none rounded-[12px] appearance-none;
+  }
   /* Common */
   .satisfaction {
     @apply mt-5 flex flex-col lg:flex-row gap-5 lg:gap-0 justify-between items-center;

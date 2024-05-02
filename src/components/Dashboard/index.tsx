@@ -10,7 +10,7 @@ const Dashboard = () => {
 
   return (
     <div>
-      <DashboardTitleBox title="داشبورد" />
+      <DashboardTitleBox>داشبورد</DashboardTitleBox>
       <div className="dashboardProfileInformationWrapper">
         <DashboardInformationBox
           label="نام و نام خانوادگی : "
