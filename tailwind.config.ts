@@ -24,6 +24,7 @@ export default {
         dashboardActiveMenuItem: "#00000099",
         dashboardHoverMenuItem: "#0000001A",
         dashboardHomeBackground: "#FFFFFF33",
+        dashboardTitleBox: "#ECEFF1",
       },
       backgroundImage: {
         headerBg: "url('/src/assets/images/Header/header-bg.png')",

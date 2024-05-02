@@ -364,6 +364,13 @@
   .commentAnswerText {
     @apply font-[400] text-[14px] text-text2 dark:text-darkText;
   }
+  /* Dashboard Title Box */
+  .dashboardTitleBoxWrapper {
+    @apply h-[64px] rounded-[12px] flex items-center px-4 bg-dashboardTitleBox;
+  }
+  .dashboardTitleBoxTitle {
+    @apply relative font-[700] text-[24px] text-text1 pr-4 before:content-[''] after:absolute after:top-[5px] after:right-0 after:w-[6px] after:h-[24px] after:bg-primaryColor after:rounded-[8px];
+  }
 }
 
 /* Swiper */
