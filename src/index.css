@@ -331,6 +331,9 @@
     @apply w-[20px] h-[20px];
   }
   /* Dashboard Page */
+  .dashboardProfileInformationWrapper {
+    @apply relative border-[1px] border-solid border-dashboardUserInfoEditProfileBorder w-full rounded-[12px] mt-12 py-5 px-5 grid grid-cols-2 lg:grid-cols-3 place-content-center gap-y-8;
+  }
   .dashboardInformationBoxLabel {
     @apply font-[500] text-text2;
   }
@@ -339,6 +342,36 @@
   }
   .dashboardEditProfileLink {
     @apply mr-auto font-[500] text-primaryColor border-t border-r border-solid border-dashboardUserInfoEditProfileBorder w-[120px] h-[40px] mt-0 absolute bottom-0 left-0 rounded-tr-[12px] flex justify-center items-center;
+  }
+  .dashboardCoursesSection {
+    @apply flex flex-col lg:flex-row gap-7 lg:gap-0 justify-between mt-14;
+  }
+  .dashboardTitle {
+    @apply relative font-[800] text-[22px] text-text1 pr-10 before:content-[''] before:absolute before:top-3 before:right-0 before:w-[4px] before:h-[4px] before:bg-primary before:rounded-full after:content-[''] after:absolute after:top-3 after:right-2 after:w-[22px] after:h-[4px] after:bg-primary after:rounded-full;
+  }
+  .dashboardMappedCoursesWrapper {
+    @apply flex flex-col gap-4 mt-6;
+  }
+  .dashboardCourseItem {
+    @apply flex items-center gap-3 lg:gap-4 shadow-primaryShadow py-2 px-4 rounded-[12px] lg:w-[475px] h-[100px];
+  }
+  .dashboardCourseItemImage {
+    @apply lg:w-[120px] rounded-[12px];
+  }
+  .dashboardCourseItemLeftSide {
+    @apply flex lg:gap-7 w-[70%];
+  }
+  .dashboardCourseItemTitle {
+    @apply font-[600] text-text2 truncate;
+  }
+  .dashboardCourseItemTeacherBoxWrapper {
+    @apply flex gap-1 mt-3;
+  }
+  .dashboardCourseItemTeacherName {
+    @apply font-[500] text-[14px] text-text1;
+  }
+  .dashboardCourseItemPrice {
+    @apply font-[500] text-primaryColor truncate;
   }
   /* Common */
   .satisfaction {
