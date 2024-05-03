@@ -1,9 +1,9 @@
-import { DashboardTitleBox } from "../../common/DashboardTitleBox";
+import { EditProfileTitleBox } from "../../common/EditProfileTitleBox";
 
 const EditProfile = () => {
   return (
     <div>
-      <DashboardTitleBox title="ویرایش پروفایل" />
+      <EditProfileTitleBox title="حساب کاربری" />
     </div>
   );
 };

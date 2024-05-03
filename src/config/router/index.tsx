@@ -76,14 +76,4 @@ export const router = createBrowserRouter([
       },
     ],
   },
-  {
-    path: "/EditProfile",
-    element: <DashboardLayout />,
-    children: [
-      {
-        index: true,
-        element: <EditProfilePage />,
-      },
-    ],
-  },
 ]);
