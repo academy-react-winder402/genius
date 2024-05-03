@@ -6,16 +6,16 @@ export interface CourseItemsInterface {
   id: React.Key;
   image: string;
   title: string;
-  description: string;
+  description?: string;
   lessonsCount: number;
   hour: number;
   createdAt: string;
   teacherName: string;
-  teacherJob: string;
-  teacherImage: string;
+  teacherJob?: string;
+  teacherImage?: string;
   studentsCount: number;
   price: number;
-  courseStatus: string;
-  courseEndTime: string;
-  courseLessons: CourseLessonType[];
+  courseStatus?: string;
+  courseEndTime?: string;
+  courseLessons?: CourseLessonType[];
 }

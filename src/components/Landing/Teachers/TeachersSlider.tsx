@@ -1,15 +1,15 @@
 import { Swiper, SwiperSlide } from "swiper/react";
+// import required modules
+import { Navigation, Pagination } from "swiper/modules";
+
+import { teacherItems } from "../../../core/data/landing/teacherItems";
 
 import { TeacherItem } from "./TeacherItem";
-import { teacherItems } from "./teacherItems";
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-
-// import required modules
-import { Navigation, Pagination } from "swiper/modules";
 
 const TeachersSlider = () => {
   return (

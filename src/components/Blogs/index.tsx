@@ -1,4 +1,4 @@
-import { blogItems } from "./BlogsItems/blogItems";
+import { blogItems } from "../../core/data/blogs/blogItems";
 
 import { BlogsHeroSection } from "./BlogsHeroSection";
 import { PaginatedBlogs } from "./BlogsItems/PaginatedBlogs";

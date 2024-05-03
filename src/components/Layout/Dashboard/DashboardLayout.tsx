@@ -1,12 +1,13 @@
 import { Outlet, useLocation } from "react-router-dom";
 
-import { dashboardMenuItems } from "./dashboardMenuItems";
+import { dashboardMenuItems } from "../../../core/data/dashboard/dashboardMenuItems";
+
 import { Link } from "../../common/Link";
 
 import avatarImage from "../../../assets/images/Dashboard/Avatars/avatar.png";
-import notificationIcon from "../../../assets/images/Dashboard/Icons/notification.svg";
 import dashboardLogo from "../../../assets/images/Dashboard/Icons/dashboard-logo.svg";
 import homeIcon from "../../../assets/images/Dashboard/Icons/home.svg";
+import notificationIcon from "../../../assets/images/Dashboard/Icons/notification.svg";
 
 const DashboardLayout = () => {
   const { pathname } = useLocation();

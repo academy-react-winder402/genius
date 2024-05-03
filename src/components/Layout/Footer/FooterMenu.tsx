@@ -1,5 +1,6 @@
+import { footerMenuItems } from "../../../core/data/footer/footerMenuItems";
+
 import { Link } from "../../common/Link";
-import { footerMenuItems } from "./footerMenuItems";
 
 const FooterMenu = () => {
   return (

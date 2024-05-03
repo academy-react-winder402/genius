@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 
-import { blogItems } from "../Blogs/BlogsItems/blogItems";
+import { blogItems } from "../../core/data/blogs/blogItems";
 
 import { BlogHeroSection } from "./BlogHeroSection";
 import { ShareBox } from "./ShareBox";
@@ -92,7 +92,9 @@ const BlogDetails = () => {
           <ShareBox />
           <Satisfaction nameData="مقاله" />
           <div className="blogDetailsCommentsSection">
-            <h3 className="blogDetailsCommentsText">نظر کاربران درباره این مقاله</h3>
+            <h3 className="blogDetailsCommentsText">
+              نظر کاربران درباره این مقاله
+            </h3>
             <AddComment />
             <Comments />
           </div>

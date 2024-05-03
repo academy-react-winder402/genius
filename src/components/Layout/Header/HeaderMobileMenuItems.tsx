@@ -1,10 +1,11 @@
+import { menuItems } from "../../../core/data/header/menuItem";
+
 import { Divider } from "../../common/Divider";
 import { Link } from "../../common/Link";
 import { List } from "../../common/List";
 import { ListItemButton } from "../../common/List/ListItemButton";
 import { ListItem } from "../../common/ListItem";
 import { Logo } from "./Logo";
-import { menuItems } from "./menuItem";
 
 const HeaderMobileMenuItems = () => {
   return (

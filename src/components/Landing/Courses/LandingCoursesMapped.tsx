@@ -1,5 +1,6 @@
+import { landingCourseItems } from "../../../core/data/landing/landingCourseItems";
+
 import { CourseItem } from "../../common/CourseItem";
-import { landingCourseItems } from "./landingCourseItems";
 
 const LandingCoursesMapped = () => {
   return (
