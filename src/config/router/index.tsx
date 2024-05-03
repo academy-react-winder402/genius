@@ -15,6 +15,7 @@ import { LandingPage } from "../../screens/Landing";
 import { LoginPage } from "../../screens/Login";
 import { NotFoundPage } from "../../screens/NotFound";
 import { RegisterPage } from "../../screens/Register";
+import { EditProfilePage } from "../../screens/EditProfile";
 
 export const router = createBrowserRouter([
   {
@@ -72,6 +73,16 @@ export const router = createBrowserRouter([
       {
         index: true,
         element: <DashboardPage />,
+      },
+    ],
+  },
+  {
+    path: "/EditProfile",
+    element: <DashboardLayout />,
+    children: [
+      {
+        index: true,
+        element: <EditProfilePage />,
       },
     ],
   },
