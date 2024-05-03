@@ -1,9 +1,9 @@
 import { BlogItemInterface } from "../../../types/blog-items";
 import { Link } from "../../common/Link";
 
-import eyeIcon from "../../../assets/images/Blogs/eye.svg";
-import dotsIcon from "../../../assets/images/Blogs/item-dots.svg";
-import calenderIcon from "../../../assets/images/Blogs/calendar.svg";
+import eyeIcon from "../../../assets/images/blogs/eye.svg";
+import dotsIcon from "../../../assets/images/blogs/item-dots.svg";
+import calenderIcon from "../../../assets/images/blogs/calendar.svg";
 
 interface BlogItemProps {
   blog: BlogItemInterface;
