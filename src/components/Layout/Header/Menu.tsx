@@ -9,8 +9,6 @@ import activeBeforeMenuIcon from "../../../assets/images/Header/menu-item-active
 const Menu = () => {
   const { pathname } = useLocation();
 
-  console.log("pathname", pathname);
-
   return (
     <>
       <ul className="hidden lg:flex gap-[48px]">
