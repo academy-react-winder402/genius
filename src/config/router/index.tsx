@@ -15,7 +15,10 @@ import { LandingPage } from "../../screens/Landing";
 import { LoginPage } from "../../screens/Login";
 import { NotFoundPage } from "../../screens/NotFound";
 import { RegisterPage } from "../../screens/Register";
+
 import { EditProfilePage } from "../../screens/EditProfile";
+
+import { MyCoursesPage } from "../../screens/MyCourses";
 
 export const router = createBrowserRouter([
   {
@@ -77,6 +80,11 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/edit-Profile",
         element: <EditProfilePage />,
+      }
+      {
+        path: "/dashboard/my-courses",
+        element: <MyCoursesPage />,
+
       },
     ],
   },

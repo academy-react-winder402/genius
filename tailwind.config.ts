@@ -58,6 +58,8 @@ export default {
           "url('/src/assets/images/Blogs/blogs-hero-section-circle.svg')",
         blogsHeroSectionTitleDescriptionBackground:
           "url('/src/assets/images/Blogs/dots.svg')",
+        dashboardMyCoursesSortIcon:
+          "url('/src/assets/images/Courses/Icons/select-icon.svg')",
       },
       colors: {
         primaryColor: "#2196F3",
