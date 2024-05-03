@@ -80,11 +80,10 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/edit-Profile",
         element: <EditProfilePage />,
-      }
+      },
       {
         path: "/dashboard/my-courses",
         element: <MyCoursesPage />,
-
       },
     ],
   },
