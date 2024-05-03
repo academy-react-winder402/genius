@@ -1,11 +1,11 @@
 import { useState } from "react";
 
-import { Logo } from "../Header/Logo";
+import { Logo } from "../Layout/Header/Logo";
 import { SocialMedia } from "../common/SocialMedia";
-import { ForgotPasswordForm } from "./ForgotPasswordForm";
+import { ForgetPasswordForm } from "./ForgetPasswordForm";
 import { FormStep } from "../common/FormStep";
 
-const ForgotPassword = () => {
+const ForgetPassword = () => {
   const [currentStep, setCurrentStep] = useState<number>(1);
 
   return (
@@ -38,7 +38,7 @@ const ForgotPassword = () => {
           <p className="authToSiteDescription">
             لطفا ایمیل خود را وارد نمایید.
           </p>
-          <ForgotPasswordForm
+          <ForgetPasswordForm
             currentStep={currentStep}
             setCurrentValue={setCurrentStep}
           />
@@ -48,4 +48,4 @@ const ForgotPassword = () => {
   );
 };
 
-export { ForgotPassword };
+export { ForgetPassword };

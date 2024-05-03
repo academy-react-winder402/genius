@@ -1,4 +1,4 @@
-import { footerSocialMediaItems } from "../../Footer/footerSocialMediaItems";
+import { footerSocialMediaItems } from "../../Layout/Footer/footerSocialMediaItems";
 
 import { Link } from "../Link";
 

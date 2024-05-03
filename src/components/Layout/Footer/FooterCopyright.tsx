@@ -1,8 +1,6 @@
-import { Link } from "../common/Link";
-import { footerSocialMediaItems } from "./footerSocialMediaItems";
-import { SocialMedia } from "../common/SocialMedia";
+import { SocialMedia } from "../../common/SocialMedia";
 
-import copyrightIcon from "../../assets/images/Footer/copyright.svg";
+import copyrightIcon from "../../../assets/images/Footer/copyright.svg";
 
 const FooterCopyright = () => {
   return (

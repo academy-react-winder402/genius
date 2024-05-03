@@ -1,6 +1,6 @@
-import { ErrorMessage, Field, Formik } from "formik";
-import { Form } from "react-router-dom";
+import { Field, Formik } from "formik";
 import { useDispatch } from "react-redux";
+import { Form } from "react-router-dom";
 
 import { registerStepOneFormSchema } from "../../../core/validations/register/register-step-one-form.validation";
 
@@ -8,6 +8,8 @@ import {
   onPhoneNumberChange,
   useRegisterSelector,
 } from "../../../redux/register";
+
+import { ErrorMessage } from "../../common/ErrorMessage";
 import { Link } from "../../common/Link";
 
 interface RegisterStepOneFormProps {
@@ -24,7 +26,7 @@ const RegisterStepOneForm = ({ setCurrentValue }: RegisterStepOneFormProps) => {
   };
 
   return (
-    <div>
+    <div className="w-full flex flex-col justify-center">
       <Formik
         initialValues={{
           phoneNumber: phoneNumber || "",
@@ -34,35 +36,37 @@ const RegisterStepOneForm = ({ setCurrentValue }: RegisterStepOneFormProps) => {
         validationSchema={registerStepOneFormSchema}
       >
         {({ values, handleSubmit }) => (
-          <Form>
-            <div className="flex flex-col items-center gap-4 mt-5">
-              <Field
-                name="phoneNumber"
-                type="phone"
-                placeholder="شماره موبایل"
-                className="authInput"
-              />
-              <ErrorMessage name="phoneNumber" component="p" />
-            </div>
-            <div className="flex justify-center mt-7">
-              <button
-                type="submit"
-                onClick={() => {
-                  handleSubmit();
-                  setCurrentValue(2);
-                }}
-                disabled={!values.phoneNumber}
-                className={`mainButton w-[200px] h-[50px] rounded-md ${
-                  !values.phoneNumber && "authDisableButton"
-                }`}
-              >
-                دریافت کد تایید
-              </button>
-            </div>
-          </Form>
+          <div className="mt-7 flex flex-col items-center gap-3">
+            <Form>
+              <div className="formFieldWrapperAndPaginatedWrapper">
+                <Field
+                  name="phoneNumber"
+                  type="phone"
+                  placeholder="شماره موبایل"
+                  className="authInput"
+                />
+                <ErrorMessage name="phoneNumber" />
+              </div>
+              <div className="flex justify-center mt-7">
+                <button
+                  type="submit"
+                  onClick={() => {
+                    handleSubmit();
+                    setCurrentValue(2);
+                  }}
+                  disabled={!values.phoneNumber}
+                  className={`mainButton w-[200px] h-[50px] rounded-md ${
+                    !values.phoneNumber && "authDisableButton"
+                  }`}
+                >
+                  دریافت کد تایید
+                </button>
+              </div>
+            </Form>
+          </div>
         )}
       </Formik>
-      <h5 className="doYouHaveAnyAccountOrDoNotHaveAccountOrForgotPasswordText mt-5">
+      <h5 className="doYouHaveAnyAccountOrDoNotHaveAccountOrForgetPasswordText mt-5">
         حساب کاربری دارید؟{" "}
         <Link to="/login" className="doYouHaveAnyAccountOrDoNotHaveAccountLink">
           وارد شوید

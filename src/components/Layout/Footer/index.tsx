@@ -1,9 +1,7 @@
-import React from "react";
-
-import { FooterLogoDescription } from "./FooterLogoDescription";
-import { FooterJoinBox } from "./FooterJoinBox";
-import { FooterMenu } from "./FooterMenu";
 import { FooterCopyright } from "./FooterCopyright";
+import { FooterJoinBox } from "./FooterJoinBox";
+import { FooterLogoDescription } from "./FooterLogoDescription";
+import { FooterMenu } from "./FooterMenu";
 
 const Footer = () => {
   return (

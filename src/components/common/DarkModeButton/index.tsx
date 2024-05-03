@@ -1,7 +1,8 @@
 import { DarkMode, LightMode } from "@mui/icons-material";
-import { onDarkModeChange, useDarkModeSelector } from "../../../redux/darkMode";
-import { useDispatch } from "react-redux";
 import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+
+import { onDarkModeChange, useDarkModeSelector } from "../../../redux/darkMode";
 
 const DarkModeButton = () => {
   const darkMode = useDarkModeSelector();

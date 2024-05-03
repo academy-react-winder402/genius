@@ -1,6 +1,4 @@
-import React from "react";
-
-import { Link } from "../common/Link";
+import { Link } from "../../common/Link";
 import { footerMenuItems } from "./footerMenuItems";
 
 const FooterMenu = () => {

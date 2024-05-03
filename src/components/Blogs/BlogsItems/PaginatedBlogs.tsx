@@ -13,7 +13,7 @@ interface PaginatedBlogsProps {
 const PaginatedBlogs = ({ blogs, itemsPerPage }: PaginatedBlogsProps) => {
   const [itemOffset, setItemOffset] = useState<number>(0);
   const endOffset = itemOffset + itemsPerPage;
-  const currentItems : BlogItemInterface[] = blogs.slice(itemOffset, endOffset);
+  const currentItems: BlogItemInterface[] = blogs.slice(itemOffset, endOffset);
   const pageCount = Math.ceil(blogs.length / itemsPerPage);
 
   const handlePageClick = (event: any) => {
@@ -22,7 +22,7 @@ const PaginatedBlogs = ({ blogs, itemsPerPage }: PaginatedBlogsProps) => {
     setItemOffset(newOffset);
   };
   return (
-    <div className="flex flex-col gap-4 mt-5">
+    <div className="formFieldWrapperAndPaginatedWrapper">
       <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-10 lg:mt-3">
         {currentItems &&
           currentItems.map((blog) => <BlogItem key={blog.id} blog={blog} />)}

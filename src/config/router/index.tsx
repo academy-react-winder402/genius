@@ -10,12 +10,12 @@ import { BlogsPage } from "../../screens/Blogs";
 import { CourseDetailsPage } from "../../screens/CourseDetails";
 import { CoursesPage } from "../../screens/Courses";
 import { DashboardPage } from "../../screens/Dashboard";
-import { ForgotPasswordPage } from "../../screens/ForgotPassword";
+import { ForgetPasswordPage } from "../../screens/ForgetPassword";
 import { LandingPage } from "../../screens/Landing";
 import { LoginPage } from "../../screens/Login";
+import { MyCoursesPage } from "../../screens/MyCourses";
 import { NotFoundPage } from "../../screens/NotFound";
 import { RegisterPage } from "../../screens/Register";
-import { MyCoursesPage } from "../../screens/MyCourses";
 
 export const router = createBrowserRouter([
   {
@@ -57,8 +57,8 @@ export const router = createBrowserRouter([
         element: <RegisterPage />,
       },
       {
-        path: "/forgot-password",
-        element: <ForgotPasswordPage />,
+        path: "/forget-password",
+        element: <ForgetPasswordPage />,
       },
       {
         path: "*",
