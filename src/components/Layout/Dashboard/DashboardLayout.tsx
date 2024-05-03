@@ -41,7 +41,7 @@ const DashboardLayout = () => {
               key={item.icon}
               to={item.href}
               className={`dashboardMenuItem  ${
-                pathname.startsWith(item.href)
+                pathname === item.href
                   ? "bg-dashboardActiveMenuItem"
                   : "dashboardMenuItemHover"
               }`}
@@ -60,7 +60,7 @@ const DashboardLayout = () => {
           </Link>
         </div>
       </div>
-      <div className="lg:w-[80%] px-7 py-5">
+      <div className="dashboardLeftSide">
         <Outlet />
       </div>
     </div>

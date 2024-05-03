@@ -15,7 +15,11 @@ import { LandingPage } from "../../screens/Landing";
 import { LoginPage } from "../../screens/Login";
 import { NotFoundPage } from "../../screens/NotFound";
 import { RegisterPage } from "../../screens/Register";
+<<<<<<< HEAD
 import { EditProfilePage } from "../../screens/EditProfile";
+=======
+import { MyCoursesPage } from "../../screens/MyCourses";
+>>>>>>> dec39ed2da73327a10926a3f6ceed1dd722ccd8b
 
 export const router = createBrowserRouter([
   {
@@ -73,6 +77,10 @@ export const router = createBrowserRouter([
       {
         index: true,
         element: <DashboardPage />,
+      },
+      {
+        path: "/dashboard/my-courses",
+        element: <MyCoursesPage />,
       },
     ],
   },
