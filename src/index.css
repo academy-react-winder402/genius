@@ -489,7 +489,7 @@
     @apply h-full min-h-screen rounded-[12px] flex items-center px-4 bg-dashboardTitleBox;
   }
   .editProfileAvatar {
-    @apply relative left-10 h-[130px] w-[130px] rounded-[100px] lg:h-[200px] w-[200px] right-48 bottom-20;
+    @apply relative left-10 h-[130px] w-[130px] rounded-[100px] lg:h-[200px] w-[200px] right-48 bottom-40;
   }
 }
 

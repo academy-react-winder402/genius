@@ -1,4 +1,4 @@
-import { EditProfileTitleBox } from "../../common/EditProfileTitleBox";
+import { EditProfileTitleBox } from "./EditProfileTitleBox";
 
 const EditProfile = () => {
   return (
