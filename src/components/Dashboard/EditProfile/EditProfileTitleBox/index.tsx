@@ -3,6 +3,7 @@ interface EditProfileTitleBoxProps {
 }
 import avatarImage from "../../../../assets/images/Dashboard/Avatars/avatar.png";
 import { EditProfileForm } from "../EditProfileForm";
+const onSubmit = () => {};
 
 const EditProfileTitleBox = ({ title }: EditProfileTitleBoxProps) => {
   return (
@@ -11,7 +12,7 @@ const EditProfileTitleBox = ({ title }: EditProfileTitleBoxProps) => {
 
       <img src={avatarImage} className="editProfileAvatar" />
 
-      <EditProfileForm />
+      <EditProfileForm onSubmit={onSubmit} />
     </div>
   );
 };
