@@ -1,8 +1,8 @@
 export interface EditProfileFormInterface {
   firstName: string;
   lastName: string;
-  nationalCode: number;
+  nationalCode: string;
   email: string;
-  birthDayDate: string;
+  birthdayDate: string;
   phoneNumber: string;
 }

@@ -17,9 +17,9 @@ const EditProfileForm = () => {
         initialValues={{
           firstName: "محمد",
           lastName: "بکران",
-          nationalCode: 1234567890,
+          nationalCode: "1234567890",
           email: "test@gmail.com",
-          birthDayDate: "1403/2/16",
+          birthdayDate: "1402/2/16",
           phoneNumber: "09112345678",
         }}
         enableReinitialize={true}
@@ -41,44 +41,60 @@ const EditProfileForm = () => {
               <ErrorMessage name="firstName" />
             </div>
             <div>
-              <p className="editProfileFormLabel">نام خانواردگی</p>
+              <label htmlFor="lastName" className="editProfileFormLabel">
+                نام خانواردگی
+              </label>
               <Field
                 type="text"
                 name="lastName"
+                id="lastName"
                 className="editProfileFormInput"
               />
               <ErrorMessage name="lastName" />
             </div>
             <div>
-              <p className="editProfileFormLabel">کد ملی</p>
+              <label htmlFor="nationalCode" className="editProfileFormLabel">
+                کد ملی
+              </label>
               <Field
-                type="text"
                 name="nationalCode"
+                id="nationalCode"
                 className="editProfileFormInput"
               />
               <ErrorMessage name="nationalCode" />
             </div>
             <div>
-              <p className="editProfileFormLabel">ایمیل</p>
+              <label htmlFor="email" className="editProfileFormLabel">
+                ایمیل
+              </label>
               <Field
                 type="email"
                 name="email"
+                id="email"
                 className="editProfileFormInput"
               />
               <ErrorMessage name="email" />
             </div>
             <div>
-              <p className="editProfileFormLabel">تاریخ تولد</p>
+              <label htmlFor="birthdayDate" className="editProfileFormLabel">
+                تاریخ تولد
+              </label>
               <Field
-                type="text"
                 name="birthdayDate"
+                id="birthdayDate"
                 className="editProfileFormInput"
               />
               <ErrorMessage name="birthdayDate" />
             </div>
             <div>
-              <p className="editProfileFormLabel">شماره موبایل</p>
-              <Field name="phoneNumber" className="editProfileFormInput" />
+              <label htmlFor="phoneNumber" className="editProfileFormLabel">
+                شماره موبایل
+              </label>
+              <Field
+                name="phoneNumber"
+                id="phoneNumber"
+                className="editProfileFormInput"
+              />
               <ErrorMessage name="phoneNumber" />
             </div>
           </div>

@@ -5,6 +5,6 @@ export const editProfileFormSchema = yup.object().shape({
   lastName: yup.string().required("این فیلد الزامی می باشد"),
   nationalCode: yup.string().required("این فیلد الزامی می باشد"),
   email: yup.string().required("این فیلد الزامی می باشد"),
-  birthDayDate: yup.string().required("این فیلد الزامی می باشد"),
+  birthdayDate: yup.string().required("این فیلد الزامی می باشد"),
   phoneNumber: yup.string().required("این فیلد الزامی می باشد"),
 });
