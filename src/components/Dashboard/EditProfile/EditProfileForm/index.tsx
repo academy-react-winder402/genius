@@ -1,29 +1,32 @@
-import * as yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 
-const EditProfileForm = ({ onSubmit }) => {
-  const validation = yup.object().shape({
-    name: yup.string().required("این فیلد اجباریست"),
-    lastName: yup.string().required("این فیلد اجباریست"),
-    code: yup.number().required("این فیلد عددی اجباریست"),
-    email: yup.string().required("این فیلد اجباریست"),
-    date: yup.date().required("این فیلد تاریخ اجباریست"),
-    number: yup.number().required("این فیلد عددی اجباریست"),
-  });
+import { editProfileFormProp } from "../../../../core/validations/EditProfile/EditProfileValidation";
+
+const EditProfileForm = ({ setCurrentValue }: editProfileFormProp) => {
+  const onSubmit = (values: {
+    email: string;
+    number: string;
+    date: string;
+    name: string;
+    lastName: string;
+    code: string;
+  }) => {
+    console.log(values);
+  };
 
   return (
     <div>
       <Formik
         initialValues={{
+          email: "",
+          number: "",
+          date: "",
           name: "",
           lastName: "",
-          Code: "",
-          email: "",
-          date: "",
-          number: "",
+          code: "",
         }}
-        onSubmit={(values) => onSubmit(values)}
-        validationSchema={validation}
+        onSubmit={onSubmit}
+        validationSchema={editProfileFormProp}
       >
         <Form>
           <div className=" relative">
@@ -31,7 +34,7 @@ const EditProfileForm = ({ onSubmit }) => {
               name="name"
               type="text"
               placeholder="نام"
-              className=" absolute -bottom-10 left-60 border-2 border-slate-300 rounded-md lg:left-72 lg:-bottom-[123px] lg:h-9"
+              className=" absolute -bottom-10 left-60 border-2 border-slate-300 px-1 rounded-md lg:left-52 lg:-bottom-[123px] lg:h-9"
             />
           </div>
           <div>
@@ -39,7 +42,7 @@ const EditProfileForm = ({ onSubmit }) => {
               name="lastName"
               type="text"
               placeholder="نام خانوادگی"
-              className=" relative -bottom-4 left-8 border-2 border-slate-300 rounded-md lg:left-5 lg:-bottom-[87px] lg:h-9"
+              className=" relative -bottom-4 left-8 border-2 border-slate-300 px-1 rounded-md lg:-left-10 lg:-bottom-[87px] lg:h-9"
             />
           </div>
           <div>
@@ -47,7 +50,7 @@ const EditProfileForm = ({ onSubmit }) => {
               name="code"
               type="text"
               placeholder="کد ملی"
-              className=" relative -bottom-10 left-60 border-2 border-slate-300 rounded-md lg:-left-60 lg:-bottom-[51px] lg:h-9"
+              className=" relative -bottom-10 left-60 border-2 border-slate-300 px-1 rounded-md lg:-left-72 lg:-bottom-[51px] lg:h-9"
             />
           </div>
           <div>
@@ -55,7 +58,7 @@ const EditProfileForm = ({ onSubmit }) => {
               name="email"
               type="email"
               placeholder="ایمیل"
-              className=" relative -bottom-4 left-8 border-2 border-slate-300 rounded-md lg:left-72 lg:-bottom-[124px] lg:h-9"
+              className=" relative -bottom-4 left-8 border-2 border-slate-300 px-1 rounded-md lg:left-52 lg:-bottom-[124px] lg:h-9"
             />
           </div>
           <div>
@@ -63,7 +66,7 @@ const EditProfileForm = ({ onSubmit }) => {
               name="date"
               type="text"
               placeholder="تاریخ تولد"
-              className=" relative -bottom-10 left-60 border-2 border-slate-300 rounded-md lg:left-5 lg:-bottom-[87px] lg:h-9"
+              className=" relative -bottom-10 left-60 border-2 border-slate-300 px-1 rounded-md lg:-left-10 lg:-bottom-[87px] lg:h-9"
             />
           </div>
           <div>
@@ -71,13 +74,13 @@ const EditProfileForm = ({ onSubmit }) => {
               name="number"
               type="text"
               placeholder="شماره موبایل"
-              className=" relative -bottom-4 left-8 border-2 border-slate-300 rounded-md lg:-left-60 lg:-bottom-[51px] lg:h-9"
+              className=" relative -bottom-4 left-8 border-2 border-slate-300 px-1 rounded-md lg:-left-72 lg:-bottom-[51px] lg:h-9"
             />
           </div>
           <div>
             <button
               type="submit"
-              className=" relative -bottom-10 left-60 rounded-md bg-blue-500 text-cyan-50 w-32 h-10 hover:bg-blue-400 lg:left-60 lg:-bottom-[137px]"
+              className=" relative -bottom-10 left-60 rounded-md bg-blue-500 text-cyan-50 w-32 h-10 hover:bg-blue-400 lg:left-52 lg:-bottom-[100px]"
             >
               ثبت اطلاعات
             </button>
