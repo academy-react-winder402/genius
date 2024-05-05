@@ -16,13 +16,7 @@ import { LoginPage } from "../../screens/Login";
 import { MyCoursesPage } from "../../screens/MyCourses";
 import { NotFoundPage } from "../../screens/NotFound";
 import { RegisterPage } from "../../screens/Register";
-<<<<<<< HEAD
-
 import { EditProfilePage } from "../../screens/EditProfile";
-
-import { MyCoursesPage } from "../../screens/MyCourses";
-=======
->>>>>>> 4c1e5c9c26eb036d289a069338f5b56660137b8e
 
 export const router = createBrowserRouter([
   {
