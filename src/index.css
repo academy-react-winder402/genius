@@ -503,8 +503,16 @@
   .editProfileFormLabel {
     @apply font-bold text-text1 dark:text-darkText block;
   }
+<<<<<<< HEAD
   .editProfileFormInput {
     @apply border border-editProfileFormInputBorder dark:border-darkBorder outline-primaryColor dark:outline-none dark:focus:border-editProfileFormInputBorder w-full lg:w-[270px] px-4 py-2 rounded-[7px] focus:shadow-primaryShadow dark:bg-gray-900 dark:text-darkText mt-2;
+=======
+  .editProfileTitleBoxWrapper {
+    @apply h-full min-h-screen rounded-[12px] flex items-center px-4 bg-white;
+  }
+  .editProfileAvatar {
+    @apply relative left-10 h-[130px] w-[130px] rounded-[100px] lg:h-[150px] w-[150px] right-48 bottom-40;
+>>>>>>> 731231961170bae81a3a210764a9c4f2cf1c7c1d
   }
 }
 
