@@ -15,8 +15,8 @@ const EditProfileForm = () => {
     <div className="w-full mt-12">
       <Formik
         initialValues={{
-          firstName: "محمد",
-          lastName: "بکران",
+          firstName: "فرنام",
+          lastName: "میانرودیان",
           nationalCode: "1234567890",
           email: "test@gmail.com",
           birthdayDate: "1402/2/16",
