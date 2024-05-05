@@ -375,16 +375,16 @@
     @apply flex flex-col lg:flex-row gap-4 lg:gap-0 justify-between mt-10;
   }
   .myCoursesPerPageFilter {
-    @apply relative w-[300px] lg:w-[10%] after:content-[''] after:absolute after:top-4 after:left-44 lg:after:left-5 after:w-[40px] after:h-[40px] after:bg-dashboardMyCoursesSortIcon after:bg-no-repeat;
+    @apply relative w-[300px] lg:w-[10%] after:content-[''] after:absolute after:top-4 after:left-44 lg:after:left-5 after:w-[40px] after:h-[40px] after:bg-dashboardMyCoursesCoursesPerPageSelectBoxIcon dark:after:bg-dashboardMyCoursesCoursesPerPageSelectBoxDarkIcon after:bg-no-repeat;
   }
   .myCoursesPerPageFilterSelectBox {
-    @apply w-[50%] lg:w-full h-[50px] lg:h-full px-6 outline-none rounded-[12px] appearance-none;
+    @apply w-[50%] lg:w-full h-[50px] lg:h-full px-6 outline-none rounded-[12px] appearance-none dark:bg-gray-900 dark:text-darkText;
   }
   .dashboardCoursesSectionWrapper {
     @apply flex flex-col gap-4 mt-6;
   }
   .dashboardCoursesInformationBox {
-    @apply hidden lg:flex lg:gap-0 lg:items-center bg-primary text-white rounded-[7px] h-[50px] px-16;
+    @apply hidden lg:flex lg:gap-0 lg:items-center bg-primary dark:bg-gray-900 text-white rounded-[7px] h-[50px] px-16;
   }
   .dashboardMyCourseItem {
     @apply w-full lg:h-[60px] bg-primary/10 rounded-[7px] hidden lg:flex flex-col lg:flex-row justify-around items-center px-5;
@@ -396,19 +396,19 @@
     @apply flex items-center gap-4;
   }
   .dashboardMyCourseTitle {
-    @apply font-[500] text-text1 lg:w-[170px] truncate;
+    @apply font-[500] text-text1 dark:text-darkText lg:w-[170px] truncate;
   }
   .dashboardMyCourseItemText {
-    @apply font-[500] text-text1;
+    @apply font-[500] text-text1 dark:text-darkText;
   }
   .dashboardMyCourseItemIconsWrapper {
     @apply flex gap-3;
   }
   .dashboardMyCourseItemShowIcon {
-    @apply text-primaryColor cursor-pointer;
+    @apply !fill-primaryColor cursor-pointer;
   }
   .dashboardMyCourseItemDeleteIcon {
-    @apply text-red/100 cursor-pointer;
+    @apply !text-red/100 dark:!fill-red cursor-pointer;
   }
   .dashboardMyMobileCourseItem {
     @apply flex items-center gap-5 bg-primary/10 rounded-[7px] py-2 px-5 lg:hidden;
@@ -417,7 +417,7 @@
     @apply w-[100px] rounded-[7px];
   }
   .dashboardMyMobileCourseItemTitle {
-    @apply font-[500] text-text1;
+    @apply font-[500] text-text1 dark:text-darkText;
   }
   .dashboardMyMobileCourseItemBoxTwo {
     @apply flex gap-10 mt-2;
@@ -429,10 +429,10 @@
     @apply w-[20px] h-[20px];
   }
   .dashboardMyMobileCourseItemTeacherName {
-    @apply font-[500] text-text1 mt-1;
+    @apply font-[500] text-text1 dark:text-darkText mt-1;
   }
   .dashboardMyMobileCourseItemPrice {
-    @apply font-[500] text-text1 mt-2;
+    @apply font-[500] text-text1 dark:text-darkText mt-2;
   }
   /* Common */
   .satisfaction {
@@ -482,6 +482,22 @@
   /* Form */
   .formFieldWrapperAndPaginatedWrapper {
     @apply flex flex-col gap-4 mt-5;
+  }
+  /* Pagination */
+  .paginationWrapper {
+    @apply flex flex-wrap justify-center items-center gap-2 mt-5;
+  }
+  .paginationNext {
+    @apply w-[32px] h-[32px] bg-paginationPreviousBackground rounded-full flex justify-center items-center dark:bg-gray-800;
+  }
+  .paginationPrevious {
+    @apply w-[32px] h-[32px] bg-primary rounded-full flex justify-center items-center;
+  }
+  .paginationPage {
+    @apply mr-2 w-[32px] h-[32px] flex justify-center items-center dark:text-white;
+  }
+  .paginationActive {
+    @apply bg-primary text-white rounded-full;
   }
 }
 
