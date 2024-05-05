@@ -499,15 +499,12 @@
   .paginationActive {
     @apply bg-primary text-white rounded-full;
   }
-  /* Edit Profile Title Box */
-  .editProfileTitleBoxTitle {
-    @apply relative bottom-64 font-[700] text-[24px] text-text1 pr-4 before:content-[''] after:absolute after:top-[5px] after:right-0 after:w-[6px] after:h-[24px] after:bg-primaryColor after:rounded-[8px];
+  /* Edit Profile */
+  .editProfileFormLabel {
+    @apply font-bold text-text1 dark:text-darkText block;
   }
-  .editProfileTitleBoxWrapper {
-    @apply h-full min-h-screen rounded-[12px] flex items-center px-4 bg-white;
-  }
-  .editProfileAvatar {
-    @apply relative left-10 h-[130px] w-[130px] rounded-[100px] lg:h-[200px] w-[200px] right-48 bottom-40;
+  .editProfileFormInput {
+    @apply border border-editProfileFormInputBorder dark:border-darkBorder outline-primaryColor dark:outline-none dark:focus:border-editProfileFormInputBorder w-full lg:w-[270px] px-4 py-2 rounded-[7px] focus:shadow-primaryShadow dark:bg-gray-900 dark:text-darkText mt-2;
   }
 }
 

@@ -97,6 +97,7 @@ export default {
         authInputBorder: "#CFD8DC",
         authNumberInputBorder: "#CFD8DC",
         dashboardUserInfoEditProfileBorder: "#CFD8DC",
+        editProfileFormInputBorder: "#CCCCCC",
       },
     },
   },
