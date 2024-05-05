@@ -22,6 +22,6 @@ const darkModeSlice = createSlice({
 export const { onDarkModeChange } = darkModeSlice.actions;
 
 export const useDarkModeSelector = () =>
-  useSelector((reducer) => reducer.darkMode.dark);
+  useSelector((reducer: any) => reducer.darkMode.dark);
 
 export default darkModeSlice.reducer;

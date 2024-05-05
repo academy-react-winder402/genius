@@ -1,4 +1,5 @@
-import { courseItems } from "../Courses/CourseItems/courseItems";
+import { courseItems } from "../../core/data/courses/courseItems";
+
 import { DashboardTitleBox } from "../common/DashboardTitleBox";
 import { Link } from "../common/Link";
 import { DashboardCourseItem } from "./DashboardCourseItem";

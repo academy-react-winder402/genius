@@ -1,4 +1,4 @@
-import { commentItems } from "./comment-items";
+import { commentItems } from "../../../core/data/comments/comment-items";
 
 import { CommentItem } from "./CommentItem";
 

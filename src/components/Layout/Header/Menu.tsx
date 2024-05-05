@@ -1,15 +1,13 @@
 import { NavLink, useLocation } from "react-router-dom";
 
-import { menuItems } from "./menuItem";
+import { menuItems } from "../../../core/data/header/menuItem";
 
 import { HeaderMobileMenu } from "./HeaderMobileMenu";
 
-import activeBeforeMenuIcon from "../../assets/images/Header/menu-item-active-before.svg";
+import activeBeforeMenuIcon from "../../../assets/images/Header/menu-item-active-before.svg";
 
 const Menu = () => {
   const { pathname } = useLocation();
-
-  console.log("pathname", pathname);
 
   return (
     <>

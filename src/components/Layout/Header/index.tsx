@@ -1,6 +1,6 @@
-import { useDarkModeSelector } from "../../redux/darkMode";
+import { useDarkModeSelector } from "../../../redux/darkMode";
 
-import { DarkModeButton } from "../common/DarkModeButton";
+import { DarkModeButton } from "../../common/DarkModeButton";
 import { BasketButton } from "./BasketButton";
 import { LoginButton } from "./LoginButton";
 import { Logo } from "./Logo";

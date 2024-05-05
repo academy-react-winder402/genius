@@ -24,11 +24,11 @@ const Pagination = ({ handlePageClick, pageCount }: PaginationProps) => {
       pageRangeDisplayed={5}
       pageCount={pageCount}
       renderOnZeroPageCount={null}
-      className="flex flex-wrap justify-center items-center gap-2 mt-5"
-      nextClassName="w-[32px] h-[32px] bg-paginationPreviousBackground rounded-full flex justify-center items-center dark:bg-gray-800"
-      previousClassName="w-[32px] h-[32px] bg-primary rounded-full flex justify-center items-center"
-      pageClassName="mr-2 w-[32px] h-[32px] flex justify-center items-center"
-      activeClassName="bg-primary text-white rounded-full"
+      className="paginationWrapper"
+      nextClassName="paginationNext"
+      previousClassName="paginationPrevious"
+      pageClassName="paginationPage"
+      activeClassName="paginationActive"
     />
   );
 };

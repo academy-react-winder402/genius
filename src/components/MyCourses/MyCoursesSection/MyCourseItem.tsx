@@ -20,7 +20,9 @@ const MyCourseItem = ({ course, formattedPrice }: MyCourseItemProps) => {
       <h6 className="dashboardMyCourseItemText">{course.createdAt}</h6>
       <h6 className="dashboardMyCourseItemText">{formattedPrice} تومان</h6>
       <div className="dashboardMyCourseItemIconsWrapper">
-        <RemoveRedEye className="dashboardMyCourseItemShowIcon" />
+        <Link to={`/courses/${course.id}`}>
+          <RemoveRedEye className="dashboardMyCourseItemShowIcon" />
+        </Link>
         <Delete className="dashboardMyCourseItemDeleteIcon" />
       </div>
     </div>

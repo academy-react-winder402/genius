@@ -1,7 +1,7 @@
-import { Link } from "../common/Link";
+import { Link } from "../../common/Link";
 
-import logoImage from "../../assets/images/Header/logo.png";
-import logoDarkImage from "../../assets/images/Header/logo-dark.svg";
+import logoImage from "../../../assets/images/Header/logo.png";
+import logoDarkImage from "../../../assets/images/Header/logo-dark.svg";
 
 interface LogoProps {
   isFilter?: boolean;

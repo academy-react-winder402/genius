@@ -2,7 +2,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 // import required modules
 import { Navigation, Pagination } from "swiper/modules";
 
-import { courseItems } from "../../Courses/CourseItems/courseItems";
+import { courseItems } from "../../../core/data/courses/courseItems";
+
 import { CourseItem } from "../../common/CourseItem";
 import { Heading } from "../../common/Heading";
 

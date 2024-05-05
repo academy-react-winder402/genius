@@ -1,18 +1,19 @@
-import { useState } from "react";
-import { ErrorMessage, Field, Form, Formik } from "formik";
-
-import { forgotPasswordStepTwoFormSchema } from "../../../core/validations/forgot-password/forgot-password-step-two-form";
-
-import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import VisibilityIcon from "@mui/icons-material/Visibility";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import { Field, Form, Formik } from "formik";
+import { useState } from "react";
 
-interface ForgotPasswordStepTwoFormProps {
+import { forgetPasswordStepTwoFormSchema } from "../../../core/validations/forget-password/forget-password-step-two-form";
+
+import { ErrorMessage } from "../../common/ErrorMessage";
+
+interface ForgetPasswordStepTwoFormProps {
   setCurrentValue: (value: number) => void;
 }
 
-const ForgotPasswordStepTwoForm = ({
+const ForgetPasswordStepTwoForm = ({
   setCurrentValue,
-}: ForgotPasswordStepTwoFormProps) => {
+}: ForgetPasswordStepTwoFormProps) => {
   const [isPassword, setIsPassword] = useState(true);
 
   const handleIsPasswordChange = () => setIsPassword((prevValue) => !prevValue);
@@ -25,7 +26,7 @@ const ForgotPasswordStepTwoForm = ({
     <Formik
       initialValues={{ newPassword: "" }}
       onSubmit={onSubmit}
-      validationSchema={forgotPasswordStepTwoFormSchema}
+      validationSchema={forgetPasswordStepTwoFormSchema}
     >
       {({ values, handleSubmit }) => (
         <Form>
@@ -45,11 +46,7 @@ const ForgotPasswordStepTwoForm = ({
                   <VisibilityIcon onClick={handleIsPasswordChange} />
                 )}
               </div>
-              <ErrorMessage
-                name="newPassword"
-                className="text-[14px] text-[red]"
-                component="p"
-              />
+              <ErrorMessage name="newPassword" />
             </div>
             <div className="flex gap-3 justify-center items-center mt-5 w-full">
               <button
@@ -80,4 +77,4 @@ const ForgotPasswordStepTwoForm = ({
   );
 };
 
-export { ForgotPasswordStepTwoForm };
+export { ForgetPasswordStepTwoForm };
