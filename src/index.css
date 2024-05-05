@@ -277,10 +277,10 @@
   }
   /* Dashboard Layout */
   .dashboardWrapper {
-    @apply relative flex flex-col lg:flex-row h-full min-h-screen;
+    @apply relative flex flex-col lg:flex-row h-full min-h-screen dark:bg-darkBackground;
   }
   .dashboardSidebar {
-    @apply bg-primary lg:w-[320px] h-full lg:fixed lg:top-0 lg:right-0 flex flex-col py-5;
+    @apply bg-primary dark:bg-gray-900 lg:w-[320px] h-full lg:fixed lg:top-0 lg:right-0 flex flex-col py-5;
   }
   .dashboardSideBarTopSectionWrapper {
     @apply w-full px-7 flex justify-between items-center;
@@ -332,25 +332,25 @@
     @apply relative border-[1px] border-solid border-dashboardUserInfoEditProfileBorder w-full rounded-[12px] mt-12 py-5 px-5 grid grid-cols-2 lg:grid-cols-3 place-content-center gap-y-8;
   }
   .dashboardInformationBoxLabel {
-    @apply font-[500] text-text2;
+    @apply font-[500] text-text2 dark:text-darkText;
   }
   .dashboardInformationBoxValue {
     @apply text-primaryColor font-[700];
   }
   .dashboardEditProfileLink {
-    @apply mr-auto font-[500] text-primaryColor border-t border-r border-solid border-dashboardUserInfoEditProfileBorder w-[120px] h-[40px] mt-0 absolute bottom-0 left-0 rounded-tr-[12px] flex justify-center items-center;
+    @apply mr-auto font-[500] text-primaryColor dark:text-darkText border-t border-r border-solid border-dashboardUserInfoEditProfileBorder w-[120px] h-[40px] mt-0 absolute bottom-0 left-0 rounded-tr-[12px] flex justify-center items-center;
   }
   .dashboardCoursesSection {
     @apply flex flex-col lg:flex-row gap-7 lg:gap-0 justify-between mt-14;
   }
   .dashboardTitle {
-    @apply relative font-[800] text-[22px] text-text1 pr-10 before:content-[''] before:absolute before:top-3 before:right-0 before:w-[4px] before:h-[4px] before:bg-primary before:rounded-full after:content-[''] after:absolute after:top-3 after:right-2 after:w-[22px] after:h-[4px] after:bg-primary after:rounded-full;
+    @apply relative font-[800] text-[22px] text-text1 dark:text-darkText pr-10 before:content-[''] before:absolute before:top-3 before:right-0 before:w-[4px] before:h-[4px] before:bg-primary before:rounded-full after:content-[''] after:absolute after:top-3 after:right-2 after:w-[22px] after:h-[4px] after:bg-primary after:rounded-full;
   }
   .dashboardMappedCoursesWrapper {
     @apply flex flex-col gap-4 mt-6;
   }
   .dashboardCourseItem {
-    @apply flex items-center gap-3 lg:gap-4 shadow-primaryShadow py-2 px-4 rounded-[12px] lg:w-[475px] h-[100px];
+    @apply flex items-center gap-3 lg:gap-4 shadow-primaryShadow py-2 px-4 rounded-[12px] lg:w-[475px] h-[100px] dark:bg-gray-900;
   }
   .dashboardCourseItemImage {
     @apply lg:w-[120px] rounded-[12px];
@@ -359,13 +359,13 @@
     @apply flex lg:gap-7 w-[70%];
   }
   .dashboardCourseItemTitle {
-    @apply font-[600] text-text2 truncate;
+    @apply font-[600] text-text2 dark:text-darkText truncate;
   }
   .dashboardCourseItemTeacherBoxWrapper {
     @apply flex gap-1 mt-3;
   }
   .dashboardCourseItemTeacherName {
-    @apply font-[500] text-[14px] text-text1;
+    @apply font-[500] text-[14px] text-text1 dark:text-darkText;
   }
   .dashboardCourseItemPrice {
     @apply font-[500] text-primaryColor truncate;
@@ -470,10 +470,10 @@
   }
   /* Dashboard Title Box */
   .dashboardTitleBoxWrapper {
-    @apply h-[64px] rounded-[12px] flex items-center px-4 bg-dashboardTitleBox;
+    @apply h-[64px] rounded-[12px] flex items-center px-4 bg-dashboardTitleBox dark:bg-gray-900;
   }
   .dashboardTitleBoxTitle {
-    @apply relative font-[700] text-[24px] text-text1 pr-4 before:content-[''] after:absolute after:top-[5px] after:right-0 after:w-[6px] after:h-[24px] after:bg-primaryColor after:rounded-[8px];
+    @apply relative font-[700] text-[24px] text-text1 dark:text-darkText pr-4 before:content-[''] after:absolute after:top-[5px] after:right-0 after:w-[6px] after:h-[24px] after:bg-primaryColor after:rounded-[8px];
   }
   /* Error Message */
   .errorMessage {
