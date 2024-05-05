@@ -327,12 +327,6 @@
   .dashboardBottomSection {
     @apply mt-auto px-9 flex justify-between items-center;
   }
-  .dashboardHomeLink {
-    @apply w-[40px] h-[40px] bg-dashboardHomeBackground shadow-dashboardNotificationHomeShadow rounded-full flex justify-center items-center mt-3;
-  }
-  .dashboardHomeIcon {
-    @apply w-[20px] h-[20px];
-  }
   /* Dashboard Page */
   .dashboardProfileInformationWrapper {
     @apply relative border-[1px] border-solid border-dashboardUserInfoEditProfileBorder w-full rounded-[12px] mt-12 py-5 px-5 grid grid-cols-2 lg:grid-cols-3 place-content-center gap-y-8;

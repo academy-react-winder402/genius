@@ -4,7 +4,11 @@ import { useDispatch } from "react-redux";
 
 import { onDarkModeChange, useDarkModeSelector } from "../../../redux/darkMode";
 
-const DarkModeButton = () => {
+interface DarkModeButtonProps {
+  isDashboard?: boolean;
+}
+
+const DarkModeButton = ({ isDashboard }: DarkModeButtonProps) => {
   const darkMode = useDarkModeSelector();
   const dispatch = useDispatch();
 
@@ -23,9 +27,15 @@ const DarkModeButton = () => {
       onClick={handleDarkModeChange}
       className={`w-[48px] h-[48px] bg-white dark:bg-gray-800 rounded-full outline-none ${
         darkMode === true ? "" : ""
-      }`}
+      } ${isDashboard && "!bg-dashboardDarkMode mt-4"}`}
     >
-      {darkMode === true ? <DarkMode /> : <LightMode />}
+      {darkMode === true ? (
+        <DarkMode />
+      ) : (
+        <LightMode
+          className={isDashboard ? "text-dashboardDarkModeLightModeIcon" : ""}
+        />
+      )}
     </button>
   );
 };
