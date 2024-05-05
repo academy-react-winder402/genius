@@ -1,4 +1,4 @@
-import { courseItems } from "../Courses/CourseItems/courseItems";
+import { courseItems } from "../../core/data/courses/courseItems";
 
 import { PaginatedMyCourses } from "./MyCoursesSection/PaginatedMyCourses";
 

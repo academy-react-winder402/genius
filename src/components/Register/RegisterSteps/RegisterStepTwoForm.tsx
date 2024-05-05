@@ -1,14 +1,16 @@
-import { ErrorMessage, Field, Formik } from "formik";
-import { Form } from "react-router-dom";
+import { Field, Formik } from "formik";
+import AuthCode from "react-auth-code-input";
 import { useDispatch } from "react-redux";
+import { Form } from "react-router-dom";
 
 import {
   onVerifyCodeChange,
   useRegisterSelector,
 } from "../../../redux/register";
-import AuthCode from "react-auth-code-input";
 
 import { registerStepTwoFormSchema } from "../../../core/validations/register/register-step-two-form.validation-three";
+
+import { ErrorMessage } from "../../common/ErrorMessage";
 
 interface RegisterStepTwoFormProps {
   setCurrentValue: (step: number) => void;
@@ -54,7 +56,7 @@ const RegisterStepTwoForm = ({ setCurrentValue }: RegisterStepTwoFormProps) => {
                   />
                 )}
               />
-              <ErrorMessage name="verifyCode" component="p" />
+              <ErrorMessage name="verifyCode" />
             </div>
             <span className="authSendVerificationCodeTime">1:34</span>
             <div className="flex gap-3 justify-center items-center mt-7">

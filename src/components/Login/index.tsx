@@ -1,4 +1,4 @@
-import { Logo } from "../Header/Logo";
+import { Logo } from "../Layout/Header/Logo";
 import { SocialMedia } from "../common/SocialMedia";
 import { LoginForm } from "./LoginForm";
 

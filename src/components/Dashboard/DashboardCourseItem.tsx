@@ -1,6 +1,9 @@
+import { useDarkModeSelector } from "../../redux/darkMode";
+
 import { priceWithCommas } from "../../core/utils/number-helper.utils";
 
 import teacherIcon from "../../assets/images/Courses/Icons/teacher.svg";
+import teacherDarkIcon from "../../assets/images/Courses/Icons/teacher-dark.svg";
 
 interface DashboardCourseItemProps {
   image: string;
@@ -15,6 +18,8 @@ const DashboardCourseItem = ({
   teacherName,
   price,
 }: DashboardCourseItemProps) => {
+  const darkMode = useDarkModeSelector();
+
   const formattedPrice = priceWithCommas(price);
 
   return (
@@ -26,7 +31,7 @@ const DashboardCourseItem = ({
         <div>
           <h4 className="dashboardCourseItemTitle">{title}</h4>
           <div className="dashboardCourseItemTeacherBoxWrapper">
-            <img src={teacherIcon} />
+            <img src={darkMode ? teacherDarkIcon   : teacherIcon} />
             <span className="dashboardCourseItemTeacherName">
               {teacherName}
             </span>
@@ -35,7 +40,8 @@ const DashboardCourseItem = ({
         <div className="mt-auto">
           <div className="-mb-[3px]">
             <span className="dashboardCourseItemPrice">
-              {formattedPrice} <span className="text-text1">تومان</span>
+              {formattedPrice}{" "}
+              <span className="text-text1 dark:text-darkText">تومان</span>
             </span>
           </div>
         </div>

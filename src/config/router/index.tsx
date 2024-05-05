@@ -10,15 +10,19 @@ import { BlogsPage } from "../../screens/Blogs";
 import { CourseDetailsPage } from "../../screens/CourseDetails";
 import { CoursesPage } from "../../screens/Courses";
 import { DashboardPage } from "../../screens/Dashboard";
-import { ForgotPasswordPage } from "../../screens/ForgotPassword";
+import { ForgetPasswordPage } from "../../screens/ForgetPassword";
 import { LandingPage } from "../../screens/Landing";
 import { LoginPage } from "../../screens/Login";
+import { MyCoursesPage } from "../../screens/MyCourses";
 import { NotFoundPage } from "../../screens/NotFound";
 import { RegisterPage } from "../../screens/Register";
+<<<<<<< HEAD
 
 import { EditProfilePage } from "../../screens/EditProfile";
 
 import { MyCoursesPage } from "../../screens/MyCourses";
+=======
+>>>>>>> 4c1e5c9c26eb036d289a069338f5b56660137b8e
 
 export const router = createBrowserRouter([
   {
@@ -60,8 +64,8 @@ export const router = createBrowserRouter([
         element: <RegisterPage />,
       },
       {
-        path: "/forgot-password",
-        element: <ForgotPasswordPage />,
+        path: "/forget-password",
+        element: <ForgetPasswordPage />,
       },
       {
         path: "*",

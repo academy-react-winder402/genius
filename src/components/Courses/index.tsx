@@ -1,7 +1,8 @@
 import { useState } from "react";
 
+import { courseItems } from "../../core/data/courses/courseItems";
+
 import { CoursesHeroSection } from "../Courses/CoursesHeroSection";
-import { courseItems } from "./CourseItems/courseItems";
 import { PaginatedCourses } from "./CourseItems/PaginatedCourses";
 import { Filters } from "./CoursesFilter/Filters";
 import { FilterTitleTrash } from "./CoursesFilter/FilterTitleTrash";

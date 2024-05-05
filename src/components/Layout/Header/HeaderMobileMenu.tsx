@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import MenuIcon from "@mui/icons-material/Menu";
-import { Drawer } from "../common/Drawer";
+import { Drawer } from "../../common/Drawer";
 import { HeaderMobileMenuItems } from "./HeaderMobileMenuItems";
 
 const HeaderMobileMenu = () => {

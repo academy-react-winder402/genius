@@ -23,8 +23,8 @@ export default {
         blogDetailsShareBox: "#ECEFF1",
         dashboardActiveMenuItem: "#00000099",
         dashboardHoverMenuItem: "#0000001A",
-        dashboardHomeBackground: "#FFFFFF33",
         dashboardTitleBox: "#ECEFF1",
+        dashboardDarkMode: "#FFFFFF33",
       },
       backgroundImage: {
         headerBg: "url('/src/assets/images/Header/header-bg.png')",
@@ -58,8 +58,10 @@ export default {
           "url('/src/assets/images/Blogs/blogs-hero-section-circle.svg')",
         blogsHeroSectionTitleDescriptionBackground:
           "url('/src/assets/images/Blogs/dots.svg')",
-        dashboardMyCoursesSortIcon:
+        dashboardMyCoursesCoursesPerPageSelectBoxIcon:
           "url('/src/assets/images/Courses/Icons/select-icon.svg')",
+        dashboardMyCoursesCoursesPerPageSelectBoxDarkIcon:
+          "url('/src/assets/images/Courses/Icons/select-icon-dark.svg')",
       },
       colors: {
         primaryColor: "#2196F3",
@@ -68,6 +70,7 @@ export default {
         text3: "#607D8B",
         red: "#F44336",
         darkText: "#CCCCCC",
+        dashboardDarkModeLightModeIcon: "#e9e9e9",
       },
       fontFamily: {
         yekanBakh: "YekanBakh",

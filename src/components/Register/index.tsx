@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { Logo } from "../Header/Logo";
+import { Logo } from "../Layout/Header/Logo";
 import { SocialMedia } from "../common/SocialMedia";
 import { RegisterForm } from "./RegisterForm";
 import { FormStep } from "../common/FormStep";

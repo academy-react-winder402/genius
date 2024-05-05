@@ -1,6 +1,6 @@
-import { Link } from "../common/Link";
+import { Link } from "../../common/Link";
 
-import shoppingBagIcon from "../../assets/images/Header/shopping-bag.png";
+import shoppingBagIcon from "../../../assets/images/Header/shopping-bag.png";
 
 const BasketButton = () => {
   return (

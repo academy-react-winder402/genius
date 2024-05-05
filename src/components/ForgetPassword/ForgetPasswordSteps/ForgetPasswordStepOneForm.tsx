@@ -1,14 +1,16 @@
-import { ErrorMessage, Field, Form, Formik } from "formik";
+import { Field, Form, Formik } from "formik";
 
-import { forgotPasswordStepOneFormSchema } from "../../../core/validations/forgot-password/forgot-password-step-one-form";
+import { forgetPasswordStepOneFormSchema } from "../../../core/validations/forget-password/forget-password-step-one-form";
 
-interface ForgotPasswordStepOneFormProps {
+import { ErrorMessage } from "../../common/ErrorMessage";
+
+interface ForgetPasswordStepOneFormProps {
   setCurrentValue: (value: number) => void;
 }
 
-const ForgotPasswordStepOneForm = ({
+const ForgetPasswordStepOneForm = ({
   setCurrentValue,
-}: ForgotPasswordStepOneFormProps) => {
+}: ForgetPasswordStepOneFormProps) => {
   const onSubmit = (values: { email: string }) => {
     console.log(values);
   };
@@ -17,7 +19,7 @@ const ForgotPasswordStepOneForm = ({
     <Formik
       initialValues={{ email: "" }}
       onSubmit={onSubmit}
-      validationSchema={forgotPasswordStepOneFormSchema}
+      validationSchema={forgetPasswordStepOneFormSchema}
     >
       {({ values, handleSubmit }) => (
         <Form>
@@ -30,11 +32,7 @@ const ForgotPasswordStepOneForm = ({
                 placeholder="ایمیل"
                 className="authInput"
               />
-              <ErrorMessage
-                name="email"
-                className="text-[14px] text-[red]"
-                component="p"
-              />
+              <ErrorMessage name="email" />
             </div>
             <button
               type="submit"
@@ -56,4 +54,4 @@ const ForgotPasswordStepOneForm = ({
   );
 };
 
-export { ForgotPasswordStepOneForm };
+export { ForgetPasswordStepOneForm };

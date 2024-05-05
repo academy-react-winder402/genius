@@ -1,7 +1,6 @@
-import React from "react";
+import { footerMenuItems } from "../../../core/data/footer/footerMenuItems";
 
-import { Link } from "../common/Link";
-import { footerMenuItems } from "./footerMenuItems";
+import { Link } from "../../common/Link";
 
 const FooterMenu = () => {
   return (

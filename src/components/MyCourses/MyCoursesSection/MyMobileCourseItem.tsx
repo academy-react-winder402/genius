@@ -1,6 +1,9 @@
+import { useDarkModeSelector } from "../../../redux/darkMode";
+
 import { Link } from "../../common/Link";
 
 import teacherIcon from "../../../assets/images/CourseDetails/Icons/teacher.svg";
+import teacherDarkIcon from "../../../assets/images/CourseDetails/Icons/teacher-dark.svg";
 
 interface MyMobileCourseItemProps {
   image: string;
@@ -17,6 +20,8 @@ const MyMobileCourseItem = ({
   teacherName,
   formattedPrice,
 }: MyMobileCourseItemProps) => {
+  const darkMode = useDarkModeSelector();
+
   return (
     <div className="dashboardMyMobileCourseItem">
       <div>
@@ -29,7 +34,7 @@ const MyMobileCourseItem = ({
         <div className="dashboardMyMobileCourseItemBoxTwo">
           <div className="dashboardMyMobileCourseItemTeacherIconTitleBox">
             <img
-              src={teacherIcon}
+              src={darkMode ? teacherDarkIcon : teacherIcon}
               className="dashboardMyMobileCourseItemTeacherIcon"
             />
             <h5 className="dashboardMyMobileCourseItemTeacherName">
