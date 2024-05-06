@@ -4,7 +4,7 @@ import { dashboardMenuItems } from "../../../core/data/dashboard/dashboardMenuIt
 
 import { Link } from "../../common/Link";
 
-import avatarImage from "../../../assets/images/Dashboard/Avatars/avatar.png";
+import avatarImage from "../../../assets/images/Dashboard/Avatars/avatar1.png";
 import dashboardLogo from "../../../assets/images/Dashboard/Icons/dashboard-logo.svg";
 import notificationIcon from "../../../assets/images/Dashboard/Icons/notification.svg";
 import { DarkModeButton } from "../../common/DarkModeButton";

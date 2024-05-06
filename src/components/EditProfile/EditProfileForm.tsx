@@ -1,10 +1,11 @@
-import { Field, Form, Formik } from "formik";
+import { Form, Formik } from "formik";
 
 import { EditProfileFormInterface } from "../../types/edit-profile-form";
 
 import { editProfileFormSchema } from "../../core/validations/edit-profile-form.validation";
 
-import { ErrorMessage } from "../common/ErrorMessage";
+import { FieldBox } from "../common/FieldBox";
+import { EDIT_PROFILE_FORM } from "../../core/data/edit-profile/edit-profile-form";
 
 const EditProfileForm = () => {
   const onSubmit = (values: EditProfileFormInterface) => {
@@ -27,81 +28,19 @@ const EditProfileForm = () => {
         onSubmit={onSubmit}
       >
         <Form>
-          <div className="grid grid-cols-1 lg:grid-cols-3 lg:gap-x-6 gap-y-5 lg:gap-y-10 w-full">
-            <div>
-              <label htmlFor="firstName" className="editProfileFormLabel">
-                نام
-              </label>
-              <Field
-                type="text"
-                name="firstName"
-                id="firstName"
-                className="editProfileFormInput"
+          <div className="editProfileFormFieldsWrapper">
+            {EDIT_PROFILE_FORM.map((field) => (
+              <FieldBox
+                key={field.id}
+                label={field.label}
+                type={field.type}
+                name={field.name}
+                id={field.id}
+                className={field.className}
               />
-              <ErrorMessage name="firstName" />
-            </div>
-            <div>
-              <label htmlFor="lastName" className="editProfileFormLabel">
-                نام خانواردگی
-              </label>
-              <Field
-                type="text"
-                name="lastName"
-                id="lastName"
-                className="editProfileFormInput"
-              />
-              <ErrorMessage name="lastName" />
-            </div>
-            <div>
-              <label htmlFor="nationalCode" className="editProfileFormLabel">
-                کد ملی
-              </label>
-              <Field
-                name="nationalCode"
-                id="nationalCode"
-                className="editProfileFormInput"
-              />
-              <ErrorMessage name="nationalCode" />
-            </div>
-            <div>
-              <label htmlFor="email" className="editProfileFormLabel">
-                ایمیل
-              </label>
-              <Field
-                type="email"
-                name="email"
-                id="email"
-                className="editProfileFormInput"
-              />
-              <ErrorMessage name="email" />
-            </div>
-            <div>
-              <label htmlFor="birthdayDate" className="editProfileFormLabel">
-                تاریخ تولد
-              </label>
-              <Field
-                name="birthdayDate"
-                id="birthdayDate"
-                className="editProfileFormInput"
-              />
-              <ErrorMessage name="birthdayDate" />
-            </div>
-            <div>
-              <label htmlFor="phoneNumber" className="editProfileFormLabel">
-                شماره موبایل
-              </label>
-              <Field
-                name="phoneNumber"
-                id="phoneNumber"
-                className="editProfileFormInput"
-              />
-              <ErrorMessage name="phoneNumber" />
-            </div>
+            ))}
           </div>
-          <button
-            type="submit"
-            className="mainButton dark:bg-gray-900 h-[45px] rounded-[7px] mt-12"
-          >
+          <button type="submit" className="editProfileSubmitButton">
             ثبت اطلاعات
           </button>
         </Form>
