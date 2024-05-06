@@ -28,6 +28,6 @@ export const { onPhoneNumberChange, onVerifyCodeChange } =
   registerSlice.actions;
 
 export const useRegisterSelector = () =>
-  useSelector((reducer) => reducer.register);
+  useSelector((reducer: any) => reducer.register);
 
 export default registerSlice.reducer;

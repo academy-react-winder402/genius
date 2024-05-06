@@ -1,4 +1,4 @@
-import { landingServiceItems } from "./landingServiceItems";
+import { landingServiceItems } from "../../../core/data/landing/landingServiceItems";
 
 const LandingServicesMapped = () => {
   return (

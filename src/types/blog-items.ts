@@ -3,7 +3,10 @@ export interface BlogItemInterface {
   image: string;
   title: string;
   description: string;
-  hour: number;
+  longDescription?: string;
+  hour?: number;
   allSeas: number;
-  createdAt: string;
+  createdAt?: string;
+  writerImage?: string;
+  writerName?: string;
 }

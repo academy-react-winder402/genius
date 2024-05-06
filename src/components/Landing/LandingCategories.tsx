@@ -1,7 +1,7 @@
 import { useDarkModeSelector } from "../../redux/darkMode";
 
 import { CategoryItem } from "./Categories/CategoryItem";
-import { landingCategoryItems } from "./Categories/landingCategoryItems";
+import { landingCategoryItems } from "../../core/data/landing/landingCategoryItems";
 
 import itemsAfter from "../../assets/images/Landing/LandingCategories/items-after.svg";
 import dotsBackground from "../../assets/images/Landing/LandingCategories/bg-dots.svg";

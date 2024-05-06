@@ -1,5 +1,7 @@
 import { useParams } from "react-router-dom";
 
+import { courseItems } from "../../core/data/courses/courseItems";
+
 import { CourseItemsInterface } from "../../types/course-items";
 
 import { priceWithCommas } from "../../core/utils/number-helper.utils";
@@ -7,10 +9,8 @@ import { priceWithCommas } from "../../core/utils/number-helper.utils";
 import { useDarkModeSelector } from "../../redux/darkMode";
 
 import { CourseLikeBox } from "../common/CourseLikeBox";
-import { courseItems } from "../Courses/CourseItems/courseItems";
 import { CourseDetailsInformationBox } from "./CourseDetailsInformation/CourseDetailsInformationBox";
 import { CourseTeacher } from "./CourseDetailsInformation/CourseTeacher";
-import { CourseSatisfaction } from "./CourseSatisfaction";
 import { CourseTabs } from "./CourseTabs";
 import { RelatedCourses } from "./RelatedCourses";
 
@@ -22,12 +22,13 @@ import calenderTickIcon from "../../assets/images/CourseDetails/Information/cale
 import calenderIcon from "../../assets/images/CourseDetails/Information/calendar.svg";
 import courseStatusIcon from "../../assets/images/CourseDetails/Information/monitor-recorder.svg";
 import studentsCountIcon from "../../assets/images/CourseDetails/Information/profile-user.svg";
+import { Satisfaction } from "../common/Satisfaction";
 
 const CourseDetails = () => {
-  const { id } = useParams();
+  const { courseId } = useParams();
 
   const course: CourseItemsInterface = courseItems.find(
-    (course) => course.id == id
+    (course) => course.id == courseId
   )!;
 
   const darkMode = useDarkModeSelector();
@@ -69,8 +70,8 @@ const CourseDetails = () => {
               {course.description}
             </p>
           </div>
-          <CourseSatisfaction />
-          <CourseTabs courseLessons={course.courseLessons} />
+          <Satisfaction nameData="دوره" />
+          <CourseTabs courseLessons={course.courseLessons!} />
         </div>
         <div className="lg:w-[405px]">
           <div className="courseDetailsSidebar">
@@ -86,7 +87,7 @@ const CourseDetails = () => {
               <CourseDetailsInformationBox
                 imageURL={courseStatusIcon}
                 label="وضعیت دوره"
-                value={course.courseStatus}
+                value={course.courseStatus!}
               />
               <CourseDetailsInformationBox
                 imageURL={calenderIcon}
@@ -96,7 +97,7 @@ const CourseDetails = () => {
               <CourseDetailsInformationBox
                 imageURL={calenderTickIcon}
                 label="تاریخ پایان"
-                value={course.courseEndTime}
+                value={course.courseEndTime!}
               />
             </div>
             <div className="flex justify-between items-center mt-6 w-[90%] mx-auto">
@@ -112,9 +113,9 @@ const CourseDetails = () => {
             </div>
           </div>
           <CourseTeacher
-            teacherImage={course.teacherImage}
+            teacherImage={course.teacherImage!}
             teacherName={course.teacherName}
-            teacherJob={course.teacherJob}
+            teacherJob={course.teacherJob!}
           />
         </div>
       </div>

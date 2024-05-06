@@ -1,15 +1,22 @@
 import { createBrowserRouter } from "react-router-dom";
 
+// Layouts
+import { DashboardLayout } from "../../components/Layout/Dashboard/DashboardLayout";
 import { LandingLayout } from "../../components/Layout/LandingLayout";
 import { MainLayout } from "../../components/Layout/Layout";
+
+import { BlogDetailsPage } from "../../screens/BlogDetails";
+import { BlogsPage } from "../../screens/Blogs";
 import { CourseDetailsPage } from "../../screens/CourseDetails";
 import { CoursesPage } from "../../screens/Courses";
-import { ForgotPasswordPage } from "../../screens/ForgotPassword";
+import { DashboardPage } from "../../screens/Dashboard";
+import { ForgetPasswordPage } from "../../screens/ForgetPassword";
 import { LandingPage } from "../../screens/Landing";
 import { LoginPage } from "../../screens/Login";
+import { MyCoursesPage } from "../../screens/MyCourses";
 import { NotFoundPage } from "../../screens/NotFound";
 import { RegisterPage } from "../../screens/Register";
-import { BlogsPage } from "../../screens/Blogs";
+import { EditProfilePage } from "../../screens/EditProfile";
 
 export const router = createBrowserRouter([
   {
@@ -31,8 +38,16 @@ export const router = createBrowserRouter([
         element: <CoursesPage />,
       },
       {
-        path: "/courses/:id",
+        path: "/courses/:courseId",
         element: <CourseDetailsPage />,
+      },
+      {
+        path: "/blogs",
+        element: <BlogsPage />,
+      },
+      {
+        path: "/blogs/:blogId",
+        element: <BlogDetailsPage />,
       },
       {
         path: "/login",
@@ -43,16 +58,30 @@ export const router = createBrowserRouter([
         element: <RegisterPage />,
       },
       {
-        path: "/forgot-password",
-        element: <ForgotPasswordPage />,
-      },
-      {
-        path: "/blogs",
-        element: <BlogsPage />,
+        path: "/forget-password",
+        element: <ForgetPasswordPage />,
       },
       {
         path: "*",
         element: <NotFoundPage />,
+      },
+    ],
+  },
+  {
+    path: "/dashboard",
+    element: <DashboardLayout />,
+    children: [
+      {
+        index: true,
+        element: <DashboardPage />,
+      },
+      {
+        path: "/dashboard/my-courses",
+        element: <MyCoursesPage />,
+      },
+      {
+        path: "/dashboard/edit-Profile",
+        element: <EditProfilePage />,
       },
     ],
   },

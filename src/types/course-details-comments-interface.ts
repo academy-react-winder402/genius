@@ -1,4 +1,4 @@
-export interface CourseDetailsCommentsInterface {
+export interface CommentItemsInterface {
   id: React.Key;
   image: string;
   title: string;

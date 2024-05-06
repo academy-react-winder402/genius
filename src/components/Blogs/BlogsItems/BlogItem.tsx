@@ -1,9 +1,10 @@
 import { BlogItemInterface } from "../../../types/blog-items";
-import { Link } from "../../common/Link";
 
 import eyeIcon from "../../../assets/images/blogs/eye.svg";
 import dotsIcon from "../../../assets/images/blogs/item-dots.svg";
 import calenderIcon from "../../../assets/images/blogs/calendar.svg";
+import { BlogSeasCreatedAt } from "../../common/BlogSeasCreatedAt";
+import { Link } from "../../common/Link";
 
 interface BlogItemProps {
   blog: BlogItemInterface;
@@ -21,21 +22,7 @@ const BlogItem = ({ blog }: BlogItemProps) => {
       <p className="w-[405px] font-[500] text-[14px] text-text2 dark:text-darkText mt-2">
         {blog.description}
       </p>
-      <div className="flex gap-3 items-center mt-3">
-        <div className="flex gap-1">
-          <img src={eyeIcon} />
-          <span className="font-[400] text-[14px] text-primaryColor mt-1">
-            {blog.allSeas} بازدید
-          </span>
-        </div>
-        <img src={dotsIcon} />
-        <div className="flex gap-1">
-          <img src={calenderIcon} />
-          <span className="font-[400] text-[14px] text-primaryColor mt-1">
-            {blog.allSeas} بازدید
-          </span>
-        </div>
-      </div>
+      <BlogSeasCreatedAt allSeas={blog.allSeas} createdAt={blog.createdAt} />
     </div>
   );
 };

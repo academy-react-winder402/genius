@@ -20,6 +20,11 @@ export default {
         likeDislikeIcon: "#ECEFF1",
         courseDetailsAccordion: "#ECEFF1",
         darkBackground: "#1A1A2E",
+        blogDetailsShareBox: "#ECEFF1",
+        dashboardActiveMenuItem: "#00000099",
+        dashboardHoverMenuItem: "#0000001A",
+        dashboardTitleBox: "#ECEFF1",
+        dashboardDarkMode: "#FFFFFF33",
       },
       backgroundImage: {
         headerBg: "url('/src/assets/images/Header/header-bg.png')",
@@ -53,6 +58,10 @@ export default {
           "url('/src/assets/images/Blogs/blogs-hero-section-circle.svg')",
         blogsHeroSectionTitleDescriptionBackground:
           "url('/src/assets/images/Blogs/dots.svg')",
+        dashboardMyCoursesCoursesPerPageSelectBoxIcon:
+          "url('/src/assets/images/Courses/Icons/select-icon.svg')",
+        dashboardMyCoursesCoursesPerPageSelectBoxDarkIcon:
+          "url('/src/assets/images/Courses/Icons/select-icon-dark.svg')",
       },
       colors: {
         primaryColor: "#2196F3",
@@ -61,6 +70,7 @@ export default {
         text3: "#607D8B",
         red: "#F44336",
         darkText: "#CCCCCC",
+        dashboardDarkModeLightModeIcon: "#e9e9e9",
       },
       fontFamily: {
         yekanBakh: "YekanBakh",
@@ -76,15 +86,18 @@ export default {
         authInputShadow: "0px 0px 20px 0px #00000005",
         courseDetailsHeroSectionSearchBoxShadow: "0px 0px 20px 0px #0000000D",
         blogsSortActiveTabShadow: "0px 0px 20px 0px #0000001A",
+        dashboardNotificationHomeShadow: "0px 0px 20px 0px #0000000D",
       },
       borderColor: {
         filterAccordionBorder: "#ECEFF1",
         courseDetailsInformationBox: "#ECEFF1",
         courseDetailsTabsBorder: "#ECEFF1",
-        courseDetailsCommentsBorder: "#CFD8DC",
+        commentsBorder: "#CFD8DC",
         darkBorder: "#585454",
         authInputBorder: "#CFD8DC",
         authNumberInputBorder: "#CFD8DC",
+        dashboardUserInfoEditProfileBorder: "#CFD8DC",
+        editProfileFormInputBorder: "#CCCCCC",
       },
     },
   },

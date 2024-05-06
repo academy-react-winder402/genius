@@ -1,4 +1,4 @@
-import { landingHeroSectionFeaturesItems } from "./landingHeroSectionFeaturesItems";
+import { landingHeroSectionFeaturesItems } from "../../../core/data/landing/landingHeroSectionFeaturesItems";
 
 const LandingHeroSectionFeatures = () => {
   return (
