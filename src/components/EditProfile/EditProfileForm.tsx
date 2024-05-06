@@ -20,7 +20,7 @@ const EditProfileForm = () => {
           lastName: "میانرودیان",
           nationalCode: "1234567890",
           email: "test@gmail.com",
-          birthdayDate: "1402/2/16",
+          birthdayDate: "1386/7/18",
           phoneNumber: "09112345678",
         }}
         enableReinitialize={true}
