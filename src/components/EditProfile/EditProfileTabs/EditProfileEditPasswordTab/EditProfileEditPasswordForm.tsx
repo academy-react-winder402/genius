@@ -23,7 +23,7 @@ const EditProfileEditPasswordForm = () => {
       onSubmit={onSubmit}
     >
       <Form>
-        <div className="flex flex-col items-center gap-4">
+        <div className="flex flex-col lg:items-center gap-4">
           {EDIT_PROFILE_EDIT_PASSWORD_FORM.map((field) => (
             <FieldBox
               key={field.id}
@@ -35,7 +35,7 @@ const EditProfileEditPasswordForm = () => {
               isPassword={field.isPassword}
             />
           ))}
-          <button type="submit" className="editProfileSubmitButton mr-0 mt-6">
+          <button type="submit" className="editProfileSubmitButton mr-0 mt-4">
             ثبت اطلاعات
           </button>
         </div>

@@ -3,7 +3,7 @@ import { CameraAltOutlined } from "@mui/icons-material";
 import { CustomTabPanel } from "../../../common/CustomTabPanel";
 import { EditProfileGeneralForm } from "./EditProfileGeneralForm";
 
-import avatar from "../../../../assets/images/Dashboard/Avatars/avatar1.png";
+import avatar from "../../../../assets/images/Dashboard/Avatars/avatar2.jpg";
 
 interface EditProfileGeneralSettingsTabProps {
   value: number;
