@@ -1,22 +1,15 @@
-import { Field, Form, Formik } from "formik";
-import { useState } from "react";
+import { Form, Formik } from "formik";
 
+import { LOGIN_FORM } from "../../core/data/login/login-form";
 import { loginFormSchema } from "../../core/validations/login-form.validation";
 
-import { ErrorMessage } from "../common/ErrorMessage";
+import { loginFormInterface } from "../../types/login-form";
+
+import { FieldBox } from "../common/FieldBox";
 import { Link } from "../common/Link";
-import { PasswordField } from "../common/PasswordField";
 
 const LoginForm = () => {
-  const [isPassword, setIsPassword] = useState(true);
-
-  const handleIsPasswordChange = () => setIsPassword((prevValue) => !prevValue);
-
-  const onSubmit = (values: {
-    phoneOrGmail: string;
-    password: string;
-    rememberMe: boolean;
-  }) => {
+  const onSubmit = (values: loginFormInterface) => {
     console.log(values);
   };
 
@@ -28,35 +21,23 @@ const LoginForm = () => {
         validationSchema={loginFormSchema}
       >
         <Form>
-          <div className="mt-7 flex flex-col gap-3">
-            <div className="flex flex-col w-full">
-              <p className="font-bold">ایمیل یا شماره موبایل</p>
-              <Field
-                name="phoneOrGmail"
-                placeholder="ایمیل یا شماره موبایل"
-                className="authInput"
+          <div className="loginFormWrapper">
+            {LOGIN_FORM.map((field) => (
+              <FieldBox
+                key={field.id}
+                type={field.type}
+                label={field.label}
+                name={field.name}
+                id={field.id}
+                placeholder={field.placeholder}
+                className={field.className!}
+                wrapperClassName={field.wrapperClassName}
+                isPassword={field.isPassword}
+                isCheckbox={field.isCheckbox}
+                isLogin
               />
-              <ErrorMessage name="phoneOrGmail" />
-            </div>
-            <PasswordField
-              name="password"
-              id="password"
-              placeholder="رمز عبور"
-              className="authInput"
-              showLabel
-              isLogin
-            />
-            <div>
-              <div className="flex gap-2">
-                <Field type="checkbox" name="rememberMe" />
-                <p className="font-bold mt-1">مرا به خاطر بسپار</p>
-              </div>
-              <ErrorMessage name="rememberMe" />
-            </div>
-            <button
-              className="bg-primary text-white h-[40px] rounded-md shadow-primaryShadow mt-2 cursor-pointer"
-              type="submit"
-            >
+            ))}
+            <button className="loginSubmitButton" type="submit">
               ورود
             </button>
             <h5 className="doYouHaveAnyAccountOrDoNotHaveAccountOrForgetPasswordText mt-1">

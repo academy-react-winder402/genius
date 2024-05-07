@@ -39,7 +39,7 @@ const PasswordField = ({
         className={className}
       />
       <div
-        className={`absolute ${isLogin && "!top-11"} ${
+        className={`absolute ${isLogin && "!top-5"} ${
           isRegister && "top-5"
         }  left-2 cursor-pointer top-4`}
       >
@@ -49,7 +49,6 @@ const PasswordField = ({
           <VisibilityIcon onClick={handleIsPasswordChange} />
         )}
       </div>
-      <ErrorMessage name="password" />
     </div>
   );
 };

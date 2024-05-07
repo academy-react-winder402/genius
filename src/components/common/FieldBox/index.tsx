@@ -8,8 +8,11 @@ interface FieldBoxProps {
   name: string;
   id: string;
   className: string;
+  wrapperClassName?: string;
   isPassword?: boolean;
-  passwordPlaceholder?: string;
+  placeholder?: string;
+  isCheckbox?: boolean;
+  isLogin?: boolean;
 }
 
 const FieldBox = ({
@@ -18,26 +21,51 @@ const FieldBox = ({
   name,
   id,
   className,
+  wrapperClassName,
   isPassword,
-  passwordPlaceholder,
+  placeholder,
+  isCheckbox,
+  isLogin,
 }: FieldBoxProps) => {
+  console.log(isLogin);
   return (
-    <div>
-      <label htmlFor={id} className="editProfileFormLabel">
-        {label}
-      </label>
-      {isPassword ? (
-        <PasswordField
-          name={name}
-          id={id}
-          placeholder={passwordPlaceholder!}
-          className={className}
-        />
-      ) : (
-        <Field type={type} name={name} id={id} className={className} />
+    <div className={wrapperClassName}>
+      {!isCheckbox && (
+        <>
+          <label htmlFor={id} className="editProfileFormLabel">
+            {label}
+          </label>
+          {isPassword ? (
+            <PasswordField
+              name={name}
+              id={id}
+              placeholder={placeholder!}
+              className={className}
+              isLogin={isLogin}
+            />
+          ) : (
+            <Field
+              type={type}
+              name={name}
+              id={id}
+              placeholder={placeholder!}
+              className={className}
+            />
+          )}
+          <ErrorMessage name={name} />
+        </>
       )}
-
-      <ErrorMessage name={name} />
+      {isCheckbox && (
+        <>
+          <div className={wrapperClassName}>
+            <Field type={type} name={name} id={id} className={className} />
+            <label htmlFor={id} className="editProfileFormLabel">
+              {label}
+            </label>
+          </div>
+          <ErrorMessage name={name} />
+        </>
+      )}
     </div>
   );
 };

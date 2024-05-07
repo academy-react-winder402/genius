@@ -6,7 +6,7 @@ export const EDIT_PROFILE_EDIT_PASSWORD_FORM = [
     id: "nowPassword",
     className: "editProfileEditPasswordField",
     isPassword: true,
-    passwordPlaceholder: "رمز عبور فعلی",
+    placeholder: "رمز عبور فعلی",
   },
   {
     type: "password",
@@ -15,7 +15,7 @@ export const EDIT_PROFILE_EDIT_PASSWORD_FORM = [
     id: "newPassword",
     className: "editProfileEditPasswordField",
     isPassword: true,
-    passwordPlaceholder: "رمز عبور جدید",
+    placeholder: "رمز عبور جدید",
   },
   {
     type: "password",
@@ -24,6 +24,6 @@ export const EDIT_PROFILE_EDIT_PASSWORD_FORM = [
     id: "repeatPassword",
     className: "editProfileEditPasswordField",
     isPassword: true,
-    passwordPlaceholder: "رمز عبور فعلی",
+    placeholder: "رمز عبور فعلی",
   },
 ] as const;
