@@ -1,13 +1,13 @@
 import { Outlet, useLocation } from "react-router-dom";
 
-import { dashboardMenuItems } from "../../../core/data/dashboard/dashboardMenuItems";
+import { DASHBOARD_MENU_ITEMS } from "../../../core/data/dashboard/dashboard-menu-items";
 
+import { DarkModeButton } from "../../common/DarkModeButton";
 import { Link } from "../../common/Link";
 
 import avatarImage from "../../../assets/images/Dashboard/Avatars/avatar1.png";
 import dashboardLogo from "../../../assets/images/Dashboard/Icons/dashboard-logo.svg";
 import notificationIcon from "../../../assets/images/Dashboard/Icons/notification.svg";
-import { DarkModeButton } from "../../common/DarkModeButton";
 
 const DashboardLayout = () => {
   const { pathname } = useLocation();
@@ -37,7 +37,7 @@ const DashboardLayout = () => {
         </div>
         <div className="dashboardDivider" />
         <div className="dashboardMappedMenuItemsWrapper">
-          {dashboardMenuItems.map((item) => (
+          {DASHBOARD_MENU_ITEMS.map((item) => (
             <Link
               key={item.icon}
               to={item.href}

@@ -1,6 +1,6 @@
 import { DashboardMenuItemInterface } from "../../../types/dashboard-menu-item";
 
-export const dashboardMenuItems: DashboardMenuItemInterface[] = [
+export const DASHBOARD_MENU_ITEMS: DashboardMenuItemInterface[] = [
   {
     icon: "/src/assets/images/Dashboard/Icons/dashboard.svg",
     label: "داشبورد",
@@ -12,14 +12,9 @@ export const dashboardMenuItems: DashboardMenuItemInterface[] = [
     href: "/dashboard/my-courses",
   },
   {
-    icon: "/src/assets/images/Dashboard/Icons/heart.svg",
-    label: "ذخیره شده‌ها",
-    href: "/dashboard/favorite",
-  },
-  {
-    icon: "/src/assets/images/Dashboard/Icons/messages.svg",
-    label: "نظرات ثبت شده",
-    href: "/dashboard/comments",
+    icon: "/src/assets/images/Dashboard/Icons/courses.svg",
+    label: "دوره ها",
+    href: "/dashboard/courses",
   },
   {
     icon: "/src/assets/images/Dashboard/Icons/user-edit.svg",
@@ -31,4 +26,4 @@ export const dashboardMenuItems: DashboardMenuItemInterface[] = [
     label: "خروج از حساب",
     href: "/dashboard/logout",
   },
-];
+] as const;
