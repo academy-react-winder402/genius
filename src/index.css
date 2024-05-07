@@ -370,70 +370,6 @@
   .dashboardCourseItemPrice {
     @apply font-[500] text-primaryColor truncate;
   }
-  /* My Courses Page */
-  .myCoursesTopSection {
-    @apply flex flex-col lg:flex-row gap-4 lg:gap-0 justify-between mt-10;
-  }
-  .myCoursesPerPageFilter {
-    @apply relative w-[300px] lg:w-[10%] after:content-[''] after:absolute after:top-4 after:left-44 lg:after:left-5 after:w-[40px] after:h-[40px] after:bg-dashboardMyCoursesCoursesPerPageSelectBoxIcon dark:after:bg-dashboardMyCoursesCoursesPerPageSelectBoxDarkIcon after:bg-no-repeat;
-  }
-  .myCoursesPerPageFilterSelectBox {
-    @apply w-[50%] lg:w-full h-[50px] lg:h-full px-6 outline-none rounded-[12px] appearance-none dark:bg-gray-900 dark:text-darkText;
-  }
-  .dashboardCoursesSectionWrapper {
-    @apply flex flex-col gap-4 mt-6;
-  }
-  .dashboardCoursesInformationBox {
-    @apply hidden lg:flex lg:gap-0 lg:items-center bg-primary dark:bg-gray-900 text-white rounded-[7px] h-[50px] px-16;
-  }
-  .dashboardMyCourseItem {
-    @apply w-full lg:h-[60px] bg-primary/10 rounded-[7px] hidden lg:flex flex-col lg:flex-row justify-around items-center px-5;
-  }
-  .dashboardMyCourseItemImage {
-    @apply w-[75px] rounded-[7px];
-  }
-  .dashboardMyCourseTitleLink {
-    @apply flex items-center gap-4;
-  }
-  .dashboardMyCourseTitle {
-    @apply font-[500] text-text1 dark:text-darkText lg:w-[170px] truncate;
-  }
-  .dashboardMyCourseItemText {
-    @apply font-[500] text-text1 dark:text-darkText;
-  }
-  .dashboardMyCourseItemIconsWrapper {
-    @apply flex gap-3;
-  }
-  .dashboardMyCourseItemShowIcon {
-    @apply !fill-primaryColor cursor-pointer;
-  }
-  .dashboardMyCourseItemDeleteIcon {
-    @apply !text-red/100 dark:!fill-red cursor-pointer;
-  }
-  .dashboardMyMobileCourseItem {
-    @apply flex items-center gap-5 bg-primary/10 rounded-[7px] py-2 px-5 lg:hidden;
-  }
-  .dashboardMyMobileCourseItemImage {
-    @apply w-[100px] rounded-[7px];
-  }
-  .dashboardMyMobileCourseItemTitle {
-    @apply font-[500] text-text1 dark:text-darkText;
-  }
-  .dashboardMyMobileCourseItemBoxTwo {
-    @apply flex gap-10 mt-2;
-  }
-  .dashboardMyMobileCourseItemTeacherIconTitleBox {
-    @apply flex items-center;
-  }
-  .dashboardMyMobileCourseItemTeacherIcon {
-    @apply w-[20px] h-[20px];
-  }
-  .dashboardMyMobileCourseItemTeacherName {
-    @apply font-[500] text-text1 dark:text-darkText mt-1;
-  }
-  .dashboardMyMobileCourseItemPrice {
-    @apply font-[500] text-text1 dark:text-darkText mt-2;
-  }
   /* Common */
   .satisfaction {
     @apply mt-5 flex flex-col lg:flex-row gap-5 lg:gap-0 justify-between items-center;
@@ -535,6 +471,71 @@
   }
   .editProfileEditPasswordField {
     @apply editProfileFormInput lg:w-[400px];
+  }
+  /* Dashboard Courses */
+  .dashboardCoursesSectionWrapper {
+    @apply flex flex-col gap-4 mt-6;
+  }
+  .dashboardCoursesInformationBox {
+    @apply hidden lg:flex lg:gap-0 lg:items-center bg-primary dark:bg-gray-900 text-white rounded-[7px] h-[50px] px-16;
+  }
+  .dashboardCourseItem {
+    @apply w-full lg:h-[60px] bg-primary/10 rounded-[7px] hidden lg:flex flex-col lg:flex-row justify-around items-center px-5;
+  }
+  .dashboardCourseItemImage {
+    @apply w-[75px] rounded-[7px];
+  }
+  .dashboardCourseTitleLink {
+    @apply flex items-center gap-4;
+  }
+  .dashboardCourseTitle {
+    @apply font-[500] text-text1 dark:text-darkText lg:w-[170px] truncate;
+  }
+  .dashboardCourseItemText {
+    @apply font-[500] text-text1 dark:text-darkText;
+  }
+  .dashboardCourseItemIconsWrapper {
+    @apply flex gap-3;
+  }
+  .dashboardCourseItemShowIcon {
+    @apply !fill-primaryColor cursor-pointer;
+  }
+  .dashboardCourseItemDeleteIcon {
+    @apply !text-red/100 dark:!fill-red cursor-pointer;
+  }
+  .dashboardMobileCourseItem {
+    @apply flex items-center gap-5 bg-primary/10 rounded-[7px] py-2 px-5 lg:hidden;
+  }
+  .dashboardMobileCourseItemImage {
+    @apply w-[100px] rounded-[7px];
+  }
+  .dashboardMobileCourseItemTitle {
+    @apply font-[500] text-text1 dark:text-darkText;
+  }
+  .dashboardMobileCourseItemBoxTwo {
+    @apply flex gap-10 mt-2;
+  }
+  .dashboardMobileCourseItemTeacherIconTitleBox {
+    @apply flex items-center;
+  }
+  .dashboardMobileCourseItemTeacherIcon {
+    @apply w-[20px] h-[20px];
+  }
+  .dashboardMobileCourseItemTeacherName {
+    @apply font-[500] text-text1 dark:text-darkText mt-1;
+  }
+  .dashboardMobileCourseItemPrice {
+    @apply font-[500] text-text1 dark:text-darkText mt-2;
+  }
+  /* Dashboard Courses Per Page Filter */
+  .dashboardCoursesTopSection {
+    @apply flex flex-col lg:flex-row gap-4 lg:gap-0 justify-between mt-10;
+  }
+  .dashboardCoursesPerPageFilter {
+    @apply relative w-[300px] lg:w-[10%] after:content-[''] after:absolute after:top-4 after:left-44 lg:after:left-5 after:w-[40px] after:h-[40px] after:bg-dashboardMyCoursesCoursesPerPageSelectBoxIcon dark:after:bg-dashboardMyCoursesCoursesPerPageSelectBoxDarkIcon after:bg-no-repeat;
+  }
+  .dashboardCoursesPerPageFilterSelectBox {
+    @apply w-[50%] lg:w-full h-[50px] lg:h-full px-6 outline-none rounded-[12px] appearance-none dark:bg-gray-900 dark:text-darkText;
   }
 }
 

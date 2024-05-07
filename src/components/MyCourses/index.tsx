@@ -1,8 +1,8 @@
 import { useState } from "react";
 
+import { DashboardCourses } from "../common/DashboardCourses";
+import { DashboardCoursesSearchFilterBox } from "../common/DashboardCoursesSearchFilterBox";
 import { DashboardTitleBox } from "../common/DashboardTitleBox";
-import { MyCoursesSearchFilterBox } from "./MyCoursesSearchFilterBox";
-import { MyCoursesSection } from "./MyCoursesSection";
 
 const MyCourses = () => {
   const [coursesPerPage, setCoursesPerPage] = useState<number>(8);
@@ -10,8 +10,8 @@ const MyCourses = () => {
   return (
     <div>
       <DashboardTitleBox>دوره های من</DashboardTitleBox>
-      <MyCoursesSearchFilterBox setCoursesPerPage={setCoursesPerPage} />
-      <MyCoursesSection coursesPerPage={coursesPerPage} />
+      <DashboardCoursesSearchFilterBox setCoursesPerPage={setCoursesPerPage} />
+      <DashboardCourses coursesPerPage={coursesPerPage} />
     </div>
   );
 };

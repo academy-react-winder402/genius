@@ -1,16 +1,16 @@
-interface MyCoursesPerPageFilterProps {
+interface DashboardCoursesPerPageFilterProps {
   setCoursesPerPage: (perPage: number) => void;
 }
 
-const MyCoursesPerPageFilter = ({
+const DashboardCoursesPerPageFilter = ({
   setCoursesPerPage,
-}: MyCoursesPerPageFilterProps) => {
+}: DashboardCoursesPerPageFilterProps) => {
   return (
-    <div className="myCoursesPerPageFilter">
+    <div className="dashboardCoursesPerPageFilter">
       <select
         name="coursesPerPage"
         defaultValue={8}
-        className="myCoursesPerPageFilterSelectBox"
+        className="dashboardCoursesPerPageFilterSelectBox"
         onChange={(e) => setCoursesPerPage(parseInt(e.target.value))}
       >
         <option value={4}>4</option>
@@ -21,4 +21,4 @@ const MyCoursesPerPageFilter = ({
   );
 };
 
-export { MyCoursesPerPageFilter };
+export { DashboardCoursesPerPageFilter };

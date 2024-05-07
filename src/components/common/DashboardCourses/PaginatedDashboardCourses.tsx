@@ -4,19 +4,19 @@ import { priceWithCommas } from "../../../core/utils/number-helper.utils";
 
 import { CourseItemsInterface } from "../../../types/course-items";
 
-import { Pagination } from "../../common/Pagination";
-import { MyCourseItem } from "./MyCourseItem";
-import { MyMobileCourseItem } from "./MyMobileCourseItem";
+import { Pagination } from "../Pagination";
+import { DashboardCourseItem } from "./DashboardCourseItem";
+import { DashboardMobileCourseItem } from "./DashboardMobileCourseItem";
 
-interface PaginatedMyCoursesProps {
+interface PaginatedDashboardCoursesProps {
   courses: CourseItemsInterface[];
   itemsPerPage: number;
 }
 
-const PaginatedMyCourses = ({
+const PaginatedDashboardCourses = ({
   courses,
   itemsPerPage,
-}: PaginatedMyCoursesProps) => {
+}: PaginatedDashboardCoursesProps) => {
   const [itemOffset, setItemOffset] = useState<number>(0);
   const endOffset = itemOffset + itemsPerPage;
   const currentItems: CourseItemsInterface[] = courses.slice(
@@ -40,8 +40,11 @@ const PaginatedMyCourses = ({
 
             return (
               <>
-                <MyCourseItem course={course} formattedPrice={formattedPrice} />
-                <MyMobileCourseItem
+                <DashboardCourseItem
+                  course={course}
+                  formattedPrice={formattedPrice}
+                />
+                <DashboardMobileCourseItem
                   image={course.image}
                   id={course.id}
                   title={course.title}
@@ -57,4 +60,4 @@ const PaginatedMyCourses = ({
   );
 };
 
-export { PaginatedMyCourses };
+export { PaginatedDashboardCourses };

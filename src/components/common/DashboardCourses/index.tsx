@@ -1,12 +1,12 @@
-import { courseItems } from "../../core/data/courses/courseItems";
+import { courseItems } from "../../../core/data/courses/courseItems";
 
-import { PaginatedMyCourses } from "./MyCoursesSection/PaginatedMyCourses";
+import { PaginatedDashboardCourses } from "./PaginatedDashboardCourses";
 
-interface MyCoursesSectionProps {
+interface DashboardCoursesProps {
   coursesPerPage: number;
 }
 
-const MyCoursesSection = ({ coursesPerPage }: MyCoursesSectionProps) => {
+const DashboardCourses = ({ coursesPerPage }: DashboardCoursesProps) => {
   return (
     <div className="dashboardCoursesSectionWrapper">
       <div className="dashboardCoursesInformationBox">
@@ -18,7 +18,7 @@ const MyCoursesSection = ({ coursesPerPage }: MyCoursesSectionProps) => {
         <span>مدیریت</span>
       </div>
       <div>
-        <PaginatedMyCourses
+        <PaginatedDashboardCourses
           courses={courseItems}
           itemsPerPage={coursesPerPage}
         />
@@ -27,4 +27,5 @@ const MyCoursesSection = ({ coursesPerPage }: MyCoursesSectionProps) => {
   );
 };
 
-export { MyCoursesSection };
+export { DashboardCourses };
+
