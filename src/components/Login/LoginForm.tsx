@@ -5,7 +5,7 @@ import { loginFormSchema } from "../../core/validations/login-form.validation";
 
 import { ErrorMessage } from "../common/ErrorMessage";
 import { Link } from "../common/Link";
-import { PasswordInput } from "../common/PasswordInput";
+import { PasswordField } from "../common/PasswordField";
 
 const LoginForm = () => {
   const [isPassword, setIsPassword] = useState(true);
@@ -38,7 +38,14 @@ const LoginForm = () => {
               />
               <ErrorMessage name="phoneOrGmail" />
             </div>
-            <PasswordInput showLabel />
+            <PasswordField
+              name="password"
+              id="password"
+              placeholder="رمز عبور"
+              className="authInput"
+              showLabel
+              isLogin
+            />
             <div>
               <div className="flex gap-2">
                 <Field type="checkbox" name="rememberMe" />

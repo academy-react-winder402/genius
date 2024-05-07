@@ -1,14 +1,14 @@
 import { Form, Formik } from "formik";
 
-import { EditProfileFormInterface } from "../../types/edit-profile-form";
+import { EDIT_PROFILE_GENERAL_FORM } from "../../../../core/data/edit-profile/edit-profile-general-form";
+import { editProfileGeneralFormSchema } from "../../../../core/validations/edit-profile/edit-profile-general-form.validation";
 
-import { editProfileFormSchema } from "../../core/validations/edit-profile-form.validation";
+import { EditProfileGeneralFormInterface } from "../../../../types/edit-profile/edit-profile-general-form";
 
-import { FieldBox } from "../common/FieldBox";
-import { EDIT_PROFILE_FORM } from "../../core/data/edit-profile/edit-profile-form";
+import { FieldBox } from "../../../common/FieldBox";
 
-const EditProfileForm = () => {
-  const onSubmit = (values: EditProfileFormInterface) => {
+const EditProfileGeneralForm = () => {
+  const onSubmit = (values: EditProfileGeneralFormInterface) => {
     console.log(values);
   };
 
@@ -24,12 +24,12 @@ const EditProfileForm = () => {
           phoneNumber: "09112345678",
         }}
         enableReinitialize={true}
-        validationSchema={editProfileFormSchema}
+        validationSchema={editProfileGeneralFormSchema}
         onSubmit={onSubmit}
       >
         <Form>
           <div className="editProfileFormFieldsWrapper">
-            {EDIT_PROFILE_FORM.map((field) => (
+            {EDIT_PROFILE_GENERAL_FORM.map((field) => (
               <FieldBox
                 key={field.id}
                 label={field.label}
@@ -48,4 +48,4 @@ const EditProfileForm = () => {
     </div>
   );
 };
-export { EditProfileForm };
+export { EditProfileGeneralForm };

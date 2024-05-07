@@ -6,7 +6,7 @@ import { useRegisterSelector } from "../../../redux/register";
 import { registerStepThreeFormSchema } from "../../../core/validations/register/register-step-three-form.validation-three";
 
 import { ErrorMessage } from "../../common/ErrorMessage";
-import { PasswordInput } from "../../common/PasswordInput";
+import { PasswordField } from "../../common/PasswordField";
 
 interface RegisterStepThreeFormProps {
   setCurrentValue: (step: number) => void;
@@ -35,7 +35,13 @@ const RegisterStepThreeForm = ({
           <div className="mt-7 flex flex-col gap-3">
             <Form>
               <div className="flex flex-col w-full gap-3">
-                <PasswordInput isRegister />
+                <PasswordField
+                  name="password"
+                  id="password"
+                  placeholder="رمز عبور"
+                  className="authInput"
+                  isRegister
+                />
                 <div className="formFieldWrapperAndPaginatedWrapper">
                   <Field
                     name="gmail"

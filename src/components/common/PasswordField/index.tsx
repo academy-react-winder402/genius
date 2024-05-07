@@ -5,12 +5,25 @@ import { useState } from "react";
 
 import { ErrorMessage } from "../ErrorMessage";
 
-interface PasswordInputProps {
+interface PasswordFieldProps {
   showLabel?: boolean;
+  name: string;
+  id: string;
+  placeholder: string;
+  isLogin?: boolean;
   isRegister?: boolean;
+  className: string;
 }
 
-const PasswordInput = ({ showLabel, isRegister }: PasswordInputProps) => {
+const PasswordField = ({
+  showLabel,
+  name,
+  id,
+  placeholder,
+  isLogin,
+  isRegister,
+  className,
+}: PasswordFieldProps) => {
   const [isPassword, setIsPassword] = useState<boolean>(true);
 
   const handleIsPasswordChange = () => setIsPassword((prevValue) => !prevValue);
@@ -19,15 +32,16 @@ const PasswordInput = ({ showLabel, isRegister }: PasswordInputProps) => {
     <div className="relative flex flex-col w-full">
       {showLabel && <p className="font-bold">رمز عبور</p>}
       <Field
-        name="password"
+        name={name}
+        id={id}
         type={isPassword ? "password" : "text"}
-        placeholder="رمز عبور"
-        className="authInput !pl-10"
+        placeholder={placeholder}
+        className={className}
       />
       <div
-        className={`absolute ${
-          isRegister ? "top-5" : "top-11"
-        }  left-2 cursor-pointer`}
+        className={`absolute ${isLogin && "!top-11"} ${
+          isRegister && "top-5"
+        }  left-2 cursor-pointer top-4`}
       >
         {isPassword ? (
           <VisibilityOffIcon onClick={handleIsPasswordChange} />
@@ -40,4 +54,4 @@ const PasswordInput = ({ showLabel, isRegister }: PasswordInputProps) => {
   );
 };
 
-export { PasswordInput };
+export { PasswordField };

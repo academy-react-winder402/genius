@@ -1,4 +1,4 @@
-export interface EditProfileFormInterface {
+export interface EditProfileGeneralFormInterface {
   firstName: string;
   lastName: string;
   nationalCode: string;

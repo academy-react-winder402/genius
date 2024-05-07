@@ -1,4 +1,4 @@
-export const EDIT_PROFILE_FORM = [
+export const EDIT_PROFILE_GENERAL_FORM = [
   {
     label: "نام",
     type: "text",

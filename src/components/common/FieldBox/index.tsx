@@ -1,5 +1,6 @@
 import { ErrorMessage } from "../ErrorMessage";
 import { Field } from "../Field";
+import { PasswordField } from "../PasswordField";
 
 interface FieldBoxProps {
   label: string;
@@ -7,6 +8,8 @@ interface FieldBoxProps {
   name: string;
   id: string;
   className: string;
+  isPassword?: boolean;
+  passwordPlaceholder?: string;
 }
 
 const FieldBox = ({
@@ -15,13 +18,25 @@ const FieldBox = ({
   name,
   id,
   className,
+  isPassword,
+  passwordPlaceholder,
 }: FieldBoxProps) => {
   return (
     <div>
       <label htmlFor={id} className="editProfileFormLabel">
         {label}
       </label>
-      <Field type={type} name={name} id={id} className={className} />
+      {isPassword ? (
+        <PasswordField
+          name={name}
+          id={id}
+          placeholder={passwordPlaceholder!}
+          className={className}
+        />
+      ) : (
+        <Field type={type} name={name} id={id} className={className} />
+      )}
+
       <ErrorMessage name={name} />
     </div>
   );

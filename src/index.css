@@ -533,6 +533,9 @@
   .editProfileSubmitButton {
     @apply mainButton dark:bg-gray-900 h-[45px] rounded-[7px] mt-12 lg:mr-4;
   }
+  .editProfileEditPasswordField {
+    @apply editProfileFormInput lg:w-[400px];
+  }
 }
 
 /* Swiper */

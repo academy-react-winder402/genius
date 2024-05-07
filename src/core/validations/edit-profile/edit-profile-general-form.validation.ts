@@ -1,6 +1,6 @@
 import * as yup from "yup";
 
-export const editProfileFormSchema = yup.object().shape({
+export const editProfileGeneralFormSchema = yup.object().shape({
   firstName: yup.string().required("این فیلد الزامی می باشد"),
   lastName: yup.string().required("این فیلد الزامی می باشد"),
   nationalCode: yup.string().required("این فیلد الزامی می باشد"),
