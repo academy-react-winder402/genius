@@ -1,5 +1,4 @@
-import { CustomTabPanel } from "../CustomTabPanel";
-
+import { CustomTabPanel } from "../../../common/CustomTabPanel";
 interface CourseDetailsDescriptionTabProps {
   value: number;
 }

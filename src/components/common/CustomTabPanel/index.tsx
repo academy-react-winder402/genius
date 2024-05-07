@@ -1,16 +1,17 @@
-import React from "react";
 import { Box } from "../../common/Box";
 
 interface CustomTabPanelProps {
   children: React.ReactNode;
   value: number;
   index: number;
+  className?: string;
 }
 
 const CustomTabPanel = ({
   children,
   value,
   index,
+  className,
   ...other
 }: CustomTabPanelProps) => {
   return (
@@ -19,6 +20,7 @@ const CustomTabPanel = ({
       hidden={value !== index}
       id={`simple-tabpanel-${index}`}
       aria-labelledby={`simple-tab-${index}`}
+      className={className}
       {...other}
     >
       {value === index && (

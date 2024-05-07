@@ -1,6 +1,6 @@
 import { AddComment } from "../../../common/AddComment";
 import { Comments } from "../../../common/Comments";
-import { CustomTabPanel } from "../CustomTabPanel";
+import { CustomTabPanel } from "../../../common/CustomTabPanel";
 
 interface CourseDetailsCommentsTabProps {
   value: number;
