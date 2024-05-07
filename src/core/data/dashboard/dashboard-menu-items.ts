@@ -14,7 +14,7 @@ export const DASHBOARD_MENU_ITEMS: DashboardMenuItemInterface[] = [
   {
     icon: "/src/assets/images/Dashboard/Icons/courses.svg",
     label: "دوره ها",
-    href: "/dashboard/courses",
+    href: "/dashboard/all-courses",
   },
   {
     icon: "/src/assets/images/Dashboard/Icons/user-edit.svg",
