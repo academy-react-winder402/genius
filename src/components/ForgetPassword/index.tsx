@@ -4,6 +4,7 @@ import { Logo } from "../Layout/Header/Logo";
 import { SocialMedia } from "../common/SocialMedia";
 import { ForgetPasswordForm } from "./ForgetPasswordForm";
 import { FormStep } from "../common/FormStep";
+import { AuthHeading } from "../common/AuthHeading";
 
 const ForgetPassword = () => {
   const [currentStep, setCurrentStep] = useState<number>(1);
@@ -32,12 +33,12 @@ const ForgetPassword = () => {
         </div>
         <SocialMedia />
       </div>
-      <div className="lg:w-[63%] pt-10 h-[570px]">
-        <div className="flex flex-col items-center px-5">
-          <h1 className="authToSiteText">بازگردانی رمز عبور</h1>
-          <p className="authToSiteDescription">
-            لطفا ایمیل خود را وارد نمایید.
-          </p>
+      <div className="authTopSection">
+        <div className="authHeadingFormWrapper">
+          <AuthHeading
+            title="بازگردانی رمز عبور"
+            description="لطفا ایمیل خود را وارد نمایید."
+          />
           <ForgetPasswordForm
             currentStep={currentStep}
             setCurrentValue={setCurrentStep}

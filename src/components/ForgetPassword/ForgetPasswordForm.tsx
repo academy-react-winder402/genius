@@ -11,7 +11,7 @@ const ForgetPasswordForm = ({
   setCurrentValue,
 }: ForgetPasswordFormProps) => {
   return (
-    <div className="w-full flex justify-center">
+    <div className="forgetPasswordFormWrapper">
       {currentStep === 1 && (
         <ForgetPasswordStepOneForm setCurrentValue={setCurrentValue} />
       )}

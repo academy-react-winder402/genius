@@ -13,7 +13,6 @@ interface FieldBoxProps {
   placeholder?: string;
   isCheckbox?: boolean;
   isLogin?: boolean;
-  isRegister?: boolean;
 }
 
 const FieldBox = ({
@@ -27,7 +26,6 @@ const FieldBox = ({
   placeholder,
   isCheckbox,
   isLogin,
-  isRegister,
 }: FieldBoxProps) => {
   console.log(isLogin);
   return (
@@ -44,7 +42,6 @@ const FieldBox = ({
               placeholder={placeholder!}
               className={className}
               isLogin={isLogin}
-              isRegister={isRegister}
             />
           ) : (
             <Field

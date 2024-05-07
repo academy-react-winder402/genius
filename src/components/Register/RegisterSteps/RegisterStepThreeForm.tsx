@@ -32,7 +32,7 @@ const RegisterStepThreeForm = ({
         validationSchema={registerStepThreeFormSchema}
       >
         {({ values, handleSubmit }) => (
-          <div className="loginRegisterStepThreeFormWrapper">
+          <div className="authFormWrapper">
             <Form>
               <div className="registerStepThreeFieldsWrapper">
                 {REGISTER_STEP_THREE_FORM.map((field) => (
@@ -45,7 +45,6 @@ const RegisterStepThreeForm = ({
                     placeholder={field.placeholder}
                     className={field.className}
                     isPassword={field.isPassword}
-                    isRegister={field.isRegister}
                   />
                 ))}
                 <div className="registerStepTwoThreeSubmitButtonWrapper">

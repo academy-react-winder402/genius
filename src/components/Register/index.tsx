@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import { Logo } from "../Layout/Header/Logo";
+import { AuthHeading } from "../common/AuthHeading";
 import { FormStep } from "../common/FormStep";
 import { SocialMedia } from "../common/SocialMedia";
 import { RegisterForm } from "./RegisterForm";
@@ -38,12 +39,12 @@ const Register = () => {
         </div>
         <SocialMedia />
       </div>
-      <div className="lg:w-[63%] pt-10">
+      <div className="authTopSection">
         <div className="registerLeftSide">
-          <h1 className="authToSiteText">ثبت نام در سایت</h1>
-          <p className="authToSiteDescription">
-            برای ثبت نام باید سه مرحله را طی کنید
-          </p>
+          <AuthHeading
+            title="ثبت نام در سایت"
+            description="برای ثبت نام باید سه مرحله را طی کنید"
+          />
           <RegisterForm
             currentStep={currentStep}
             setCurrentValue={setCurrentStep}

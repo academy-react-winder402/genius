@@ -6,5 +6,4 @@ export interface RegisterStepThreeFormInterface {
   placeholder: string;
   className: string;
   isPassword?: boolean;
-  isRegister?: boolean;
 }

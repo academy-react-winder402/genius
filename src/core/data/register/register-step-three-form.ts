@@ -9,7 +9,6 @@ export const REGISTER_STEP_THREE_FORM: RegisterStepThreeFormInterface[] = [
     placeholder: "رمز عبور",
     className: "authInput",
     isPassword: true,
-    isRegister: true,
   },
   {
     type: "email",

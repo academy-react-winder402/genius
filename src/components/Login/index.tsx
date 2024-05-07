@@ -1,4 +1,5 @@
 import { Logo } from "../Layout/Header/Logo";
+import { AuthHeading } from "../common/AuthHeading";
 import { SocialMedia } from "../common/SocialMedia";
 import { LoginForm } from "./LoginForm";
 
@@ -9,12 +10,12 @@ const Login = () => {
         <Logo isFilter isDark />
         <SocialMedia />
       </div>
-      <div className="lg:w-[63%] pt-10 h-[570px]">
-        <div className="flex flex-col items-center px-5">
-          <h1 className="authToSiteText">ورود به حساب کاربری</h1>
-          <p className="authToSiteDescription">
-            لطفا نام و ایمیل خود را وارد نمایید.
-          </p>
+      <div className="authTopSection">
+        <div className="authHeadingFormWrapper">
+          <AuthHeading
+            title="ورود به حساب کاربری"
+            description="لطفا نام و ایمیل خود را وارد نمایید."
+          />
           <LoginForm />
         </div>
       </div>

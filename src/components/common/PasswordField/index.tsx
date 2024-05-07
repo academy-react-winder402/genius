@@ -9,7 +9,6 @@ interface PasswordFieldProps {
   id: string;
   placeholder: string;
   isLogin?: boolean;
-  isRegister?: boolean;
   className: string;
 }
 
@@ -19,7 +18,6 @@ const PasswordField = ({
   id,
   placeholder,
   isLogin,
-  isRegister,
   className,
 }: PasswordFieldProps) => {
   const [isPassword, setIsPassword] = useState<boolean>(true);
@@ -37,8 +35,7 @@ const PasswordField = ({
         className={`pl-10 ${className}`}
       />
       <div
-        className={`passwordFieldBoxIconWrapper ${isLogin && "!top-[19px]"} ${
-          isRegister && "!top-[18px]"
+        className={`passwordFieldBoxIconWrapper ${isLogin && "!top-[19px]"}
         }`}
       >
         {isPassword ? (

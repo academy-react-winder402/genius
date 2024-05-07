@@ -166,8 +166,8 @@
     @apply font-[500] text-[14px] text-center text-primaryColor cursor-pointer mb-2;
   }
   /* Auth Pages */
-  .loginRegisterStepThreeFormWrapper {
-    @apply mt-7 flex flex-col gap-3;
+  .authFormWrapper {
+    @apply flex flex-col gap-3 mt-7;
   }
   .authInput {
     @apply w-[356px] h-[47px] rounded-md border-[1px] border-authInputBorder shadow-authInputShadow px-4 my-2 outline-none dark:bg-darkBackground dark:border-darkBorder;
@@ -234,6 +234,27 @@
   }
   .registerStepThreeFieldsWrapper {
     @apply flex flex-col w-full gap-3;
+  }
+  .authTopSection {
+    @apply lg:w-[63%] pt-10 h-[570px];
+  }
+  .authHeadingFormWrapper {
+    @apply flex flex-col items-center px-5;
+  }
+  .forgetPasswordFormWrapper {
+    @apply w-full flex justify-center;
+  }
+  .forgetPasswordStepOneFieldWrapper {
+    @apply mt-7 flex flex-col gap-3;
+  }
+  .forgetPasswordStepOneSubmitButton {
+    @apply bg-primary text-white h-[40px] rounded-md shadow-primaryShadow mt-2 cursor-pointer;
+  }
+  .forgetPasswordStepTwoSubmitButtonWrapper {
+    @apply flex gap-3 justify-center items-center mt-5 w-full;
+  }
+  .forgetPasswordStepTwoSubmitButton {
+    @apply bg-primary text-white w-[200px] h-[50px] rounded-md shadow-primaryShadow cursor-pointer;
   }
   /* Blogs Page */
   .blogsHeroSectionWrapper {
@@ -572,7 +593,7 @@
     @apply relative flex flex-col w-full;
   }
   .passwordFieldBoxIconWrapper {
-    @apply absolute left-2 cursor-pointer top-4;
+    @apply absolute left-2 cursor-pointer top-[18px];
   }
 }
 
