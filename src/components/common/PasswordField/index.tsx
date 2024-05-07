@@ -3,8 +3,6 @@ import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { Field } from "formik";
 import { useState } from "react";
 
-import { ErrorMessage } from "../ErrorMessage";
-
 interface PasswordFieldProps {
   showLabel?: boolean;
   name: string;
@@ -29,19 +27,19 @@ const PasswordField = ({
   const handleIsPasswordChange = () => setIsPassword((prevValue) => !prevValue);
 
   return (
-    <div className="relative flex flex-col w-full">
+    <div className="passwordFieldBoxWrapper">
       {showLabel && <p className="font-bold">رمز عبور</p>}
       <Field
         name={name}
         id={id}
         type={isPassword ? "password" : "text"}
         placeholder={placeholder}
-        className={className}
+        className={`pl-10 ${className}`}
       />
       <div
-        className={`absolute ${isLogin && "!top-5"} ${
-          isRegister && "top-5"
-        }  left-2 cursor-pointer top-4`}
+        className={`passwordFieldBoxIconWrapper ${isLogin && "!top-[19px]"} ${
+          isRegister && "!top-[18px]"
+        }`}
       >
         {isPassword ? (
           <VisibilityOffIcon onClick={handleIsPasswordChange} />

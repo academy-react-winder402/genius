@@ -45,7 +45,7 @@ const RegisterStepTwoForm = ({ setCurrentValue }: RegisterStepTwoFormProps) => {
       >
         {({ handleSubmit }) => (
           <Form>
-            <div className="flex flex-col items-center gap-4 mt-5">
+            <div className="registerStepTwoPhoneNumberInputWrapper">
               <Field
                 name="verifyCode"
                 render={() => (
@@ -59,7 +59,7 @@ const RegisterStepTwoForm = ({ setCurrentValue }: RegisterStepTwoFormProps) => {
               <ErrorMessage name="verifyCode" />
             </div>
             <span className="authSendVerificationCodeTime">1:34</span>
-            <div className="flex gap-3 justify-center items-center mt-7">
+            <div className="registerStepTwoThreeSubmitButtonWrapper">
               <button
                 type="button"
                 className="mainButton rounded-md"
@@ -74,7 +74,7 @@ const RegisterStepTwoForm = ({ setCurrentValue }: RegisterStepTwoFormProps) => {
                   setCurrentValue(3);
                 }}
                 disabled={registerVerifyCode === ""}
-                className={`mainButton w-[200px] h-[50px] rounded-md ${
+                className={`registerSubmitButton ${
                   !registerVerifyCode && "authDisableButton"
                 }`}
               >

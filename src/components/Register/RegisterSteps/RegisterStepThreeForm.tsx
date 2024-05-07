@@ -1,12 +1,12 @@
-import { Field, Formik } from "formik";
+import { Formik } from "formik";
 import { Form } from "react-router-dom";
 
 import { useRegisterSelector } from "../../../redux/register";
 
+import { REGISTER_STEP_THREE_FORM } from "../../../core/data/register/register-step-three-form";
 import { registerStepThreeFormSchema } from "../../../core/validations/register/register-step-three-form.validation-three";
 
-import { ErrorMessage } from "../../common/ErrorMessage";
-import { PasswordField } from "../../common/PasswordField";
+import { FieldBox } from "../../common/FieldBox";
 
 interface RegisterStepThreeFormProps {
   setCurrentValue: (step: number) => void;
@@ -22,7 +22,7 @@ const RegisterStepThreeForm = ({
   };
 
   return (
-    <div className="w-full flex justify-center">
+    <div className="registerStepThreeWrapper">
       <Formik
         initialValues={{
           password: "",
@@ -32,26 +32,23 @@ const RegisterStepThreeForm = ({
         validationSchema={registerStepThreeFormSchema}
       >
         {({ values, handleSubmit }) => (
-          <div className="mt-7 flex flex-col gap-3">
+          <div className="loginRegisterStepThreeFormWrapper">
             <Form>
-              <div className="flex flex-col w-full gap-3">
-                <PasswordField
-                  name="password"
-                  id="password"
-                  placeholder="رمز عبور"
-                  className="authInput"
-                  isRegister
-                />
-                <div className="formFieldWrapperAndPaginatedWrapper">
-                  <Field
-                    name="gmail"
-                    type="email"
-                    placeholder="ایمیل"
-                    className="authInput"
+              <div className="registerStepThreeFieldsWrapper">
+                {REGISTER_STEP_THREE_FORM.map((field) => (
+                  <FieldBox
+                    key={field.id}
+                    type={field.type}
+                    label={field.label}
+                    name={field.name}
+                    id={field.id}
+                    placeholder={field.placeholder}
+                    className={field.className}
+                    isPassword={field.isPassword}
+                    isRegister={field.isRegister}
                   />
-                  <ErrorMessage name="gmail" />
-                </div>
-                <div className="flex gap-3 justify-center items-center mt-7">
+                ))}
+                <div className="registerStepTwoThreeSubmitButtonWrapper">
                   <button
                     type="button"
                     className="mainButton rounded-md"
@@ -66,7 +63,7 @@ const RegisterStepThreeForm = ({
                       e.preventDefault();
                     }}
                     disabled={!values.password || !values.gmail}
-                    className={`mainButton w-[200px] h-[50px] rounded-md ${
+                    className={`registerSubmitButton ${
                       (!values.password || !values.gmail) && "authDisableButton"
                     }`}
                   >

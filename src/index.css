@@ -166,7 +166,7 @@
     @apply font-[500] text-[14px] text-center text-primaryColor cursor-pointer mb-2;
   }
   /* Auth Pages */
-  .loginFormWrapper {
+  .loginRegisterStepThreeFormWrapper {
     @apply mt-7 flex flex-col gap-3;
   }
   .authInput {
@@ -210,6 +210,30 @@
   }
   .registerCodeNotSend {
     @apply font-[500] text-[14px] text-text2 dark:text-darkText text-center mt-5;
+  }
+  registerStepOneWrapper {
+    @apply w-full flex flex-col justify-center;
+  }
+  .registerStepOneFormWrapper {
+    @apply mt-7 flex flex-col items-center gap-3;
+  }
+  .registerStepOneSubmitButtonWrapper {
+    @apply flex justify-center mt-7;
+  }
+  .registerSubmitButton {
+    @apply mainButton w-[200px] h-[50px] rounded-md;
+  }
+  .registerStepTwoPhoneNumberInputWrapper {
+    @apply flex flex-col items-center gap-4 mt-5;
+  }
+  .registerStepThreeWrapper {
+    @apply w-full flex justify-center;
+  }
+  .registerStepTwoThreeSubmitButtonWrapper {
+    @apply flex gap-3 justify-center items-center mt-7;
+  }
+  .registerStepThreeFieldsWrapper {
+    @apply flex flex-col w-full gap-3;
   }
   /* Blogs Page */
   .blogsHeroSectionWrapper {
@@ -542,6 +566,13 @@
   }
   .dashboardCoursesPerPageFilterSelectBox {
     @apply w-[50%] lg:w-full h-[50px] lg:h-full px-6 outline-none rounded-[12px] appearance-none dark:bg-gray-900 dark:text-darkText;
+  }
+  /* Field Box */
+  .passwordFieldBoxWrapper {
+    @apply relative flex flex-col w-full;
+  }
+  .passwordFieldBoxIconWrapper {
+    @apply absolute left-2 cursor-pointer top-4;
   }
 }
 

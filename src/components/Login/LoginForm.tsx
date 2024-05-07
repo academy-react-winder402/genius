@@ -21,7 +21,7 @@ const LoginForm = () => {
         validationSchema={loginFormSchema}
       >
         <Form>
-          <div className="loginFormWrapper">
+          <div className="loginRegisterStepThreeFormWrapper">
             {LOGIN_FORM.map((field) => (
               <FieldBox
                 key={field.id}

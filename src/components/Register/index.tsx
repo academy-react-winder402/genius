@@ -1,9 +1,9 @@
 import { useState } from "react";
 
 import { Logo } from "../Layout/Header/Logo";
+import { FormStep } from "../common/FormStep";
 import { SocialMedia } from "../common/SocialMedia";
 import { RegisterForm } from "./RegisterForm";
-import { FormStep } from "../common/FormStep";
 
 const Register = () => {
   const [currentStep, setCurrentStep] = useState<number>(1);
