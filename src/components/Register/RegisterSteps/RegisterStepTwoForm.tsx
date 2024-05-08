@@ -8,9 +8,8 @@ import {
   useRegisterSelector,
 } from "../../../redux/register";
 
-import { registerStepTwoFormSchema } from "../../../core/validations/register/register-step-two-form.validation-three";
-
 import { ErrorMessage } from "../../common/ErrorMessage";
+import { verifyMessageAPI } from "../../../core/services/api/register/verify-message.api";
 
 interface RegisterStepTwoFormProps {
   setCurrentValue: (step: number) => void;
@@ -20,9 +19,15 @@ const RegisterStepTwoForm = ({ setCurrentValue }: RegisterStepTwoFormProps) => {
   const dispatch = useDispatch();
   const { phoneNumber, verifyCode: registerVerifyCode } = useRegisterSelector();
 
-  const onSubmit = (values: { verifyCode: string }) => {
+  const onSubmit = async (values: { verifyCode: string }) => {
     dispatch(onVerifyCodeChange(values.verifyCode));
-    console.log({ phoneNumber, registerVerifyCode });
+
+    const verifyMessage = await verifyMessageAPI(
+      phoneNumber,
+      registerVerifyCode
+    );
+
+    setCurrentValue(3);
   };
 
   return (
@@ -41,18 +46,18 @@ const RegisterStepTwoForm = ({ setCurrentValue }: RegisterStepTwoFormProps) => {
           verifyCode: "",
         }}
         onSubmit={onSubmit}
-        validationSchema={registerStepTwoFormSchema}
       >
         {({ handleSubmit }) => (
           <Form>
             <div className="registerStepTwoPhoneNumberInputWrapper">
               <Field
                 name="verifyCode"
-                render={() => (
+                render={({ fields }: any) => (
                   <AuthCode
                     onChange={(e) => dispatch(onVerifyCodeChange(e))}
                     inputClassName="authPhoneNumberInput"
                     containerClassName="authPhoneNumberInputContainer"
+                    {...fields}
                   />
                 )}
               />
@@ -69,10 +74,7 @@ const RegisterStepTwoForm = ({ setCurrentValue }: RegisterStepTwoFormProps) => {
               </button>
               <button
                 type="submit"
-                onClick={() => {
-                  handleSubmit();
-                  setCurrentValue(3);
-                }}
+                onClick={() => handleSubmit()}
                 disabled={registerVerifyCode === ""}
                 className={`registerSubmitButton ${
                   !registerVerifyCode && "authDisableButton"

@@ -23,7 +23,7 @@ const RegisterStepOneForm = ({ setCurrentValue }: RegisterStepOneFormProps) => {
 
   const onSubmit = async (values: { phoneNumber: string }) => {
     const { phoneNumber } = values;
-    
+
     dispatch(onPhoneNumberChange(phoneNumber));
 
     const sendVerificationMessage = await sendVerificationMessageAPI(
@@ -57,7 +57,10 @@ const RegisterStepOneForm = ({ setCurrentValue }: RegisterStepOneFormProps) => {
               <div className="registerStepOneSubmitButtonWrapper">
                 <button
                   type="submit"
-                  onClick={() => handleSubmit()}
+                  onClick={(e) => {
+                    handleSubmit();
+                    e.preventDefault();
+                  }}
                   disabled={!values.phoneNumber}
                   className={`registerSubmitButton ${
                     !values.phoneNumber && "authDisableButton"
