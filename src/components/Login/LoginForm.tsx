@@ -2,15 +2,18 @@ import { Form, Formik } from "formik";
 
 import { LOGIN_FORM } from "../../core/data/login/login-form";
 import { loginFormSchema } from "../../core/validations/login-form.validation";
+import { loginAPI } from "../../core/services/api/login.api";
 
-import { loginFormInterface } from "../../types/login-form";
+import { UserDataInterface } from "../../types/login/user-data";
 
 import { FieldBox } from "../common/FieldBox";
 import { Link } from "../common/Link";
 
 const LoginForm = () => {
-  const onSubmit = (values: loginFormInterface) => {
-    console.log(values);
+  const onSubmit = async (values: UserDataInterface) => {
+    const user = await loginAPI(values);
+
+    console.log(user);
   };
 
   return (

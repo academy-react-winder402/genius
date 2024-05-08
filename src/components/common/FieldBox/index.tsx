@@ -27,7 +27,6 @@ const FieldBox = ({
   isCheckbox,
   isLogin,
 }: FieldBoxProps) => {
-  console.log(isLogin);
   return (
     <div className={wrapperClassName}>
       {!isCheckbox && (

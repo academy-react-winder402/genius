@@ -1,17 +1,17 @@
-import axios from "axios";
+import axios, { AxiosError, AxiosInstance, AxiosResponse } from "axios";
 
-const baseURL = import.meta.env.VITE_BASE_URL;
+const baseURL: string = import.meta.env.VITE_BASE_URL;
 
-const instance = axios.create({
+const instance: AxiosInstance = axios.create({
   baseURL,
 });
 
-const onSuccess = (response: { data: Array }) => {
+const onSuccess = (response: AxiosResponse) => {
   return response.data;
 };
 
-const onError = (err: { response: { status: number } }) => {
-  if (err.response.status >= 400 && err.response.status < 500) {
+const onError = (err: AxiosError) => {
+  if (err?.response?.status! >= 400 && err.response.status < 500) {
     alert("Client Error: ", err.response.status);
   }
 
