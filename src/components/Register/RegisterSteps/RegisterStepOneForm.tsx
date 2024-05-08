@@ -2,6 +2,7 @@ import { Formik } from "formik";
 import { useDispatch } from "react-redux";
 import { Form } from "react-router-dom";
 
+import { sendVerificationMessageAPI } from "../../../core/services/api/register/send-verification-message.api";
 import { registerStepOneFormSchema } from "../../../core/validations/register/register-step-one-form.validation";
 
 import {
@@ -20,9 +21,16 @@ const RegisterStepOneForm = ({ setCurrentValue }: RegisterStepOneFormProps) => {
   const dispatch = useDispatch();
   const { phoneNumber } = useRegisterSelector();
 
-  const onSubmit = (values: { phoneNumber: string }) => {
-    dispatch(onPhoneNumberChange(values.phoneNumber));
-    console.log(values);
+  const onSubmit = async (values: { phoneNumber: string }) => {
+    const { phoneNumber } = values;
+    
+    dispatch(onPhoneNumberChange(phoneNumber));
+
+    const sendVerificationMessage = await sendVerificationMessageAPI(
+      phoneNumber
+    );
+
+    setCurrentValue(2);
   };
 
   return (
@@ -49,10 +57,7 @@ const RegisterStepOneForm = ({ setCurrentValue }: RegisterStepOneFormProps) => {
               <div className="registerStepOneSubmitButtonWrapper">
                 <button
                   type="submit"
-                  onClick={() => {
-                    handleSubmit();
-                    setCurrentValue(2);
-                  }}
+                  onClick={() => handleSubmit()}
                   disabled={!values.phoneNumber}
                   className={`registerSubmitButton ${
                     !values.phoneNumber && "authDisableButton"
