@@ -1,10 +1,14 @@
 import { Form, Formik } from "formik";
-import { toast } from "react-toastify";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 import { LOGIN_FORM } from "../../core/data/login/login-form";
-import { loginFormSchema } from "../../core/validations/login-form.validation";
 import { loginAPI } from "../../core/services/api/login.api";
+import { setItem } from "../../core/services/common/storage.services";
+import { loginFormSchema } from "../../core/validations/login-form.validation";
+
+import { isUserLoginChange } from "../../redux/user-login";
 
 import { UserDataInterface } from "../../types/login/user-data";
 
@@ -13,6 +17,7 @@ import { Link } from "../common/Link";
 
 const LoginForm = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const onSubmit = async (values: UserDataInterface) => {
     try {
@@ -20,6 +25,8 @@ const LoginForm = () => {
         pending: "شما در حال ورود می باشید ...",
       });
       if (user.success) {
+        setItem("token", user.token);
+        dispatch(isUserLoginChange(true));
         toast.success("در حال انتقال به پنل کاربری ...");
         navigate("/dashboard");
       } else {
