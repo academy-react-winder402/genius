@@ -1,5 +1,6 @@
 import { Formik } from "formik";
-import { Form } from "react-router-dom";
+import { Form, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 import { useRegisterSelector } from "../../../redux/register";
 
@@ -16,12 +17,30 @@ interface RegisterStepThreeFormProps {
 const RegisterStepThreeForm = ({
   setCurrentValue,
 }: RegisterStepThreeFormProps) => {
+  const navigate = useNavigate();
+
   const { phoneNumber } = useRegisterSelector();
 
   const onSubmit = async (values: { password: string; gmail: string }) => {
-    const { password, gmail } = values;
+    try {
+      const { password, gmail } = values;
 
-    const registerUser = await registerAPI(password, gmail, phoneNumber);
+      const registerUser = await toast.promise(
+        registerAPI(password, gmail, phoneNumber),
+        {
+          pending: "شما در حال ثبت نام می باشید ...",
+        }
+      );
+      if (registerUser.success) {
+        toast.success("شما با موفقیت ثبت نام شدید !");
+        navigate("/login");
+        toast.info("اکنون میتوانید در سایت وارد شوید !");
+      } else {
+        toast.error("مشکلی در فرایند ثبت نام به وجود آمد !");
+      }
+    } catch (error) {
+      toast.error("مشکلی در فرایند ثبت نام به وجود آمد !");
+    }
   };
 
   return (

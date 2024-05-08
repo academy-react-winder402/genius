@@ -1,4 +1,6 @@
 import { Form, Formik } from "formik";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 import { LOGIN_FORM } from "../../core/data/login/login-form";
 import { loginFormSchema } from "../../core/validations/login-form.validation";
@@ -10,10 +12,22 @@ import { FieldBox } from "../common/FieldBox";
 import { Link } from "../common/Link";
 
 const LoginForm = () => {
-  const onSubmit = async (values: UserDataInterface) => {
-    const user = await loginAPI(values);
+  const navigate = useNavigate();
 
-    console.log(user);
+  const onSubmit = async (values: UserDataInterface) => {
+    try {
+      const user = await toast.promise(loginAPI(values), {
+        pending: "شما در حال ورود می باشید ...",
+      });
+      if (user.success) {
+        toast.success("در حال انتقال به پنل کاربری ...");
+        navigate("/dashboard");
+      } else {
+        toast.error(user.message);
+      }
+    } catch (error) {
+      toast.error("مشکلی در فرایند ورود به وجود آمد !");
+    }
   };
 
   return (

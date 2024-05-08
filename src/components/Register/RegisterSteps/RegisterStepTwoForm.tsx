@@ -2,6 +2,7 @@ import { Field, Formik } from "formik";
 import AuthCode from "react-auth-code-input";
 import { useDispatch } from "react-redux";
 import { Form } from "react-router-dom";
+import { toast } from "react-toastify";
 
 import {
   onVerifyCodeChange,
@@ -20,14 +21,21 @@ const RegisterStepTwoForm = ({ setCurrentValue }: RegisterStepTwoFormProps) => {
   const { phoneNumber, verifyCode: registerVerifyCode } = useRegisterSelector();
 
   const onSubmit = async (values: { verifyCode: string }) => {
-    dispatch(onVerifyCodeChange(values.verifyCode));
-
-    const verifyMessage = await verifyMessageAPI(
-      phoneNumber,
-      registerVerifyCode
-    );
-
-    setCurrentValue(3);
+    try {
+      dispatch(onVerifyCodeChange(values.verifyCode));
+      const verifyCode = await toast.promise(
+        verifyMessageAPI(phoneNumber, registerVerifyCode),
+        {
+          pending: "کد تایید در حال بررسی می باشد ...",
+        }
+      );
+      if (verifyCode.success) {
+        toast.success("کد تایید شما با موفقیت تایید شد !");
+        setCurrentValue(3);
+      } else toast.error(verifyCode.message);
+    } catch (error) {
+      toast.error("مشکلی در بررسی کد تایید پیش آمد !");
+    }
   };
 
   return (
@@ -57,6 +65,7 @@ const RegisterStepTwoForm = ({ setCurrentValue }: RegisterStepTwoFormProps) => {
                     onChange={(e) => dispatch(onVerifyCodeChange(e))}
                     inputClassName="authPhoneNumberInput"
                     containerClassName="authPhoneNumberInputContainer"
+                    length={5}
                     {...fields}
                   />
                 )}

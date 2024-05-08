@@ -8,7 +8,6 @@ export const loginAPI = async (user: UserDataInterface) => {
 
     return response;
   } catch (error) {
-    console.log(error);
-    alert(error);
+    return false;
   }
 };

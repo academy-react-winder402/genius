@@ -25,15 +25,22 @@ const RegisterStepOneForm = ({ setCurrentValue }: RegisterStepOneFormProps) => {
   const onSubmit = async (values: { phoneNumber: string }) => {
     const { phoneNumber } = values;
 
-    dispatch(onPhoneNumberChange(phoneNumber));
+    try {
+      dispatch(onPhoneNumberChange(phoneNumber));
 
-    await toast.promise(sendVerificationMessageAPI(phoneNumber), {
-      pending: "کد در حال ارسال است ...",
-      success: "کد با موفقیت ارسال شد !",
-      error: "مشکلی در ارسال کد پیش آمد !",
-    });
-
-    setCurrentValue(2);
+      const sendVerificationMessage = await toast.promise(
+        sendVerificationMessageAPI(phoneNumber),
+        {
+          pending: "کد تایید در حال ارسال است ...",
+        }
+      );
+      if (sendVerificationMessage.success) {
+        toast.success("کد تایید با موفقیت ارسال شد !");
+        setCurrentValue(2);
+      } else toast.error(sendVerificationMessage.message);
+    } catch (error) {
+      toast.error("مشکلی در ارسال کد تایید به وجود آمد !");
+    }
   };
 
   return (
