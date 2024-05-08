@@ -7,6 +7,7 @@ import { REGISTER_STEP_THREE_FORM } from "../../../core/data/register/register-s
 import { registerStepThreeFormSchema } from "../../../core/validations/register/register-step-three-form.validation-three";
 
 import { FieldBox } from "../../common/FieldBox";
+import { registerAPI } from "../../../core/services/api/register/register.api";
 
 interface RegisterStepThreeFormProps {
   setCurrentValue: (step: number) => void;
@@ -17,8 +18,10 @@ const RegisterStepThreeForm = ({
 }: RegisterStepThreeFormProps) => {
   const { phoneNumber } = useRegisterSelector();
 
-  const onSubmit = (values: { password: string; gmail: string }) => {
-    console.log({ phoneNumber, ...values });
+  const onSubmit = async (values: { password: string; gmail: string }) => {
+    const { password, gmail } = values;
+
+    const registerUser = await registerAPI(password, gmail, phoneNumber);
   };
 
   return (

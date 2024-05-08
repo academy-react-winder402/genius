@@ -1,16 +1,16 @@
 import http from "../../interceptor";
 
-interface registerAPIProps {
-  user: {
-    password: string;
-    gmail: string;
-    phoneNumber: string;
-  };
-}
-
-export const registerAPI = async ({ user }: registerAPIProps) => {
+export const registerAPI = async (
+  password: string,
+  gmail: string,
+  phoneNumber: string
+) => {
   try {
-    const response = await http.post("/Sign/Register", user);
+    const response = await http.post("/Sign/Register", {
+      password,
+      gmail,
+      phoneNumber,
+    });
 
     return response;
   } catch (error) {
