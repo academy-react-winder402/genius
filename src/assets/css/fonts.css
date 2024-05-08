@@ -73,6 +73,7 @@ input,
 textarea,
 blockquote,
 label,
-button {
+button,
+.Toastify__toast-body {
   font-family: YekanBakh !important;
 }

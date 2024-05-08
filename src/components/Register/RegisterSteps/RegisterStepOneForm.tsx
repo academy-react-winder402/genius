@@ -1,6 +1,7 @@
 import { Formik } from "formik";
 import { useDispatch } from "react-redux";
 import { Form } from "react-router-dom";
+import { toast } from "react-toastify";
 
 import { sendVerificationMessageAPI } from "../../../core/services/api/register/send-verification-message.api";
 import { registerStepOneFormSchema } from "../../../core/validations/register/register-step-one-form.validation";
@@ -26,9 +27,11 @@ const RegisterStepOneForm = ({ setCurrentValue }: RegisterStepOneFormProps) => {
 
     dispatch(onPhoneNumberChange(phoneNumber));
 
-    const sendVerificationMessage = await sendVerificationMessageAPI(
-      phoneNumber
-    );
+    await toast.promise(sendVerificationMessageAPI(phoneNumber), {
+      pending: "کد در حال ارسال است ...",
+      success: "کد با موفقیت ارسال شد !",
+      error: "مشکلی در ارسال کد پیش آمد !",
+    });
 
     setCurrentValue(2);
   };
