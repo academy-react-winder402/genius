@@ -18,6 +18,7 @@ import { LoginPage } from "../../screens/Login";
 import { MyCoursesPage } from "../../screens/MyCourses";
 import { NotFoundPage } from "../../screens/NotFound";
 import { RegisterPage } from "../../screens/Register";
+import { ResetPasswordPage } from "../../screens/ResetPassword";
 
 export const router = createBrowserRouter([
   {
@@ -61,6 +62,10 @@ export const router = createBrowserRouter([
       {
         path: "/forget-password",
         element: <ForgetPasswordPage />,
+      },
+      {
+        path: "/reset-password/:configValue?",
+        element: <ResetPasswordPage />,
       },
       {
         path: "*",
