@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-import { resetConfirmValueAPI } from "../../core/services/api/forget-password/reset-confirm-value.api";
+import { resetConfirmValueAPI } from "../../core/services/api/auth/forget-password/reset-confirm-value.api";
 
 import { Logo } from "../Layout/Header/Logo";
 import { AuthHeading } from "../common/AuthHeading";

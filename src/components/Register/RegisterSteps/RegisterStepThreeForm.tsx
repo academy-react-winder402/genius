@@ -5,10 +5,10 @@ import { toast } from "react-toastify";
 import { useRegisterSelector } from "../../../redux/register";
 
 import { REGISTER_STEP_THREE_FORM } from "../../../core/data/register/register-step-three-form";
+import { registerAPI } from "../../../core/services/api/auth/register/register.api";
 import { registerStepThreeFormSchema } from "../../../core/validations/register/register-step-three-form.validation-three";
 
 import { FieldBox } from "../../common/FieldBox";
-import { registerAPI } from "../../../core/services/api/register/register.api";
 
 interface RegisterStepThreeFormProps {
   setCurrentValue: (step: number) => void;

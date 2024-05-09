@@ -2,7 +2,7 @@ import { Form, Formik } from "formik";
 import { useNavigate } from "react-router-dom";
 
 import { forgetPasswordStepTwoFormSchema } from "../../core/validations/forget-password/forget-password-step-two-form";
-import { resetPasswordAPI } from "../../core/services/api/forget-password/reset-password.api";
+import { resetPasswordAPI } from "../../core/services/api/auth/forget-password/reset-password.api";
 
 import { toast } from "react-toastify";
 import { FieldBox } from "../common/FieldBox";

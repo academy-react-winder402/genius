@@ -4,13 +4,14 @@ import { useDispatch } from "react-redux";
 import { Form } from "react-router-dom";
 import { toast } from "react-toastify";
 
+import { verifyMessageAPI } from "../../../core/services/api/auth/register/verify-message.api";
+
 import {
   onVerifyCodeChange,
   useRegisterSelector,
 } from "../../../redux/register";
 
 import { ErrorMessage } from "../../common/ErrorMessage";
-import { verifyMessageAPI } from "../../../core/services/api/register/verify-message.api";
 
 interface RegisterStepTwoFormProps {
   setCurrentValue: (step: number) => void;

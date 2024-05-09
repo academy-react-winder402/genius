@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { Form } from "react-router-dom";
 import { toast } from "react-toastify";
 
-import { sendVerificationMessageAPI } from "../../../core/services/api/register/send-verification-message.api";
+import { sendVerificationMessageAPI } from "../../../core/services/api/auth/register/send-verification-message.api";
 import { registerStepOneFormSchema } from "../../../core/validations/register/register-step-one-form.validation";
 
 import {

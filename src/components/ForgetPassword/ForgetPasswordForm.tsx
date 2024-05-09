@@ -1,7 +1,7 @@
 import { Form, Formik } from "formik";
 import { toast } from "react-toastify";
 
-import { sendEmailAPI } from "../../core/services/api/forget-password/send-email.api";
+import { sendEmailAPI } from "../../core/services/api/auth/forget-password/send-email.api";
 import { forgetPasswordStepOneFormSchema } from "../../core/validations/forget-password/forget-password-step-one-form";
 
 import { FieldBox } from "../common/FieldBox";

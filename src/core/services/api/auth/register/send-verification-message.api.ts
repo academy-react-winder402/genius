@@ -1,4 +1,4 @@
-import http from "../../interceptor";
+import http from "../../../interceptor";
 
 export const sendVerificationMessageAPI = async (phoneNumber: string) => {
   try {

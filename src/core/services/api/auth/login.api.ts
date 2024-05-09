@@ -1,6 +1,6 @@
-import { UserDataInterface } from "../../../types/login/user-data";
+import { UserDataInterface } from "../../../../types/login/user-data";
 
-import http from "../interceptor";
+import http from "../../interceptor";
 
 export const loginAPI = async (user: UserDataInterface) => {
   try {

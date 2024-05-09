@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import { LOGIN_FORM } from "../../core/data/login/login-form";
-import { loginAPI } from "../../core/services/api/login.api";
+import { loginAPI } from "../../core/services/api/auth/login.api";
 import { setItem } from "../../core/services/common/storage.services";
 import { loginFormSchema } from "../../core/validations/login-form.validation";
 
