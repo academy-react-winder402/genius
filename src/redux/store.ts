@@ -4,6 +4,7 @@ import storage from "redux-persist/lib/storage";
 
 import darkModeSlice from "./darkMode";
 import registerSlice from "./register";
+import isUserLoginSlice from "./user-login";
 
 const darkModePersistConfig = {
   key: "root",
@@ -15,10 +16,21 @@ const darkModePersistedReducer = persistReducer(
   darkModeSlice
 );
 
+const isUserLoginPersistConfig = {
+  key: "root",
+  storage,
+};
+
+const isUserLoginPersistedReducer = persistReducer(
+  isUserLoginPersistConfig,
+  isUserLoginSlice
+);
+
 export const store = configureStore({
   reducer: {
     darkMode: darkModePersistedReducer,
     register: registerSlice,
+    isUserLogin: isUserLoginPersistedReducer,
   },
 });
 

@@ -1,8 +1,8 @@
 import { useState } from "react";
 
-import { CourseLessonType } from "../../../types/course-lessons";
+import { a11Props } from "../../../core/utils/tab-helper.utils";
 
-import { a11Props } from "./a11Props";
+import { CourseLessonType } from "../../../types/course-lessons";
 
 import { Tabs } from "../../common/Tabs";
 import { Tab } from "../../common/Tabs/Tab";

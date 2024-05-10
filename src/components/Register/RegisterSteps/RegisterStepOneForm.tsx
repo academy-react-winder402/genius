@@ -1,7 +1,9 @@
-import { Field, Formik } from "formik";
+import { Formik } from "formik";
 import { useDispatch } from "react-redux";
 import { Form } from "react-router-dom";
+import { toast } from "react-toastify";
 
+import { sendVerificationMessageAPI } from "../../../core/services/api/register/send-verification-message.api";
 import { registerStepOneFormSchema } from "../../../core/validations/register/register-step-one-form.validation";
 
 import {
@@ -9,7 +11,7 @@ import {
   useRegisterSelector,
 } from "../../../redux/register";
 
-import { ErrorMessage } from "../../common/ErrorMessage";
+import { FieldBox } from "../../common/FieldBox";
 import { Link } from "../../common/Link";
 
 interface RegisterStepOneFormProps {
@@ -20,13 +22,29 @@ const RegisterStepOneForm = ({ setCurrentValue }: RegisterStepOneFormProps) => {
   const dispatch = useDispatch();
   const { phoneNumber } = useRegisterSelector();
 
-  const onSubmit = (values: { phoneNumber: string }) => {
-    dispatch(onPhoneNumberChange(values.phoneNumber));
-    console.log(values);
+  const onSubmit = async (values: { phoneNumber: string }) => {
+    const { phoneNumber } = values;
+
+    try {
+      dispatch(onPhoneNumberChange(phoneNumber));
+
+      const sendVerificationMessage = await toast.promise(
+        sendVerificationMessageAPI(phoneNumber),
+        {
+          pending: "کد تایید در حال ارسال است ...",
+        }
+      );
+      if (sendVerificationMessage.success) {
+        toast.success("کد تایید با موفقیت ارسال شد !");
+        setCurrentValue(2);
+      } else toast.error(sendVerificationMessage.message);
+    } catch (error) {
+      toast.error("مشکلی در ارسال کد تایید به وجود آمد !");
+    }
   };
 
   return (
-    <div className="w-full flex flex-col justify-center">
+    <div className="registerStepOneWrapper">
       <Formik
         initialValues={{
           phoneNumber: phoneNumber || "",
@@ -36,26 +54,25 @@ const RegisterStepOneForm = ({ setCurrentValue }: RegisterStepOneFormProps) => {
         validationSchema={registerStepOneFormSchema}
       >
         {({ values, handleSubmit }) => (
-          <div className="mt-7 flex flex-col items-center gap-3">
+          <div className="registerStepOneFormWrapper">
             <Form>
-              <div className="formFieldWrapperAndPaginatedWrapper">
-                <Field
-                  name="phoneNumber"
-                  type="phone"
-                  placeholder="شماره موبایل"
-                  className="authInput"
-                />
-                <ErrorMessage name="phoneNumber" />
-              </div>
-              <div className="flex justify-center mt-7">
+              <FieldBox
+                type="phone"
+                label="شماره موبایل"
+                name="phoneNumber"
+                id="phoneNumber"
+                placeholder="شماره موبایل"
+                className="authInput"
+              />
+              <div className="registerStepOneSubmitButtonWrapper">
                 <button
                   type="submit"
-                  onClick={() => {
+                  onClick={(e) => {
                     handleSubmit();
-                    setCurrentValue(2);
+                    e.preventDefault();
                   }}
                   disabled={!values.phoneNumber}
-                  className={`mainButton w-[200px] h-[50px] rounded-md ${
+                  className={`registerSubmitButton ${
                     !values.phoneNumber && "authDisableButton"
                   }`}
                 >

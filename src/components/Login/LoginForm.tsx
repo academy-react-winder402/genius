@@ -1,23 +1,40 @@
-import { Field, Form, Formik } from "formik";
-import { useState } from "react";
+import { Form, Formik } from "formik";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
+import { LOGIN_FORM } from "../../core/data/login/login-form";
+import { loginAPI } from "../../core/services/api/login.api";
+import { setItem } from "../../core/services/common/storage.services";
 import { loginFormSchema } from "../../core/validations/login-form.validation";
 
-import { ErrorMessage } from "../common/ErrorMessage";
+import { isUserLoginChange } from "../../redux/user-login";
+
+import { UserDataInterface } from "../../types/login/user-data";
+
+import { FieldBox } from "../common/FieldBox";
 import { Link } from "../common/Link";
-import { PasswordInput } from "../common/PasswordInput";
 
 const LoginForm = () => {
-  const [isPassword, setIsPassword] = useState(true);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  const handleIsPasswordChange = () => setIsPassword((prevValue) => !prevValue);
-
-  const onSubmit = (values: {
-    phoneOrGmail: string;
-    password: string;
-    rememberMe: boolean;
-  }) => {
-    console.log(values);
+  const onSubmit = async (values: UserDataInterface) => {
+    try {
+      const user = await toast.promise(loginAPI(values), {
+        pending: "شما در حال ورود می باشید ...",
+      });
+      if (user.success) {
+        setItem("token", user.token);
+        dispatch(isUserLoginChange(true));
+        toast.success("در حال انتقال به پنل کاربری ...");
+        navigate("/dashboard");
+      } else {
+        toast.error(user.message);
+      }
+    } catch (error) {
+      toast.error("مشکلی در فرایند ورود به وجود آمد !");
+    }
   };
 
   return (
@@ -28,28 +45,23 @@ const LoginForm = () => {
         validationSchema={loginFormSchema}
       >
         <Form>
-          <div className="mt-7 flex flex-col gap-3">
-            <div className="flex flex-col w-full">
-              <p className="font-bold">ایمیل یا شماره موبایل</p>
-              <Field
-                name="phoneOrGmail"
-                placeholder="ایمیل یا شماره موبایل"
-                className="authInput"
+          <div className="authFormWrapper">
+            {LOGIN_FORM.map((field) => (
+              <FieldBox
+                key={field.id}
+                type={field.type}
+                label={field.label}
+                name={field.name}
+                id={field.id}
+                placeholder={field.placeholder}
+                className={field.className!}
+                wrapperClassName={field.wrapperClassName}
+                isPassword={field.isPassword}
+                isCheckbox={field.isCheckbox}
+                isLogin
               />
-              <ErrorMessage name="phoneOrGmail" />
-            </div>
-            <PasswordInput showLabel />
-            <div>
-              <div className="flex gap-2">
-                <Field type="checkbox" name="rememberMe" />
-                <p className="font-bold mt-1">مرا به خاطر بسپار</p>
-              </div>
-              <ErrorMessage name="rememberMe" />
-            </div>
-            <button
-              className="bg-primary text-white h-[40px] rounded-md shadow-primaryShadow mt-2 cursor-pointer"
-              type="submit"
-            >
+            ))}
+            <button className="loginSubmitButton" type="submit">
               ورود
             </button>
             <h5 className="doYouHaveAnyAccountOrDoNotHaveAccountOrForgetPasswordText mt-1">

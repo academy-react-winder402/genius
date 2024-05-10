@@ -1,8 +1,8 @@
-import { Field, Form, Formik } from "formik";
+import { Form, Formik } from "formik";
 
 import { forgetPasswordStepOneFormSchema } from "../../../core/validations/forget-password/forget-password-step-one-form";
 
-import { ErrorMessage } from "../../common/ErrorMessage";
+import { FieldBox } from "../../common/FieldBox";
 
 interface ForgetPasswordStepOneFormProps {
   setCurrentValue: (value: number) => void;
@@ -23,20 +23,18 @@ const ForgetPasswordStepOneForm = ({
     >
       {({ values, handleSubmit }) => (
         <Form>
-          <div className="mt-7 flex flex-col gap-3">
-            <div className="flex flex-col w-full">
-              <p className="font-bold">ایمیل</p>
-              <Field
-                name="email"
-                type="email"
-                placeholder="ایمیل"
-                className="authInput"
-              />
-              <ErrorMessage name="email" />
-            </div>
+          <div className="forgetPasswordStepOneFieldWrapper">
+            <FieldBox
+              type="email"
+              label="ایمیل"
+              name="email"
+              id="email"
+              placeholder="ایمیل"
+              className="authInput"
+            />
             <button
               type="submit"
-              className={`bg-primary text-white h-[40px] rounded-md shadow-primaryShadow mt-2 cursor-pointer ${
+              className={`forgetPasswordStepOneSubmitButton ${
                 !values.email && "authDisableButton"
               }`}
               onClick={() => {

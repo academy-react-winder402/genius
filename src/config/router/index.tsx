@@ -5,18 +5,19 @@ import { DashboardLayout } from "../../components/Layout/Dashboard/DashboardLayo
 import { LandingLayout } from "../../components/Layout/LandingLayout";
 import { MainLayout } from "../../components/Layout/Layout";
 
+import { AllCoursesPage } from "../../screens/AllCourses";
 import { BlogDetailsPage } from "../../screens/BlogDetails";
 import { BlogsPage } from "../../screens/Blogs";
 import { CourseDetailsPage } from "../../screens/CourseDetails";
 import { CoursesPage } from "../../screens/Courses";
 import { DashboardPage } from "../../screens/Dashboard";
+import { EditProfilePage } from "../../screens/EditProfile";
 import { ForgetPasswordPage } from "../../screens/ForgetPassword";
 import { LandingPage } from "../../screens/Landing";
 import { LoginPage } from "../../screens/Login";
 import { MyCoursesPage } from "../../screens/MyCourses";
 import { NotFoundPage } from "../../screens/NotFound";
 import { RegisterPage } from "../../screens/Register";
-import { EditProfilePage } from "../../screens/EditProfile";
 
 export const router = createBrowserRouter([
   {
@@ -82,6 +83,10 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/edit-Profile",
         element: <EditProfilePage />,
+      },
+      {
+        path: "/dashboard/all-courses",
+        element: <AllCoursesPage />,
       },
     ],
   },

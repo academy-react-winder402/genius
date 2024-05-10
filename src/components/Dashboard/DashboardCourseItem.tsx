@@ -23,23 +23,23 @@ const DashboardCourseItem = ({
   const formattedPrice = priceWithCommas(price);
 
   return (
-    <div className="dashboardCourseItem">
+    <div className="dashboardPageCourseItem">
       <div className="w-[30%]">
-        <img src={image} className="dashboardCourseItemImage" />
+        <img src={image} className="dashboardPageCourseItemImage" />
       </div>
-      <div className="dashboardCourseItemLeftSide">
+      <div className="dashboardPageCourseItemLeftSide">
         <div>
-          <h4 className="dashboardCourseItemTitle">{title}</h4>
-          <div className="dashboardCourseItemTeacherBoxWrapper">
-            <img src={darkMode ? teacherDarkIcon   : teacherIcon} />
-            <span className="dashboardCourseItemTeacherName">
+          <h4 className="dashboardPageCourseItemTitle">{title}</h4>
+          <div className="dashboardPageCourseItemTeacherBoxWrapper">
+            <img src={darkMode ? teacherDarkIcon : teacherIcon} />
+            <span className="dashboardPageCourseItemTeacherName">
               {teacherName}
             </span>
           </div>
         </div>
         <div className="mt-auto">
           <div className="-mb-[3px]">
-            <span className="dashboardCourseItemPrice">
+            <span className="dashboardPageCourseItemPrice">
               {formattedPrice}{" "}
               <span className="text-text1 dark:text-darkText">تومان</span>
             </span>

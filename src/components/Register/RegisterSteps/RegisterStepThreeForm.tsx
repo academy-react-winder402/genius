@@ -1,12 +1,14 @@
-import { Field, Formik } from "formik";
-import { Form } from "react-router-dom";
+import { Formik } from "formik";
+import { Form, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 import { useRegisterSelector } from "../../../redux/register";
 
+import { REGISTER_STEP_THREE_FORM } from "../../../core/data/register/register-step-three-form";
 import { registerStepThreeFormSchema } from "../../../core/validations/register/register-step-three-form.validation-three";
 
-import { ErrorMessage } from "../../common/ErrorMessage";
-import { PasswordInput } from "../../common/PasswordInput";
+import { FieldBox } from "../../common/FieldBox";
+import { registerAPI } from "../../../core/services/api/register/register.api";
 
 interface RegisterStepThreeFormProps {
   setCurrentValue: (step: number) => void;
@@ -15,14 +17,34 @@ interface RegisterStepThreeFormProps {
 const RegisterStepThreeForm = ({
   setCurrentValue,
 }: RegisterStepThreeFormProps) => {
+  const navigate = useNavigate();
+
   const { phoneNumber } = useRegisterSelector();
 
-  const onSubmit = (values: { password: string; gmail: string }) => {
-    console.log({ phoneNumber, ...values });
+  const onSubmit = async (values: { password: string; gmail: string }) => {
+    try {
+      const { password, gmail } = values;
+
+      const registerUser = await toast.promise(
+        registerAPI(password, gmail, phoneNumber),
+        {
+          pending: "شما در حال ثبت نام می باشید ...",
+        }
+      );
+      if (registerUser.success) {
+        toast.success("شما با موفقیت ثبت نام شدید !");
+        navigate("/login");
+        toast.info("اکنون میتوانید در سایت وارد شوید !");
+      } else {
+        toast.error("مشکلی در فرایند ثبت نام به وجود آمد !");
+      }
+    } catch (error) {
+      toast.error("مشکلی در فرایند ثبت نام به وجود آمد !");
+    }
   };
 
   return (
-    <div className="w-full flex justify-center">
+    <div className="registerStepThreeWrapper">
       <Formik
         initialValues={{
           password: "",
@@ -32,20 +54,22 @@ const RegisterStepThreeForm = ({
         validationSchema={registerStepThreeFormSchema}
       >
         {({ values, handleSubmit }) => (
-          <div className="mt-7 flex flex-col gap-3">
+          <div className="authFormWrapper">
             <Form>
-              <div className="flex flex-col w-full gap-3">
-                <PasswordInput isRegister />
-                <div className="formFieldWrapperAndPaginatedWrapper">
-                  <Field
-                    name="gmail"
-                    type="email"
-                    placeholder="ایمیل"
-                    className="authInput"
+              <div className="registerStepThreeFieldsWrapper">
+                {REGISTER_STEP_THREE_FORM.map((field) => (
+                  <FieldBox
+                    key={field.id}
+                    type={field.type}
+                    label={field.label}
+                    name={field.name}
+                    id={field.id}
+                    placeholder={field.placeholder}
+                    className={field.className}
+                    isPassword={field.isPassword}
                   />
-                  <ErrorMessage name="gmail" />
-                </div>
-                <div className="flex gap-3 justify-center items-center mt-7">
+                ))}
+                <div className="registerStepTwoThreeSubmitButtonWrapper">
                   <button
                     type="button"
                     className="mainButton rounded-md"
@@ -60,7 +84,7 @@ const RegisterStepThreeForm = ({
                       e.preventDefault();
                     }}
                     disabled={!values.password || !values.gmail}
-                    className={`mainButton w-[200px] h-[50px] rounded-md ${
+                    className={`registerSubmitButton ${
                       (!values.password || !values.gmail) && "authDisableButton"
                     }`}
                   >

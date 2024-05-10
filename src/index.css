@@ -166,8 +166,14 @@
     @apply font-[500] text-[14px] text-center text-primaryColor cursor-pointer mb-2;
   }
   /* Auth Pages */
+  .authFormWrapper {
+    @apply flex flex-col gap-3 mt-7;
+  }
   .authInput {
     @apply w-[356px] h-[47px] rounded-md border-[1px] border-authInputBorder shadow-authInputShadow px-4 my-2 outline-none dark:bg-darkBackground dark:border-darkBorder;
+  }
+  .loginSubmitButton {
+    @apply bg-primary text-white h-[40px] rounded-md shadow-primaryShadow mt-2 cursor-pointer;
   }
   .doYouHaveAnyAccountOrDoNotHaveAccountOrForgetPasswordText {
     @apply font-[500] text-[14px] text-text2 dark:text-darkText text-center;
@@ -204,6 +210,51 @@
   }
   .registerCodeNotSend {
     @apply font-[500] text-[14px] text-text2 dark:text-darkText text-center mt-5;
+  }
+  registerStepOneWrapper {
+    @apply w-full flex flex-col justify-center;
+  }
+  .registerStepOneFormWrapper {
+    @apply mt-7 flex flex-col items-center gap-3;
+  }
+  .registerStepOneSubmitButtonWrapper {
+    @apply flex justify-center mt-7;
+  }
+  .registerSubmitButton {
+    @apply mainButton w-[200px] h-[50px] rounded-md;
+  }
+  .registerStepTwoPhoneNumberInputWrapper {
+    @apply flex flex-col items-center gap-4 mt-5;
+  }
+  .registerStepThreeWrapper {
+    @apply w-full flex justify-center;
+  }
+  .registerStepTwoThreeSubmitButtonWrapper {
+    @apply flex gap-3 justify-center items-center mt-7;
+  }
+  .registerStepThreeFieldsWrapper {
+    @apply flex flex-col w-full gap-3;
+  }
+  .authTopSection {
+    @apply lg:w-[63%] pt-10 h-[570px];
+  }
+  .authHeadingFormWrapper {
+    @apply flex flex-col items-center px-5;
+  }
+  .forgetPasswordFormWrapper {
+    @apply w-full flex justify-center;
+  }
+  .forgetPasswordStepOneFieldWrapper {
+    @apply mt-7 flex flex-col gap-3;
+  }
+  .forgetPasswordStepOneSubmitButton {
+    @apply bg-primary text-white h-[40px] rounded-md shadow-primaryShadow mt-2 cursor-pointer;
+  }
+  .forgetPasswordStepTwoSubmitButtonWrapper {
+    @apply flex gap-3 justify-center items-center mt-5 w-full;
+  }
+  .forgetPasswordStepTwoSubmitButton {
+    @apply bg-primary text-white w-[200px] h-[50px] rounded-md shadow-primaryShadow cursor-pointer;
   }
   /* Blogs Page */
   .blogsHeroSectionWrapper {
@@ -327,6 +378,12 @@
   .dashboardBottomSection {
     @apply mt-auto px-9 flex justify-between items-center;
   }
+  .dashboardShowSidebarWrapper {
+    @apply flex gap-3 mr-7 mt-5;
+  }
+  .dashboardShowMobileSideBarText {
+    @apply font-bold text-text1 dark:text-darkText mt-[1px];
+  }
   /* Dashboard Page */
   .dashboardProfileInformationWrapper {
     @apply relative border-[1px] border-solid border-dashboardUserInfoEditProfileBorder w-full rounded-[12px] mt-12 py-5 px-5 grid grid-cols-2 lg:grid-cols-3 place-content-center gap-y-8;
@@ -349,90 +406,29 @@
   .dashboardMappedCoursesWrapper {
     @apply flex flex-col gap-4 mt-6;
   }
-  .dashboardCourseItem {
+  .dashboardPageCourseItem {
     @apply flex items-center gap-3 lg:gap-4 shadow-primaryShadow py-2 px-4 rounded-[12px] lg:w-[475px] h-[100px] dark:bg-gray-900;
   }
-  .dashboardCourseItemImage {
+  .dashboardPageCourseItemImage {
     @apply lg:w-[120px] rounded-[12px];
   }
-  .dashboardCourseItemLeftSide {
+  .dashboardPageCourseItemLeftSide {
     @apply flex lg:gap-7 w-[70%];
   }
-  .dashboardCourseItemTitle {
+  .dashboardPageCourseItemTitle {
     @apply font-[600] text-text2 dark:text-darkText truncate;
   }
-  .dashboardCourseItemTeacherBoxWrapper {
+  .dashboardPageCourseItemTeacherBoxWrapper {
     @apply flex gap-1 mt-3;
   }
-  .dashboardCourseItemTeacherName {
+  .dashboardPageCourseItemTeacherName {
     @apply font-[500] text-[14px] text-text1 dark:text-darkText;
   }
-  .dashboardCourseItemPrice {
+  .dashboardPageCourseItemPrice {
     @apply font-[500] text-primaryColor truncate;
   }
-  /* My Courses Page */
-  .myCoursesTopSection {
-    @apply flex flex-col lg:flex-row gap-4 lg:gap-0 justify-between mt-10;
-  }
-  .myCoursesPerPageFilter {
-    @apply relative w-[300px] lg:w-[10%] after:content-[''] after:absolute after:top-4 after:left-44 lg:after:left-5 after:w-[40px] after:h-[40px] after:bg-dashboardMyCoursesCoursesPerPageSelectBoxIcon dark:after:bg-dashboardMyCoursesCoursesPerPageSelectBoxDarkIcon after:bg-no-repeat;
-  }
-  .myCoursesPerPageFilterSelectBox {
-    @apply w-[50%] lg:w-full h-[50px] lg:h-full px-6 outline-none rounded-[12px] appearance-none dark:bg-gray-900 dark:text-darkText;
-  }
-  .dashboardCoursesSectionWrapper {
-    @apply flex flex-col gap-4 mt-6;
-  }
-  .dashboardCoursesInformationBox {
-    @apply hidden lg:flex lg:gap-0 lg:items-center bg-primary dark:bg-gray-900 text-white rounded-[7px] h-[50px] px-16;
-  }
-  .dashboardMyCourseItem {
-    @apply w-full lg:h-[60px] bg-primary/10 rounded-[7px] hidden lg:flex flex-col lg:flex-row justify-around items-center px-5;
-  }
-  .dashboardMyCourseItemImage {
-    @apply w-[75px] rounded-[7px];
-  }
-  .dashboardMyCourseTitleLink {
-    @apply flex items-center gap-4;
-  }
-  .dashboardMyCourseTitle {
-    @apply font-[500] text-text1 dark:text-darkText lg:w-[170px] truncate;
-  }
-  .dashboardMyCourseItemText {
-    @apply font-[500] text-text1 dark:text-darkText;
-  }
-  .dashboardMyCourseItemIconsWrapper {
-    @apply flex gap-3;
-  }
-  .dashboardMyCourseItemShowIcon {
-    @apply !fill-primaryColor cursor-pointer;
-  }
-  .dashboardMyCourseItemDeleteIcon {
-    @apply !text-red/100 dark:!fill-red cursor-pointer;
-  }
-  .dashboardMyMobileCourseItem {
-    @apply flex items-center gap-5 bg-primary/10 rounded-[7px] py-2 px-5 lg:hidden;
-  }
-  .dashboardMyMobileCourseItemImage {
-    @apply w-[100px] rounded-[7px];
-  }
-  .dashboardMyMobileCourseItemTitle {
-    @apply font-[500] text-text1 dark:text-darkText;
-  }
-  .dashboardMyMobileCourseItemBoxTwo {
-    @apply flex gap-10 mt-2;
-  }
-  .dashboardMyMobileCourseItemTeacherIconTitleBox {
-    @apply flex items-center;
-  }
-  .dashboardMyMobileCourseItemTeacherIcon {
-    @apply w-[20px] h-[20px];
-  }
-  .dashboardMyMobileCourseItemTeacherName {
-    @apply font-[500] text-text1 dark:text-darkText mt-1;
-  }
-  .dashboardMyMobileCourseItemPrice {
-    @apply font-[500] text-text1 dark:text-darkText mt-2;
+  .dashboardMobileSidebarPaper {
+    @apply w-[350px] dark:bg-gray-900 lg:hidden;
   }
   /* Common */
   .satisfaction {
@@ -513,7 +509,7 @@
     @apply flex flex-col items-center mt-10;
   }
   .editProfileUploadImageSection {
-    @apply flex flex-col items-center;
+    @apply flex flex-col items-center mt-4;
   }
   .editProfileImageBox {
     @apply relative rounded-full overflow-hidden;
@@ -528,10 +524,85 @@
     @apply mt-2 font-[500] text-text1 dark:text-darkText;
   }
   .editProfileFormFieldsWrapper {
-    @apply grid grid-cols-1 lg:grid-cols-3 gap-y-5 lg:gap-y-10 w-full lg:place-items-center;
+    @apply w-full grid grid-cols-1 lg:grid-cols-3 gap-y-5 lg:gap-y-10 lg:place-items-center;
   }
   .editProfileSubmitButton {
     @apply mainButton dark:bg-gray-900 h-[45px] rounded-[7px] mt-12 lg:mr-4;
+  }
+  .editProfileEditPasswordField {
+    @apply editProfileFormInput lg:w-[400px];
+  }
+  /* Dashboard Courses */
+  .dashboardCoursesSectionWrapper {
+    @apply flex flex-col gap-4 mt-6;
+  }
+  .dashboardCoursesInformationBox {
+    @apply hidden lg:flex lg:gap-0 lg:items-center bg-primary dark:bg-gray-900 text-white rounded-[7px] h-[50px] px-16;
+  }
+  .dashboardCourseItem {
+    @apply w-full lg:h-[60px] bg-primary/10 rounded-[7px] hidden lg:flex flex-col lg:flex-row justify-around items-center px-5;
+  }
+  .dashboardCourseItemImage {
+    @apply w-[75px] rounded-[7px];
+  }
+  .dashboardCourseTitleLink {
+    @apply flex items-center gap-4;
+  }
+  .dashboardCourseTitle {
+    @apply font-[500] text-text1 dark:text-darkText lg:w-[170px] truncate;
+  }
+  .dashboardCourseItemText {
+    @apply font-[500] text-text1 dark:text-darkText;
+  }
+  .dashboardCourseItemIconsWrapper {
+    @apply flex gap-3;
+  }
+  .dashboardCourseItemShowIcon {
+    @apply !fill-primaryColor cursor-pointer;
+  }
+  .dashboardCourseItemDeleteIcon {
+    @apply !text-red/100 dark:!fill-red cursor-pointer;
+  }
+  .dashboardMobileCourseItem {
+    @apply flex items-center gap-5 bg-primary/10 rounded-[7px] py-2 px-5 lg:hidden;
+  }
+  .dashboardMobileCourseItemImage {
+    @apply w-[100px] rounded-[7px];
+  }
+  .dashboardMobileCourseItemTitle {
+    @apply font-[500] text-text1 dark:text-darkText;
+  }
+  .dashboardMobileCourseItemBoxTwo {
+    @apply flex gap-10 mt-2;
+  }
+  .dashboardMobileCourseItemTeacherIconTitleBox {
+    @apply flex items-center;
+  }
+  .dashboardMobileCourseItemTeacherIcon {
+    @apply w-[20px] h-[20px];
+  }
+  .dashboardMobileCourseItemTeacherName {
+    @apply font-[500] text-text1 dark:text-darkText mt-1;
+  }
+  .dashboardMobileCourseItemPrice {
+    @apply font-[500] text-text1 dark:text-darkText mt-2;
+  }
+  /* Dashboard Courses Per Page Filter */
+  .dashboardCoursesTopSection {
+    @apply flex flex-col lg:flex-row gap-4 lg:gap-0 justify-between mt-10;
+  }
+  .dashboardCoursesPerPageFilter {
+    @apply relative w-[300px] lg:w-[10%] after:content-[''] after:absolute after:top-4 after:left-44 lg:after:left-5 after:w-[40px] after:h-[40px] after:bg-dashboardMyCoursesCoursesPerPageSelectBoxIcon dark:after:bg-dashboardMyCoursesCoursesPerPageSelectBoxDarkIcon after:bg-no-repeat;
+  }
+  .dashboardCoursesPerPageFilterSelectBox {
+    @apply w-[50%] lg:w-full h-[50px] lg:h-full px-6 outline-none rounded-[12px] appearance-none dark:bg-gray-900 dark:text-darkText;
+  }
+  /* Field Box */
+  .passwordFieldBoxWrapper {
+    @apply relative flex flex-col w-full;
+  }
+  .passwordFieldBoxIconWrapper {
+    @apply absolute left-2 cursor-pointer top-[18px];
   }
 }
 

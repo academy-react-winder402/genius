@@ -2,15 +2,15 @@ import { Field, Formik } from "formik";
 import AuthCode from "react-auth-code-input";
 import { useDispatch } from "react-redux";
 import { Form } from "react-router-dom";
+import { toast } from "react-toastify";
 
 import {
   onVerifyCodeChange,
   useRegisterSelector,
 } from "../../../redux/register";
 
-import { registerStepTwoFormSchema } from "../../../core/validations/register/register-step-two-form.validation-three";
-
 import { ErrorMessage } from "../../common/ErrorMessage";
+import { verifyMessageAPI } from "../../../core/services/api/register/verify-message.api";
 
 interface RegisterStepTwoFormProps {
   setCurrentValue: (step: number) => void;
@@ -20,9 +20,22 @@ const RegisterStepTwoForm = ({ setCurrentValue }: RegisterStepTwoFormProps) => {
   const dispatch = useDispatch();
   const { phoneNumber, verifyCode: registerVerifyCode } = useRegisterSelector();
 
-  const onSubmit = (values: { verifyCode: string }) => {
-    dispatch(onVerifyCodeChange(values.verifyCode));
-    console.log({ phoneNumber, registerVerifyCode });
+  const onSubmit = async (values: { verifyCode: string }) => {
+    try {
+      dispatch(onVerifyCodeChange(values.verifyCode));
+      const verifyCode = await toast.promise(
+        verifyMessageAPI(phoneNumber, registerVerifyCode),
+        {
+          pending: "کد تایید در حال بررسی می باشد ...",
+        }
+      );
+      if (verifyCode.success) {
+        toast.success("کد تایید شما با موفقیت تایید شد !");
+        setCurrentValue(3);
+      } else toast.error(verifyCode.message);
+    } catch (error) {
+      toast.error("مشکلی در بررسی کد تایید پیش آمد !");
+    }
   };
 
   return (
@@ -41,25 +54,26 @@ const RegisterStepTwoForm = ({ setCurrentValue }: RegisterStepTwoFormProps) => {
           verifyCode: "",
         }}
         onSubmit={onSubmit}
-        validationSchema={registerStepTwoFormSchema}
       >
         {({ handleSubmit }) => (
           <Form>
-            <div className="flex flex-col items-center gap-4 mt-5">
+            <div className="registerStepTwoPhoneNumberInputWrapper">
               <Field
                 name="verifyCode"
-                render={() => (
+                render={({ fields }: any) => (
                   <AuthCode
                     onChange={(e) => dispatch(onVerifyCodeChange(e))}
                     inputClassName="authPhoneNumberInput"
                     containerClassName="authPhoneNumberInputContainer"
+                    length={5}
+                    {...fields}
                   />
                 )}
               />
               <ErrorMessage name="verifyCode" />
             </div>
             <span className="authSendVerificationCodeTime">1:34</span>
-            <div className="flex gap-3 justify-center items-center mt-7">
+            <div className="registerStepTwoThreeSubmitButtonWrapper">
               <button
                 type="button"
                 className="mainButton rounded-md"
@@ -69,12 +83,9 @@ const RegisterStepTwoForm = ({ setCurrentValue }: RegisterStepTwoFormProps) => {
               </button>
               <button
                 type="submit"
-                onClick={() => {
-                  handleSubmit();
-                  setCurrentValue(3);
-                }}
+                onClick={() => handleSubmit()}
                 disabled={registerVerifyCode === ""}
-                className={`mainButton w-[200px] h-[50px] rounded-md ${
+                className={`registerSubmitButton ${
                   !registerVerifyCode && "authDisableButton"
                 }`}
               >

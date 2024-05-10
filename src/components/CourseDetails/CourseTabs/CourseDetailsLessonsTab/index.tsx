@@ -1,5 +1,6 @@
 import { CourseLessonType } from "../../../../types/course-lessons";
-import { CustomTabPanel } from "../CustomTabPanel";
+
+import { CustomTabPanel } from "../../../common/CustomTabPanel";
 import { CourseDetailsAccordion } from "./CourseDetailsAccordion";
 
 interface CourseDetailsLessonsTabProps {
