@@ -1,4 +1,10 @@
+import { useEffect, useState } from "react";
+
 import { courseItems } from "../../core/data/courses/courseItems";
+import { getProfileInfoAPI } from "../../core/services/api/user-panel/get-profile-info.api";
+import { convertDateToPersian } from "../../core/utils/date-helper.utils";
+
+import { ProfileInfoInterface } from "../../types/profile-info";
 
 import { DashboardTitleBox } from "../common/DashboardTitleBox";
 import { Link } from "../common/Link";
@@ -7,7 +13,22 @@ import { DashboardInformationBox } from "./DashboardInformationBox";
 import { DashboardTitle } from "./DashboardTitle";
 
 const Dashboard = () => {
+  const [profileInfo, setProfileInfo] = useState<ProfileInfoInterface>({});
+  const [userBirthday, setUserBirthday] = useState<any>();
+
   const latestCourses = courseItems.slice(0, 2);
+
+  useEffect(() => {
+    const fetchProfileInfo = async () => {
+      const getProfileInfo = await getProfileInfoAPI();
+
+      setProfileInfo(getProfileInfo!);
+    };
+
+    fetchProfileInfo();
+  }, []);
+
+  const formattedDate = convertDateToPersian(profileInfo?.birthDay!);
 
   return (
     <div>
@@ -15,13 +36,19 @@ const Dashboard = () => {
       <div className="dashboardProfileInformationWrapper">
         <DashboardInformationBox
           label="نام و نام خانوادگی : "
-          value="محمد بکران"
+          value={profileInfo?.fName!}
         />
-        <DashboardInformationBox label="تاریخ تولید : " value="1403/2/13" />
-        <DashboardInformationBox label="شماره موبایل : " value="091234567890" />
-        <DashboardInformationBox label="شماره ملی : " value="1234567890" />
-        <DashboardInformationBox label="ایمیل : " value="test@gmail.com" />
-        <Link to="/dashboard" className="dashboardEditProfileLink">
+        <DashboardInformationBox label="تاریخ تولید : " value={formattedDate} />
+        <DashboardInformationBox
+          label="شماره موبایل : "
+          value={profileInfo?.phoneNumber!}
+        />
+        <DashboardInformationBox
+          label="شماره ملی : "
+          value={profileInfo?.nationalCode!}
+        />
+        <DashboardInformationBox label="ایمیل : " value={profileInfo?.email!} />
+        <Link to="/dashboard/edit-profile" className="dashboardEditProfileLink">
           ویرایش
         </Link>
       </div>
