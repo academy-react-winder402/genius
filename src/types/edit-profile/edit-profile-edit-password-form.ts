@@ -1,5 +1,5 @@
 export interface EditProfileEditPasswordFormInterface {
-  nowPassword: string;
+  oldPassword: string;
   newPassword: string;
   repeatPassword: string;
 }
