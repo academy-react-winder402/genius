@@ -1,7 +1,8 @@
 import { useDarkModeSelector } from "../../redux/darkMode";
 
-import dotIcon from "../../assets/images/Blogs/dot.svg";
-import heroSectionLeftImage from "../../assets/images/Blogs/blogs-hero-section-left-image.svg";
+import dotIcon from "../../assets/images/blogs/Dot.svg";
+import dotDarkIcon from "../../assets/images/blogs/Dot.svg";
+import heroSectionLeftImage from "../../assets/images/blogs/blogs-hero-section-left-image.svg";
 
 const BlogsHeroSection = () => {
   const darkMode = useDarkModeSelector();
@@ -16,6 +17,7 @@ const BlogsHeroSection = () => {
         )}
         <div className="relative pr-20 lg:pr-14 mt-10">
           <h1 className="blogsTitle">اخبار و مقالات نابغه</h1>
+
           <p className="blogsDescription">
             آموزش برنامه نویسی یکی از دوره‌های محبوب در حوزه فناوری اطلاعات است.
             برنامه نویسی مهارتی است که به افراد امکان می‌دهد تا نرم‌افزارهای

@@ -1,5 +1,8 @@
 import { BlogItemInterface } from "../../../types/blog-items";
 
+import eyeIcon from "../../../assets/images/blogs/eye.svg";
+import dotsIcon from "../../../assets/images/blogs/item-dots.svg";
+import calenderIcon from "../../../assets/images/blogs/calendar.svg";
 import { BlogSeasCreatedAt } from "../../common/BlogSeasCreatedAt";
 import { Link } from "../../common/Link";
 
