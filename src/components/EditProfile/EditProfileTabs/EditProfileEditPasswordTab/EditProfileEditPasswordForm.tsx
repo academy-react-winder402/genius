@@ -1,30 +1,37 @@
 import { Form, Formik } from "formik";
-import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 import { EDIT_PROFILE_EDIT_PASSWORD_FORM } from "../../../../core/data/edit-profile/edit-profile-edit-password-form";
 import { editProfileEditPasswordFormSchema } from "../../../../core/validations/edit-profile/edit-profile-edit-password-form.validation";
+import { editPasswordAPI } from "../../../../core/services/api/edit-profile/edit-profile-edit-password";
+import {
+  removeItem,
+  setItem,
+} from "../../../../core/services/common/storage.services";
 
 import { EditProfileEditPasswordFormInterface } from "../../../../types/edit-profile/edit-profile-edit-password-form";
-import { setItem } from "../../../../core/services/common/storage.services";
 
 import { FieldBox } from "../../../common/FieldBox";
-import { editPassword } from "../../../../core/services/api/EditProfile/editProfile-editPassword";
 
 const EditProfileEditPasswordForm = () => {
   const navigate = useNavigate();
 
   const onSubmit = async (values: EditProfileEditPasswordFormInterface) => {
     try {
-      const Password = await toast.promise(editPassword(values), {
-        pending: "شما در حال ثبت اطلاعات میباشید می باشید ...",
-      });
-      if (Password.success) {
-        setItem("token", Password.token);
-        toast.success("اطلاعات با موفقیت ثبت شد ...");
-        navigate("/SharePanel/ChangePassword");
+      const password = await toast.promise(
+        editPasswordAPI(values.oldPassword, values.newPassword),
+        {
+          pending: "درحال تغییر رمز عبور ...",
+        }
+      );
+      if (password.success) {
+        toast.success("رمز عبور شما با موفقیت تغییر پیدا کرد ...");
+        removeItem("token");
+        toast.info("اکنون میتوانید وارد سایت شوید ...");
+        navigate("/login");
       } else {
-        toast.error(Password.message);
+        toast.error(password.message);
       }
     } catch (error) {
       toast.error("مشکلی در فرایند ثبت اطلاعات به وجود آمد !");

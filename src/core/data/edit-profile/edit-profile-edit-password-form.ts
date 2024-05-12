@@ -2,8 +2,8 @@ export const EDIT_PROFILE_EDIT_PASSWORD_FORM = [
   {
     type: "password",
     label: "رمز عبور فعلی",
-    name: "nowPassword",
-    id: "nowPassword",
+    name: "oldPassword",
+    id: "oldPassword",
     className: "editProfileEditPasswordField",
     isPassword: true,
     placeholder: "رمز عبور فعلی",

@@ -1,5 +1,3 @@
-import React from "react";
-
 import { BlogItemInterface } from "../../../types/blog-items";
 
 import clockIcon from "../../../assets/images/Blogs/eye.svg";
@@ -9,7 +7,7 @@ interface BlogItemProps {
   blog: BlogItemInterface;
 }
 
-const BlogItem = ({ blog }) => {
+const BlogItem = ({ blog }: BlogItemProps) => {
   return (
     <div className="courseItem  lg:w-[396px] h-[400px] mt-0">
       <img src={blog.image} className="courseItemImage" />

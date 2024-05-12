@@ -1,15 +1,13 @@
 import http from "../../interceptor";
 
-export const editPassword = async (
+export const editPasswordAPI = async (
   oldPassword: string,
-  newPassword: string,
-  repeatPassword: string
+  newPassword: string
 ) => {
   try {
     const response = await http.post("/SharePanel/ChangePassword", {
       oldPassword,
       newPassword,
-      repeatPassword,
     });
 
     return response;

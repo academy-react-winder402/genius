@@ -1,7 +1,7 @@
 import * as yup from "yup";
 
 export const editProfileEditPasswordFormSchema = yup.object().shape({
-  nowPassword: yup.string().required("این فیلد الزامی می باشد"),
+  oldPassword: yup.string().required("این فیلد الزامی می باشد"),
   newPassword: yup.string().required("این فیلد الزامی می باشد"),
   repeatPassword: yup
     .string()

@@ -1,8 +1,5 @@
 import { BlogItemInterface } from "../../../types/blog-items";
 
-import eyeIcon from "../../../assets/images/blogs/eye.svg";
-import dotsIcon from "../../../assets/images/blogs/item-dots.svg";
-import calenderIcon from "../../../assets/images/blogs/calendar.svg";
 import { BlogSeasCreatedAt } from "../../common/BlogSeasCreatedAt";
 import { Link } from "../../common/Link";
 
@@ -22,7 +19,7 @@ const BlogItem = ({ blog }: BlogItemProps) => {
       <p className="w-[405px] font-[500] text-[14px] text-text2 dark:text-darkText mt-2">
         {blog.description}
       </p>
-      <BlogSeasCreatedAt allSeas={blog.allSeas} createdAt={blog.createdAt} />
+      <BlogSeasCreatedAt allSeas={blog.allSeas} createdAt={blog.createdAt!} />
     </div>
   );
 };

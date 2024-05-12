@@ -41,10 +41,12 @@ const PaginatedDashboardCourses = ({
             return (
               <>
                 <DashboardCourseItem
+                  key={course.image}
                   course={course}
                   formattedPrice={formattedPrice}
                 />
                 <DashboardMobileCourseItem
+                  key={course.id}
                   image={course.image}
                   id={course.id}
                   title={course.title}
