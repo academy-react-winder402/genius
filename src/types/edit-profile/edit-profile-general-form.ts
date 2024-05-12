@@ -1,8 +1,14 @@
 export interface EditProfileGeneralFormInterface {
-  firstName: string;
-  lastName: string;
-  nationalCode: string;
+  FName: string;
+  LName: string;
+  NationalCode: string;
   email: string;
-  birthdayDate: string;
+  BirthDay: string;
   phoneNumber: string;
+  userAbout: string;
+  HomeAdderess: string;
+  LinkdinProfile: string;
+  TelegramLink: string;
+  ReceiveMessageEvent: boolean;
+  Gender: boolean;
 }
