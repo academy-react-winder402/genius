@@ -1,3 +1,8 @@
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+
+import { removeItem } from "../../services/common/storage.services";
+
 import { DashboardMenuItemInterface } from "../../../types/dashboard-menu-item";
 
 export const DASHBOARD_MENU_ITEMS: DashboardMenuItemInterface[] = [
@@ -24,6 +29,5 @@ export const DASHBOARD_MENU_ITEMS: DashboardMenuItemInterface[] = [
   {
     icon: "/src/assets/images/Dashboard/Icons/logout.svg",
     label: "خروج از حساب",
-    href: "/dashboard/logout",
   },
 ] as const;

@@ -1,6 +1,11 @@
+import { useDispatch } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
+import { toast } from "react-toastify";
 
 import { DASHBOARD_MENU_ITEMS } from "../../../core/data/dashboard/dashboard-menu-items";
+import { removeItem } from "../../../core/services/common/storage.services";
+
+import { isUserLoginChange } from "../../../redux/user-login";
 
 import { DarkModeButton } from "../../common/DarkModeButton";
 
@@ -10,6 +15,14 @@ import notificationIcon from "../../../assets/images/Dashboard/Icons/notificatio
 
 const DashboardSidebar = () => {
   const { pathname } = useLocation();
+  const dispatch = useDispatch();
+
+  const onLogout = () => {
+    removeItem("token");
+    dispatch(isUserLoginChange(false));
+    toast.info("شما از سایت خارج شدید ...");
+    window.location.pathname = "/";
+  };
 
   return (
     <div className="dashboardSidebar">
@@ -35,20 +48,34 @@ const DashboardSidebar = () => {
       </div>
       <div className="dashboardDivider" />
       <div className="dashboardMappedMenuItemsWrapper">
-        {DASHBOARD_MENU_ITEMS.map((item) => (
-          <Link
-            key={item.icon}
-            to={item.href}
-            className={`dashboardMenuItem  ${
-              pathname === item.href
-                ? "bg-dashboardActiveMenuItem"
-                : "dashboardMenuItemHover"
-            }`}
-          >
-            <img src={item.icon} />
-            <span className="dashboardMenuItemLabel">{item.label}</span>
-          </Link>
-        ))}
+        {DASHBOARD_MENU_ITEMS.map((item) =>
+          item.href ? (
+            <Link
+              key={item.icon}
+              to={item.href || ""}
+              className={`dashboardMenuItem  ${
+                pathname === item.href
+                  ? "bg-dashboardActiveMenuItem"
+                  : "dashboardMenuItemHover"
+              }`}
+            >
+              <img src={item.icon} />
+              <span className="dashboardMenuItemLabel">{item.label}</span>
+            </Link>
+          ) : (
+            <button
+              className={`dashboardMenuItem  ${
+                pathname === item.href
+                  ? "bg-dashboardActiveMenuItem"
+                  : "dashboardMenuItemHover"
+              }`}
+              onClick={onLogout}
+            >
+              <img src={item.icon} />
+              <span className="dashboardMenuItemLabel">{item.label}</span>
+            </button>
+          )
+        )}
       </div>
       <div className="dashboardBottomSection">
         <Link to="/" className="w-[70%]">
