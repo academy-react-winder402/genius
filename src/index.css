@@ -36,7 +36,7 @@
     @apply mt-10 w-[90%] lg:w-[296px] pb-3 lg:pb-0 lg:h-[389px] rounded-[24px] shadow-primaryShadow px-4;
   }
   .courseItemImage {
-    @apply w-full h-[210px] lg:h-[180px] rounded-[20px] mt-[16px] cursor-pointer;
+    @apply w-full lg:h-[180px] rounded-[20px] mt-[16px] cursor-pointer;
   }
   .courseItemDetailsBox {
     @apply flex gap-[3px];
