@@ -11,10 +11,10 @@ import { Link } from "../common/Link";
 import { DashboardCourseItem } from "./DashboardCourseItem";
 import { DashboardInformationBox } from "./DashboardInformationBox";
 import { DashboardTitle } from "./DashboardTitle";
+import { useIsUserLogin } from "../../redux/user-login";
 
 const Dashboard = () => {
   const [profileInfo, setProfileInfo] = useState<ProfileInfoInterface>({});
-  const [userBirthday, setUserBirthday] = useState<any>();
 
   const latestCourses = courseItems.slice(0, 2);
 

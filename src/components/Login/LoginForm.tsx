@@ -1,6 +1,5 @@
 import { Form, Formik } from "formik";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import { LOGIN_FORM } from "../../core/data/login/login-form";
@@ -16,7 +15,6 @@ import { FieldBox } from "../common/FieldBox";
 import { Link } from "../common/Link";
 
 const LoginForm = () => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const onSubmit = async (values: UserDataInterface) => {
@@ -28,7 +26,7 @@ const LoginForm = () => {
         setItem("token", user.token);
         dispatch(isUserLoginChange(true));
         toast.success("در حال انتقال به پنل کاربری ...");
-        navigate("/dashboard");
+        window.location.pathname = "/dashboard";
       } else {
         toast.error(user.message);
       }
