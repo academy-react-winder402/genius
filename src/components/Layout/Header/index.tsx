@@ -16,7 +16,7 @@ const Header = ({ isLanding }: HeaderProps) => {
   return (
     <div
       className={`mx-auto flex items-center justify-between py-[32px] px-10 lg:px-[80px] lg:w-[1280px] ${
-        isLanding && "bg-[#e3f2fd] dark:bg-darkBackground"
+        isLanding && "bg-[#e3f2fd] dark:bg-gray-900"
       }`}
     >
       <div className="hidden lg:block w-[13%]">

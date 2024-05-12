@@ -17,7 +17,7 @@ const HeaderMobileMenu = () => {
         open={open}
         onClose={() => setOpen(false)}
         classes={{
-          paper: "w-[250px]",
+          paper: "w-[250px] dark:bg-gray-900 dark:text-darkText",
         }}
       >
         <HeaderMobileMenuItems />

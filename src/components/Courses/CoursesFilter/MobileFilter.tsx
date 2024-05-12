@@ -19,7 +19,7 @@ const MobileFilter = () => {
         onClose={() => setOpen(false)}
         open={open}
         classes={{
-          paper: "w-[340px]",
+          paper: "w-[340px] dark:bg-gray-900 pt-1",
         }}
       >
         <Filters />

@@ -1,14 +1,11 @@
 import { Form, Formik } from "formik";
-import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 import { EDIT_PROFILE_EDIT_PASSWORD_FORM } from "../../../../core/data/edit-profile/edit-profile-edit-password-form";
-import { editProfileEditPasswordFormSchema } from "../../../../core/validations/edit-profile/edit-profile-edit-password-form.validation";
 import { editPasswordAPI } from "../../../../core/services/api/edit-profile/edit-profile-edit-password";
-import {
-  removeItem,
-  setItem,
-} from "../../../../core/services/common/storage.services";
+import { removeItem } from "../../../../core/services/common/storage.services";
+import { editProfileEditPasswordFormSchema } from "../../../../core/validations/edit-profile/edit-profile-edit-password-form.validation";
 
 import { EditProfileEditPasswordFormInterface } from "../../../../types/edit-profile/edit-profile-edit-password-form";
 
@@ -28,7 +25,6 @@ const EditProfileEditPasswordForm = () => {
       if (password.success) {
         toast.success("رمز عبور شما با موفقیت تغییر پیدا کرد ...");
         removeItem("token");
-        toast.info("اکنون میتوانید وارد سایت شوید ...");
         navigate("/login");
       } else {
         toast.error(password.message);
