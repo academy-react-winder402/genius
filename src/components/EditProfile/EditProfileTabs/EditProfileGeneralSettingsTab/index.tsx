@@ -1,9 +1,8 @@
-import { CameraAltOutlined } from "@mui/icons-material";
-
 import { CustomTabPanel } from "../../../common/CustomTabPanel";
 import { EditProfileGeneralForm } from "./EditProfileGeneralForm";
 
 import avatar from "../../../../assets/images/Dashboard/Avatars/avatar2.jpg";
+import { AddProfileImageForm } from "./AddProfileImageForm";
 
 interface EditProfileGeneralSettingsTabProps {
   value: number;
@@ -18,7 +17,7 @@ const EditProfileGeneralSettingsTab = ({
         <div className="editProfileImageBox">
           <img src={avatar} className="editProfileImage" />
           <div className="editProfileUploadImageIconWrapper">
-            <CameraAltOutlined className="text-white" />
+            <AddProfileImageForm />
           </div>
         </div>
         <span className="editProfileUploadImageText">ویرایش تصویر</span>
