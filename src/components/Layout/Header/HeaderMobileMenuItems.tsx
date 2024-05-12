@@ -1,5 +1,7 @@
 import { menuItems } from "../../../core/data/header/menuItem";
 
+import { useDarkModeSelector } from "../../../redux/darkMode";
+
 import { Divider } from "../../common/Divider";
 import { Link } from "../../common/Link";
 import { List } from "../../common/List";
@@ -8,11 +10,13 @@ import { ListItem } from "../../common/ListItem";
 import { Logo } from "./Logo";
 
 const HeaderMobileMenuItems = () => {
+  const darkMode = useDarkModeSelector();
+
   return (
     <div>
       <div className="flex justify-center">
         <div className="w-[70%]">
-          <Logo />
+          <Logo isDark={darkMode && true} />
         </div>
       </div>
       <Divider />
