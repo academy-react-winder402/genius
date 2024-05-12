@@ -74,7 +74,9 @@ const EditProfileGeneralForm = () => {
                 type={field.type}
                 name={field.name}
                 id={field.id}
-                className={field.className}
+                className={field.className || ""}
+                wrapperClassName={field.wrapperClassName}
+                isCheckbox={field.isCheckbox}
               />
             ))}
           </div>
