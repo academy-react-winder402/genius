@@ -21,7 +21,7 @@ const Dashboard = () => {
     const fetchProfileInfo = async () => {
       const getProfileInfo = await getProfileInfoAPI();
 
-      setProfileInfo(getProfileInfo!);
+      setProfileInfo(getProfileInfo);
     };
 
     fetchProfileInfo();
@@ -37,7 +37,7 @@ const Dashboard = () => {
           label="نام و نام خانوادگی : "
           value={profileInfo?.fName! + " " + profileInfo?.lName}
         />
-        <DashboardInformationBox label="تاریخ تولید : " value={formattedDate} />
+        <DashboardInformationBox label="تاریخ تولد : " value={formattedDate} />
         <DashboardInformationBox
           label="شماره موبایل : "
           value={profileInfo?.phoneNumber!}
