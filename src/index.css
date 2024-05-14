@@ -524,13 +524,19 @@
     @apply mt-2 font-[500] text-text1 dark:text-darkText;
   }
   .editProfileFormFieldsWrapper {
-    @apply w-full grid grid-cols-1 lg:grid-cols-3 gap-y-5 lg:gap-y-10 lg:place-items-center;
+    @apply w-full flex flex-col lg:flex-row flex-wrap gap-8;
   }
   .editProfileSubmitButton {
     @apply mainButton dark:bg-gray-900 h-[45px] rounded-[7px] mt-12 lg:mr-4;
   }
   .editProfileEditPasswordField {
     @apply editProfileFormInput lg:w-[400px];
+  }
+  .editProfileGenderAndReceiveMessageEventSelectBoxWrapper {
+    @apply relative flex flex-col gap-1 after:content-[''] after:absolute after:w-[50px] after:h-[50px] after:top-[48px] after:left-2 after:bg-dashboardMyCoursesCoursesPerPageAndEditProfileSelectBoxIcon dark:after:bg-dashboardMyCoursesCoursesPerPageAndEditProfileSelectBoxDarkIcon after:bg-no-repeat;
+  }
+  .editProfileGenderAndReceiveMessageEventSelectBox {
+    @apply editProfileFormInput appearance-none;
   }
   /* Dashboard Courses */
   .dashboardCoursesSectionWrapper {
@@ -592,7 +598,7 @@
     @apply flex flex-col lg:flex-row gap-4 lg:gap-0 justify-between mt-10;
   }
   .dashboardCoursesPerPageFilter {
-    @apply relative w-[300px] lg:w-[10%] after:content-[''] after:absolute after:top-4 after:left-44 lg:after:left-5 after:w-[40px] after:h-[40px] after:bg-dashboardMyCoursesCoursesPerPageSelectBoxIcon dark:after:bg-dashboardMyCoursesCoursesPerPageSelectBoxDarkIcon after:bg-no-repeat;
+    @apply relative w-[300px] lg:w-[10%] after:content-[''] after:absolute after:top-4 after:left-44 lg:after:left-5 after:w-[40px] after:h-[40px] after:bg-dashboardMyCoursesCoursesPerPageAndEditProfileSelectBoxIcon dark:after:bg-dashboardMyCoursesCoursesPerPageAndEditProfileSelectBoxDarkIcon after:bg-no-repeat;
   }
   .dashboardCoursesPerPageFilterSelectBox {
     @apply w-[50%] lg:w-full h-[50px] lg:h-full px-6 outline-none rounded-[12px] appearance-none dark:bg-gray-900 dark:text-darkText;
@@ -694,4 +700,15 @@ span.MuiTypography-root {
 
 .range-slider__thumb {
   @apply !w-[15px] !h-[15px];
+}
+
+/* Date Picker */
+.dark .rmdp-header-values,
+.dark .rmdp-week,
+.dark .rmdp-day {
+  @apply dark:text-darkText;
+}
+
+.rmdp-container {
+  @apply w-full;
 }

@@ -32,10 +32,10 @@ export const EDIT_PROFILE_GENERAL_FORM: EditProfileGeneralFormFieldsInterface[] 
     },
     {
       label: "تاریخ تولد",
-      type: "text",
       name: "BirthDay",
       id: "BirthDay",
       className: "editProfileFormInput",
+      isDate: true,
     },
     {
       label: "شماره موبایل",
@@ -65,27 +65,52 @@ export const EDIT_PROFILE_GENERAL_FORM: EditProfileGeneralFormFieldsInterface[] 
       id: "TelegramLink",
       className: "editProfileFormInput",
     },
-    // {
-    //   label: "دریافت کردن پیام رویداد",
-    //   type: "checkbox",
-    //   name: "ReceiveMessageEvent",
-    //   id: "ReceiveMessageEvent",
-    //   className: "editProfileFormInput",
-    //   isCheckbox: false,
-    // },
-    // {
-    //   label: "جنسیت",
-    //   type: "checkbox",
-    //   name: "Gender",
-    //   id: "Gender",
-    //   className: "editProfileFormInput",
-    //   isCheckbox: false,
-    // },
+    {
+      label: "جنسیت",
+      name: "Gender",
+      id: "Gender",
+      isCheckbox: false,
+      wrapperClassName:
+        "editProfileGenderAndReceiveMessageEventSelectBoxWrapper",
+      className: "editProfileGenderAndReceiveMessageEventSelectBox",
+      as: "select",
+      isGender: true,
+      options: [
+        {
+          value: true,
+          label: "آقا",
+        },
+        {
+          value: false,
+          label: "خانم",
+        },
+      ],
+    },
+    {
+      label: "دریافت کردن پیام رویداد",
+      as: "select",
+      name: "ReceiveMessageEvent",
+      id: "ReceiveMessageEvent",
+      wrapperClassName:
+        "editProfileGenderAndReceiveMessageEventSelectBoxWrapper",
+      className: "editProfileGenderAndReceiveMessageEventSelectBox",
+      isCheckbox: false,
+      options: [
+        {
+          value: true,
+          label: "فعال",
+        },
+        {
+          value: false,
+          label: "غیرفعال",
+        },
+      ],
+    },
     {
       label: "توضیحات کاربر",
-      type: "text",
       name: "userAbout",
       id: "userAbout",
       className: "editProfileFormInput",
+      as: "textarea",
     },
   ] as const;
