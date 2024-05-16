@@ -2,9 +2,10 @@ import React from "react";
 
 interface CourseLikeBoxProps {
   classes?: string;
+  likeCount: number;
 }
 
-const CourseLikeBox = ({ classes }: CourseLikeBoxProps) => {
+const CourseLikeBox = ({ classes, likeCount }: CourseLikeBoxProps) => {
   return (
     <div className={`courseLikeBox ${classes}`}>
       <svg
@@ -23,7 +24,7 @@ const CourseLikeBox = ({ classes }: CourseLikeBoxProps) => {
           strokeLinejoin="round"
         />
       </svg>
-      12
+      {likeCount}
     </div>
   );
 };
