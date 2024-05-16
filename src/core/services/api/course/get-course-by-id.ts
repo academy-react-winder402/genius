@@ -1,10 +1,10 @@
 import http from "../../interceptor";
 
-import { CourseInterface } from "../../../../types/courses";
+import { CourseDetailsInterface } from "../../../../types/course-details";
 
 export const getCourseByIdAPI = async (courseId: string) => {
   try {
-    const response = await http.get<CourseInterface>("/Home/GetCourseDetails", {
+    const response = await http.get<CourseDetailsInterface>("/Home/GetCourseDetails", {
       params: {
         courseId,
       },

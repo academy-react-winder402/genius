@@ -1,18 +1,33 @@
+import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 // import required modules
 import { Navigation, Pagination } from "swiper/modules";
 
-import { courseItems } from "../../../core/data/courses/courseItems";
+import { getCourseTopAPI } from "../../../core/services/api/course/get-course-top.api";
+
+import { CourseInterface } from "../../../types/courses";
 
 import { CourseItem } from "../../common/CourseItem";
 import { Heading } from "../../common/Heading";
 
 // Import Swiper styles
+import "swiper/css/pagination";
 import "swiper/css";
 import "swiper/css/navigation";
-import "swiper/css/pagination";
 
 const RelatedCourses = () => {
+  const [courses, setCourses] = useState<CourseInterface[]>();
+
+  useEffect(() => {
+    const fetchCourses = async () => {
+      const getCourses = await getCourseTopAPI(5);
+
+      setCourses(getCourses);
+    };
+
+    fetchCourses();
+  }, []);
+
   return (
     <div className="mt-16">
       <Heading>دوره‌های مشابه</Heading>
@@ -33,8 +48,8 @@ const RelatedCourses = () => {
             },
           }}
         >
-          {courseItems.map((course) => (
-            <SwiperSlide key={course.id}>
+          {courses?.map((course: CourseInterface) => (
+            <SwiperSlide key={course.courseId}>
               <CourseItem course={course} isCourseDetail />
             </SwiperSlide>
           ))}
