@@ -4,19 +4,12 @@ import dotIcon from "../../assets/images/Blogs/dot.svg";
 import heroSectionLeftImage from "../../assets/images/Blogs/blogs-hero-section-left-image.svg";
 
 const BlogsHeroSection = () => {
-  const darkMode = useDarkModeSelector();
-
   return (
     <div className="blogsHeroSectionWrapper">
       <div className="relative z-50">
-        {darkMode ? (
-          <img src={dotIcon} className="blogsHeroSectionDot" />
-        ) : (
-          <img src={dotIcon} className="blogsHeroSectionDot" />
-        )}
+        <img src={dotIcon} className="blogsHeroSectionDot" />
         <div className="relative pr-20 lg:pr-14 mt-10">
           <h1 className="blogsTitle">اخبار و مقالات نابغه</h1>
-
           <p className="blogsDescription">
             آموزش برنامه نویسی یکی از دوره‌های محبوب در حوزه فناوری اطلاعات است.
             برنامه نویسی مهارتی است که به افراد امکان می‌دهد تا نرم‌افزارهای
