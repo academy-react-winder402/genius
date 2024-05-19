@@ -39,14 +39,10 @@ const LandingBlogItemsMapped = () => {
         /> */}
       </div>
       <div className="flex flex-col gap-8 mt-10 lg:mt-0">
-        {news ?
+        {news &&
           news.news.map((blog) => (
             <LandingBlogItem key={blog.id} blog={blog} />
-          )) : (
-            <>
-              <BlogItemsSkeleton />
-            </>
-          )}
+          ))}
       </div>
     </div>
   );
