@@ -5,6 +5,7 @@ import { getCourseTopAPI } from "../../../core/services/api/course/get-course-to
 import { CourseInterface } from "../../../types/courses";
 
 import { CourseItem } from "../../common/CourseItem";
+import { CourseItemSkeleton } from "../../common/CourseItemSkeleton";
 
 const LandingCoursesMapped = () => {
   const [courses, setCourses] = useState<CourseInterface[] | null>();
@@ -25,11 +26,19 @@ const LandingCoursesMapped = () => {
 
   return (
     <>
-      <div className="flex flex-wrap gap-[18px] justify-center items-center mx-auto">
-        {courses &&
+      <div className="landingCoursesMappedWrapper">
+        {courses ? (
           courses.map((course: CourseInterface) => (
             <CourseItem key={course.courseId} course={course} />
-          ))}
+          ))
+        ) : (
+          <>
+            <CourseItemSkeleton />
+            <CourseItemSkeleton />
+            <CourseItemSkeleton />
+            <CourseItemSkeleton />
+          </>
+        )}
       </div>
     </>
   );

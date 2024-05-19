@@ -32,11 +32,17 @@
   .serviceBox {
     @apply flex flex-col justify-center items-center rounded-[24px] border-[1px] border-solid border-[#ECEFF1] h-[280px] px-6 transition-shadow hover:bg-white dark:hover:bg-gray-900 lg:w-[390px] hover:shadow-primaryShadow;
   }
+  .landingCoursesMappedWrapper {
+    @apply flex flex-wrap gap-[18px] justify-center items-center mx-auto;
+  }
   .courseItem {
     @apply mt-10 w-[90%] lg:w-[296px] pb-3 lg:pb-0 lg:h-[389px] rounded-[24px] shadow-primaryShadow px-4;
   }
+  .courseItemS2 {
+    @apply courseItem w-[90%] lg:w-[296px] mt-0 dark:bg-gray-900;
+  }
   .courseItemImage {
-    @apply w-full lg:h-[180px] rounded-[20px] mt-[16px] cursor-pointer;
+    @apply w-full lg:h-[180px] max-h-[220px] lg:max-h-max object-cover rounded-[20px] mt-[16px] cursor-pointer;
   }
   .courseItemDetailsBox {
     @apply flex gap-[3px];

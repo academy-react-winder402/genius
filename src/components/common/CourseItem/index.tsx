@@ -14,6 +14,7 @@ import calenderIcon from "../../../assets/images/Landing/LandingCourses/calendar
 import noteDarkIcon from "../../../assets/images/Landing/LandingCourses/note-dark.svg";
 import clockDarkIcon from "../../../assets/images/Landing/LandingCourses/clock-dark.svg";
 import calenderDarkIcon from "../../../assets/images/Landing/LandingCourses/calendar-dark.svg";
+import blackThumbnail from "../../../assets/images/Courses/blank-thumbnail.jpg";
 
 interface CourseItemProps {
   course: CourseInterface;
@@ -26,12 +27,19 @@ const CourseItem = ({ course, isCourseDetail }: CourseItemProps) => {
   const formattedDate = convertDateToPersian(course.lastUpdate);
 
   return (
-    <div className="courseItem w-full lg:w-[296px] mt-0 dark:bg-gray-900">
+    <div className="courseItemS2">
       <Link
         to={`/courses/${course.courseId}`}
         className={isCourseDetail === true ? "mt-8" : ""}
       >
-        <img src={course.tumbImageAddress} className="courseItemImage" />
+        <img
+          src={
+            course.tumbImageAddress !== "<string>" || !course.tumbImageAddress
+              ? course.tumbImageAddress
+              : blackThumbnail
+          }
+          className="courseItemImage"
+        />
       </Link>
       <h4 className="font-[700] text-text1 dark:text-darkText mt-4">
         <Link to={`/courses/${course.courseId}`}>{course.title}</Link>
