@@ -1,7 +1,8 @@
 import { Outlet } from "react-router-dom";
 
-import { Header } from "./Header";
+import { BackToUp } from "../common/BackToUp";
 import { Footer } from "./Footer";
+import { Header } from "./Header";
 
 const LandingLayout = () => {
   return (
@@ -9,6 +10,7 @@ const LandingLayout = () => {
       <Header isLanding />
       <Outlet />
       <Footer />
+      <BackToUp />
     </div>
   );
 };

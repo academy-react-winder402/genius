@@ -712,3 +712,13 @@ span.MuiTypography-root {
 .rmdp-container {
   @apply w-full;
 }
+
+/* Back To Up Button */
+.w-back-to-up
+  .MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium.css-i4bv87-MuiSvgIcon-root {
+  @apply w-[83%] h-[80%] rounded-full bg-[#F5F5F5] dark:bg-gray-900 fill-primaryColor;
+}
+
+.w-back-to-up svg:first-child circle:last-child {
+  @apply stroke-primaryColor;
+}
