@@ -1,6 +1,6 @@
-import teacherIcon from "../../../assets/images/Landing/teacher.svg";
-import clockIcon from "../../../assets/images/Landing/clock.svg";
-import peopleIcon from "../../../assets/images/Landing/people.svg";
+import teacherIcon from "../../../assets/images/Landing/LandingFeatures/teacher.svg";
+import coursesIcon from "../../../assets/images/Landing/LandingFeatures/courses.svg";
+import peopleIcon from "../../../assets/images/Landing/LandingFeatures/people.svg";
 
 interface landingHeroSectionFeaturesItemsInterface {
   number: number;
@@ -10,13 +10,13 @@ interface landingHeroSectionFeaturesItemsInterface {
 
 export const landingHeroSectionFeaturesItems = (
   teacherCount: number,
-  usersCount: number,
+  coursesCount: number,
   studentsCount: number
 ) => {
   const landingHeroSectionFeatures: landingHeroSectionFeaturesItemsInterface[] =
     [
       { number: teacherCount, label: "مدرس مجرب", icon: teacherIcon },
-      { number: usersCount, label: "دقیقه اموزش", icon: clockIcon },
+      { number: coursesCount, label: "دوره", icon: coursesIcon },
       { number: studentsCount, label: "نفر دانشجو", icon: peopleIcon },
     ];
 
