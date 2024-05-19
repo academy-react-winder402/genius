@@ -1,44 +1,46 @@
-import { useState } from "react";
+import { Dispatch, SetStateAction } from "react";
 
-import { CourseItemsInterface } from "../../../types/course-items";
+import { CourseInterface } from "../../../types/courses";
 
-import { Pagination } from "../../common/Pagination";
 import { CourseItem } from "../../common/CourseItem";
 import { CourseItemStyleTwo } from "../../common/CourseItemStyleTwo";
+import { Pagination } from "../../common/Pagination";
 
 interface PaginatedCoursesProps {
-  courses: CourseItemsInterface[];
+  courses: CourseInterface[];
+  totalCount: number;
   itemsPerPage: number;
   coursesStyle: number;
+  itemOffset: number;
+  setItemOffset: Dispatch<SetStateAction<number>>;
+  setCurrentPage: Dispatch<SetStateAction<number>>;
 }
 
 const PaginatedCourses = ({
   courses,
+  totalCount,
   itemsPerPage,
   coursesStyle,
+  itemOffset,
+  setItemOffset,
+  setCurrentPage,
 }: PaginatedCoursesProps) => {
-  const [itemOffset, setItemOffset] = useState<number>(0);
-  const endOffset = itemOffset + itemsPerPage;
-  const currentItems: CourseItemsInterface[] = courses.slice(
-    itemOffset,
-    endOffset
-  ) as CourseItemsInterface[];
-  const pageCount: number = Math.ceil(courses.length / itemsPerPage);
+  const pageCount: number = Math.ceil(totalCount / itemsPerPage);
 
   const handlePageClick = (event: any) => {
-    const newOffset = (event.selected * itemsPerPage) % courses.length;
-
+    const newOffset = (event.selected * itemsPerPage) % totalCount;
+    setCurrentPage(event.selected);
     setItemOffset(newOffset);
   };
   return (
     <div className="flex flex-col gap-4">
       <div className="flex flex-wrap justify-center gap-x-3 gap-y-5 lg:mt-3">
-        {currentItems &&
-          currentItems.map((course) =>
+        {courses &&
+          courses.map((course) =>
             coursesStyle === 1 ? (
-              <CourseItem key={course.id} course={course} />
+              <CourseItem key={course.courseId} course={course} />
             ) : (
-              <CourseItemStyleTwo key={course.id} course={course} />
+              <CourseItemStyleTwo key={course.courseId} course={course} />
             )
           )}
       </div>

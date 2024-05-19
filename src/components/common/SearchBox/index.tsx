@@ -1,3 +1,5 @@
+import { Dispatch, SetStateAction } from "react";
+
 import searchIcon from "../../../assets/images/Landing/search.svg";
 
 interface SearchBoxProps {
@@ -7,6 +9,7 @@ interface SearchBoxProps {
   display?: string;
   isLanding?: boolean;
   isBlogs?: boolean;
+  setQuery?: Dispatch<SetStateAction<string | undefined>>;
 }
 
 const SearchBox = ({
@@ -16,6 +19,7 @@ const SearchBox = ({
   display,
   isLanding,
   isBlogs,
+  setQuery,
 }: SearchBoxProps) => {
   return (
     <div className={`${display} ${isMarginTop ? "mt-10" : ""}`}>
@@ -26,6 +30,7 @@ const SearchBox = ({
             isBlogs === true &&
             "lg:!w-[779px] !shadow-courseDetailsHeroSectionSearchBoxShadow"
           } ${isLanding === true ? "dark:!bg-gray-800" : "dark:bg-gray-900"}`}
+          onKeyUp={(e) => setQuery(e.currentTarget.value)}
         />
         <img src={searchIcon} className="absolute left-6 lg:left-4 top-3" />
       </div>

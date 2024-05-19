@@ -1,15 +1,85 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-import { courseItems } from "../../core/data/courses/courseItems";
+import { getCourseWithPaginationAPI } from "../../core/services/api/course/get-course-with-pagination.api";
+
+import { CourseInterface } from "../../types/courses";
 
 import { CoursesHeroSection } from "../Courses/CoursesHeroSection";
 import { PaginatedCourses } from "./CourseItems/PaginatedCourses";
 import { Filters } from "./CoursesFilter/Filters";
 import { FilterTitleTrash } from "./CoursesFilter/FilterTitleTrash";
 import { CoursesTopSection } from "./CoursesTopSection";
+import { toast } from "../common/toast";
 
 const Courses = () => {
+  const [courses, setCourses] = useState<CourseInterface[]>();
   const [coursesStyle, setCoursesStyle] = useState<number>(1);
+  const [query, setQuery] = useState<string>();
+  const [totalCount, setTotalCount] = useState<number>();
+  const [itemOffset, setItemOffset] = useState<number>(0);
+  const [currentPage, setCurrentPage] = useState<number>(0);
+
+  useEffect(() => {
+    const fetchCourses = async () => {
+      try {
+        const getCourses = await getCourseWithPaginationAPI(
+          1,
+          9,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined
+        );
+
+        setCourses(getCourses.courseFilterDtos);
+        setTotalCount(getCourses.totalCount);
+      } catch (error) {
+        toast.error("مشکلی در دریافت دوره ها به وجود آمد !");
+      }
+    };
+
+    fetchCourses();
+  }, []);
+
+  useEffect(() => {
+    const fetchCourses = async () => {
+      try {
+        const handleQuery = query == "" ? undefined : query;
+
+        const getCourses = await getCourseWithPaginationAPI(
+          currentPage + 1,
+          9,
+          undefined,
+          undefined,
+          handleQuery,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined
+        );
+
+        setCourses(getCourses.courseFilterDtos);
+        setTotalCount(getCourses.totalCount);
+      } catch (error) {
+        toast.error("مشکلی در دریافت دوره ها به وجود آمد !");
+      }
+    };
+
+    fetchCourses();
+  }, [query, currentPage]);
 
   return (
     <>
@@ -27,11 +97,16 @@ const Courses = () => {
           <CoursesTopSection
             coursesStyle={coursesStyle}
             setCoursesStyle={setCoursesStyle}
+            setQuery={setQuery}
           />
           <PaginatedCourses
-            courses={courseItems}
+            courses={courses!}
+            totalCount={totalCount!}
             itemsPerPage={9}
             coursesStyle={coursesStyle}
+            itemOffset={itemOffset}
+            setItemOffset={setItemOffset}
+            setCurrentPage={setCurrentPage}
           />
         </div>
       </div>

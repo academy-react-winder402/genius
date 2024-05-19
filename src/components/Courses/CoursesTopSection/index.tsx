@@ -1,3 +1,5 @@
+import { Dispatch, SetStateAction } from "react";
+
 import { SearchBox } from "../../common/SearchBox";
 import { MobileFilter } from "../CoursesFilter/MobileFilter";
 
@@ -11,11 +13,13 @@ import gridStyleTwoDark from "../../../assets/images/Courses/Icons/grid-2-dark.s
 interface CoursesTopSectionProps {
   coursesStyle: number;
   setCoursesStyle: (value: number) => void;
+  setQuery: Dispatch<SetStateAction<string | undefined>>;
 }
 
 const CoursesTopSection = ({
   coursesStyle,
   setCoursesStyle,
+  setQuery,
 }: CoursesTopSectionProps) => {
   const darkMode = useDarkModeSelector();
 
@@ -53,7 +57,7 @@ const CoursesTopSection = ({
           </button>
         </div>
         <div className="w-[65%]">
-          <SearchBox placeholder="چی میخوای یاد بگیری ؟" />
+          <SearchBox placeholder="چی میخوای یاد بگیری ؟" setQuery={setQuery} />
         </div>
         <div className="w-[94%] lg:w-[20%]">
           <div className="coursesSelectBoxWrapper">
