@@ -77,6 +77,12 @@
   .landingBlogItemsStyleTwoColor {
     @apply font-[500] text-primaryColor mt-[1px];
   }
+  .landingBlogItemsSkeleton {
+    @apply flex flex-col gap-4;
+  }
+  .landingBlogItemsSkeletonHidden {
+    @apply landingBlogItemsSkeleton hidden lg:flex;
+  }
   .landingTeacherItemCoursesCount {
     @apply absolute top-8 lg:top-5 right-7 flex justify-center items-center w-[88px] h-[36px] bg-white dark:bg-gray-900 rounded-[50px] shadow-landingTeacherCoursesCount;
   }

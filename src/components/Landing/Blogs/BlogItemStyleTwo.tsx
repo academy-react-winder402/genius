@@ -1,9 +1,16 @@
-import { BlogItemInterface } from "../../../types/blog-items";
-
 import { Link } from "../../common/Link";
 
 import calenderIcon from "../../../assets/images/Landing/LandingBlogs/Icons/calendar.svg";
 import eyeIcon from "../../../assets/images/Landing/LandingBlogs/Icons/eye.svg";
+
+interface BlogItemStyleTwoProps {
+  id: string;
+  image: string;
+  allSeas: number;
+  createdAt: string;
+  title: string;
+  description: string;
+}
 
 const BlogItemStyleTwo = ({
   id,
@@ -12,11 +19,14 @@ const BlogItemStyleTwo = ({
   createdAt,
   title,
   description,
-}: BlogItemInterface) => {
+}: BlogItemStyleTwoProps) => {
   return (
     <div className="flex flex-col gap-4 px-4">
       <Link to={`/blogs/${id}`}>
-        <img src={image} className="cursor-pointer" />
+        <img
+          src={image}
+          className="w-[400px] h-[100px] object-cover cursor-pointer"
+        />
       </Link>
       <div className="flex gap-4 mt-4">
         <div className="landingBlogItemStyleTwoBackground">

@@ -3,22 +3,22 @@ import http from "../../interceptor";
 import { NewsInterface } from "../../../../types/news";
 
 export const newsAPI = async (
-  pageNumber: number | null = 1,
-  rowsOfPage: number | null = 10,
-  sortingCol: string | null = "insertDate",
-  sortType: string | null = "DESC",
-  query: string | null = "",
-  newsCategoryId: number | null
+  pageNumber: number | undefined,
+  rowsOfPage: number | undefined,
+  sortingCol: string | undefined,
+  sortType: string | undefined,
+  query: string | undefined,
+  newsCategoryId: number | undefined
 ) => {
   try {
-    const response = await http.get<NewsInterface[]>("/News", {
+    const response = await http.get<{ news: NewsInterface[] }>("/News", {
       params: {
-        pageNumber,
-        rowsOfPage,
-        sortingCol,
-        sortType,
-        query,
-        newsCategoryId,
+        pageNumber: pageNumber ? pageNumber : undefined,
+        rowsOfPage: rowsOfPage ? rowsOfPage : undefined,
+        sortingCol: sortingCol ? sortingCol : undefined,
+        sortType: sortType ? sortType : undefined,
+        query: query ? query : undefined,
+        newsCategoryId: newsCategoryId ? newsCategoryId : undefined,
       },
     });
 

@@ -7,13 +7,14 @@ import { getTeachersAPI } from "../../../core/services/api/teacher/get-teachers.
 
 import { TeacherItemsInterface } from "../../../types/teacher-items";
 
-import { TeacherItem } from "./TeacherItem";
 import { toast } from "../../common/toast";
+import { TeacherItem } from "./TeacherItem";
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { TeacherSkeleton } from "./TeacherSkeleton";
 
 const TeachersSlider = () => {
   const [teachers, setTeachers] = useState<TeacherItemsInterface[]>();
@@ -49,7 +50,7 @@ const TeachersSlider = () => {
         },
       }}
     >
-      {teachers &&
+      {teachers ? (
         teachers.map((teacher) => (
           <SwiperSlide
             key={teacher.teacherId}
@@ -57,7 +58,16 @@ const TeachersSlider = () => {
           >
             <TeacherItem teacher={teacher} />
           </SwiperSlide>
-        ))}
+        ))
+      ) : (
+        <div className="flex gap-5">
+          {[1, 2, 3, 4, 5].map((value) => (
+            <SwiperSlide>
+              <TeacherSkeleton key={value} />
+            </SwiperSlide>
+          ))}
+        </div>
+      )}
     </Swiper>
   );
 };
