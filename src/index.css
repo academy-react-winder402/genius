@@ -84,7 +84,7 @@
     @apply landingBlogItemsSkeleton hidden lg:flex;
   }
   .landingTeacherItemCoursesCount {
-    @apply absolute top-8 lg:top-5 right-7 flex justify-center items-center w-[88px] h-[36px] bg-white dark:bg-gray-900 rounded-[50px] shadow-landingTeacherCoursesCount;
+    @apply absolute top-8 right-7 flex justify-center items-center w-[88px] h-[36px] bg-white dark:bg-gray-900 rounded-[50px] shadow-landingTeacherCoursesCount;
   }
   .footer {
     @apply bg-footerBackground mt-16 flex flex-col justify-center items-center pt-12 pb-14;
