@@ -25,7 +25,7 @@ const BlogItemStyleTwo = ({
       <Link to={`/blogs/${id}`}>
         <img
           src={image}
-          className="w-[400px] h-[100px] object-cover cursor-pointer"
+          className="w-[380px] h-[240px] rounded-md object-cover cursor-pointer"
         />
       </Link>
       <div className="flex gap-4 mt-4">
@@ -35,7 +35,7 @@ const BlogItemStyleTwo = ({
             {allSeas} بازدید
           </span>
         </div>
-        <div className="landingBlogItemStyleTwoBackground">
+        <div className="landingBlogItemStyleTwoBackground w-[120px]">
           <img src={calenderIcon} className="-mt-[2px]" />
           <span className="landingBlogItemsStyleTwoColor">{createdAt}</span>
         </div>
