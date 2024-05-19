@@ -3,14 +3,22 @@ import clockIcon from "../../../assets/images/Landing/clock.svg";
 import peopleIcon from "../../../assets/images/Landing/people.svg";
 
 interface landingHeroSectionFeaturesItemsInterface {
-  number: string;
+  number: number;
   label: string;
   icon: string;
 }
 
-export const landingHeroSectionFeaturesItems: landingHeroSectionFeaturesItemsInterface[] =
-  [
-    { number: "167", label: "مدرس مجرب", icon: teacherIcon },
-    { number: "408،228", label: "دقیقه اموزش", icon: clockIcon },
-    { number: "460،789", label: "نفر دانشجو", icon: peopleIcon },
-  ];
+export const landingHeroSectionFeaturesItems = (
+  teacherCount: number,
+  usersCount: number,
+  studentsCount: number
+) => {
+  const landingHeroSectionFeatures: landingHeroSectionFeaturesItemsInterface[] =
+    [
+      { number: teacherCount, label: "مدرس مجرب", icon: teacherIcon },
+      { number: usersCount, label: "دقیقه اموزش", icon: clockIcon },
+      { number: studentsCount, label: "نفر دانشجو", icon: peopleIcon },
+    ];
+
+  return landingHeroSectionFeatures;
+};

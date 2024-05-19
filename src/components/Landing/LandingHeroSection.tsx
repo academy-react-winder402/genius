@@ -1,13 +1,35 @@
+import { useEffect, useState } from "react";
+
 import { typeWriterOptions } from "../../core/data/typewriter-options";
+import { landingReportAPI } from "../../core/services/api/landing/landing-report.api";
+
+import { LandingReportInterface } from "../../types/landing-report";
 
 import { useDarkModeSelector } from "../../redux/darkMode";
 
 import { SearchBox } from "../common/SearchBox";
 import { Typewriter } from "../common/Typewriter";
+import { toast } from "../common/toast";
 import { LandingHeroSectionFeatures } from "./HeroSection/LandingHeroSectionFeatures";
 
 const LandingHeroSection = () => {
+  const [landingReport, setLandingReport] = useState<LandingReportInterface>();
+
   const darkMode = useDarkModeSelector();
+
+  useEffect(() => {
+    const fetchLandingReport = async () => {
+      try {
+        const getLandingReport = await landingReportAPI();
+
+        setLandingReport(getLandingReport);
+      } catch (error) {
+        toast.error("مشکلی در دریافت اطلاعات به وجود آمد !");
+      }
+    };
+
+    fetchLandingReport();
+  }, []);
 
   return (
     <div
@@ -37,11 +59,10 @@ const LandingHeroSection = () => {
           inputClasses="lg:w-[620px]"
           isLanding={true}
         />
-        <LandingHeroSectionFeatures />
+        <LandingHeroSectionFeatures landingReport={landingReport!} />
       </div>
     </div>
   );
 };
 
 export { LandingHeroSection };
-

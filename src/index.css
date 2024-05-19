@@ -29,6 +29,24 @@
   .activeMenuItem {
     @apply text-primaryColor flex flex-col justify-center items-center;
   }
+  .landingFeaturesWrapper {
+    @apply mt-14 flex flex-col lg:flex-row gap-4 justify-center items-center;
+  }
+  .landingFeatureItem {
+    @apply border border-solid border-[#ffffff29] rounded-[16px] px-[24px] py-[16px] flex flex-col justify-center items-center w-[90%] lg:w-[200px] bg-[#ffffff8f] dark:bg-[#00000008];
+  }
+  .landingFeatureItemImageWrapper {
+    @apply bg-primary w-[64px] h-[64px] flex justify-center items-center rounded-[16px];
+  }
+  .landingFeatureItemValuesWrapper {
+    @apply mt-[16px] flex flex-col justify-center items-center;
+  }
+  .landingFeatureItemNumber {
+    @apply font-[900] text-[23px] text-text1 dark:text-darkText;
+  }
+  .landingFeatureItemLabel {
+    @apply text-text2 dark:text-darkText text-[16px] font-[700] mt-2
+  }
   .serviceBox {
     @apply flex flex-col justify-center items-center rounded-[24px] border-[1px] border-solid border-[#ECEFF1] h-[280px] px-6 transition-shadow hover:bg-white dark:hover:bg-gray-900 lg:w-[390px] hover:shadow-primaryShadow;
   }

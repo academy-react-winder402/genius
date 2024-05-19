@@ -8,7 +8,7 @@ import { CourseItem } from "../../common/CourseItem";
 import { CourseItemSkeleton } from "../../common/CourseItemSkeleton";
 
 const LandingCoursesMapped = () => {
-  const [courses, setCourses] = useState<CourseInterface[] | null>();
+  const [courses, setCourses] = useState<CourseInterface[] | false>();
 
   useEffect(() => {
     const fetchCourses = async () => {
@@ -16,6 +16,8 @@ const LandingCoursesMapped = () => {
         const getCourses = await getCourseTopAPI(4);
 
         setCourses(getCourses);
+
+        console.log(courses);
       } catch (error) {
         return false;
       }
