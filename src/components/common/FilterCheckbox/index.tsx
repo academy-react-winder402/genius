@@ -9,16 +9,18 @@ interface FilterCheckboxProps {
   label: string;
   className?: string;
   isChecked?: boolean;
+  value: string | number;
 }
 
 const FilterCheckbox = ({
   label,
   className,
   isChecked,
+  value,
 }: FilterCheckboxProps) => {
   return (
     <div className={className}>
-      <FormGroup>
+      <FormGroup onChange={(e) => console.log(e.target.value)}>
         <FormControlLabel
           control={
             <Checkbox
@@ -29,6 +31,7 @@ const FilterCheckbox = ({
                 </div>
               }
               defaultChecked={isChecked}
+              value={value}
             />
           }
           label={label}
