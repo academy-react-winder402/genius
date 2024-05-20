@@ -20,6 +20,7 @@ const Courses = () => {
   const [currentPage, setCurrentPage] = useState<number>(0);
   const [sortingCol, setSortingCol] = useState<string>();
   const [listTechState, setListTechState] = useState<string[]>([]);
+  const [teacherId, setTeacherId] = useState<number>([]);
 
   useEffect(() => {
     const fetchCourses = async () => {
@@ -70,7 +71,7 @@ const Courses = () => {
           undefined,
           undefined,
           undefined,
-          undefined
+          teacherId ? teacherId : undefined
         );
 
         setCourses(getCourses.courseFilterDtos);
@@ -81,7 +82,7 @@ const Courses = () => {
     };
 
     fetchCourses();
-  }, [query, currentPage, sortingCol, listTechState]);
+  }, [query, currentPage, sortingCol, listTechState, teacherId]);
 
   return (
     <>
@@ -94,6 +95,8 @@ const Courses = () => {
           <div className="mt-4">
             <Filters
               setListTechState={setListTechState}
+              setTeacherId={setTeacherId}
+              setQuery={setQuery}
             />
           </div>
         </div>

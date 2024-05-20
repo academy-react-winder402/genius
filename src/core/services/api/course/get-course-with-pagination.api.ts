@@ -9,7 +9,7 @@ export const getCourseWithPaginationAPI = async (
   costDown: number | undefined,
   costUp: number | undefined,
   techCount: number | undefined,
-  listTech: { value: string }[] | undefined,
+  listTech: string | undefined,
   courseLevelId: number | undefined,
   courseTypeId: number | undefined,
   startDate: Date | undefined,

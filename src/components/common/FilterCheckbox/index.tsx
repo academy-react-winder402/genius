@@ -1,11 +1,13 @@
-import { FormControlLabel } from "@mui/material";
+import { FormControlLabel } from "../FormControlLabel";
 import { Checkbox } from "../CheckBox";
+import { Radio } from "../Radio";
 import { FormGroup } from "../FormGroup";
 
 import checkboxIcon from "../../../assets/images/Courses/Filter/checkbox.svg";
 import checkedIcon from "../../../assets/images/Courses/Filter/checked.png";
 
 interface FilterCheckboxProps {
+  type?: string;
   label: string;
   className?: string;
   isChecked?: boolean;
@@ -14,6 +16,7 @@ interface FilterCheckboxProps {
 }
 
 const FilterCheckbox = ({
+  type,
   label,
   className,
   isChecked,
@@ -25,17 +28,31 @@ const FilterCheckbox = ({
       <FormGroup>
         <FormControlLabel
           control={
-            <Checkbox
-              icon={<img src={checkboxIcon} />}
-              checkedIcon={
-                <div>
-                  <img src={checkedIcon} className="w-full" />
-                </div>
-              }
-              defaultChecked={isChecked}
-              value={value}
-              onChange={onChange}
-            />
+            type == "radio" ? (
+              <Radio
+                icon={<img src={checkboxIcon} />}
+                checkedIcon={
+                  <div>
+                    <img src={checkedIcon} className="w-full" />
+                  </div>
+                }
+                defaultChecked={isChecked}
+                value={value}
+                onChange={onChange}
+              />
+            ) : (
+              <Checkbox
+                icon={<img src={checkboxIcon} />}
+                checkedIcon={
+                  <div>
+                    <img src={checkedIcon} className="w-full" />
+                  </div>
+                }
+                defaultChecked={isChecked}
+                value={value}
+                onChange={onChange}
+              />
+            )
           }
           label={label}
         />

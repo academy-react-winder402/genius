@@ -8,16 +8,22 @@ import { TimeFilter } from "./TimeFilter";
 
 interface FiltersProps {
   setListTechState: Dispatch<SetStateAction<string[]>>;
+  setTeacherId: Dispatch<SetStateAction<number>>;
+  setQuery: Dispatch<SetStateAction<string | undefined>>;
 }
 
-const Filters = ({ setListTechState }: FiltersProps) => {
+const Filters = ({
+  setListTechState,
+  setTeacherId,
+  setQuery,
+}: FiltersProps) => {
   return (
     <>
       <CategoryFilter setListTechState={setListTechState} />
       <PriceFilter />
       <SubjectFilter />
       <TimeFilter />
-      <TeacherFilter />
+      <TeacherFilter setTeacherId={setTeacherId} setQuery={setQuery} />
     </>
   );
 };
