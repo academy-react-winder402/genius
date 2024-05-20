@@ -1,4 +1,6 @@
-import { Dispatch, SetStateAction } from "react";
+import { ChangeEvent, Dispatch, SetStateAction } from "react";
+
+import { useTimeOut } from "../../../hooks/useTimeOut";
 
 import searchIcon from "../../../assets/images/Landing/search.svg";
 
@@ -21,6 +23,14 @@ const SearchBox = ({
   isBlogs,
   setQuery,
 }: SearchBoxProps) => {
+  const textTimeOut = useTimeOut();
+
+  const searchBoxOnChange = (e: ChangeEvent<HTMLInputElement>) => {
+    textTimeOut(() => {
+      setQuery(e.target.value);
+    }, 800);
+  };
+
   return (
     <div className={`${display} ${isMarginTop ? "mt-10" : ""}`}>
       <div className="relative w-[100%] lg:w-auto flex justify-center">
@@ -30,7 +40,7 @@ const SearchBox = ({
             isBlogs === true &&
             "lg:!w-[779px] !shadow-courseDetailsHeroSectionSearchBoxShadow"
           } ${isLanding === true ? "dark:!bg-gray-800" : "dark:bg-gray-900"}`}
-          onKeyUp={(e) => setQuery(e.currentTarget.value)}
+          onChange={searchBoxOnChange}
         />
         <img src={searchIcon} className="absolute left-6 lg:left-4 top-3" />
       </div>
