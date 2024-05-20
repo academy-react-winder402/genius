@@ -14,12 +14,14 @@ interface CoursesTopSectionProps {
   coursesStyle: number;
   setCoursesStyle: (value: number) => void;
   setQuery: Dispatch<SetStateAction<string | undefined>>;
+  setSortingCol: Dispatch<React.SetStateAction<string | undefined>>;
 }
 
 const CoursesTopSection = ({
   coursesStyle,
   setCoursesStyle,
   setQuery,
+  setSortingCol,
 }: CoursesTopSectionProps) => {
   const darkMode = useDarkModeSelector();
 
@@ -61,11 +63,14 @@ const CoursesTopSection = ({
         </div>
         <div className="w-[94%] lg:w-[20%]">
           <div className="coursesSelectBoxWrapper">
-            <select className="coursesSelectBox">
-              <option>محبوب ترین ها</option>
-              <option>گران ترین</option>
-              <option>ارزان ترین</option>
-              <option>پر فروش ترین</option>
+            <select
+              className="coursesSelectBox"
+              onChange={(e) => setSortingCol(e.target.value)}
+            >
+              <option value="Active">فعال</option>
+              <option value="courseRate">محبوب ترین ها</option>
+              <option value="cost">گران ترین</option>
+              <option value="lastUpdate">بروز ترین</option>
             </select>
           </div>
         </div>

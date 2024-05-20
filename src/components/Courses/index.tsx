@@ -18,6 +18,7 @@ const Courses = () => {
   const [totalCount, setTotalCount] = useState<number>();
   const [itemOffset, setItemOffset] = useState<number>(0);
   const [currentPage, setCurrentPage] = useState<number>(0);
+  const [sortingCol, setSortingCol] = useState<string>();
 
   useEffect(() => {
     const fetchCourses = async () => {
@@ -57,7 +58,7 @@ const Courses = () => {
         const getCourses = await getCourseWithPaginationAPI(
           currentPage + 1,
           9,
-          undefined,
+          sortingCol,
           undefined,
           handleQuery,
           undefined,
@@ -79,7 +80,7 @@ const Courses = () => {
     };
 
     fetchCourses();
-  }, [query, currentPage]);
+  }, [query, currentPage, sortingCol]);
 
   return (
     <>
@@ -98,6 +99,7 @@ const Courses = () => {
             coursesStyle={coursesStyle}
             setCoursesStyle={setCoursesStyle}
             setQuery={setQuery}
+            setSortingCol={setSortingCol}
           />
           <PaginatedCourses
             courses={courses!}
