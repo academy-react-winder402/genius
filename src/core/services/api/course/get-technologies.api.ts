@@ -1,8 +1,12 @@
 import http from "../../interceptor";
 
+import { TechnologiesInterface } from "../../../../types/technologies";
+
 export const getTechnologiesAPI = async () => {
   try {
-    const response = await http.get("/Home/GetTechnologies");
+    const response = await http.get<TechnologiesInterface[]>(
+      "/Home/GetTechnologies"
+    );
 
     return response;
   } catch (error) {

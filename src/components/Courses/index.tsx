@@ -19,6 +19,7 @@ const Courses = () => {
   const [itemOffset, setItemOffset] = useState<number>(0);
   const [currentPage, setCurrentPage] = useState<number>(0);
   const [sortingCol, setSortingCol] = useState<string>();
+  const [listTechState, setListTechState] = useState<string[]>([]);
 
   useEffect(() => {
     const fetchCourses = async () => {
@@ -63,8 +64,8 @@ const Courses = () => {
           handleQuery,
           undefined,
           undefined,
-          undefined,
-          undefined,
+          listTechState.length > 0 ? 1 : undefined,
+          listTechState.length > 0 ? listTechState.toString() : undefined,
           undefined,
           undefined,
           undefined,
@@ -80,7 +81,7 @@ const Courses = () => {
     };
 
     fetchCourses();
-  }, [query, currentPage, sortingCol]);
+  }, [query, currentPage, sortingCol, listTechState]);
 
   return (
     <>
@@ -91,7 +92,9 @@ const Courses = () => {
             <FilterTitleTrash />
           </div>
           <div className="mt-4">
-            <Filters />
+            <Filters
+              setListTechState={setListTechState}
+            />
           </div>
         </div>
         <div className="lg:w-[957px] mt-3">
