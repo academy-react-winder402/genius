@@ -1,6 +1,6 @@
 import http from "../../interceptor";
 
-export const getCourseTypes = async () => {
+export const getCourseTypesAPI = async () => {
   try {
     const response = await http.get("/CourseType/GetCourseTypes");
 
