@@ -11,7 +11,7 @@ import { toast } from "../../../common/toast";
 import { RadioGroup } from "../../../common/RadioGroup";
 
 interface TeacherFilterProps {
-  setTeacherId: Dispatch<SetStateAction<number>>;
+  setTeacherId: Dispatch<SetStateAction<number | undefined>>;
   setQuery: Dispatch<SetStateAction<string | undefined>>;
 }
 

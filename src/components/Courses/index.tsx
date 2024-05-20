@@ -20,7 +20,8 @@ const Courses = () => {
   const [currentPage, setCurrentPage] = useState<number>(0);
   const [sortingCol, setSortingCol] = useState<string>();
   const [listTechState, setListTechState] = useState<string[]>([]);
-  const [teacherId, setTeacherId] = useState<number>([]);
+  const [teacherId, setTeacherId] = useState<number>();
+  const [courseLevel, setCourseLevel] = useState<number>();
 
   useEffect(() => {
     const fetchCourses = async () => {
@@ -67,7 +68,7 @@ const Courses = () => {
           undefined,
           listTechState.length > 0 ? 1 : undefined,
           listTechState.length > 0 ? listTechState.toString() : undefined,
-          undefined,
+          courseLevel ? courseLevel : undefined,
           undefined,
           undefined,
           undefined,
@@ -82,7 +83,7 @@ const Courses = () => {
     };
 
     fetchCourses();
-  }, [query, currentPage, sortingCol, listTechState, teacherId]);
+  }, [query, currentPage, sortingCol, listTechState, teacherId, courseLevel]);
 
   return (
     <>
@@ -97,6 +98,7 @@ const Courses = () => {
               setListTechState={setListTechState}
               setTeacherId={setTeacherId}
               setQuery={setQuery}
+              setCourseLevel={setCourseLevel}
             />
           </div>
         </div>
