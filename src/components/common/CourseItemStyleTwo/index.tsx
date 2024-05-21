@@ -29,10 +29,12 @@ const CourseItemStyleTwo = ({ course }: CourseItemStyleTwoProps) => {
           />
         </div>
         <div className="lg:w-[75%]">
-          <h3 className="font-[700] text-text1 dark:text-darkText">
-            <Link to={`/courses/${course.courseId}`}>{course.title}</Link>
-          </h3>
-          <p className="courseItemStyleTwoDescription">{course.describe}</p>
+          <div>
+            <h3 className="font-[700] text-text1 dark:text-darkText">
+              <Link to={`/courses/${course.courseId}`}>{course.title}</Link>
+            </h3>
+            <p className="courseItemStyleTwoDescription">{course.describe}</p>
+          </div>
           <div className="courseItemStyleTwoDetailsWrapperFlexBox">
             <CourseItemDetails course={course} />
             <div className="font-[700] text-[20px] text-primaryColor">

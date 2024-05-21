@@ -16,7 +16,6 @@ const Courses = () => {
   const [coursesStyle, setCoursesStyle] = useState<number>(1);
   const [query, setQuery] = useState<string>();
   const [totalCount, setTotalCount] = useState<number>();
-  const [itemOffset, setItemOffset] = useState<number>(0);
   const [currentPage, setCurrentPage] = useState<number>(0);
   const [sortingCol, setSortingCol] = useState<string>();
   const [listTechState, setListTechState] = useState<string[]>([]);
@@ -103,8 +102,8 @@ const Courses = () => {
   return (
     <>
       <CoursesHeroSection />
-      <div className="flex flex-col lg:flex-row justify-center gap-x-5 w-[90%] mx-auto mt-32 px-5 lg:px-0">
-        <div className="lg:w-[296px] h-[98%] rounded-[24px] shadow-primaryShadow py-4 bg-white dark:bg-gray-900 hidden lg:block">
+      <div className="coursesMainSection">
+        <div className="coursesFilterSectionWrapper">
           <div className="px-2">
             <FilterTitleTrash
               setSortingCol={setSortingCol}
@@ -142,8 +141,6 @@ const Courses = () => {
             totalCount={totalCount!}
             itemsPerPage={9}
             coursesStyle={coursesStyle}
-            itemOffset={itemOffset}
-            setItemOffset={setItemOffset}
             setCurrentPage={setCurrentPage}
           />
         </div>
