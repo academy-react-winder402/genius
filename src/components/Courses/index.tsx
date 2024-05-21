@@ -25,6 +25,7 @@ const Courses = () => {
   const [courseTypeId, setCourseTypeId] = useState<number>();
   const [costDown, setCostDown] = useState<number>();
   const [costUp, setCostUp] = useState<number>();
+  const [sortType, setSortType] = useState<string>();
 
   useEffect(() => {
     const fetchCourses = async () => {
@@ -65,7 +66,7 @@ const Courses = () => {
           currentPage + 1,
           9,
           sortingCol,
-          undefined,
+          sortType ? sortType : undefined,
           handleQuery,
           costDown ? costDown : undefined,
           costUp ? costUp : undefined,
@@ -96,6 +97,7 @@ const Courses = () => {
     courseTypeId,
     costDown,
     costUp,
+    sortType,
   ]);
 
   return (
@@ -115,6 +117,8 @@ const Courses = () => {
               setCourseTypeId={setCourseTypeId}
               setCostDown={setCostDown}
               setCostUp={setCostUp}
+              setSortType={setSortType}
+              sortType={sortType}
             />
           </div>
         </div>

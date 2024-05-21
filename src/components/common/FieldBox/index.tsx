@@ -28,7 +28,7 @@ const FieldBox = ({
   const datePickerOnChange = (e: any) => {
     const date = e.year + "-" + e.month + "-" + e.day;
 
-    setFieldValue(name, date);
+    setFieldValue && setFieldValue(name, date);
   };
 
   return (
@@ -64,7 +64,7 @@ const FieldBox = ({
                   locale={persian_fa}
                   calendarPosition="bottom-right"
                   onChange={datePickerOnChange}
-                  className="dark:bg-gray-900 !dark:text-darkText border-t-black after:bg-black dark:shadow-primaryShadow"
+                  className="darkDatePicker"
                   inputClass={className}
                 />
               )}

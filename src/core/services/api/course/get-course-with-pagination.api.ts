@@ -12,8 +12,8 @@ export const getCourseWithPaginationAPI = async (
   listTech: string | undefined,
   courseLevelId: number | undefined,
   courseTypeId: number | undefined,
-  startDate: Date | undefined,
-  endDate: Date | undefined,
+  startDate: string | undefined,
+  endDate: string | undefined,
   teacherId: number | undefined
 ) => {
   try {

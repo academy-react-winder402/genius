@@ -12,7 +12,7 @@ interface FilterCheckboxProps {
   className?: string;
   isChecked?: boolean;
   value: string | number;
-  onChange: (e: React.FormEvent<HTMLDivElement>) => void;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const FilterCheckbox = ({

@@ -640,6 +640,10 @@
   .passwordFieldBoxIconWrapper {
     @apply absolute left-2 cursor-pointer top-[18px];
   }
+  /* Date Picker */
+  .darkDatePicker {
+    @apply dark:bg-gray-900 dark:text-darkText border-t-black after:bg-black dark:shadow-primaryShadow;
+  }
 }
 
 /* Swiper */
