@@ -26,9 +26,7 @@ const SearchBox = ({
   const textTimeOut = useTimeOut();
 
   const searchBoxOnChange = (e: ChangeEvent<HTMLInputElement>) => {
-    textTimeOut(() => {
-      setQuery(e.target.value);
-    }, 800);
+    textTimeOut(() => setQuery && setQuery(e.target.value), 800);
   };
 
   return (

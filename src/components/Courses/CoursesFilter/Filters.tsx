@@ -12,6 +12,8 @@ interface FiltersProps {
   setQuery: Dispatch<SetStateAction<string | undefined>>;
   setCourseLevel: Dispatch<SetStateAction<number | undefined>>;
   setCourseTypeId: Dispatch<SetStateAction<number | undefined>>;
+  setCostDown: Dispatch<SetStateAction<number | undefined>>;
+  setCostUp: Dispatch<SetStateAction<number | undefined>>;
 }
 
 const Filters = ({
@@ -20,13 +22,15 @@ const Filters = ({
   setQuery,
   setCourseLevel,
   setCourseTypeId,
+  setCostDown,
+  setCostUp,
 }: FiltersProps) => {
   return (
     <>
       <CategoryFilter setListTechState={setListTechState} />
       <LevelFilter setCourseLevel={setCourseLevel} />
-      <PriceFilter />
       <TypesFilter setCourseTypeId={setCourseTypeId} />
+      <PriceFilter setCostDown={setCostDown} setCostUp={setCostUp} />
       <TeacherFilter setTeacherId={setTeacherId} setQuery={setQuery} />
     </>
   );

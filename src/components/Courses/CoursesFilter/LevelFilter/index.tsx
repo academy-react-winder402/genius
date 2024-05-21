@@ -35,7 +35,7 @@ const LevelFilter = ({ setCourseLevel }: LevelFilterProps) => {
   }, []);
 
   return (
-    <FilterAccordion title="سطح دوره">
+    <FilterAccordion title="سطح دوره" isOpen>
       <RadioGroup name="courseLevelGroup">
         {courseLevels &&
           courseLevels.map((level) => (
