@@ -15,7 +15,6 @@ interface FiltersProps {
   setCostDown: Dispatch<SetStateAction<number | undefined>>;
   setCostUp: Dispatch<SetStateAction<number | undefined>>;
   setSortType: Dispatch<SetStateAction<string | undefined>>;
-  sortType: string | undefined;
 }
 
 const Filters = ({
@@ -27,12 +26,11 @@ const Filters = ({
   setCostDown,
   setCostUp,
   setSortType,
-  sortType,
 }: FiltersProps) => {
   return (
     <>
       <CategoryFilter setListTechState={setListTechState} />
-      <SortTypeFilter setSortType={setSortType} sortType={sortType} />
+      <SortTypeFilter setSortType={setSortType} />
       <LevelFilter setCourseLevel={setCourseLevel} />
       <TypesFilter setCourseTypeId={setCourseTypeId} />
       <PriceFilter setCostDown={setCostDown} setCostUp={setCostUp} />

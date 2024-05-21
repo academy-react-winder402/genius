@@ -4,9 +4,11 @@ import { getTechnologiesAPI } from "../../../../core/services/api/course/get-tec
 
 import { TechnologiesInterface } from "../../../../types/technologies";
 
+import { DeleteFilterState } from "../../../common/DeleteFilterState";
 import { FilterCheckbox } from "../../../common/FilterCheckbox";
 import { toast } from "../../../common/toast";
 import { FilterAccordion } from "../FilterAccordion";
+import { ClearAll } from "@mui/icons-material";
 
 interface CategoryFilterProps {
   setListTechState: Dispatch<SetStateAction<string[]>>;
@@ -14,6 +16,7 @@ interface CategoryFilterProps {
 
 const CategoryFilter = ({ setListTechState }: CategoryFilterProps) => {
   const [technologies, setTechnologies] = useState<TechnologiesInterface[]>();
+  const [isValueChanged, setIsValueChanged] = useState<boolean>(false);
 
   const handleTechnologiesChange = (item: string) => {
     setListTechState((prevState) => {
@@ -25,30 +28,40 @@ const CategoryFilter = ({ setListTechState }: CategoryFilterProps) => {
         return [...prevState, item];
       }
     });
+    setIsValueChanged(true);
+  };
+
+  const handleDeleteValueChange = () => {
+    setListTechState([]);
+    setIsValueChanged(false);
+  };
+
+  const fetchTechnologies = async () => {
+    try {
+      const getTechnologies = await getTechnologiesAPI();
+
+      setTechnologies(getTechnologies);
+    } catch (error) {
+      toast.error("مشکلی در دریافت دسته بندی ها به وجود آمد !");
+    }
   };
 
   useEffect(() => {
-    const fetchTechnologies = async () => {
-      try {
-        const getTechnologies = await getTechnologiesAPI();
-
-        setTechnologies(getTechnologies);
-      } catch (error) {
-        toast.error("مشکلی در دریافت دسته بندی ها به وجود آمد !");
-      }
-    };
-
     fetchTechnologies();
   }, []);
 
   return (
     <FilterAccordion title="دسته بندی‌ ها">
+      <DeleteFilterState
+        handleDeleteValueChange={handleDeleteValueChange}
+        isValueChanged={isValueChanged}
+      />
       {technologies &&
         technologies?.map((technology) => (
           <FilterCheckbox
             key={technology.id}
             label={technology.techName}
-            value={technology.id}
+            value={String(technology.id)}
             onChange={() => handleTechnologiesChange(String(technology.id))}
           />
         ))}

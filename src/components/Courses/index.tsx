@@ -65,15 +65,15 @@ const Courses = () => {
         const getCourses = await getCourseWithPaginationAPI(
           currentPage + 1,
           9,
-          sortingCol,
+          sortingCol || sortingCol !== undefined ? sortingCol : undefined,
           sortType ? sortType : undefined,
-          handleQuery,
-          costDown ? costDown : undefined,
-          costUp ? costUp : undefined,
+          handleQuery || handleQuery !== undefined ? handleQuery : undefined,
+          costDown || costDown == undefined ? costDown : undefined,
+          costUp || costUp !== undefined ? costUp : undefined,
           listTechState.length > 0 ? 1 : undefined,
           listTechState.length > 0 ? listTechState.toString() : undefined,
-          courseLevel ? courseLevel : undefined,
-          courseTypeId ? courseTypeId : undefined,
+          courseLevel || courseLevel !== undefined ? courseLevel : undefined,
+          courseTypeId || courseTypeId !== undefined ? courseTypeId : undefined,
           undefined,
           undefined,
           teacherId ? teacherId : undefined
@@ -106,7 +106,16 @@ const Courses = () => {
       <div className="flex flex-col lg:flex-row justify-center gap-x-5 w-[90%] mx-auto mt-32 px-5 lg:px-0">
         <div className="lg:w-[296px] h-[98%] rounded-[24px] shadow-primaryShadow py-4 bg-white dark:bg-gray-900 hidden lg:block">
           <div className="px-2">
-            <FilterTitleTrash />
+            <FilterTitleTrash
+              setSortingCol={setSortingCol}
+              setListTechState={setListTechState}
+              setTeacherId={setTeacherId}
+              setCourseLevel={setCourseLevel}
+              setCourseTypeId={setCourseTypeId}
+              setCostDown={setCostDown}
+              setCostUp={setCostUp}
+              setSortType={setSortType}
+            />
           </div>
           <div className="mt-4">
             <Filters
@@ -118,7 +127,6 @@ const Courses = () => {
               setCostDown={setCostDown}
               setCostUp={setCostUp}
               setSortType={setSortType}
-              sortType={sortType}
             />
           </div>
         </div>

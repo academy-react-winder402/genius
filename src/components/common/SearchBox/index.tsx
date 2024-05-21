@@ -12,6 +12,7 @@ interface SearchBoxProps {
   isLanding?: boolean;
   isBlogs?: boolean;
   setQuery?: Dispatch<SetStateAction<string | undefined>>;
+  setIsValueChanged?: Dispatch<SetStateAction<boolean>>;
 }
 
 const SearchBox = ({
@@ -22,11 +23,15 @@ const SearchBox = ({
   isLanding,
   isBlogs,
   setQuery,
+  setIsValueChanged,
 }: SearchBoxProps) => {
   const textTimeOut = useTimeOut();
 
   const searchBoxOnChange = (e: ChangeEvent<HTMLInputElement>) => {
-    textTimeOut(() => setQuery && setQuery(e.target.value), 800);
+    textTimeOut(() => {
+      setQuery && setQuery(e.target.value);
+      setIsValueChanged && setIsValueChanged(true);
+    }, 800);
   };
 
   return (

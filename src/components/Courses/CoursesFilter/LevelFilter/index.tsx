@@ -1,12 +1,19 @@
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import {
+  ChangeEvent,
+  Dispatch,
+  SetStateAction,
+  useEffect,
+  useState,
+} from "react";
 
 import { getAllCourseLevelAPI } from "../../../../core/services/api/course/get-all-course-level.api";
 
 import { CourseLevelsInterface } from "../../../../types/course-levels";
 
+import { DeleteFilterState } from "../../../common/DeleteFilterState";
 import { FilterCheckbox } from "../../../common/FilterCheckbox";
-import { toast } from "../../../common/toast";
 import { RadioGroup } from "../../../common/RadioGroup";
+import { toast } from "../../../common/toast";
 import { FilterAccordion } from "../FilterAccordion";
 
 interface LevelFilterProps {
@@ -15,9 +22,16 @@ interface LevelFilterProps {
 
 const LevelFilter = ({ setCourseLevel }: LevelFilterProps) => {
   const [courseLevels, setCourseLevels] = useState<CourseLevelsInterface[]>();
+  const [isValueChanged, setIsValueChanged] = useState<boolean>(false);
 
-  const handleCourseLevelChange = (item: number) => {
-    setCourseLevel(item);
+  const handleDeleteValueChange = () => {
+    setCourseLevel(undefined);
+    setIsValueChanged(false);
+  };
+
+  const handleCourseLevelChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setCourseLevel(+e.target.value);
+    setIsValueChanged(true);
   };
 
   useEffect(() => {
@@ -36,6 +50,10 @@ const LevelFilter = ({ setCourseLevel }: LevelFilterProps) => {
 
   return (
     <FilterAccordion title="سطح دوره" isOpen>
+      <DeleteFilterState
+        handleDeleteValueChange={handleDeleteValueChange}
+        isValueChanged={isValueChanged}
+      />
       <RadioGroup name="courseLevelGroup">
         {courseLevels &&
           courseLevels.map((level) => (
@@ -44,7 +62,7 @@ const LevelFilter = ({ setCourseLevel }: LevelFilterProps) => {
               key={level.id}
               label={level.levelName}
               value={level.id}
-              onChange={() => handleCourseLevelChange(level.id)}
+              onChange={handleCourseLevelChange}
             />
           ))}
       </RadioGroup>

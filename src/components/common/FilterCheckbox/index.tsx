@@ -48,7 +48,7 @@ const FilterCheckbox = ({
                     <img src={checkedIcon} className="w-full" />
                   </div>
                 }
-                defaultChecked={isChecked}
+                defaultChecked={value == null || isChecked}
                 value={value}
                 onChange={onChange}
               />

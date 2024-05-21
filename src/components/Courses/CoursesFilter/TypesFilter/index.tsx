@@ -1,12 +1,19 @@
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import {
+  ChangeEvent,
+  Dispatch,
+  SetStateAction,
+  useEffect,
+  useState,
+} from "react";
 
 import { getCourseTypesAPI } from "../../../../core/services/api/course/get-course-types.api";
 
 import { CourseTypesInterface } from "../../../../types/course-types";
 
+import { DeleteFilterState } from "../../../common/DeleteFilterState";
 import { FilterCheckbox } from "../../../common/FilterCheckbox";
-import { toast } from "../../../common/toast";
 import { RadioGroup } from "../../../common/RadioGroup";
+import { toast } from "../../../common/toast";
 import { FilterAccordion } from "../FilterAccordion";
 
 interface TypesFilterProps {
@@ -15,8 +22,17 @@ interface TypesFilterProps {
 
 const TypesFilter = ({ setCourseTypeId }: TypesFilterProps) => {
   const [courseTypes, setCourseTypes] = useState<CourseTypesInterface[]>();
+  const [isValueChanged, setIsValueChanged] = useState<boolean>(false);
 
-  const handleCourseTypeChange = (item: number) => setCourseTypeId(item);
+  const handleDeleteValueChange = () => {
+    setCourseTypeId(undefined);
+    setIsValueChanged(false);
+  };
+
+  const handleCourseTypeChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setCourseTypeId(+e.target.value);
+    setIsValueChanged(true);
+  };
 
   useEffect(() => {
     const fetchCourseTypes = async () => {
@@ -34,6 +50,10 @@ const TypesFilter = ({ setCourseTypeId }: TypesFilterProps) => {
 
   return (
     <FilterAccordion title="تایپ دوره">
+      <DeleteFilterState
+        handleDeleteValueChange={handleDeleteValueChange}
+        isValueChanged={isValueChanged}
+      />
       <RadioGroup name="courseTypesGroup">
         {courseTypes &&
           courseTypes.map((type) => (
@@ -42,7 +62,7 @@ const TypesFilter = ({ setCourseTypeId }: TypesFilterProps) => {
               type="radio"
               value={type.id}
               label={type.typeName}
-              onChange={() => handleCourseTypeChange(type.id)}
+              onChange={handleCourseTypeChange}
             />
           ))}
       </RadioGroup>
