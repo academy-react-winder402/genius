@@ -19,6 +19,7 @@
     "@types/node": "^20.12.7",
     "@uiw/react-back-to-top": "^1.2.3",
     "axios": "^1.6.8",
+    "eslint-plugin-simple-import-sort": "^12.1.0",
     "formik": "^2.4.5",
     "react": "^18.2.0",
     "react-auth-code-input": "^3.2.1",
