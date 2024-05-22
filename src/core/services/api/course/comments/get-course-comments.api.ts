@@ -1,8 +1,8 @@
 import http from "../../../interceptor";
 
-export const getCourseComments = async (courseId: string) => {
+export const getCourseCommentsAPI = async (courseId: string) => {
   try {
-    const response = http.get(`/Course/GetCourseCommnets/${courseId}`);
+    const response = await http.get(`/Course/GetCourseCommnets/${courseId}`);
 
     return response;
   } catch (error) {
