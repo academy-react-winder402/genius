@@ -79,7 +79,10 @@ const CourseItem = ({ course, isCourseDetail }: CourseItemProps) => {
         <span className="text-[14px]">0 دانش آموز</span>
       </div>
       <div className="flex justify-between items-center mt-4">
-        <CourseLikeBox likeCount={course.likeCount} />
+        <CourseLikeBox
+          courseId={course.courseId}
+          isUserFavorite={course.isUserFavorite}
+        />
         <div className="font-[500] text-[12px] text-text1 dark:text-darkText flex">
           <span className="text-primaryColor text-[16px] font-[700] ml-2">
             {formattedPrice}
