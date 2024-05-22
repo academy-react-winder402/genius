@@ -133,6 +133,7 @@ const CourseDetails = () => {
           <CourseTabs
             courseLessons={courseLessons}
             description={course?.describe!}
+            courseId={course?.courseId!}
           />
         </div>
         <div className="lg:w-[405px]">

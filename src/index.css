@@ -486,7 +486,7 @@
     @apply border-r border-commentsBorder dark:border-darkBorder mr-8 pr-5;
   }
   .commentAvatarImage {
-    @apply w-[32px] h-[32px];
+    @apply w-[32px] h-[32px] rounded-full;
   }
   .commentName {
     @apply font-[500] text-text1 dark:text-darkText;

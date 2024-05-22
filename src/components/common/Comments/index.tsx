@@ -1,33 +1,77 @@
-import { commentItems } from "../../../core/data/comments/comment-items";
+import { useEffect, useState } from "react";
+
+import { getCourseCommentsAPI } from "../../../core/services/api/course/comments/get-course-comments.api";
+
+import { CommentInterface } from "../../../types/comment";
 
 import { CommentItem } from "./CommentItem";
+import { toast } from "../toast";
+import { convertDateToPersian } from "../../../core/utils/date-helper.utils";
 
-const Comments = () => {
+interface CommentsProps {
+  courseId: string;
+}
+
+const Comments = ({ courseId }: CommentsProps) => {
+  const [comments, setComments] = useState<CommentInterface[]>();
+  const [replyComment, setReplyComment] = useState<CommentInterface[]>();
+
+  useEffect(() => {
+    const fetchComments = async () => {
+      try {
+        const getComments = await getCourseCommentsAPI(courseId);
+
+        setComments(getComments);
+      } catch (error) {
+        toast.error("مشکلی در دریافت نظرات به وجود آمد !");
+      }
+    };
+
+    fetchComments();
+  }, []);
+
   return (
     <div className="mt-7 flex flex-col gap-7">
-      {commentItems.map((comment) => (
-        <>
-          <CommentItem
-            key={comment.id}
-            avatarImage={comment.image}
-            createdAt={comment.createdAt}
-            name={comment.title}
-            message={comment.message}
-            isChildren={comment.isChildren}
-          />
-          {comment.children?.map((childMessage) => (
-            <CommentItem
-              key={childMessage.id}
-              avatarImage={childMessage.image}
-              createdAt={childMessage.createdAt}
-              name={childMessage.title}
-              message={childMessage.message}
-              isChildren={childMessage.isChildren}
-            />
-          ))}
-        </>
-      ))}
-      <span className="showMoreComments">مشاهده 12 نظر دیگر</span>
+      {comments &&
+        comments.map((comment) => {
+          const { id, pictureAddress, insertDate, author, describe } = comment;
+
+          const formattedInsertDate = convertDateToPersian(insertDate);
+
+          return (
+            <>
+              <CommentItem
+                key={id}
+                avatarImage={pictureAddress}
+                createdAt={formattedInsertDate}
+                name={author}
+                message={describe}
+                isChildren={false}
+                courseId={courseId}
+                commentId={id}
+                setReplyComment={setReplyComment}
+              />
+              {replyComment &&
+                replyComment?.map((reply) => {
+                  const { id, pictureAddress, insertDate, author, describe } =
+                    reply;
+
+                  const formattedInsertDate = convertDateToPersian(insertDate);
+
+                  return (
+                    <CommentItem
+                      key={id}
+                      avatarImage={pictureAddress}
+                      createdAt={formattedInsertDate}
+                      name={author}
+                      message={describe}
+                      isChildren={true}
+                    />
+                  );
+                })}
+            </>
+          );
+        })}
     </div>
   );
 };
