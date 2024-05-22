@@ -12,12 +12,12 @@ import { TeacherDetailsInterface } from "../../types/teacher-details";
 
 import { useDarkModeSelector } from "../../redux/darkMode";
 
-import { CourseLikeBox } from "../common/CourseLikeBox";
 import { CourseDetailsInformationBox } from "./CourseDetailsInformation/CourseDetailsInformationBox";
 import { CourseTeacher } from "./CourseDetailsInformation/CourseTeacher";
 import { CourseTabs } from "./CourseTabs";
 import { RelatedCourses } from "./RelatedCourses";
 import { Satisfaction } from "../common/Satisfaction";
+import { CourseLikeButton } from "../common/CourseLikeBox/CourseLikeButton";
 
 import clockDarkIcon from "../../assets/images/CourseDetails/Icons/clock-dark2.svg";
 import clockIcon from "../../assets/images/CourseDetails/Icons/clock.svg";
@@ -34,6 +34,9 @@ const CourseDetails = () => {
   const [teacher, setTeacher] = useState<TeacherDetailsInterface>();
   const [likeCount, setLikeCount] = useState<number>();
   const [dislikeCount, setDislikeCount] = useState<number>();
+  const [isUserFavorite, setIsUserFavorite] = useState<boolean | undefined>(
+    course?.isUserFavorite
+  );
 
   const { courseId } = useParams();
 
@@ -83,11 +86,13 @@ const CourseDetails = () => {
           <div className="relative">
             <img
               src={course?.imageAddress || blackThumbnail}
-              className="rounded-[24px] w-full"
+              className="rounded-[24px] w-full max-h-[500px] object-cover"
             />
-            <CourseLikeBox
-              likeCount={course?.likeCount!}
-              classes="absolute top-10 right-8 bg-white dark:bg-gray-900"
+            <CourseLikeButton
+              classes="courseLikeBox absolute top-10 right-8 bg-white dark:bg-gray-900"
+              courseId={course?.courseId!}
+              isCourseFavorite={course?.isUserFavorite!}
+              courseFavoriteCourseId={course?.userFavoriteId!}
             />
             <div className="flex gap-4 absolute bottom-5 left-5">
               <div className="courseDetailImageBox">
