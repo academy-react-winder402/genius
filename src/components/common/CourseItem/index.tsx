@@ -27,11 +27,8 @@ const CourseItem = ({ course, isCourseDetail }: CourseItemProps) => {
   const formattedDate = convertDateToPersian(course.lastUpdate);
 
   return (
-    <div className="courseItemS2">
-      <Link
-        to={`/courses/${course.courseId}`}
-        className={isCourseDetail === true ? "mt-8" : ""}
-      >
+    <div className={`courseItemS2 ${isCourseDetail && "pt-[2px]"}`}>
+      <Link to={`/courses/${course.courseId}`}>
         <img
           src={
             course.tumbImageAddress !== "<string>" || !course.tumbImageAddress
@@ -83,7 +80,6 @@ const CourseItem = ({ course, isCourseDetail }: CourseItemProps) => {
           courseId={course.courseId}
           isUserFavorite={course.userFavorite}
           courseFavoriteCourseId={course.userFavoriteId}
-          
         />
         <div className="font-[500] text-[12px] text-text1 dark:text-darkText flex">
           <span className="text-primaryColor text-[16px] font-[700] ml-2">

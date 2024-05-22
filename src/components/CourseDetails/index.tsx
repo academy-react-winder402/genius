@@ -80,7 +80,7 @@ const CourseDetails = () => {
   }, [courseId]);
 
   return (
-    <div className="mt-4">
+    <div className="mt-4 w-[90%] lg:w-[1100px] mx-auto">
       <div className="courseDetailsBox">
         <div className="lg:w-[75%]">
           <div className="relative">

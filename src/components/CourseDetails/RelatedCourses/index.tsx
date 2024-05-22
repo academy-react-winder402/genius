@@ -29,7 +29,7 @@ const RelatedCourses = () => {
   }, []);
 
   return (
-    <div className="mt-16">
+    <div className="mt-16 w-full">
       <Heading>دوره‌های مشابه</Heading>
       <div className="mt-5">
         <Swiper
@@ -38,7 +38,7 @@ const RelatedCourses = () => {
           }}
           navigation={true}
           modules={[Pagination, Navigation]}
-          className="my-swiper gap-9 w-[90%]"
+          className="my-swiper gap-5"
           breakpoints={{
             768: {
               slidesPerView: 1,
@@ -49,7 +49,10 @@ const RelatedCourses = () => {
           }}
         >
           {courses?.map((course: CourseInterface) => (
-            <SwiperSlide key={course.courseId}>
+            <SwiperSlide
+              key={course.courseId}
+              className="lg:!w-[296px] lg:h-[389px] mr-4 py-5 mb-6"
+            >
               <CourseItem course={course} isCourseDetail />
             </SwiperSlide>
           ))}

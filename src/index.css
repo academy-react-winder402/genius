@@ -145,7 +145,7 @@
   }
   /* Course Details */
   .courseDetailsBox {
-    @apply w-[95%] lg:w-[1100px] flex flex-col lg:flex-row gap-5 mx-auto;
+    @apply lg:w-auto flex flex-col lg:flex-row gap-5;
   }
   .courseDetailImageBox {
     @apply flex gap-1 justify-center items-center bg-white dark:bg-gray-900 w-[119px] h-[48px] rounded-[50px];
