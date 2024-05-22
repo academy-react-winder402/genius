@@ -25,7 +25,9 @@ const CourseItemStyleTwo = ({ course }: CourseItemStyleTwoProps) => {
           </Link>
           <CourseLikeBox
             classes="absolute top-4 right-3"
-            likeCount={course.likeCount}
+            courseId={course.courseId}
+            isUserFavorite={course.userFavorite}
+            courseFavoriteCourseId={course.userFavoriteId}
           />
         </div>
         <div className="lg:w-[75%]">
