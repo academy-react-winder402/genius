@@ -34,7 +34,14 @@ const Comments = ({ courseId }: CommentsProps) => {
     <div className="mt-7 flex flex-col gap-7">
       {comments &&
         comments.map((comment) => {
-          const { id, pictureAddress, insertDate, author, describe } = comment;
+          const {
+            id,
+            pictureAddress,
+            insertDate,
+            author,
+            describe,
+            likeCount,
+          } = comment;
 
           const formattedInsertDate = convertDateToPersian(insertDate);
 
@@ -50,11 +57,18 @@ const Comments = ({ courseId }: CommentsProps) => {
                 courseId={courseId}
                 commentId={id}
                 setReplyComment={setReplyComment}
+                likeCount={likeCount}
               />
               {replyComment &&
                 replyComment?.map((reply) => {
-                  const { id, pictureAddress, insertDate, author, describe } =
-                    reply;
+                  const {
+                    id,
+                    pictureAddress,
+                    insertDate,
+                    author,
+                    describe,
+                    likeCount,
+                  } = reply;
 
                   const formattedInsertDate = convertDateToPersian(insertDate);
 
@@ -66,6 +80,7 @@ const Comments = ({ courseId }: CommentsProps) => {
                       name={author}
                       message={describe}
                       isChildren={true}
+                      likeCount={likeCount}
                     />
                   );
                 })}

@@ -20,6 +20,7 @@ interface CommentItemProps {
   courseId?: string;
   commentId?: string;
   setReplyComment?: Dispatch<SetStateAction<CommentInterface[] | undefined>>;
+  likeCount: number;
 }
 
 const CommentItem = ({
@@ -31,6 +32,7 @@ const CommentItem = ({
   courseId,
   commentId,
   setReplyComment,
+  likeCount,
 }: CommentItemProps) => {
   const darkMode = useDarkModeSelector();
 
@@ -69,7 +71,7 @@ const CommentItem = ({
       </div>
       <div className="flex gap-3 items-center">
         <div className="flex gap-1 items-center mt-2">
-          <span className="commentLikeCount">7</span>
+          <span className="commentLikeCount">{likeCount}</span>
           <img src={heartIcon} />
         </div>
         <div className="flex gap-1 mt-1 cursor-pointer">
