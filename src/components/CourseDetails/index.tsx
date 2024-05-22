@@ -79,6 +79,8 @@ const CourseDetails = () => {
     fetchCourse();
   }, [courseId]);
 
+  console.log(course?.currentUserRateNumber);
+
   return (
     <div className="mt-4 w-[90%] lg:w-[1100px] mx-auto">
       <div className="courseDetailsBox">
@@ -127,9 +129,9 @@ const CourseDetails = () => {
             disLikeCount={dislikeCount!}
             setLikeCount={setLikeCount}
             setDislikeCount={setDislikeCount}
-            rateCount={String(course?.currentRate!)}
             commentCount={course?.commentCount!}
             courseId={course?.courseId!}
+            currentUserRateNumber={course?.currentUserRateNumber}
           />
           <CourseTabs courseLessons={courseLessons} />
         </div>
