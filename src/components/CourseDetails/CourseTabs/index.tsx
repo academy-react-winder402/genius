@@ -12,9 +12,10 @@ import { CourseDetailsLessonsTab } from "./CourseDetailsLessonsTab";
 
 interface CourseTabsProps {
   courseLessons: CourseLessonType[];
+  description: string;
 }
 
-const CourseTabs = ({ courseLessons }: CourseTabsProps) => {
+const CourseTabs = ({ courseLessons, description }: CourseTabsProps) => {
   const [value, setValue] = useState<number>(0);
 
   const handleChange = (event: any, newValue: any) => {
@@ -54,7 +55,7 @@ const CourseTabs = ({ courseLessons }: CourseTabsProps) => {
           />
         </Tabs>
       </div>
-      <CourseDetailsDescriptionTab value={value} />
+      <CourseDetailsDescriptionTab value={value} description={description} />
       <CourseDetailsLessonsTab value={value} courseLessons={courseLessons} />
       <CourseDetailsCommentsTab value={value} />
     </div>

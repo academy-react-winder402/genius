@@ -103,7 +103,7 @@ const LikeDislike = ({
           <span className="likeDislikeButtonText">{likeCount}</span>
         </button>
         <button
-          className={`likeDislikeButton ${!isLike && "bg-red/50"}`}
+          className={`likeDislikeButton ${isLike == false && "bg-red/50"}`}
           onClick={handleDislike}
         >
           <img src={darkMode ? disLikeDarkIcon : disLikeIcon} />

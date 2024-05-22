@@ -130,7 +130,10 @@ const CourseDetails = () => {
             courseId={course?.courseId!}
             currentUserRateNumber={course?.currentUserRateNumber!}
           />
-          <CourseTabs courseLessons={courseLessons} />
+          <CourseTabs
+            courseLessons={courseLessons}
+            description={course?.describe!}
+          />
         </div>
         <div className="lg:w-[405px]">
           <div className="courseDetailsSidebar">
