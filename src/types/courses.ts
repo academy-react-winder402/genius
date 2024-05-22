@@ -11,7 +11,7 @@ export interface CourseInterface {
   userIsLiked: boolean;
   userIsDissLiked: boolean;
   isCourseReseve: boolean;
-  isUserFavorite: boolean;
+  userFavorite: boolean;
   courseReseveId: string;
   userFavoriteId: string;
   userLikeId: string;

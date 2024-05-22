@@ -2,10 +2,12 @@ import http from "../../interceptor";
 
 export const deleteCourseFavoriteAPI = async (courseFavoriteId: string) => {
   try {
-    const formData = new FormData();
-    const response = await http.delete("", {
+    const response = await http.delete("/Course/DeleteCourseFavorite", {
       data: {
-        courseFavoriteId: formData.append("CourseFavoriteId", courseFavoriteId),
+        courseFavoriteId,
+      },
+      headers: {
+        "Content-Type": "multipart/form-data",
       },
     });
 
