@@ -11,6 +11,7 @@ import disLikeIcon from "../../../assets/images/CourseDetails/Icons/dislike.svg"
 import likeDarkIcon from "../../../assets/images/CourseDetails/Icons/like-dark.svg";
 import disLikeDarkIcon from "../../../assets/images/CourseDetails/Icons/dislike-dark.svg";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 interface LikeDislikeProps {
   nameData: string;
@@ -29,6 +30,8 @@ const LikeDislike = ({
   setDislikeCount,
   courseId,
 }: LikeDislikeProps) => {
+  const [isLike, setIsLike] = useState<boolean>();
+
   const navigate = useNavigate();
 
   const darkMode = useDarkModeSelector();
@@ -50,6 +53,7 @@ const LikeDislike = ({
           toast.success("دوره با موفقیت لایک شد !");
           setLikeCount((prevValue: number) => prevValue + 1);
           setDislikeCount((prevValue: number) => prevValue - 1);
+          setIsLike(true);
         } else {
           toast.error(likeCourse.message);
         }
@@ -73,11 +77,12 @@ const LikeDislike = ({
           toast.success("با موفقیت دیس لایک شد !");
           setLikeCount((prevValue: number) => prevValue - 1);
           setDislikeCount((prevValue: number) => prevValue + 1);
+          setIsLike(false);
         } else {
           toast.error(dislikeCourse.message);
         }
       } catch (error) {
-        toast.error(error);
+        toast.error("مشکلی در ثبت دیس لایک به وجود آمد !");
       }
     } else {
       unAuthenticatedLikeDislikeAction("لایک");
@@ -90,11 +95,17 @@ const LikeDislike = ({
         آیا از این {nameData} راضی بودید؟
       </span>
       <div className="flex gap-2">
-        <button className="likeDislikeButton" onClick={handleLike}>
+        <button
+          className={`likeDislikeButton ${isLike && "bg-green-400"}`}
+          onClick={handleLike}
+        >
           <img src={darkMode ? likeDarkIcon : likeIcon} />
           <span className="likeDislikeButtonText">{likeCount}</span>
         </button>
-        <button className="likeDislikeButton" onClick={handleDislike}>
+        <button
+          className={`likeDislikeButton ${!isLike && "bg-red/50"}`}
+          onClick={handleDislike}
+        >
           <img src={darkMode ? disLikeDarkIcon : disLikeIcon} />
           <span className="likeDislikeButtonText">{disLikeCount}</span>
         </button>

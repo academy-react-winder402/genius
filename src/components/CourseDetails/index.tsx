@@ -34,9 +34,6 @@ const CourseDetails = () => {
   const [teacher, setTeacher] = useState<TeacherDetailsInterface>();
   const [likeCount, setLikeCount] = useState<number>();
   const [dislikeCount, setDislikeCount] = useState<number>();
-  const [isUserFavorite, setIsUserFavorite] = useState<boolean | undefined>(
-    course?.isUserFavorite
-  );
 
   const { courseId } = useParams();
 
@@ -131,7 +128,7 @@ const CourseDetails = () => {
             setDislikeCount={setDislikeCount}
             commentCount={course?.commentCount!}
             courseId={course?.courseId!}
-            currentUserRateNumber={course?.currentUserRateNumber}
+            currentUserRateNumber={course?.currentUserRateNumber!}
           />
           <CourseTabs courseLessons={courseLessons} />
         </div>
