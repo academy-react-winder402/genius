@@ -31,7 +31,7 @@ const App = () => {
           </ThemeProvider>
         </PersistGate>
       </Provider>
-      <ReactQueryDevtools />
+      <ReactQueryDevtools buttonPosition="bottom-left" />
     </QueryClientProvider>
   );
 };
