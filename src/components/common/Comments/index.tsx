@@ -41,6 +41,7 @@ const Comments = ({ courseId }: CommentsProps) => {
             author,
             describe,
             likeCount,
+            currentUserLikeId,
           } = comment;
 
           const formattedInsertDate = convertDateToPersian(insertDate);
@@ -58,6 +59,7 @@ const Comments = ({ courseId }: CommentsProps) => {
                 commentId={id}
                 setReplyComment={setReplyComment}
                 likeCount={likeCount}
+                currentUserLikeId={currentUserLikeId}
               />
               {replyComment &&
                 replyComment?.map((reply) => {
@@ -68,6 +70,7 @@ const Comments = ({ courseId }: CommentsProps) => {
                     author,
                     describe,
                     likeCount,
+                    currentUserLikeId,
                   } = reply;
 
                   const formattedInsertDate = convertDateToPersian(insertDate);
@@ -81,6 +84,8 @@ const Comments = ({ courseId }: CommentsProps) => {
                       message={describe}
                       isChildren={true}
                       likeCount={likeCount}
+                      commentId={id}
+                      currentUserLikeId={currentUserLikeId}
                     />
                   );
                 })}
