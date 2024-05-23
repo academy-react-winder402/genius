@@ -14,6 +14,8 @@ import { theme } from "../config";
 import { authRoutes } from "../config/router/auth";
 import { publicRoutes } from "../config/router/public.router";
 
+import { CrispChat } from "../components/CrispChat";
+
 import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
@@ -28,6 +30,7 @@ const App = () => {
           <ThemeProvider theme={theme}>
             <RouterProvider router={isLoggedIn ? authRoutes : publicRoutes} />
             <ToastContainer rtl />
+            <CrispChat />
           </ThemeProvider>
         </PersistGate>
       </Provider>

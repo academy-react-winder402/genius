@@ -74,6 +74,8 @@ textarea,
 blockquote,
 label,
 button,
-.Toastify__toast-body {
+.Toastify__toast-body,
+.crisp-client .cc-tlyw[dir="rtl"] .cc-1ev6,
+.crisp-client .cc-tlyw[dir="rtl"] .cc-1ev6 * {
   font-family: YekanBakh !important;
 }
