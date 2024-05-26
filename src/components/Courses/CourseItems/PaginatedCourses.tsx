@@ -26,7 +26,6 @@ const PaginatedCourses = ({
   const pageCount: number = Math.ceil(totalCount / itemsPerPage);
 
   const handlePageClick = (event: any) => {
-    const newOffset = (event.selected * itemsPerPage) % totalCount;
     setCurrentPage(event.selected);
   };
   return (
