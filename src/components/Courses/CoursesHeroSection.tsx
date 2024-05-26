@@ -1,8 +1,12 @@
+import { typeWriterOptions } from "../../core/data/typewriter-options";
+
 import { useDarkModeSelector } from "../../redux/darkMode";
 
-import heroSectionLeftImage from "../../assets/images/Courses/HeroSection/hero-section-left-image.svg";
-import heroSectionDotsTwo from "../../assets/images/Courses/HeroSection/dots2.svg";
+import { Typewriter } from "../common/Typewriter";
+
 import heroSectionDotsTwoDark from "../../assets/images/Courses/HeroSection/dots2-dark.svg";
+import heroSectionDotsTwo from "../../assets/images/Courses/HeroSection/dots2.svg";
+import heroSectionLeftImage from "../../assets/images/Courses/HeroSection/hero-section-left-image.svg";
 
 const CoursesHeroSection = () => {
   const darkMode = useDarkModeSelector();
@@ -27,7 +31,9 @@ const CoursesHeroSection = () => {
         </span>
         <div className="relative pr-9">
           <h1 className="font-[800] text-[40px] text-text1 dark:text-darkText mt-5 w-[85%]">
-            اموزش برنامه نویسی با بهترین ها
+            <Typewriter
+              options={typeWriterOptions(["اموزش برنامه نویسی با بهترین ها"])}
+            />
           </h1>
           <p className="font-[500] text-text2 dark:text-darkText text-justify mt-3 w-[72%]">
             آموزش برنامه نویسی یکی از دوره‌های محبوب در حوزه فناوری اطلاعات است.

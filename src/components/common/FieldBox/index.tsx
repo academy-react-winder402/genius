@@ -1,23 +1,17 @@
+import persian from "react-date-object/calendars/persian";
+import persian_fa from "react-date-object/locales/persian_fa";
+import DatePicker from "react-multi-date-picker";
+
+import { FieldBoxProps } from "../../../types/field-box";
+
 import { ErrorMessage } from "../ErrorMessage";
 import { Field } from "../Field";
 import { PasswordField } from "../PasswordField";
 
-interface FieldBoxProps {
-  label: string;
-  type?: string;
-  name: string;
-  id: string;
-  className: string;
-  wrapperClassName?: string;
-  isPassword?: boolean;
-  placeholder?: string;
-  isCheckbox?: boolean;
-  isLogin?: boolean;
-}
-
 const FieldBox = ({
   label,
   type = "text",
+  as,
   name,
   id,
   className,
@@ -26,7 +20,17 @@ const FieldBox = ({
   placeholder,
   isCheckbox,
   isLogin,
+  isDate,
+  setFieldValue,
+  dateValue,
+  options,
 }: FieldBoxProps) => {
+  const datePickerOnChange = (e: any) => {
+    const date = e.year + "-" + e.month + "-" + e.day;
+
+    setFieldValue && setFieldValue(name, date);
+  };
+
   return (
     <div className={wrapperClassName}>
       {!isCheckbox && (
@@ -42,14 +46,44 @@ const FieldBox = ({
               className={className}
               isLogin={isLogin}
             />
-          ) : (
+          ) : isDate ? (
             <Field
               type={type}
               name={name}
               id={id}
               placeholder={placeholder!}
               className={className}
+              render={({ field }) => (
+                <DatePicker
+                  {...field}
+                  name={name}
+                  id={id}
+                  value={dateValue}
+                  format="YYYY/MM/DD"
+                  calendar={persian}
+                  locale={persian_fa}
+                  calendarPosition="bottom-right"
+                  onChange={datePickerOnChange}
+                  className="darkDatePicker"
+                  inputClass={className}
+                />
+              )}
             />
+          ) : (
+            <div>
+              <div>
+                <Field
+                  type={type}
+                  name={name}
+                  id={id}
+                  placeholder={placeholder!}
+                  className={className}
+                  as={as}
+                  select={as == "select" ? true : false}
+                  options={options!}
+                />
+              </div>
+            </div>
           )}
           <ErrorMessage name={name} />
         </>

@@ -37,7 +37,7 @@ const onError = (err: AxiosError) => {
 instance.interceptors.request.use((opt) => {
   const token = getItem("token");
 
-  if (token) opt.headers.Authorization = "Bearer " + token;
+  if (token && token !== null) opt.headers.Authorization = "Bearer " + token;
   return opt;
 });
 instance.interceptors.response.use(onSuccess, onError);

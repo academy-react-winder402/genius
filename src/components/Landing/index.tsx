@@ -1,5 +1,3 @@
-import React from "react";
-
 import { LandingBlogs } from "./LandingBlogs";
 import { LandingCategories } from "./LandingCategories";
 import { LandingCourses } from "./LandingCourses";

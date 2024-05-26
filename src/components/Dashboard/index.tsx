@@ -11,7 +11,6 @@ import { Link } from "../common/Link";
 import { DashboardCourseItem } from "./DashboardCourseItem";
 import { DashboardInformationBox } from "./DashboardInformationBox";
 import { DashboardTitle } from "./DashboardTitle";
-import { useIsUserLogin } from "../../redux/user-login";
 
 const Dashboard = () => {
   const [profileInfo, setProfileInfo] = useState<ProfileInfoInterface>({});
@@ -22,7 +21,7 @@ const Dashboard = () => {
     const fetchProfileInfo = async () => {
       const getProfileInfo = await getProfileInfoAPI();
 
-      setProfileInfo(getProfileInfo!);
+      setProfileInfo(getProfileInfo);
     };
 
     fetchProfileInfo();
@@ -36,9 +35,9 @@ const Dashboard = () => {
       <div className="dashboardProfileInformationWrapper">
         <DashboardInformationBox
           label="نام و نام خانوادگی : "
-          value={profileInfo?.fName!}
+          value={profileInfo?.fName! + " " + profileInfo?.lName}
         />
-        <DashboardInformationBox label="تاریخ تولید : " value={formattedDate} />
+        <DashboardInformationBox label="تاریخ تولد : " value={formattedDate} />
         <DashboardInformationBox
           label="شماره موبایل : "
           value={profileInfo?.phoneNumber!}

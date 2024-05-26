@@ -1,10 +1,16 @@
 import * as yup from "yup";
 
 export const editProfileGeneralFormSchema = yup.object().shape({
-  firstName: yup.string().required("لطفا نام خود را وارد کنید"),
-  lastName: yup.string().required("لطفا نام خانوادگی خود را وارد کنید"),
-  nationalCode: yup.string().required("لطفا کد ملی خود را وارد کنید"),
-  email: yup.string().required("لطفا ایمیل خود را وارد کنید"),
-  birthdayDate: yup.string().required("لطفا تاریخ تولد خود را وارد کنید"),
-  phoneNumber: yup.string().required("لطفا شماره موبایل خود را وارد کنید"),
+  FName: yup.string().required("این فیلد الزامی می باشد"),
+  LName: yup.string().required("این فیلد الزامی می باشد"),
+  NationalCode: yup.string().required("این فیلد الزامی می باشد"),
+  email: yup.string().required("این فیلد الزامی می باشد"),
+  BirthDay: yup.date().required("این فیلد الزامی می باشد"),
+  phoneNumber: yup.string().required("این فیلد الزامی می باشد"),
+  userAbout: yup.string().required("این فیلد الزامی می باشد"),
+  HomeAdderess: yup.string().required("این فیلد الزامی می باشد"),
+  LinkdinProfile: yup.string().required("این فیلد الزامی می باشد"),
+  TelegramLink: yup.string().required("این فیلد الزامی می باشد"),
+  ReceiveMessageEvent: yup.bool().required("این فیلد الزامی می باشد"),
+  Gender: yup.bool().required("این فیلد الزامی می باشد"),
 });

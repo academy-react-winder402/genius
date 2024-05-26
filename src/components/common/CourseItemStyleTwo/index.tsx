@@ -1,32 +1,42 @@
-import { CourseItemsInterface } from "../../../types/course-items";
-
 import { priceWithCommas } from "../../../core/utils/number-helper.utils";
+
+import { CourseInterface } from "../../../types/courses";
 
 import { CourseLikeBox } from "../CourseLikeBox";
 import { Link } from "../Link";
 import { CourseItemDetails } from "./CourseItemDetails";
 
 interface CourseItemStyleTwoProps {
-  course: CourseItemsInterface;
+  course: CourseInterface;
 }
 
 const CourseItemStyleTwo = ({ course }: CourseItemStyleTwoProps) => {
-  const formattedPrice = priceWithCommas(course.price);
+  const formattedPrice = priceWithCommas(+course.cost);
 
   return (
     <div className="w-full">
       <div className="courseItemStyleTwo">
         <div className="lg:w-[264px] lg:h-[180px] relative">
-          <Link to={`/courses/${course.id}`}>
-            <img src={course.image} className="rounded-[20px] lg:h-[180px]" />
+          <Link to={`/courses/${course.courseId}`}>
+            <img
+              src={course.tumbImageAddress}
+              className="rounded-[20px] lg:h-[180px]"
+            />
           </Link>
-          <CourseLikeBox classes="absolute top-4 right-3" />
+          <CourseLikeBox
+            classes="absolute top-4 right-3"
+            courseId={course.courseId}
+            isUserFavorite={course.userFavorite}
+            courseFavoriteCourseId={course.userFavoriteId}
+          />
         </div>
         <div className="lg:w-[75%]">
-          <h3 className="font-[700] text-text1 dark:text-darkText">
-            <Link to={`/courses/${course.id}`}>{course.title}</Link>
-          </h3>
-          <p className="courseItemStyleTwoDescription">{course.description}</p>
+          <div>
+            <h3 className="font-[700] text-text1 dark:text-darkText">
+              <Link to={`/courses/${course.courseId}`}>{course.title}</Link>
+            </h3>
+            <p className="courseItemStyleTwoDescription">{course.describe}</p>
+          </div>
           <div className="courseItemStyleTwoDetailsWrapperFlexBox">
             <CourseItemDetails course={course} />
             <div className="font-[700] text-[20px] text-primaryColor">

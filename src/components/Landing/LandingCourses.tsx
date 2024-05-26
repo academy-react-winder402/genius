@@ -1,5 +1,3 @@
-import React from "react";
-
 import { Heading } from "../common/Heading";
 import { MainButton } from "../common/MainButton";
 import { LandingCoursesMapped } from "./Courses/LandingCoursesMapped";

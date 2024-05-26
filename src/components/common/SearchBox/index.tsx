@@ -1,3 +1,7 @@
+import { ChangeEvent, Dispatch, SetStateAction } from "react";
+
+import { useTimeOut } from "../../../hooks/useTimeOut";
+
 import searchIcon from "../../../assets/images/Landing/search.svg";
 
 interface SearchBoxProps {
@@ -7,6 +11,8 @@ interface SearchBoxProps {
   display?: string;
   isLanding?: boolean;
   isBlogs?: boolean;
+  setQuery?: Dispatch<SetStateAction<string | undefined>>;
+  setIsValueChanged?: Dispatch<SetStateAction<boolean>>;
 }
 
 const SearchBox = ({
@@ -16,7 +22,18 @@ const SearchBox = ({
   display,
   isLanding,
   isBlogs,
+  setQuery,
+  setIsValueChanged,
 }: SearchBoxProps) => {
+  const textTimeOut = useTimeOut();
+
+  const searchBoxOnChange = (e: ChangeEvent<HTMLInputElement>) => {
+    textTimeOut(() => {
+      setQuery && setQuery(e.target.value);
+      setIsValueChanged && setIsValueChanged(true);
+    }, 800);
+  };
+
   return (
     <div className={`${display} ${isMarginTop ? "mt-10" : ""}`}>
       <div className="relative w-[100%] lg:w-auto flex justify-center">
@@ -26,6 +43,7 @@ const SearchBox = ({
             isBlogs === true &&
             "lg:!w-[779px] !shadow-courseDetailsHeroSectionSearchBoxShadow"
           } ${isLanding === true ? "dark:!bg-gray-800" : "dark:bg-gray-900"}`}
+          onChange={searchBoxOnChange}
         />
         <img src={searchIcon} className="absolute left-6 lg:left-4 top-3" />
       </div>

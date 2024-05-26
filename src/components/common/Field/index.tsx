@@ -1,32 +1,40 @@
-import {
-  Field as FormikField,
-  FieldProps as FormikFieldProps,
-  FormikProps,
-} from "formik";
-import React from "react";
+import { Field as FormikField } from "formik";
 
-interface FieldProps {
-  type?: string;
-  name: string;
-  id: string;
-  className?: string;
-  placeholder?: string;
-  multiple?: boolean;
-  render?: (props: FormikFieldProps & FormikProps<any>) => JSX.Element | null;
-}
+import { FieldProps } from "../../../types/field-props";
 
 const Field = ({
   type = "text",
+  as,
   name,
   id,
   className,
   placeholder,
   multiple,
   render,
+  select,
+  options,
 }: FieldProps) => {
-  return (
+  return select ? (
     <FormikField
       type={type}
+      as={as}
+      name={name}
+      id={id}
+      placeholder={placeholder}
+      className={className}
+      multiple={multiple}
+      render={render}
+    >
+      {options?.map((option) => (
+        <option key={option.label} value={String(option.value)}>
+          {option.label}
+        </option>
+      ))}
+    </FormikField>
+  ) : (
+    <FormikField
+      type={type}
+      as={as}
       name={name}
       id={id}
       placeholder={placeholder}

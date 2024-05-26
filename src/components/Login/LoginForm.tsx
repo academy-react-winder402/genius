@@ -23,10 +23,14 @@ const LoginForm = () => {
         pending: "شما در حال ورود می باشید ...",
       });
       if (user.success) {
-        setItem("token", user.token);
-        dispatch(isUserLoginChange(true));
-        toast.success("در حال انتقال به پنل کاربری ...");
-        window.location.pathname = "/dashboard";
+        if (user.token && user.token !== null) {
+          setItem("token", user.token);
+          dispatch(isUserLoginChange(true));
+          toast.success("در حال انتقال به پنل کاربری ...");
+          window.location.pathname = "/dashboard";
+        } else {
+          toast.error("مشکلی در فرایند ورود به وجود آمد !");
+        }
       } else {
         toast.error(user.message);
       }

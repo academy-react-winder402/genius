@@ -29,14 +29,38 @@
   .activeMenuItem {
     @apply text-primaryColor flex flex-col justify-center items-center;
   }
+  .landingFeaturesWrapper {
+    @apply mt-14 flex flex-col lg:flex-row gap-4 justify-center items-center;
+  }
+  .landingFeatureItem {
+    @apply border border-solid border-[#ffffff29] rounded-[16px] px-[24px] py-[16px] flex flex-col justify-center items-center w-[90%] lg:w-[200px] bg-[#ffffff8f] dark:bg-[#00000008];
+  }
+  .landingFeatureItemImageWrapper {
+    @apply bg-primary w-[64px] h-[64px] flex justify-center items-center rounded-[16px];
+  }
+  .landingFeatureItemValuesWrapper {
+    @apply mt-[16px] flex flex-col justify-center items-center;
+  }
+  .landingFeatureItemNumber {
+    @apply font-[900] text-[23px] text-text1 dark:text-darkText;
+  }
+  .landingFeatureItemLabel {
+    @apply text-text2 dark:text-darkText text-[16px] font-[700] mt-2;
+  }
   .serviceBox {
     @apply flex flex-col justify-center items-center rounded-[24px] border-[1px] border-solid border-[#ECEFF1] h-[280px] px-6 transition-shadow hover:bg-white dark:hover:bg-gray-900 lg:w-[390px] hover:shadow-primaryShadow;
+  }
+  .landingCoursesMappedWrapper {
+    @apply flex flex-wrap gap-[18px] justify-center items-center mx-auto;
   }
   .courseItem {
     @apply mt-10 w-[90%] lg:w-[296px] pb-3 lg:pb-0 lg:h-[389px] rounded-[24px] shadow-primaryShadow px-4;
   }
+  .courseItemS2 {
+    @apply courseItem mt-0 dark:bg-gray-900;
+  }
   .courseItemImage {
-    @apply w-full h-[210px] lg:h-[180px] rounded-[20px] mt-[16px] cursor-pointer;
+    @apply w-full lg:h-[180px] max-h-[220px] lg:max-h-max object-cover rounded-[20px] mt-[16px] cursor-pointer;
   }
   .courseItemDetailsBox {
     @apply flex gap-[3px];
@@ -53,8 +77,14 @@
   .landingBlogItemsStyleTwoColor {
     @apply font-[500] text-primaryColor mt-[1px];
   }
+  .landingBlogItemsSkeleton {
+    @apply flex flex-col gap-4;
+  }
+  .landingBlogItemsSkeletonHidden {
+    @apply landingBlogItemsSkeleton hidden lg:flex;
+  }
   .landingTeacherItemCoursesCount {
-    @apply absolute top-14 right-14 flex justify-center items-center w-[88px] h-[36px] bg-white dark:bg-gray-900 rounded-[50px] shadow-landingTeacherCoursesCount;
+    @apply absolute top-8 right-7 flex justify-center items-center w-[88px] h-[36px] bg-white dark:bg-gray-900 rounded-[50px] shadow-landingTeacherCoursesCount;
   }
   .footer {
     @apply bg-footerBackground mt-16 flex flex-col justify-center items-center pt-12 pb-14;
@@ -99,13 +129,13 @@
     @apply w-full h-[50px] pr-10 rounded-[16px] outline-none appearance-none dark:bg-gray-900;
   }
   .courseLikeBox {
-    @apply flex justify-center items-center bg-[#FFEBEE] dark:bg-gray-800 dark:text-darkText cursor-pointer rounded-[24px] w-[51px] h-[32px] font-[500] text-red gap-1 -mt-1;
+    @apply flex justify-center items-center bg-[#FFEBEE] dark:bg-gray-800 dark:text-darkText cursor-pointer rounded-[24px] w-[35px] h-[32px] font-[500] text-red gap-1 -mt-1;
   }
   .courseItemStyleTwo {
     @apply w-full bg-white dark:bg-gray-900 shadow-primaryShadow rounded-[24px] lg:h-[212px] px-3 py-2 flex flex-col lg:flex-row justify-center items-center gap-3;
   }
   .courseItemStyleTwoDetailsWrapperFlexBox {
-    @apply flex flex-col lg:flex-row gap-3 items-center mt-5;
+    @apply flex flex-col lg:flex-row gap-3 items-center mt-[3rem];
   }
   .courseItemStyleTwoDetailsWrapper {
     @apply bg-courseStyleTwoDetails dark:bg-darkBackground w-full lg:w-[493px] lg:h-[44px] rounded-[24px] flex flex-col lg:flex-row gap-3 justify-center items-center py-3;
@@ -115,7 +145,7 @@
   }
   /* Course Details */
   .courseDetailsBox {
-    @apply w-[95%] lg:w-[1100px] flex flex-col lg:flex-row gap-5 mx-auto;
+    @apply lg:w-auto flex flex-col lg:flex-row gap-5;
   }
   .courseDetailImageBox {
     @apply flex gap-1 justify-center items-center bg-white dark:bg-gray-900 w-[119px] h-[48px] rounded-[50px];
@@ -288,6 +318,18 @@
   .coursesHeroSection {
     @apply flex flex-col-reverse lg:flex-row justify-between items-center lg:w-[1120px] mx-auto mt-5 lg:bg-coursesLandingPageDots dark:lg:bg-coursesLandingPageDotsDark lg:bg-no-repeat lg:bg-[right_bottom_0rem];
   }
+  .coursesMainSection {
+    @apply flex flex-col lg:flex-row justify-center gap-x-5 w-[90%] mx-auto mt-32 px-5 lg:px-0;
+  }
+  .coursesFilterSectionWrapper {
+    @apply lg:w-[296px] h-[98%] rounded-[24px] shadow-primaryShadow py-4 bg-white dark:bg-gray-900 hidden lg:block;
+  }
+  .paginatedCoursesWrapper {
+    @apply flex flex-col gap-4;
+  }
+  .paginatedCourses {
+    @apply flex flex-wrap justify-center gap-x-3 gap-y-5 lg:mt-3;
+  }
   /* Heading */
   .headingWrapper {
     @apply flex flex-col justify-center items-center text-text1 dark:text-darkText;
@@ -410,7 +452,7 @@
     @apply flex items-center gap-3 lg:gap-4 shadow-primaryShadow py-2 px-4 rounded-[12px] lg:w-[475px] h-[100px] dark:bg-gray-900;
   }
   .dashboardPageCourseItemImage {
-    @apply lg:w-[120px] rounded-[12px];
+    @apply lg:w-[120px] rounded-[24px];
   }
   .dashboardPageCourseItemLeftSide {
     @apply flex lg:gap-7 w-[70%];
@@ -444,7 +486,7 @@
     @apply border-r border-commentsBorder dark:border-darkBorder mr-8 pr-5;
   }
   .commentAvatarImage {
-    @apply w-[32px] h-[32px];
+    @apply w-[32px] h-[32px] rounded-full;
   }
   .commentName {
     @apply font-[500] text-text1 dark:text-darkText;
@@ -524,13 +566,19 @@
     @apply mt-2 font-[500] text-text1 dark:text-darkText;
   }
   .editProfileFormFieldsWrapper {
-    @apply w-full grid grid-cols-1 lg:grid-cols-3 gap-y-5 lg:gap-y-10 lg:place-items-center;
+    @apply w-full flex flex-col lg:flex-row flex-wrap gap-8;
   }
   .editProfileSubmitButton {
     @apply mainButton dark:bg-gray-900 h-[45px] rounded-[7px] mt-12 lg:mr-4;
   }
   .editProfileEditPasswordField {
     @apply editProfileFormInput lg:w-[400px];
+  }
+  .editProfileGenderAndReceiveMessageEventSelectBoxWrapper {
+    @apply relative flex flex-col gap-1 after:content-[''] after:absolute after:w-[50px] after:h-[50px] after:top-[48px] after:left-2 after:bg-dashboardMyCoursesCoursesPerPageAndEditProfileSelectBoxIcon dark:after:bg-dashboardMyCoursesCoursesPerPageAndEditProfileSelectBoxDarkIcon after:bg-no-repeat;
+  }
+  .editProfileGenderAndReceiveMessageEventSelectBox {
+    @apply editProfileFormInput appearance-none;
   }
   /* Dashboard Courses */
   .dashboardCoursesSectionWrapper {
@@ -592,7 +640,7 @@
     @apply flex flex-col lg:flex-row gap-4 lg:gap-0 justify-between mt-10;
   }
   .dashboardCoursesPerPageFilter {
-    @apply relative w-[300px] lg:w-[10%] after:content-[''] after:absolute after:top-4 after:left-44 lg:after:left-5 after:w-[40px] after:h-[40px] after:bg-dashboardMyCoursesCoursesPerPageSelectBoxIcon dark:after:bg-dashboardMyCoursesCoursesPerPageSelectBoxDarkIcon after:bg-no-repeat;
+    @apply relative w-[300px] lg:w-[10%] after:content-[''] after:absolute after:top-4 after:left-44 lg:after:left-5 after:w-[40px] after:h-[40px] after:bg-dashboardMyCoursesCoursesPerPageAndEditProfileSelectBoxIcon dark:after:bg-dashboardMyCoursesCoursesPerPageAndEditProfileSelectBoxDarkIcon after:bg-no-repeat;
   }
   .dashboardCoursesPerPageFilterSelectBox {
     @apply w-[50%] lg:w-full h-[50px] lg:h-full px-6 outline-none rounded-[12px] appearance-none dark:bg-gray-900 dark:text-darkText;
@@ -603,6 +651,26 @@
   }
   .passwordFieldBoxIconWrapper {
     @apply absolute left-2 cursor-pointer top-[18px];
+  }
+  /* Date Picker */
+  .darkDatePicker {
+    @apply dark:bg-gray-900 dark:text-darkText border-t-black after:bg-black dark:shadow-primaryShadow;
+  }
+  /* Course Item Skeleton Style Two */
+  .courseItemSkeletonStyleTwoWrapper {
+    @apply w-full flex flex-col items-center gap-5;
+  }
+  .courseItemSkeletonStyleTwo {
+    @apply flex flex-col lg:flex-row lg:items-center gap-5 rounded-[24px] lg:h-[212px] px-7 lg:px-3 py-6 lg:py-2 bg-white dark:bg-gray-900 w-[90%] lg:w-full;
+  }
+  .courseItemStyleTwoImageSkeleton {
+    @apply w-[270px] h-[180px] rounded-[24px];
+  }
+  .courseItemStyleTwoTitleSkeleton {
+    @apply w-[90%] lg:w-[300px] h-[7px];
+  }
+  .courseItemStyleTwoDescriptionSkeleton {
+    @apply lg:w-[380px] h-[7px] mt-2;
   }
 }
 
@@ -694,4 +762,25 @@ span.MuiTypography-root {
 
 .range-slider__thumb {
   @apply !w-[15px] !h-[15px];
+}
+
+/* Date Picker */
+.dark .rmdp-header-values,
+.dark .rmdp-week,
+.dark .rmdp-day {
+  @apply dark:text-darkText;
+}
+
+.rmdp-container {
+  @apply w-full;
+}
+
+/* Back To Up Button */
+.w-back-to-up
+  .MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium.css-i4bv87-MuiSvgIcon-root {
+  @apply w-[83%] h-[80%] rounded-full bg-[#F5F5F5] dark:bg-gray-900 fill-primaryColor;
+}
+
+.w-back-to-up svg:first-child circle:last-child {
+  @apply stroke-primaryColor;
 }

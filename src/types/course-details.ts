@@ -1,0 +1,36 @@
+export interface CourseDetailsInterface {
+  courseId: string;
+  endTime: string;
+  startTime: string;
+  teacherId: number;
+  teacherName: string;
+  insertDate: string;
+  title: string;
+  imageAddress: string;
+  currentRate: number;
+  cost: string;
+  googleTitle: string;
+  googleSchema: string;
+  capacity: number;
+  uniqeUrlString: string;
+  currentRegistrants: number;
+  describe: string;
+  miniDescribe: string;
+  courseLevelName: string;
+  courseStatusName: string;
+  commentCount: number;
+  likeCount: number;
+  dissLikeCount: number;
+  currentUserLike: number;
+  currentUserDissLike: number;
+  courseGroupCount: number;
+  isCourseUser: number;
+  isCourseReseve: number;
+  courseReseveId: string;
+  userFavoriteId: string;
+  isUserFavorite: false;
+  userLikeId: string;
+  currentUserSetRate: boolean;
+  currentUserRateNumber: number;
+  techs: string[];
+}

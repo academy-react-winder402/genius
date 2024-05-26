@@ -1,7 +1,8 @@
 export interface TeacherItemsInterface {
-  id: React.Key;
-  teacherImage: string;
-  teacherName: string;
-  teacherJob: string;
-  teacherCoursesCount: number;
+  teacherId: number;
+  fullName: string;
+  linkdinProfileLink: string | null;
+  pictureAddress: string | null;
+  courseCounts: number;
+  newsCount: number;
 }

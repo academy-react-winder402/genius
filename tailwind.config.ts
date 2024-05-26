@@ -58,9 +58,9 @@ export default {
           "url('/src/assets/images/Blogs/blogs-hero-section-circle.svg')",
         blogsHeroSectionTitleDescriptionBackground:
           "url('/src/assets/images/Blogs/dots.svg')",
-        dashboardMyCoursesCoursesPerPageSelectBoxIcon:
+        dashboardMyCoursesCoursesPerPageAndEditProfileSelectBoxIcon:
           "url('/src/assets/images/Courses/Icons/select-icon.svg')",
-        dashboardMyCoursesCoursesPerPageSelectBoxDarkIcon:
+        dashboardMyCoursesCoursesPerPageAndEditProfileSelectBoxDarkIcon:
           "url('/src/assets/images/Courses/Icons/select-icon-dark.svg')",
       },
       colors: {
