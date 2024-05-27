@@ -8,20 +8,22 @@ import { SearchBox } from "../../common/SearchBox";
 interface BlogsTopSectionProps {
   setQuery: Dispatch<SetStateAction<string | undefined>>;
   setSort: Dispatch<SetStateAction<string | undefined>>;
+  setSortType: Dispatch<SetStateAction<string>>;
   sort: string | undefined;
 }
 
 const BlogsTopSection = ({
   setQuery,
   setSort,
-  sort
+  setSortType,
+  sort,
 }: BlogsTopSectionProps) => {
   const handleChange = (event: any, newValue: string) => {
     setSort(newValue);
   };
 
   return (
-    <>
+    <div className="flex flex-col gap-4">
       <div className="blogsSearchSortWrapper">
         <div className="w-[95%] lg:w-auto">
           <SearchBox
@@ -77,7 +79,16 @@ const BlogsTopSection = ({
           </div>
         </div>
       </div>
-    </>
+      <div className="w-[16%] customSelectBoxWrapper">
+        <select
+          className="customSelectBox"
+          onChange={(e) => setSortType(e.target.value)}
+        >
+          <option value="ASC">صعودی</option>
+          <option value="DESC">نزولی</option>
+        </select>
+      </div>
+    </div>
   );
 };
 

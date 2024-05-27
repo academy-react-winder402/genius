@@ -14,6 +14,7 @@ const Blogs = () => {
   const [totalCount, setTotalCount] = useState<number>();
   const [query, setQuery] = useState<string>();
   const [sort, setSort] = useState<string>();
+  const [sortType, setSortType] = useState("DESC");
   const [currentPage, setCurrentPage] = useState(0);
 
   useEffect(() => {
@@ -45,7 +46,7 @@ const Blogs = () => {
           1,
           9,
           sort ? sort : undefined,
-          "DESC",
+          sortType,
           query ? query : undefined,
           undefined
         );
@@ -58,14 +59,19 @@ const Blogs = () => {
     };
 
     fetchBlogs();
-  }, [query, currentPage, sort]);
+  }, [query, currentPage, sort, sortType]);
 
   return (
     <div className="w-[95%] mx-auto">
       <BlogsHeroSection />
       <div className="flex flex-col lg:flex-row justify-center gap-x-5 mt-32 !p-0">
         <div className="mx-auto">
-          <BlogsTopSection setQuery={setQuery} setSort={setSort} sort={sort} />
+          <BlogsTopSection
+            setQuery={setQuery}
+            setSort={setSort}
+            setSortType={setSortType}
+            sort={sort}
+          />
           <PaginatedBlogs
             blogs={blogs!}
             itemsPerPage={9}
