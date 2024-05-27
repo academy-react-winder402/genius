@@ -122,10 +122,10 @@
   .coursesGridViewItemsActive {
     @apply bg-white dark:bg-gray-800 w-[40px] h-[40px] flex justify-center items-center rounded-[16px];
   }
-  .coursesSelectBoxWrapper {
+  .customSelectBoxWrapper {
     @apply relative after:content-[''] after:absolute after:top-1 after:left-3 after:bg-coursesSelectOptionBackground after:dark:bg-coursesSelectOptionBackgroundDark after:w-[40px] after:h-[40px] after:bg-no-repeat after:bg-left before:absolute before:top-3 before:right-3 before:bg-coursesSelectOptionSort before:dark:bg-coursesSelectOptionSortDark before:w-[24px] before:h-[24px];
   }
-  .coursesSelectBox {
+  .customSelectBox {
     @apply w-full h-[50px] pr-10 rounded-[16px] outline-none appearance-none dark:bg-gray-900;
   }
   .courseLikeBox {

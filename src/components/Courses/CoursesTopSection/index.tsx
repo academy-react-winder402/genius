@@ -62,9 +62,9 @@ const CoursesTopSection = ({
           <SearchBox placeholder="چی میخوای یاد بگیری ؟" setQuery={setQuery} />
         </div>
         <div className="w-[94%] lg:w-[20%]">
-          <div className="coursesSelectBoxWrapper">
+          <div className="customSelectBoxWrapper">
             <select
-              className="coursesSelectBox"
+              className="customSelectBox"
               onChange={(e) => setSortingCol(e.target.value)}
             >
               <option value="Active">فعال</option>
