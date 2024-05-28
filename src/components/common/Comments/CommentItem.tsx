@@ -1,19 +1,21 @@
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { RiHeart3Fill, RiHeart3Line } from "react-icons/ri";
 
 import { getCourseReplyCommentsAPI } from "../../../core/services/api/course/comments/get-course-reply-comments.api";
+
+import { addCourseCommentLikeAPI } from "../../../core/services/api/course/comments/add-course-comment-like.api";
+import { deleteCourseCommentLikeAPI } from "../../../core/services/api/course/comments/delete-course-comment-like.api";
+import { convertDateToPersian } from "../../../core/utils/date-helper.utils";
 
 import { CommentInterface } from "../../../types/comment";
 
 import { useDarkModeSelector } from "../../../redux/darkMode";
 
 import { toast } from "../toast";
+import CommentSkeleton from "../CommentSkeleton";
 
 import messagesDarkIcon from "../../../assets/images/common/Comments/Icons/messages-dark.svg";
 import messagesIcon from "../../../assets/images/common/Comments/Icons/messages.svg";
-import { addCourseCommentLikeAPI } from "../../../core/services/api/course/comments/add-course-comment-like.api";
-import { deleteCourseCommentLikeAPI } from "../../../core/services/api/course/comments/delete-course-comment-like.api";
-import { convertDateToPersian } from "../../../core/utils/date-helper.utils";
 
 interface CommentItemProps {
   avatarImage: string;
@@ -154,6 +156,7 @@ const CommentItem = ({
             </>
           );
         })}
+      {replyComment == undefined && <CommentSkeleton />}
     </>
   );
 };

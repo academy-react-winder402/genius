@@ -494,6 +494,9 @@
   .commentAvatarImage {
     @apply w-[32px] h-[32px] rounded-full;
   }
+  .commentsWrapper {
+    @apply mt-7 flex flex-col gap-7;
+  }
   .commentName {
     @apply font-[500] text-text1 dark:text-darkText;
   }

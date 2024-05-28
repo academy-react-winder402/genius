@@ -1,10 +1,12 @@
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { useState } from "react";
+
+import { convertDateToPersian } from "../../../core/utils/date-helper.utils";
 
 import { CommentInterface } from "../../../types/comment";
 
 import { Pagination } from "../Pagination";
 import { CommentItem } from "./CommentItem";
-import { convertDateToPersian } from "../../../core/utils/date-helper.utils";
+import CommentSkeleton from "../CommentSkeleton";
 
 interface PaginatedCommentsProps {
   comments: CommentInterface[] | undefined;
@@ -32,10 +34,12 @@ const PaginatedComments = ({
     setItemOffset(newOffset!);
   };
 
+  const commentSkeletonsArray = [1, 2, 3, 4];
+
   return (
     <>
-      <div className="flex flex-col gap-7">
-        {currentItems ? (
+      <div className="commentsWrapper">
+        {currentItems && currentItems !== undefined ? (
           currentItems.map((comment) => {
             const {
               id: commentId,
@@ -67,12 +71,16 @@ const PaginatedComments = ({
             );
           })
         ) : (
-          <>
-            <div></div>
-          </>
+          <div className="commentsWrapper">
+            {commentSkeletonsArray.map((item) => (
+              <CommentSkeleton key={`reply-comment-skeleton-${item}`} />
+            ))}
+          </div>
         )}
       </div>
-      <Pagination handlePageClick={handlePageClick} pageCount={pageCount!} />
+      {comments && comments?.length > itemsPerPage && (
+        <Pagination handlePageClick={handlePageClick} pageCount={pageCount!} />
+      )}
     </>
   );
 };

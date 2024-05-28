@@ -13,7 +13,6 @@ interface CommentsProps {
 
 const Comments = ({ courseId }: CommentsProps) => {
   const [comments, setComments] = useState<CommentInterface[]>();
-  const [replyComment, setReplyComment] = useState<CommentInterface[]>();
 
   useEffect(() => {
     const fetchComments = async () => {
@@ -30,13 +29,11 @@ const Comments = ({ courseId }: CommentsProps) => {
   }, []);
 
   return (
-    <div className="mt-7 flex flex-col gap-7">
-      <PaginatedComments
-        comments={comments}
-        courseId={courseId}
-        itemsPerPage={5}
-      />
-    </div>
+    <PaginatedComments
+      comments={comments}
+      courseId={courseId}
+      itemsPerPage={5}
+    />
   );
 };
 
