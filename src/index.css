@@ -334,6 +334,9 @@
   .headingWrapper {
     @apply flex flex-col justify-center items-center text-text1 dark:text-darkText;
   }
+  .coursesTab {
+    @apply dark:text-darkText;
+  }
   /* Blog Details */
   .blogDetailsTitle {
     @apply font-[700] text-[32px] text-text1 dark:text-darkText;

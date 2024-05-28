@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, useEffect } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { RiHeart3Fill, RiHeart3Line } from "react-icons/ri";
 
 import { getCourseReplyCommentsAPI } from "../../../core/services/api/course/comments/get-course-reply-comments.api";
@@ -13,6 +13,7 @@ import messagesDarkIcon from "../../../assets/images/common/Comments/Icons/messa
 import messagesIcon from "../../../assets/images/common/Comments/Icons/messages.svg";
 import { addCourseCommentLikeAPI } from "../../../core/services/api/course/comments/add-course-comment-like.api";
 import { deleteCourseCommentLikeAPI } from "../../../core/services/api/course/comments/delete-course-comment-like.api";
+import { convertDateToPersian } from "../../../core/utils/date-helper.utils";
 
 interface CommentItemProps {
   avatarImage: string;
@@ -22,7 +23,6 @@ interface CommentItemProps {
   isChildren?: boolean;
   courseId?: string;
   commentId?: string;
-  setReplyComment?: Dispatch<SetStateAction<CommentInterface[] | undefined>>;
   likeCount: number;
   currentUserLikeId: string;
 }
@@ -35,10 +35,11 @@ const CommentItem = ({
   isChildren,
   courseId,
   commentId,
-  setReplyComment,
   likeCount,
   currentUserLikeId,
 }: CommentItemProps) => {
+  const [replyComment, setReplyComment] = useState<CommentInterface[]>();
+
   const darkMode = useDarkModeSelector();
 
   const handleAddLike = async () => {
@@ -73,57 +74,87 @@ const CommentItem = ({
     }
   };
 
-  setReplyComment &&
-    courseId &&
-    useEffect(() => {
-      const fetchReplyComment = async () => {
-        try {
-          const getReplyComment = await getCourseReplyCommentsAPI(
-            courseId,
-            commentId!
-          );
+  useEffect(() => {
+    const fetchReplyComment = async () => {
+      try {
+        const getReplyComment = await getCourseReplyCommentsAPI(
+          courseId,
+          commentId!
+        );
 
-          courseId && setReplyComment && setReplyComment(getReplyComment);
-        } catch (error) {
-          toast.error("مشکلی در دریافت رپلای های کامنت به وجود آمد !");
-        }
-      };
+        setReplyComment(getReplyComment);
+      } catch (error) {
+        toast.error("مشکلی در دریافت رپلای های کامنت به وجود آمد !");
+      }
+    };
 
-      fetchReplyComment();
-    }, [courseId]);
+    fetchReplyComment();
+  }, [courseId]);
 
   return (
-    <div className={isChildren ? "childrenComment" : ""}>
-      <div className="flex justify-between">
-        <div className="flex items-center gap-2">
-          <img src={avatarImage} className="commentAvatarImage" />
-          <span className="commentName">{name}</span>
+    <>
+      <div className={isChildren ? "childrenComment" : ""}>
+        <div className="flex justify-between">
+          <div className="flex items-center gap-2">
+            <img src={avatarImage} className="commentAvatarImage" />
+            <span className="commentName">{name}</span>
+          </div>
+          <div className={isChildren ? "pl-2" : "pl-4"}>
+            <span className="commentCreatedAtText">{createdAt}</span>
+          </div>
         </div>
-        <div className={isChildren ? "pl-2" : "pl-4"}>
-          <span className="commentCreatedAtText">{createdAt}</span>
+        <div>
+          <p className="commentMessageText">{message}</p>
+        </div>
+        <div className="flex gap-3 items-center">
+          <div
+            className="flex gap-1 items-center mt-2 cursor-pointer"
+            onClick={handleAddLike}
+          >
+            <span className="commentLikeCount">{likeCount}</span>
+            {currentUserLikeId ? (
+              <RiHeart3Fill className="text-red" />
+            ) : (
+              <RiHeart3Line className="text-red" />
+            )}
+          </div>
+          <div className="flex gap-1 mt-1 cursor-pointer">
+            <span className="commentAnswerText">پاسخ</span>
+            <img src={darkMode ? messagesDarkIcon : messagesIcon} />
+          </div>
         </div>
       </div>
-      <div>
-        <p className="commentMessageText">{message}</p>
-      </div>
-      <div className="flex gap-3 items-center">
-        <div
-          className="flex gap-1 items-center mt-2 cursor-pointer"
-          onClick={handleAddLike}
-        >
-          <span className="commentLikeCount">{likeCount}</span>
-          {currentUserLikeId ? (
-            <RiHeart3Fill className="text-red" />
-          ) : (
-            <RiHeart3Line className="text-red" />
-          )}
-        </div>
-        <div className="flex gap-1 mt-1 cursor-pointer">
-          <span className="commentAnswerText">پاسخ</span>
-          <img src={darkMode ? messagesDarkIcon : messagesIcon} />
-        </div>
-      </div>
-    </div>
+      {replyComment &&
+        replyComment.map((reply) => {
+          const {
+            id,
+            pictureAddress,
+            insertDate,
+            author,
+            describe,
+            likeCount,
+            currentUserLikeId,
+          } = reply;
+
+          const formattedInsertDate = convertDateToPersian(insertDate);
+
+          return (
+            <>
+              <CommentItem
+                key={id}
+                avatarImage={pictureAddress}
+                createdAt={formattedInsertDate}
+                name={author}
+                message={describe}
+                isChildren={true}
+                likeCount={likeCount}
+                commentId={id}
+                currentUserLikeId={currentUserLikeId}
+              />
+            </>
+          );
+        })}
+    </>
   );
 };
 

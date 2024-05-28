@@ -1,6 +1,7 @@
 import { addCommentCourseAPI } from "../../../../core/services/api/course/comments/add-comment-course.api";
 import { onFormData } from "../../../../core/utils/form-data-helper.utils";
-import { addCommentFormSchema } from "../../../../core/validations/add-comment.-formvalidation";
+import { addCommentFormSchema } from "../../../../core/validations/add-comment-form.validation";
+
 import { AddComment } from "../../../common/AddComment";
 import { Comments } from "../../../common/Comments";
 import { CustomTabPanel } from "../../../common/CustomTabPanel";
