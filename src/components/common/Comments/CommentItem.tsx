@@ -6,13 +6,15 @@ import { getCourseReplyCommentsAPI } from "../../../core/services/api/course/com
 import { addCourseCommentLikeAPI } from "../../../core/services/api/course/comments/add-course-comment-like.api";
 import { deleteCourseCommentLikeAPI } from "../../../core/services/api/course/comments/delete-course-comment-like.api";
 import { convertDateToPersian } from "../../../core/utils/date-helper.utils";
+import { commentFormSchema } from "../../../core/validations/comment-form.validation";
 
 import { CommentInterface } from "../../../types/comment";
 
 import { useDarkModeSelector } from "../../../redux/darkMode";
 
-import { toast } from "../toast";
+import { CommentForm } from "../CommentForm";
 import CommentSkeleton from "../CommentSkeleton";
+import { toast } from "../toast";
 
 import messagesDarkIcon from "../../../assets/images/common/Comments/Icons/messages-dark.svg";
 import messagesIcon from "../../../assets/images/common/Comments/Icons/messages.svg";
@@ -41,6 +43,7 @@ const CommentItem = ({
   currentUserLikeId,
 }: CommentItemProps) => {
   const [replyComment, setReplyComment] = useState<CommentInterface[]>();
+  const [isReplyComment, setIsReplyComment] = useState(false);
 
   const darkMode = useDarkModeSelector();
 
@@ -74,6 +77,10 @@ const CommentItem = ({
     } catch (error) {
       toast.error("مشکلی در حذف لایک نظر به وجود آمد !");
     }
+  };
+
+  const handleReplyCommentSubmit = (e: { title: string; describe: string }) => {
+    console.log(e);
   };
 
   useEffect(() => {
@@ -120,11 +127,24 @@ const CommentItem = ({
               <RiHeart3Line className="text-red" />
             )}
           </div>
-          <div className="flex gap-1 mt-1 cursor-pointer">
-            <span className="commentAnswerText">پاسخ</span>
+          <div
+            className="flex gap-1 mt-1 cursor-pointer"
+            onClick={() => setIsReplyComment((prev) => !prev)}
+          >
+            <span className="commentAnswerText">
+              {isReplyComment ? "انصراف" : "پاسخ"}
+            </span>
             <img src={darkMode ? messagesDarkIcon : messagesIcon} />
           </div>
         </div>
+        {isReplyComment && (
+          <div className="w-full mt-4">
+            <CommentForm
+              onSubmit={handleReplyCommentSubmit}
+              validationSchema={commentFormSchema}
+            />
+          </div>
+        )}
       </div>
       {replyComment &&
         replyComment.map((reply) => {
@@ -162,3 +182,4 @@ const CommentItem = ({
 };
 
 export { CommentItem };
+

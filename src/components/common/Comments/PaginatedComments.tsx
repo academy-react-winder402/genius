@@ -4,9 +4,9 @@ import { convertDateToPersian } from "../../../core/utils/date-helper.utils";
 
 import { CommentInterface } from "../../../types/comment";
 
+import CommentSkeleton from "../CommentSkeleton";
 import { Pagination } from "../Pagination";
 import { CommentItem } from "./CommentItem";
-import CommentSkeleton from "../CommentSkeleton";
 
 interface PaginatedCommentsProps {
   comments: CommentInterface[] | undefined;
@@ -86,3 +86,4 @@ const PaginatedComments = ({
 };
 
 export { PaginatedComments };
+

@@ -479,10 +479,10 @@
   .satisfaction {
     @apply mt-5 flex flex-col lg:flex-row gap-5 lg:gap-0 justify-between items-center;
   }
-  .addCommentTitleInput {
+  .commentFormTitleInput {
     @apply w-full border border-solid border-commentsBorder dark:border-darkBorder rounded-md h-[40px] outline-primaryColor dark:outline-none px-4 font-[400] text-[14px] text-text3 dark:text-darkText dark:bg-gray-900 mb-2;
   }
-  .addCommentTextarea {
+  .commentFormTextarea {
     @apply border border-solid border-commentsBorder dark:border-darkBorder outline-primaryColor dark:outline-none w-full min-h-[100px] rounded-[10px] px-4 py-4 mt-3 font-[400] text-[14px] text-text3 dark:text-darkText dark:bg-gray-900;
   }
   .addCommentDotImage {
@@ -500,7 +500,7 @@
   .commentName {
     @apply font-[500] text-text1 dark:text-darkText;
   }
-  .addCommentSection {
+  .commentFormSection {
     @apply flex gap-4 flex-col items-center;
   }
   .commentCreatedAtText {

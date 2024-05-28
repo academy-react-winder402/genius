@@ -1,6 +1,6 @@
 import * as yup from "yup";
 
-export const addCommentFormSchema = yup.object().shape({
+export const commentFormSchema = yup.object().shape({
   title: yup
     .string()
     .required("این فیلد الزامی می باشد")

@@ -4,11 +4,11 @@ import { blogItems } from "../../core/data/blogs/blogItems";
 
 import { BlogHeroSection } from "./BlogHeroSection";
 import { ShareBox } from "./ShareBox";
+import { Satisfaction } from "../common/Satisfaction";
+import { CommentForm } from "../common/CommentForm";
+import { Comments } from "../common/Comments";
 
 import videoPlayerImage from "../../assets/images/BlogDetails/video-player.png";
-import { Satisfaction } from "../common/Satisfaction";
-import { AddComment } from "../common/AddComment";
-import { Comments } from "../common/Comments";
 
 const BlogDetails = () => {
   const { blogId } = useParams();
@@ -95,7 +95,7 @@ const BlogDetails = () => {
             <h3 className="blogDetailsCommentsText">
               نظر کاربران درباره این مقاله
             </h3>
-            <AddComment />
+            <CommentForm />
             <Comments />
           </div>
         </div>

@@ -1,18 +1,22 @@
-import { Form, Formik, FormikHelpers } from "formik";
-import dotsOneIcon from "../../../assets/images/common/Comments/Icons/textarea-dots-1.svg";
-import dotsTwoIcon from "../../../assets/images/common/Comments/Icons/textarea-dots-1.svg";
-import dotsThreeIcon from "../../../assets/images/common/Comments/Icons/textarea-dots-1.svg";
-import { Field } from "../Field";
-import { ErrorMessage } from "../ErrorMessage";
+import { Form, Formik } from "formik";
 
-interface AddCommentProps {
-  onSubmit: (e: { title: string; describe: string }) => Promise<void>;
+import { ErrorMessage } from "../ErrorMessage";
+import { Field } from "../Field";
+
+import {
+  default as dotsOneIcon,
+  default as dotsThreeIcon,
+  default as dotsTwoIcon,
+} from "../../../assets/images/common/Comments/Icons/textarea-dots-1.svg";
+
+interface CommentFormProps {
+  onSubmit: (e: { title: string; describe: string }) => void | Promise<void>;
   validationSchema: any;
 }
 
-const AddComment = ({ onSubmit, validationSchema }: AddCommentProps) => {
+const CommentForm = ({ onSubmit, validationSchema }: CommentFormProps) => {
   return (
-    <div className="addCommentSection">
+    <div className="commentFormSection">
       <Formik
         initialValues={{ title: "", describe: "" }}
         onSubmit={onSubmit}
@@ -25,7 +29,7 @@ const AddComment = ({ onSubmit, validationSchema }: AddCommentProps) => {
                 id="title"
                 name="title"
                 placeholder="عنوان نظر ..."
-                className="addCommentTitleInput"
+                className="commentFormTitleInput"
               />
               <ErrorMessage name="title" />
               <div className="relative">
@@ -33,7 +37,7 @@ const AddComment = ({ onSubmit, validationSchema }: AddCommentProps) => {
                   as="textarea"
                   id="describe"
                   name="describe"
-                  className="addCommentTextarea"
+                  className="commentFormTextarea"
                   placeholder="نظر خودتو بنویس..."
                 />
                 <img src={dotsOneIcon} className="absolute bottom-8 left-4" />
@@ -50,4 +54,4 @@ const AddComment = ({ onSubmit, validationSchema }: AddCommentProps) => {
   );
 };
 
-export { AddComment };
+export { CommentForm };
