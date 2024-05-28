@@ -6,15 +6,7 @@ import { Field } from "../Field";
 import { ErrorMessage } from "../ErrorMessage";
 
 interface AddCommentProps {
-  onSubmit: ((
-    values: {
-      describe: string;
-    },
-    formikHelpers: FormikHelpers<{
-      describe: string;
-    }>
-  ) => void | Promise<any>) &
-    ((e: { describe: string }) => void | (Promise<any> & void));
+  onSubmit: (e: { title: string; describe: string }) => Promise<void>;
   validationSchema: any;
 }
 
@@ -22,7 +14,7 @@ const AddComment = ({ onSubmit, validationSchema }: AddCommentProps) => {
   return (
     <div className="addCommentSection">
       <Formik
-        initialValues={{ describe: "" }}
+        initialValues={{ title: "", describe: "" }}
         onSubmit={onSubmit}
         validationSchema={validationSchema}
       >
@@ -30,17 +22,26 @@ const AddComment = ({ onSubmit, validationSchema }: AddCommentProps) => {
           <div className="w-full relative">
             <div className="mb-3">
               <Field
-                as="textarea"
-                id="describe"
-                name="describe"
-                className="addCommentTextarea"
-                placeholder="نظر خودتو بنویس..."
+                id="title"
+                name="title"
+                placeholder="عنوان نظر ..."
+                className="addCommentTitleInput"
               />
+              <ErrorMessage name="title" />
+              <div className="relative">
+                <Field
+                  as="textarea"
+                  id="describe"
+                  name="describe"
+                  className="addCommentTextarea"
+                  placeholder="نظر خودتو بنویس..."
+                />
+                <img src={dotsOneIcon} className="absolute bottom-8 left-4" />
+                <img src={dotsTwoIcon} className="absolute bottom-6 left-4" />
+                <img src={dotsThreeIcon} className="absolute bottom-6 left-6" />
+              </div>
               <ErrorMessage name="describe" />
             </div>
-            <img src={dotsOneIcon} className="absolute bottom-8 left-4" />
-            <img src={dotsTwoIcon} className="absolute bottom-6 left-4" />
-            <img src={dotsThreeIcon} className="absolute bottom-6 left-6" />
           </div>
           <button className="mainButton w-[84px] h-[48px]">ارسال</button>
         </Form>

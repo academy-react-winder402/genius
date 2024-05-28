@@ -48,7 +48,7 @@
     @apply text-text2 dark:text-darkText text-[16px] font-[700] mt-2;
   }
   .serviceBox {
-    @apply flex flex-col justify-center items-center rounded-[24px] border-[1px] border-solid border-[#ECEFF1] dark:border-darkBorder h-[280px] px-6 transition-shadow hover:bg-white dark:hover:bg-gray-900 lg:w-[390px] hover:shadow-primaryShadow;
+    @apply flex flex-col justify-center items-center rounded-[24px] border border-solid border-[#ECEFF1] dark:border-darkBorder h-[280px] px-6 transition-shadow hover:bg-white dark:hover:bg-gray-900 lg:w-[390px] hover:shadow-primaryShadow;
   }
   .landingCoursesMappedWrapper {
     @apply flex flex-wrap gap-[18px] justify-center items-center mx-auto;
@@ -200,7 +200,7 @@
     @apply flex flex-col gap-3 mt-7;
   }
   .authInput {
-    @apply w-[356px] h-[47px] rounded-md border-[1px] border-authInputBorder shadow-authInputShadow px-4 my-2 outline-none dark:bg-darkBackground dark:border-darkBorder;
+    @apply w-[356px] h-[47px] rounded-md border border-authInputBorder shadow-authInputShadow px-4 my-2 outline-none dark:bg-darkBackground dark:border-darkBorder;
   }
   .loginSubmitButton {
     @apply bg-primary text-white h-[40px] rounded-md shadow-primaryShadow mt-2 cursor-pointer;
@@ -218,7 +218,7 @@
     @apply flex flex-row-reverse gap-4;
   }
   .authPhoneNumberInput {
-    @apply w-[50px] h-[50px] outline-none px-5 rounded-[16px] border-[1px] dark:bg-darkBackground dark:border-darkBorder;
+    @apply w-[50px] h-[50px] outline-none px-5 rounded-[16px] border dark:bg-darkBackground dark:border-darkBorder;
   }
   .authSendVerificationCodeTime {
     @apply font-[500] text-[24px] text-primaryColor flex justify-center my-4;
@@ -428,7 +428,7 @@
   }
   /* Dashboard Page */
   .dashboardProfileInformationWrapper {
-    @apply relative border-[1px] border-solid border-dashboardUserInfoEditProfileBorder w-full rounded-[12px] mt-12 py-5 px-5 grid grid-cols-2 lg:grid-cols-3 place-content-center gap-y-8;
+    @apply relative border border-solid border-dashboardUserInfoEditProfileBorder w-full rounded-[12px] mt-12 py-5 px-5 grid grid-cols-2 lg:grid-cols-3 place-content-center gap-y-8;
   }
   .dashboardInformationBoxLabel {
     @apply font-[500] text-text2 dark:text-darkText;
@@ -476,11 +476,14 @@
   .satisfaction {
     @apply mt-5 flex flex-col lg:flex-row gap-5 lg:gap-0 justify-between items-center;
   }
+  .addCommentTitleInput {
+    @apply w-full border border-solid border-commentsBorder dark:border-darkBorder rounded-md h-[40px] outline-primaryColor dark:outline-none px-4 font-[400] text-[14px] text-text3 dark:text-darkText dark:bg-gray-900 mb-2;
+  }
   .addCommentTextarea {
-    @apply border-[1px] border-solid border-commentsBorder dark:border-darkBorder outline-none w-full min-h-[100px] rounded-[10px] px-4 py-4 font-[400] text-[14px] text-text3 dark:text-darkText dark:bg-gray-900;
+    @apply border border-solid border-commentsBorder dark:border-darkBorder outline-primaryColor dark:outline-none w-full min-h-[100px] rounded-[10px] px-4 py-4 mt-3 font-[400] text-[14px] text-text3 dark:text-darkText dark:bg-gray-900;
   }
   .addCommentDotImage {
-    @apply border-[1px] border-solid border-commentsBorder dark:border-darkBorder outline-none w-full min-h-[100px] rounded-[10px] px-4 py-4 font-[400] text-[14px] text-text3 dark:text-darkText dark:bg-gray-900;
+    @apply border border-solid border-commentsBorder dark:border-darkBorder outline-none w-full min-h-[100px] rounded-[10px] px-4 py-4 font-[400] text-[14px] text-text3 dark:text-darkText dark:bg-gray-900;
   }
   .childrenComment {
     @apply border-r border-commentsBorder dark:border-darkBorder mr-8 pr-5;

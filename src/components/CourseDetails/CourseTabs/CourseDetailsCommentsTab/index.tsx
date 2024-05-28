@@ -15,11 +15,13 @@ const CourseDetailsCommentsTab = ({
   value,
   courseId,
 }: CourseDetailsCommentsTabProps) => {
-  const onSubmit = async (e: { describe: string }) => {
+  const onSubmit = async (e: { title: string; describe: string }) => {
     try {
+      const { title, describe } = e;
+
       const formData = onFormData({
         courseId,
-        title: e.describe,
+        title,
         describe,
       });
 
@@ -37,7 +39,10 @@ const CourseDetailsCommentsTab = ({
   return (
     <CustomTabPanel value={value} index={2}>
       <div className="mt-3">
-        <AddComment onSubmit={onSubmit} validationSchema={addCommentFormSchema} />
+        <AddComment
+          onSubmit={onSubmit}
+          validationSchema={addCommentFormSchema}
+        />
         <Comments courseId={courseId} />
       </div>
     </CustomTabPanel>
