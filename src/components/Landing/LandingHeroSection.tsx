@@ -1,7 +1,9 @@
 import { forwardRef, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Dialog from "@mui/material/Dialog";
 import DialogContent from "@mui/material/DialogContent";
 import Slide from "@mui/material/Slide";
+import { Close } from "@mui/icons-material";
 
 import { typeWriterOptions } from "../../core/data/typewriter-options";
 import { landingReportAPI } from "../../core/services/api/landing/landing-report.api";
@@ -10,14 +12,14 @@ import { LandingReportInterface } from "../../types/landing-report";
 
 import { useDarkModeSelector } from "../../redux/darkMode";
 
+import { getCourseWithPaginationAPI } from "../../core/services/api/course/get-course-with-pagination.api";
+
+import { CourseInterface } from "../../types/courses";
+
 import { SearchBox } from "../common/SearchBox";
 import { Typewriter } from "../common/Typewriter";
 import { toast } from "../common/toast";
 import { LandingHeroSectionFeatures } from "./HeroSection/LandingHeroSectionFeatures";
-import { getCourseWithPaginationAPI } from "../../core/services/api/course/get-course-with-pagination.api";
-import { CourseInterface } from "../../types/courses";
-import { Link } from "react-router-dom";
-import { Close } from "@mui/icons-material";
 
 const Transition = forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -122,7 +124,7 @@ const LandingHeroSection = () => {
           keepMounted
           onClose={handleClose}
           aria-describedby="alert-dialog-slide-description"
-          maxWidth="md"
+          maxWidth="xl"
           classes={{
             paper: "min-h-[400px]",
           }}
@@ -151,14 +153,16 @@ const LandingHeroSection = () => {
                   {searchCourses &&
                     searchCourses.map((course) => (
                       <div key={course.courseId} className="flex gap-3">
-                        <div>
+                        <Link to={`/courses/${course.courseId}`}>
                           <img
                             src={course.tumbImageAddress}
                             className="w-[100px] h-[70px] rounded-md"
                           />
-                        </div>
+                        </Link>
                         <div>
-                          <h4 className="font-bold">{course.title}</h4>
+                          <Link to={`/courses/${course.courseId}`}>
+                            <h4 className="font-bold">{course.title}</h4>
+                          </Link>
                           <span>
                             <span className="mr-2">مدرس دوره :</span>{" "}
                             {course.teacherName}
