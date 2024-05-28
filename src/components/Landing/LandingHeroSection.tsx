@@ -90,10 +90,10 @@ const LandingHeroSection = () => {
   return (
     <div
       className={`${
-        darkMode ? "!bg-gray-900" : "bg-headerBg bg-no-repeat bg-cover"
+        darkMode ? "bg-gray-900" : "bg-headerBg bg-no-repeat bg-cover"
       } w-full pt-7 pb-32 lg:pb-5 lg:rounded-br-[100px] lg:rounded-bl-[100px] lg:-mt-40 lg:pt-40`}
     >
-      <div className="bg-landingPageProgrammingLanguagesIcon bg-center bg-no-repeat">
+      <div className="bg-landingPageProgrammingLanguagesIcon bg-center bg-no-repeat dark:bg-none">
         <div>
           <h2 className="text-center text-[23px] font-[500] text-text1 dark:text-darkText">
             پلتفرم اموزش طراحی وب
@@ -107,6 +107,9 @@ const LandingHeroSection = () => {
             مرجع اموزش زنده و تعاملی دسترسی به بیش از هفت هزار ویدیوی اموزشی به
             زبان فارسی .
           </p>
+          <div className="hidden dark:flex justify-center relative">
+            <div className="bg-[blue] blur-[170px] w-[200px] h-[200px] rounded-full absolute top-0" />
+          </div>
         </div>
         <SearchBox
           placeholder="چی میخوای یاد بگیری ؟"

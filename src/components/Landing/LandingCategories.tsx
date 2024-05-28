@@ -25,6 +25,9 @@ const LandingCategories = () => {
             <h3 className="font-[900] text-[40px] text-text1 dark:text-darkText">
               دسته بندی‌ دوره‌ها
             </h3>
+            <div className="hidden dark:flex justify-center relative">
+              <div className="bg-[blue] blur-[170px] w-[150px] h-[150px] rounded-full absolute top-0" />
+            </div>
             <p className="font-[500] text-text2 dark:text-darkText mt-[12px] text-justify">
               لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
               استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در
