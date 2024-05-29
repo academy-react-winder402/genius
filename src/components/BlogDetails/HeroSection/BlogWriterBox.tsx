@@ -1,4 +1,4 @@
-import { BlogItemInterface } from "../../../types/blog-items";
+import { BlogItemInterface } from "../../../types/blog-item";
 
 interface BlogWriterBoxProps {
   blog: BlogItemInterface;
@@ -7,8 +7,11 @@ interface BlogWriterBoxProps {
 const BlogWriterBox = ({ blog }: BlogWriterBoxProps) => {
   return (
     <div className="blogDetailsWriterWrapper">
-      <img src={blog?.writerImage} className="blogDetailsWriterImage" />
-      <span className="blogDetailsWriterName">{blog?.writerName}</span>
+      <img
+        src={blog?.currentImageAddressTumb}
+        className="blogDetailsWriterImage"
+      />
+      <span className="blogDetailsWriterName">{blog?.title}</span>
     </div>
   );
 };

@@ -10,18 +10,25 @@ import { Satisfaction } from "../common/Satisfaction";
 import { AddComment } from "../common/AddComment";
 import { Comments } from "../common/Comments";
 
-const BlogDetails = () => {
+interface NewsDetailsDescription {
+  value: number;
+  description: string;
+  title: string;
+}
+
+const BlogDetails = ({ value, description, title }: NewsDetailsDescription) => {
   const { blogId } = useParams();
 
   const blog = blogItems.find((blog) => blog.id == blogId);
 
   return (
     <div className="w-[83%] mx-auto">
-      <BlogHeroSection blog={blog!} />
+      <BlogHeroSection blog={blog} createdAt={undefined} />
       <div className="flex justify-center mt-10">
         <div className="lg:w-[70%]">
-          <h3 className="blogDetailsMainSectionTitle">چگونه اموزش ببینیم ؟</h3>
-          <p className="blogDetailsMainSectionDescription">
+          <h3 className="blogDetailsMainSectionTitle">{title}</h3>
+          <p className="blogDetailsMainSectionDescription">{description}</p>
+          {/* <p className="blogDetailsMainSectionDescription">
             قبل از هر چیزی باید بدانیم که نمیشه یک روند یا روش خاصی رو برای همه
             افراد که ذهنیت های متفاوتی هم از هم دارند، در نظر گرفت. ولی خب هدف
             تمامی این افراد آموزش دیدن و رسیدن به درک عمیقی از اون مطلب است ولی
@@ -29,8 +36,8 @@ const BlogDetails = () => {
             عمیقی از اون مطلب میرسند؟ قطعا خیر. در ادامه به نحوه رسیدن به درک
             عمیق مطلب، مناسب برای تمامی افراد صحبت خواهیم کرد.
             <span>مثال:</span>
-          </p>
-          <p className="blogDetailsMainSectionDescription">
+          </p> */}
+          {/* <p className="blogDetailsMainSectionDescription">
             فرض کنید شما در حال خواندن یک کتاب هستید، در صفحه 30 یک چیزی را
             متوجه نشدین. در حالت عادی شما به یک صفحه قبل میروید و دوباره خواندن
             را شروع میکنید و فرض کنید در صفحه 40 هم دقیقا همین اتفاق میافتد و به
@@ -41,8 +48,8 @@ const BlogDetails = () => {
             و کتاب را از اول دوباره بخوانید، دوباره اگر در صفحه 50 نکته ای را
             متوجه نشدین، دوباره کتاب را از اول شروع کنید. شما تا پایان این کتاب
             به درک عمیق اون مطلبی که قرار بود آموزش ببینید میرسید.
-          </p>
-          <ul className="flex flex-col mt-3">
+          </p> */}
+          {/* <ul className="flex flex-col mt-3">
             <li className="blogDetailsMainSectionListItem">
               <p className="blogDetailsMainSectionDescription">
                 <span className="blogDetailsMainSectionLiSpan">
@@ -75,11 +82,11 @@ const BlogDetails = () => {
                 تحرک در بدن است.
               </p>
             </li>
-          </ul>
+          </ul> */}
           <div className="flex justify-center mt-9 mb-4">
             <img src={videoPlayerImage} />
           </div>
-          <p className="blogDetailsMainSectionDescription">
+          {/* <p className="blogDetailsMainSectionDescription">
             این مثال برای آموزش از روی کتاب بود ولی برای ویدئو یا پادکست یا هر
             آنچه که میتوانید از آن مطلبی یاد بگیرید هم صدق میکند. شما در مثال
             بالا با هر بار از نو آموزش دیدن، هم مطلب را مرور میکنید و هم نکته
@@ -88,7 +95,7 @@ const BlogDetails = () => {
           </p>
           <p className="blogDetailsMainSectionDescription">
             امیدوارم مقاله مفیدی برای شما واقع بوده باشه.
-          </p>
+          </p> */}
           <ShareBox />
           <Satisfaction nameData="مقاله" />
           <div className="blogDetailsCommentsSection">
