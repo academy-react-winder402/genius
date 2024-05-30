@@ -4,9 +4,10 @@ import { BlogWriterBox } from "./HeroSection/BlogWriterBox";
 
 interface BlogHeroSectionProps {
   blog: BlogItemInterface;
+  createdAt: BlogWriterBox;
 }
 
-const BlogHeroSection = ({ blog }: BlogHeroSectionProps) => {
+const BlogHeroSection = ({ blog, createdAt }: BlogHeroSectionProps) => {
   return (
     <div className="flex flex-col lg:flex-row gap-5">
       <img src={blog?.currentImageAddressTumb} />
@@ -14,7 +15,7 @@ const BlogHeroSection = ({ blog }: BlogHeroSectionProps) => {
         <h1 className="blogDetailsTitle">{blog?.title}</h1>
         <p className="blogDetailsDescription">{blog?.miniDescribe}</p>
         <div className="flex justify-between">
-          <BlogWriterBox blog={blog} />
+          <BlogWriterBox createdAt={createdAt} blog={blog} />
         </div>
       </div>
     </div>
