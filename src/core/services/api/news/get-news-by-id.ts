@@ -2,7 +2,7 @@ import http from "../../interceptor";
 
 import { NewsInterface } from "../../../../types/news";
 
-export const getCourseByIdAPI = async (Id: string) => {
+export const getNewsByIdAPI = async (Id: string) => {
   try {
     const response = await http.get<NewsInterface>("/News/:Id", {
       params: {

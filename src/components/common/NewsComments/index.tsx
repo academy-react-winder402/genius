@@ -12,7 +12,7 @@ interface CommentsProps {
   Id: string;
 }
 
-const Comments = ({ Id }: CommentsProps) => {
+const NewsComments = ({ Id }: CommentsProps) => {
   const [comments, setComments] = useState<CommentInterface[]>();
   const [replyComment, setReplyComment] = useState<CommentInterface[]>();
 
@@ -96,4 +96,4 @@ const Comments = ({ Id }: CommentsProps) => {
   );
 };
 
-export { Comments };
+export { NewsComments };

@@ -2,15 +2,14 @@ import { addCommentNewsAPI } from "../../../core/services/api/news/comments/add-
 import { onFormData } from "../../../core/utils/form-data-helper.utils";
 import { addCommentFormSchema } from "../../../core/validations/add-comment.-formvalidation";
 import { AddComment } from "../../common/AddComment";
-import { Comments } from "../../common/Comments";
+import { NewsComments } from "../../common/NewsComments";
 import { toast } from "../../common/toast";
 
-interface NewsDetailsCommentsTabProps {
-  value: number;
+interface NewsDetailsComments {
   Id: string;
 }
 
-const NewsDetailsComments = ({ value, Id }: NewsDetailsCommentsTabProps) => {
+const NewsDetailsComments = ({ Id }: NewsDetailsComments) => {
   const onSubmit = async (e: { describe: string }) => {
     try {
       const formData = onFormData({
@@ -33,7 +32,7 @@ const NewsDetailsComments = ({ value, Id }: NewsDetailsCommentsTabProps) => {
   return (
     <div className="mt-3">
       <AddComment onSubmit={onSubmit} validationSchema={addCommentFormSchema} />
-      <Comments Id={Id} />
+      <NewsComments Id={Id} />
     </div>
   );
 };

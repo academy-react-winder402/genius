@@ -6,7 +6,7 @@ export const getNewsReplyCommentsAPI = async (
 ) => {
   try {
     const response = await http.get(
-      `/News/GetRepliesComments?Id=<uuid>${Id}/${commentId}`
+      `/News/GetRepliesComments?Id=${Id}/${commentId}`
     );
 
     return response;
