@@ -12,6 +12,9 @@ const BlogsHeroSection = () => {
         <div className="relative pr-20 lg:pr-14 mt-10">
           <h1 className="blogsTitle">
             <Typewriter options={typeWriterOptions(["اخبار و مقالات نابغه"])} />
+            <div className="hidden dark:flex justify-center relative">
+              <div className="bg-[blue] blur-[150px] w-[130px] h-[130px] rounded-full absolute top-0" />
+            </div>
           </h1>
           <p className="blogsDescription">
             آموزش برنامه نویسی یکی از دوره‌های محبوب در حوزه فناوری اطلاعات است.

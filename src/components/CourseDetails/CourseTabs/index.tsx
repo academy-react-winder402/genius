@@ -45,17 +45,17 @@ const CourseTabs = ({
         >
           <Tab
             label="توضیحات"
-            classes={{ textColorPrimary: "dark:text-darkText" }}
+            classes={{ textColorPrimary: "coursesTab" }}
             {...a11Props(0)}
           />
           <Tab
             label="پیش‌نمایش‌ها"
-            classes={{ textColorPrimary: "dark:text-darkText" }}
+            classes={{ textColorPrimary: "coursesTab" }}
             {...a11Props(1)}
           />
           <Tab
             label="نظرات کاربران"
-            classes={{ textColorPrimary: "dark:text-darkText" }}
+            classes={{ textColorPrimary: "coursesTab" }}
             {...a11Props(2)}
           />
         </Tabs>

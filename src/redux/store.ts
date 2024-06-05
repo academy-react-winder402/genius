@@ -6,6 +6,7 @@ import darkModeSlice from "./darkMode";
 import registerSlice from "./register";
 import isUserLoginSlice from "./user-login";
 
+// Dark Mode Slice
 const darkModePersistConfig = {
   key: "root",
   storage,
@@ -16,6 +17,7 @@ const darkModePersistedReducer = persistReducer(
   darkModeSlice
 );
 
+// Is User Login Slice
 const isUserLoginPersistConfig = {
   key: "root",
   storage,

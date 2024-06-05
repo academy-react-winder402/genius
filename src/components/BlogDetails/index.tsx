@@ -6,9 +6,12 @@ import { getNewsByIdAPI } from "../../core/services/api/news/get-news-by-id";
 
 import { BlogHeroSection } from "./BlogHeroSection";
 import { ShareBox } from "./ShareBox";
+import { Satisfaction } from "../common/Satisfaction";
+import { CommentForm } from "../common/CommentForm";
+import { Comments } from "../common/Comments";
 
 import videoPlayerImage from "../../assets/images/BlogDetails/video-player.png";
-import { Satisfaction } from "../common/Satisfaction";
+
 import { AddComment } from "../common/AddComment";
 import { NewsInterface } from "../../types/news";
 import { NewsComments } from "../common/NewsComments";
@@ -103,11 +106,15 @@ const BlogDetails = ({
             <h3 className="blogDetailsCommentsText">
               نظر کاربران درباره این مقاله
             </h3>
+
             <AddComment
               onSubmit={onSubmit}
               validationSchema={addCommentFormSchema}
             />
             <NewsComments Id={blogId} />
+
+            <CommentForm />
+            <Comments />
           </div>
         </div>
       </div>

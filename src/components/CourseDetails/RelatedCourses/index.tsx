@@ -48,14 +48,15 @@ const RelatedCourses = () => {
             },
           }}
         >
-          {courses?.map((course: CourseInterface) => (
-            <SwiperSlide
-              key={course.courseId}
-              className="lg:!w-[296px] lg:h-[389px] mr-4 py-5 mb-6"
-            >
-              <CourseItem course={course} />
-            </SwiperSlide>
-          ))}
+          {courses &&
+            courses?.map((course: CourseInterface) => (
+              <SwiperSlide
+                key={course.courseId}
+                className="lg:!w-[296px] lg:h-[389px] mr-4 py-5 mb-6"
+              >
+                <CourseItem course={course} />
+              </SwiperSlide>
+            ))}
         </Swiper>
       </div>
     </div>
