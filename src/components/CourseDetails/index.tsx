@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { SyntheticEvent, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 import { priceWithCommas } from "../../core/utils/number-helper.utils";
@@ -28,6 +28,8 @@ import calenderIcon from "../../assets/images/CourseDetails/Information/calendar
 import courseStatusIcon from "../../assets/images/CourseDetails/Information/monitor-recorder.svg";
 import studentsCountIcon from "../../assets/images/CourseDetails/Information/profile-user.svg";
 import blackThumbnail from "../../assets/images/Courses/blank-thumbnail.jpg";
+import { setCourseRatingAPI } from "../../core/services/api/course/set-course-rating.api";
+import { toast } from "react-toastify";
 
 const CourseDetails = () => {
   const [course, setCourse] = useState<CourseDetailsInterface>();
@@ -41,6 +43,25 @@ const CourseDetails = () => {
   const formattedPrice = priceWithCommas(+course?.cost!);
   const formattedStartTime = convertDateToPersian(course?.startTime!);
   const formattedEndTime = convertDateToPersian(course?.endTime!);
+
+  const handleRateChange = async (
+    e: SyntheticEvent<Element, Event>,
+    newValue: number | null
+  ) => {
+    try {
+      const addRate = await toast.promise(
+        setCourseRatingAPI(course?.courseId!, newValue!),
+        {
+          pending: "در حال افزودن امتیاز ...",
+        }
+      );
+
+      if (addRate.success) toast.success("امتیاز شما با موفقیت ثبت شد !");
+      else toast.error(addRate.message);
+    } catch (error) {
+      toast.error("مشکلی در افزودن امتیاز به وجود آمد !");
+    }
+  };
 
   const fetchCourse = async () => {
     try {
@@ -75,8 +96,6 @@ const CourseDetails = () => {
   useEffect(() => {
     fetchCourse();
   }, [courseId]);
-
-  console.log(course?.currentUserRateNumber);
 
   return (
     <div className="mt-4 w-[90%] lg:w-[1100px] mx-auto">
@@ -129,6 +148,7 @@ const CourseDetails = () => {
             commentCount={course?.commentCount!}
             courseId={course?.courseId!}
             currentUserRateNumber={course?.currentUserRateNumber!}
+            handleRateChange={handleRateChange}
           />
           <CourseTabs
             courseLessons={courseLessons}

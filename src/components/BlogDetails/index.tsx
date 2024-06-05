@@ -1,61 +1,35 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-
-import { blogItems } from "../../core/data/blogs/blogItems";
-import { getNewsByIdAPI } from "../../core/services/api/news/get-news-by-id";
-
-import { BlogHeroSection } from "./BlogHeroSection";
-import { ShareBox } from "./ShareBox";
-import { Satisfaction } from "../common/Satisfaction";
-import { CommentForm } from "../common/CommentForm";
-import { Comments } from "../common/Comments";
-
-import videoPlayerImage from "../../assets/images/BlogDetails/video-player.png";
-
-import { AddComment } from "../common/AddComment";
-import { NewsInterface } from "../../types/news";
-import { NewsComments } from "../common/NewsComments";
-import { addCommentFormSchema } from "../../core/validations/add-comment.-formvalidation";
-import { onFormData } from "../../core/utils/form-data-helper.utils";
-import { addCommentNewsAPI } from "../../core/services/api/news/comments/add-comment-news.api";
 import { toast } from "react-toastify";
 
-interface NewsDetailsDescription {
-  value: number;
-  description: string;
-  title: string;
-  Id: string;
-}
+import { getNewsByIdAPI } from "../../core/services/api/news/get-news-by-id";
 
-const BlogDetails = ({
-  value,
-  description,
-  title,
-  Id,
-}: NewsDetailsDescription) => {
-  const [news, setNews] = useState<NewsInterface>();
+import { CommentForm } from "../common/CommentForm";
+import { Comments } from "../common/Comments";
+import { Satisfaction } from "../common/Satisfaction";
+import { BlogHeroSection } from "./BlogHeroSection";
+import { ShareBox } from "./ShareBox";
 
-  useEffect(() => {
-    const fetchNews = async () => {
-      try {
-        const response = await getNewsByIdAPI(news?.id!);
+import { addCommentNewsAPI } from "../../core/services/api/news/comments/add-comment-news.api";
+import { convertDateToPersian } from "../../core/utils/date-helper.utils";
+import { onFormData } from "../../core/utils/form-data-helper.utils";
+import { commentFormSchema } from "../../core/validations/comment-form.validation";
+import { BlogInterface } from "../../types/blog";
+import { NewsComments } from "../common/NewsComments";
 
-        setNews(response);
-      } catch (error) {
-        return false;
-      }
-    };
+const BlogDetails = () => {
+  const [news, setNews] = useState<BlogInterface>();
+  const [likeCount, setLikeCount] = useState<number>();
+  const [disLikeCount, setDislikeCount] = useState<number>();
 
-    if (news) fetchNews();
-  }, [news]);
   const { blogId } = useParams();
 
-  const blog = blogItems.find((blog) => blog.id == 1);
+  const formattedUpdateDate = convertDateToPersian(news?.updateDate!);
 
   const onSubmit = async (e: { describe: string }) => {
     try {
       const formData = onFormData({
-        Id,
+        id,
         title: e.describe,
         describe,
       });
@@ -70,51 +44,59 @@ const BlogDetails = ({
       toast.error("مشکلی در ارسال نظر به وجود آمد !");
     }
   };
+
+  useEffect(() => {
+    const fetchBlog = async () => {
+      try {
+        const response = await getNewsByIdAPI(blogId!);
+
+        console.log(response.detailsNewsDto);
+
+        setNews(response.detailsNewsDto);
+      } catch (error) {
+        return false;
+      }
+    };
+
+    fetchBlog();
+  }, []);
+
   return (
     <div className="w-[83%] mx-auto">
-      <BlogHeroSection blog={blog} />
+      <BlogHeroSection blog={news!} />
       <div className="flex justify-center mt-10">
         <div className="lg:w-[70%]">
           <div className="mt-7">
             <h1 className="font-[700] text-[32px] text-text1 dark:text-darkText">
-              {title}
+              {news?.title}
             </h1>
-            <p className="font-[500] text-text2 dark:text-darkText mt-2">
-              {description}
-            </p>
-          </div>
-
-          <div className="flex justify-center mt-9 mb-4">
-            <img src={videoPlayerImage} />
+            <div>
+              <p className="font-[500] text-text2 dark:text-darkText mt-2 leading-7">
+                {news?.describe}
+              </p>
+            </div>
           </div>
           <ShareBox />
           <Satisfaction
             nameData="مقاله"
             likeCount={0}
             disLikeCount={0}
-            setLikeCount={function (prevValue: number): void {
-              throw new Error("Function not implemented.");
-            }}
-            setDislikeCount={function (dislikeCount: number): void {
-              throw new Error("Function not implemented.");
-            }}
+            setLikeCount={setLikeCount}
+            setDislikeCount={setDislikeCount}
             commentCount={0}
-            courseId={""}
             currentUserRateNumber={0}
+            handleRateChange={(e) => console.log(e)}
           />
           <div className="blogDetailsCommentsSection">
             <h3 className="blogDetailsCommentsText">
               نظر کاربران درباره این مقاله
             </h3>
-
-            <AddComment
+            <NewsComments id={news?.id!} />
+            <CommentForm
               onSubmit={onSubmit}
-              validationSchema={addCommentFormSchema}
+              validationSchema={commentFormSchema}
             />
-            <NewsComments Id={blogId} />
-
-            <CommentForm />
-            <Comments />
+            <Comments courseId={news?.id!} />
           </div>
         </div>
       </div>

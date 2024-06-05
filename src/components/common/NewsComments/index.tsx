@@ -9,17 +9,17 @@ import { toast } from "../toast";
 import { convertDateToPersian } from "../../../core/utils/date-helper.utils";
 
 interface CommentsProps {
-  Id: string;
+  id: string;
 }
 
-const NewsComments = ({ Id }: CommentsProps) => {
+const NewsComments = ({ id }: CommentsProps) => {
   const [comments, setComments] = useState<CommentInterface[]>();
   const [replyComment, setReplyComment] = useState<CommentInterface[]>();
 
   useEffect(() => {
     const fetchComments = async () => {
       try {
-        const getComments = await getNewsCommentsAPI(Id);
+        const getComments = await getNewsCommentsAPI(id);
 
         setComments(getComments);
       } catch (error) {
@@ -55,7 +55,7 @@ const NewsComments = ({ Id }: CommentsProps) => {
                 name={author}
                 message={describe}
                 isChildren={false}
-                Id={Id}
+                id={id}
                 commentId={id}
                 setReplyComment={setReplyComment}
                 likeCount={likeCount}

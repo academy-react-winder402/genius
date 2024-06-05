@@ -20,7 +20,7 @@ interface CommentItemProps {
   createdAt: string;
   message: string;
   isChildren?: boolean;
-  Id?: string;
+  id?: string;
   commentId?: string;
   setReplyComment?: Dispatch<SetStateAction<CommentInterface[] | undefined>>;
   likeCount: number;
@@ -33,7 +33,7 @@ const CommentItem = ({
   createdAt,
   message,
   isChildren,
-  Id,
+  id,
   commentId,
   setReplyComment,
   likeCount,
@@ -74,20 +74,20 @@ const CommentItem = ({
   };
 
   setReplyComment &&
-    Id &&
+    id &&
     useEffect(() => {
       const fetchReplyComment = async () => {
         try {
-          const getReplyComment = await getNewsReplyCommentsAPI(Id, commentId!);
+          const getReplyComment = await getNewsReplyCommentsAPI(id, commentId!);
 
-          Id && setReplyComment && setReplyComment(getReplyComment);
+          id && setReplyComment && setReplyComment(getReplyComment);
         } catch (error) {
           toast.error("مشکلی در دریافت رپلای های کامنت به وجود آمد !");
         }
       };
 
       fetchReplyComment();
-    }, [Id]);
+    }, [id]);
 
   return (
     <div className={isChildren ? "childrenComment" : ""}>

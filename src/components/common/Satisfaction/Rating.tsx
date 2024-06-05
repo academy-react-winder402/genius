@@ -1,42 +1,23 @@
 import { SyntheticEvent } from "react";
-
-import { Rating as CommonRating } from "../Rating";
 import { toast } from "../toast";
 
 import emptyRatingIcon from "../../../assets/images/CourseDetails/Icons/star-empty.svg";
 import ratingIcon from "../../../assets/images/CourseDetails/Icons/star.svg";
-import { setCourseRatingAPI } from "../../../core/services/api/course/set-course-rating.api";
 
 interface RatingProps {
-  courseId: string;
   commentCount: number;
   currentUserRateNumber: number;
+  handleRateChange: (
+    e: SyntheticEvent<Element, Event>,
+    newValue: number | null
+  ) => void;
 }
 
 const Rating = ({
-  courseId,
   commentCount,
   currentUserRateNumber,
+  handleRateChange,
 }: RatingProps) => {
-  const handleRateChange = async (
-    e: SyntheticEvent<Element, Event>,
-    newValue: number | null
-  ) => {
-    try {
-      const addRate = await toast.promise(
-        setCourseRatingAPI(courseId, newValue!),
-        {
-          pending: "در حال افزودن امتیاز ...",
-        }
-      );
-
-      if (addRate.success) toast.success("امتیاز شما با موفقیت ثبت شد !");
-      else toast.error(addRate.message);
-    } catch (error) {
-      toast.error("مشکلی در افزودن امتیاز به وجود آمد !");
-    }
-  };
-
   return (
     <div className="flex items-center gap-4">
       <CommonRating

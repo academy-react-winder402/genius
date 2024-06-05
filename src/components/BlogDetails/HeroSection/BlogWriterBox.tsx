@@ -1,20 +1,17 @@
-import { BlogItemInterface } from "../../../types/blog-item";
-import { BlogSeasCreatedAt } from "../../common/BlogSeasCreatedAt";
+import { BlogInterface } from "../../../types/blog";
 
 interface BlogWriterBoxProps {
-  blog: BlogItemInterface;
-  createdAt: BlogSeasCreatedAt;
+  blog: BlogInterface;
 }
 
-const BlogWriterBox = ({ blog, createdAt }: BlogWriterBoxProps) => {
+const BlogWriterBox = ({ blog }: BlogWriterBoxProps) => {
   return (
     <div className="blogDetailsWriterWrapper">
       <img
         src={blog?.currentImageAddressTumb}
         className="blogDetailsWriterImage"
       />
-      <span className="blogDetailsWriterName">{blog?.title}</span>
-      <BlogSeasCreatedAt allSeas={createdAt} createdAt={createdAt} />
+      <span className="blogDetailsWriterName">{blog?.addUserFullName}</span>
     </div>
   );
 };
