@@ -1,6 +1,6 @@
 import { Typewriter } from "../common/Typewriter";
 
-import dotIcon from "../../assets/images/Blogs/dot.svg";
+import dotIcon from "../../assets/images/Blogs/Dot.svg";
 import heroSectionLeftImage from "../../assets/images/Blogs/blogs-hero-section-left-image.svg";
 import { typeWriterOptions } from "../../core/data/typewriter-options";
 
