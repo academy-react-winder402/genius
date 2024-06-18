@@ -9,7 +9,7 @@ export const setCourseRatingAPI = async (
       `/Course/SetCourseRating?CourseId=${courseId}&RateNumber=${rateNumber}`
     );
 
-    return response;
+    return response.data;
   } catch (error) {
     return false;
   }

@@ -8,7 +8,7 @@ export const deleteCourseCommentLikeAPI = async (courseCommandId: string) => {
       },
     });
 
-    return response;
+    return response.data;
   } catch (error) {
     return false;
   }

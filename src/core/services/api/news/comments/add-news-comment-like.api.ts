@@ -2,11 +2,11 @@ import http from "../../../interceptor";
 
 export const addNewsCommentLikeAPI = async (CommentId: string) => {
   try {
-    const response = http.post(
+    const response = await http.post(
       `/News/CommentLike/:CommentId?LikeType=true${CommentId}`
     );
 
-    return response;
+    return response.data;
   } catch (error) {
     return false;
   }

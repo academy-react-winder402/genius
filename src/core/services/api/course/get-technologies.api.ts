@@ -8,7 +8,7 @@ export const getTechnologiesAPI = async () => {
       "/Home/GetTechnologies"
     );
 
-    return response;
+    return response.data;
   } catch (error) {
     return false;
   }

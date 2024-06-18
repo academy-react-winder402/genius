@@ -4,7 +4,7 @@ export const getStatusAPI = async () => {
   try {
     const response = await http.get("/Status");
 
-    return response;
+    return response.data;
   } catch (error) {
     return false;
   }

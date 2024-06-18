@@ -8,7 +8,7 @@ export const updateCourseCommentAPI = async (comment: FormData) => {
       },
     });
 
-    return response;
+    return response.data;
   } catch (error) {
     return false;
   }

@@ -3,10 +3,10 @@ import { Dispatch, SetStateAction } from "react";
 import { CourseInterface } from "../../../types/courses";
 
 import { CourseItem } from "../../common/CourseItem";
-import { CourseItemStyleTwo } from "../../common/CourseItemStyleTwo";
-import { Pagination } from "../../common/Pagination";
 import { CourseItemSkeleton } from "../../common/CourseItemSkeleton";
 import { CourseItemSkeletonStyleTwo } from "../../common/CourseItemSkeletonStyleTwo";
+import { CourseItemStyleTwo } from "../../common/CourseItemStyleTwo";
+import { Pagination } from "../../common/Pagination";
 
 interface PaginatedCoursesProps {
   courses: CourseInterface[];

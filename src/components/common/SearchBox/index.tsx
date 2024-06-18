@@ -16,6 +16,7 @@ interface SearchBoxProps {
   setIsValueChanged?: Dispatch<SetStateAction<boolean>>;
   onKeyUp?: () => void;
   setSearchValue?: Dispatch<SetStateAction<string | undefined>>;
+  setCurrentPage?: Dispatch<SetStateAction<number>>;
 }
 
 const SearchBox = ({
@@ -30,12 +31,14 @@ const SearchBox = ({
   setIsValueChanged,
   onKeyUp,
   setSearchValue,
+  setCurrentPage,
 }: SearchBoxProps) => {
   const textTimeOut = useTimeOut();
 
   const searchBoxOnChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchValue && setSearchValue(e.target.value);
     textTimeOut(() => {
+      setCurrentPage && setCurrentPage(1);
       setQuery && setQuery(e.target.value);
       setIsValueChanged && setIsValueChanged(true);
     }, 800);

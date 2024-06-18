@@ -2,11 +2,11 @@ import http from "../../../interceptor";
 
 export const addCourseCommentLikeAPI = async (courseCommentId: string) => {
   try {
-    const response = http.post(
+    const response = await http.post(
       `/Course/AddCourseCommentLike?CourseCommandId=${courseCommentId}`
     );
 
-    return response;
+    return response.data;
   } catch (error) {
     return false;
   }

@@ -9,7 +9,7 @@ export const postNewsRateAPI = async (newsId: string, rateNumber: number) => {
       },
     });
 
-    return response;
+    return response.data;
   } catch (error) {
     return false;
   }

@@ -8,7 +8,7 @@ export const addCommentNewsAPI = async (comment: FormData) => {
       },
     });
 
-    return response;
+    return response.data;
   } catch (error) {
     return false;
   }
