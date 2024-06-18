@@ -1,6 +1,6 @@
 import http from "../../interceptor";
 
-import { NewsInterface } from "../../../../types/news";
+import { BlogInterface } from "../../../../types/blog";
 
 export const newsAPI = async (
   pageNumber: number | undefined,
@@ -11,7 +11,7 @@ export const newsAPI = async (
   newsCategoryId: number | undefined
 ) => {
   try {
-    const response = await http.get<{ news: NewsInterface[] }>("/News", {
+    const response = await http.get<{ news: BlogInterface[] }>("/News", {
       params: {
         pageNumber: pageNumber ? pageNumber : undefined,
         rowsOfPage: rowsOfPage ? rowsOfPage : undefined,
@@ -22,7 +22,7 @@ export const newsAPI = async (
       },
     });
 
-    return response;
+    return response.data;
   } catch (error) {
     return false;
   }

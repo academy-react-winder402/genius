@@ -1,3 +1,5 @@
+import { AxiosResponse } from "axios";
+
 import http from "../../../interceptor";
 
 export const verifyMessageAPI = async (
@@ -5,12 +7,12 @@ export const verifyMessageAPI = async (
   verifyCode: string
 ) => {
   try {
-    const response = await http.post("/Sign/VerifyMessage", {
+    const response: AxiosResponse = await http.post("/Sign/VerifyMessage", {
       phoneNumber,
       verifyCode,
     });
 
-    return response;
+    return response.data;
   } catch (error) {
     return false;
   }

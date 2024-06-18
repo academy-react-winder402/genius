@@ -1,3 +1,4 @@
+import { AxiosResponse } from "axios";
 import http from "../../interceptor";
 
 export const getCourseWithPaginationAPI = async (
@@ -17,26 +18,29 @@ export const getCourseWithPaginationAPI = async (
   teacherId: number | undefined
 ) => {
   try {
-    const response = http.get("/Home/GetCoursesWithPagination", {
-      params: {
-        pageNumber,
-        rowsOfPage,
-        sortingCol,
-        sortType,
-        query,
-        costDown,
-        costUp,
-        techCount,
-        listTech,
-        courseLevelId,
-        courseTypeId,
-        startDate,
-        endDate,
-        teacherId,
-      },
-    });
+    const response: AxiosResponse = await http.get(
+      "/Home/GetCoursesWithPagination",
+      {
+        params: {
+          pageNumber,
+          rowsOfPage,
+          sortingCol,
+          sortType,
+          query,
+          costDown,
+          costUp,
+          techCount,
+          listTech,
+          courseLevelId,
+          courseTypeId,
+          startDate,
+          endDate,
+          teacherId,
+        },
+      }
+    );
 
-    return response;
+    return response.data;
   } catch (error) {
     return false;
   }

@@ -13,7 +13,7 @@ export const getNewsCommentsAPI = async (newsId: string) => {
       }
     );
 
-    return response;
+    return response.data;
   } catch (error) {
     return false;
   }

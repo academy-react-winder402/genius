@@ -8,7 +8,7 @@ export const landingReportAPI = async () => {
       "/Home/LandingReport"
     );
 
-    return response;
+    return response.data;
   } catch (error) {
     return false;
   }

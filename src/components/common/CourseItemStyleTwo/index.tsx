@@ -6,6 +6,8 @@ import { CourseLikeBox } from "../CourseLikeBox";
 import { Link } from "../Link";
 import { CourseItemDetails } from "./CourseItemDetails";
 
+import blankThumbnail from "../../../assets/images/Courses/blank-thumbnail.jpg";
+
 interface CourseItemStyleTwoProps {
   course: CourseInterface;
 }
@@ -19,7 +21,16 @@ const CourseItemStyleTwo = ({ course }: CourseItemStyleTwoProps) => {
         <div className="lg:w-[264px] lg:h-[180px] relative">
           <Link to={`/courses/${course.courseId}`}>
             <img
-              src={course.tumbImageAddress}
+              src={
+                course.tumbImageAddress == undefined ||
+                course.tumbImageAddress === "Not-set" ||
+                course.tumbImageAddress === "not-set" ||
+                course.tumbImageAddress === "undefined" ||
+                course.tumbImageAddress === "<string>" ||
+                !course.tumbImageAddress
+                  ? blankThumbnail
+                  : course.tumbImageAddress
+              }
               className="rounded-[20px] lg:h-[180px]"
             />
           </Link>

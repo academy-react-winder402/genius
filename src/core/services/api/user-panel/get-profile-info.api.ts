@@ -8,7 +8,7 @@ export const getProfileInfoAPI = async () => {
       "/SharePanel/GetProfileInfo"
     );
 
-    return response;
+    return response.data;
   } catch (error) {
     return false;
   }

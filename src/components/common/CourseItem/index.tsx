@@ -16,7 +16,7 @@ import calenderIcon from "../../../assets/images/Landing/LandingCourses/calendar
 import noteDarkIcon from "../../../assets/images/Landing/LandingCourses/note-dark.svg";
 import clockDarkIcon from "../../../assets/images/Landing/LandingCourses/clock-dark.svg";
 import calenderDarkIcon from "../../../assets/images/Landing/LandingCourses/calendar-dark.svg";
-import blackThumbnail from "../../../assets/images/Courses/blank-thumbnail.jpg";
+import blankThumbnail from "../../../assets/images/Courses/blank-thumbnail.jpg";
 
 interface CourseItemProps {
   course: CourseInterface;
@@ -33,9 +33,14 @@ const CourseItem = ({ course }: CourseItemProps) => {
         <Link to={`/courses/${course.courseId}`}>
           <img
             src={
-              course.tumbImageAddress !== "<string>" || !course.tumbImageAddress
-                ? course.tumbImageAddress
-                : blackThumbnail
+              course.tumbImageAddress == undefined ||
+              course.tumbImageAddress === "Not-set" ||
+              course.tumbImageAddress === "not-set" ||
+              course.tumbImageAddress === "undefined" ||
+              course.tumbImageAddress === "<string>" ||
+              !course.tumbImageAddress
+                ? blankThumbnail
+                : course.tumbImageAddress
             }
             className="courseItemImage"
           />

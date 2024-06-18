@@ -8,7 +8,7 @@ export const deleteNewsCommentLikeAPI = async (newsCommandId: string) => {
       },
     });
 
-    return response;
+    return response.data;
   } catch (error) {
     return false;
   }

@@ -4,7 +4,7 @@ export const getTeachersAPI = async () => {
   try {
     const response = await http.get("/Home/GetTeachers");
 
-    return response;
+    return response.data;
   } catch (error) {
     return false;
   }

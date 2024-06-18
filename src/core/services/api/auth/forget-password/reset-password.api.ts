@@ -1,3 +1,5 @@
+import { AxiosResponse } from "axios";
+
 import http from "../../../interceptor";
 
 export const resetPasswordAPI = async (
@@ -6,13 +8,13 @@ export const resetPasswordAPI = async (
   resetValue: string
 ) => {
   try {
-    const response = http.post("/Sign/Reset", {
+    const response: AxiosResponse = await http.post("/Sign/Reset", {
       userId,
       newPassword,
       resetValue,
     });
 
-    return response;
+    return response.data;
   } catch (error) {
     return false;
   }

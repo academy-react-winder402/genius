@@ -1,6 +1,6 @@
 import { convertDateToPersian } from "../../../core/utils/date-helper.utils";
 
-import { NewsInterface } from "../../../types/news";
+import { BlogInterface } from "../../../types/blog";
 
 import { Link } from "../../common/Link";
 
@@ -9,11 +9,7 @@ import dotsIcon from "../../../assets/images/Landing/LandingBlogs/Icons/dots.svg
 import eyeIcon from "../../../assets/images/Landing/LandingBlogs/Icons/eye.svg";
 import blankThumbnail from "../../../assets/images/Courses/blank-thumbnail.jpg";
 
-interface LandingBlogItemProps {
-  blog: NewsInterface;
-}
-
-const LandingBlogItem = ({ blog }: LandingBlogItemProps) => {
+const LandingBlogItem = ({ blog }: { blog: BlogInterface }) => {
   const formattedUpdatedAt = convertDateToPersian(blog.updateDate);
 
   return (
@@ -22,12 +18,14 @@ const LandingBlogItem = ({ blog }: LandingBlogItemProps) => {
         <Link to={`/blogs/${blog.id}`}>
           <img
             src={
-              blog.currentImageAddressTumb ||
-              blog.currentImageAddressTumb !== "<string>"
+              blog.currentImageAddressTumb &&
+              blog.currentImageAddressTumb !== "<string>" &&
+              blog.currentImageAddressTumb !== "Not-set" &&
+              blog.currentImageAddressTumb !== "undefined"
                 ? blog.currentImageAddressTumb
                 : blankThumbnail
             }
-            className="w-[70%] lg:w-auto h-[200px] rounded-md cursor-pointer"
+            className="max-w-[224px] w-[224px] h-[161px] rounded-md cursor-pointer"
           />
         </Link>
       </div>

@@ -1,16 +1,21 @@
+import { AxiosResponse } from "axios";
+
 import http from "../../interceptor";
 
 import { CourseDetailsInterface } from "../../../../types/course-details";
 
 export const getCourseByIdAPI = async (courseId: string) => {
   try {
-    const response = await http.get<CourseDetailsInterface>("/Home/GetCourseDetails", {
-      params: {
-        courseId,
-      },
-    });
+    const response: AxiosResponse = await http.get<CourseDetailsInterface>(
+      "/Home/GetCourseDetails",
+      {
+        params: {
+          courseId,
+        },
+      }
+    );
 
-    return response;
+    return response.data;
   } catch (error) {
     return false;
   }

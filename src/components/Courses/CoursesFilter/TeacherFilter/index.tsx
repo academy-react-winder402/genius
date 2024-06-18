@@ -23,8 +23,9 @@ interface TeacherFilterProps {
 }
 
 const TeacherFilter = ({ setTeacherId, setQuery }: TeacherFilterProps) => {
-  const [teachers, setTeachers] = useState<TeacherItemsInterface[]>();
-  const [isValueChanged, setIsValueChanged] = useState<boolean>(false);
+  const [teachers, setTeachers] = useState<TeacherItemsInterface[]>([]);
+  const [isValueChanged, setIsValueChanged] = useState(false);
+  const [isShowMoreTeachers, setIsShowMoreTeachers] = useState(false);
 
   const handleDeleteValueChange = () => {
     setTeacherId(undefined);
@@ -35,6 +36,14 @@ const TeacherFilter = ({ setTeacherId, setQuery }: TeacherFilterProps) => {
   const handleTeachersChange = (e: ChangeEvent<HTMLInputElement>) => {
     setTeacherId(+e.target.value);
     setIsValueChanged(true);
+  };
+
+  const handleShowMoreTeachers = () =>
+    setIsShowMoreTeachers(!isShowMoreTeachers);
+
+  const renderTeachers = () => {
+    if (isShowMoreTeachers) return teachers;
+    else return teachers ? teachers?.slice(0, 5) : [];
   };
 
   useEffect(() => {
@@ -66,8 +75,8 @@ const TeacherFilter = ({ setTeacherId, setQuery }: TeacherFilterProps) => {
         />
       </div>
       <RadioGroup name="teacherGroup">
-        {teachers &&
-          teachers.map((teacher) => (
+        {renderTeachers() &&
+          renderTeachers().map((teacher) => (
             <FilterCheckbox
               key={teacher.teacherId}
               type="radio"
@@ -77,8 +86,11 @@ const TeacherFilter = ({ setTeacherId, setQuery }: TeacherFilterProps) => {
             />
           ))}
       </RadioGroup>
-      <button className="font-[500] text-[14px] text-primaryColor underline px-5 mt-2">
-        مشاهده‌ی بیشتر
+      <button
+        className="font-[500] text-[14px] text-primaryColor underline px-5 mt-2"
+        onClick={handleShowMoreTeachers}
+      >
+        {isShowMoreTeachers ? "مشاهده کمتر" : "مشاهده بیشتر"}
       </button>
     </FilterAccordion>
   );

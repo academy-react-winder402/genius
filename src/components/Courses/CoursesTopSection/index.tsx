@@ -14,7 +14,8 @@ interface CoursesTopSectionProps {
   coursesStyle: number;
   setCoursesStyle: (value: number) => void;
   setQuery: Dispatch<SetStateAction<string | undefined>>;
-  setSortingCol: Dispatch<React.SetStateAction<string | undefined>>;
+  setSortingCol: Dispatch<SetStateAction<string | undefined>>;
+  setCurrentPage: Dispatch<SetStateAction<number>>;
 }
 
 const CoursesTopSection = ({
@@ -22,6 +23,7 @@ const CoursesTopSection = ({
   setCoursesStyle,
   setQuery,
   setSortingCol,
+  setCurrentPage,
 }: CoursesTopSectionProps) => {
   const darkMode = useDarkModeSelector();
 
@@ -59,7 +61,11 @@ const CoursesTopSection = ({
           </button>
         </div>
         <div className="w-[65%]">
-          <SearchBox placeholder="چی میخوای یاد بگیری ؟" setQuery={setQuery} />
+          <SearchBox
+            placeholder="چی میخوای یاد بگیری ؟"
+            setQuery={setQuery}
+            setCurrentPage={setCurrentPage}
+          />
         </div>
         <div className="w-[94%] lg:w-[20%]">
           <div className="customSelectBoxWrapper">

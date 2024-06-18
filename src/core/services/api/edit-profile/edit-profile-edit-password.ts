@@ -10,7 +10,7 @@ export const editPasswordAPI = async (
       newPassword,
     });
 
-    return response;
+    return response.data;
   } catch (error) {
     return false;
   }
