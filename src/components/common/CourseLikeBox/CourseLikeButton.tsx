@@ -1,7 +1,7 @@
-import { useState } from "react";
 import { RiHeart3Fill, RiHeart3Line } from "react-icons/ri";
 
-import useAddCourseFavorite from "../../../hooks/useAddCourseFavorite";
+import { useAddCourseFavorite } from "../../../hooks/useAddCourseFavorite";
+import { useDeleteFavoriteCourse } from "../../../hooks/useDeleteFavoriteCourse";
 
 interface CourseLikeButtonProps {
   classes?: string;
@@ -16,12 +16,13 @@ const CourseLikeButton = ({
   courseId,
   isCourseFavorite,
 }: CourseLikeButtonProps) => {
-  const [isUserFavorite, setIsUserFavorite] = useState(false);
-
   const addCourseFavorite = useAddCourseFavorite();
+  const deleteFavoriteCourse = useDeleteFavoriteCourse();
 
   const handleCourseLikeBox = () => {
-    addCourseFavorite.mutate(courseId);
+    isCourseFavorite
+      ? deleteFavoriteCourse.mutate(courseFavoriteCourseId)
+      : addCourseFavorite.mutate(courseId);
   };
 
   return (

@@ -27,4 +27,4 @@ const useAddCourseFavorite = () => {
   });
 };
 
-export default useAddCourseFavorite;
+export { useAddCourseFavorite };
