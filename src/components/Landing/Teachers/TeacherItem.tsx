@@ -14,7 +14,12 @@ const TeacherItem = ({ teacher }: { teacher: TeacherItemsInterface }) => {
       <div className="w-full flex flex-col justify-center items-center">
         <div className="relative">
           <img
-            src={teacher.pictureAddress || blankThumbnail}
+            src={
+              teacher.pictureAddress === "Not-set" ||
+              teacher.pictureAddress === "undefined"
+                ? blankThumbnail
+                : teacher.pictureAddress
+            }
             className="w-[280px] h-[290px] rounded-[15px] object-cover m-5"
           />
           <div className="landingTeacherItemCoursesCount">

@@ -26,7 +26,7 @@ const LandingBlogItemsMapped = () => {
         );
 
         const getFirstNews = getNews.news.slice(0);
-        const getSecondThirdNews = getNews.news.slice(1, 3);
+        const getSecondThirdNews = getNews.news.slice(1, 4);
 
         setFirstNews(getFirstNews[0]);
         setSecondNews(getSecondThirdNews);
@@ -41,7 +41,7 @@ const LandingBlogItemsMapped = () => {
   return (
     <div>
       {firstNews && secondNews ? (
-        <div className="lg:flex gap-9 justify-between mt-7">
+        <div className="lg:flex gap-4 justify-between mt-7">
           <div>
             <BlogItemStyleTwo
               id={firstNews?.id!}

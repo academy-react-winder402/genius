@@ -12,9 +12,9 @@ const LandingHeroSectionFeatures = ({
   return (
     <div className="landingFeaturesWrapper">
       {landingHeroSectionFeaturesItems(
-        landingReport?.teacherCount,
-        landingReport?.courseCount,
-        landingReport?.studentCount
+        landingReport?.teacherCount || 0,
+        landingReport?.courseCount || 0,
+        landingReport?.studentCount || 0
       ).map((feature) => (
         <div key={feature.label} className="landingFeatureItem">
           <div className="landingFeatureItemImageWrapper">

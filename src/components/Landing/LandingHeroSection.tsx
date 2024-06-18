@@ -20,6 +20,7 @@ import { SearchBox } from "../common/SearchBox";
 import { Typewriter } from "../common/Typewriter";
 import { toast } from "../common/toast";
 import { LandingHeroSectionFeatures } from "./HeroSection/LandingHeroSectionFeatures";
+import { LandingSearchModal } from "./HeroSection/LandingSearchModal";
 
 const Transition = forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -121,68 +122,14 @@ const LandingHeroSection = () => {
           searchValue={searchValue}
           setSearchValue={setSearchValue}
         />
-        <Dialog
+        <LandingSearchModal
+          handleClickOpen={handleClickOpen}
           open={open}
-          TransitionComponent={Transition}
-          keepMounted
-          onClose={handleClose}
-          aria-describedby="alert-dialog-slide-description"
-          maxWidth="xl"
-          classes={{
-            paper: "min-h-[400px]",
-          }}
-        >
-          <DialogContent>
-            <Close
-              className="text-red absolute top-2 left-2 cursor-pointer"
-              onClick={handleClose}
-            />
-            <div className="mt-5">
-              <SearchBox
-                placeholder="چی میخوای یاد بگیری ؟"
-                display="flex justify-center items-center"
-                inputClasses="lg:w-[800px] shadow-primaryShadow"
-                isLanding={true}
-                onKeyUp={handleClickOpen}
-                searchValue={searchValue}
-                setSearchValue={setSearchValue}
-              />
-              <h2 className="font-bold mt-5">
-                نتایج جستجوجوی شما :{" "}
-                {searchCourses && searchCourses.length + " دوره"}
-              </h2>
-              <div className="flex flex-col gap-4">
-                <div className="grid lg:grid-cols-2 gap-3 mt-5">
-                  {searchCourses &&
-                    searchCourses.map((course) => (
-                      <div key={course.courseId} className="flex gap-3">
-                        <Link to={`/courses/${course.courseId}`}>
-                          <img
-                            src={course.tumbImageAddress}
-                            className="w-[100px] h-[70px] rounded-md"
-                          />
-                        </Link>
-                        <div>
-                          <Link to={`/courses/${course.courseId}`}>
-                            <h4 className="font-bold">{course.title}</h4>
-                          </Link>
-                          <span>
-                            <span className="mr-2">مدرس دوره :</span>{" "}
-                            {course.teacherName}
-                          </span>
-                        </div>
-                      </div>
-                    ))}
-                </div>
-                {searchCourses?.length !== 0 && (
-                  <Link to="/courses" className="text-primaryColor underline">
-                    نمایش بیشتر
-                  </Link>
-                )}
-              </div>
-            </div>
-          </DialogContent>
-        </Dialog>
+          searchCourses={searchCourses}
+          searchValue={searchValue}
+          setOpen={setOpen}
+          setSearchValue={setSearchValue}
+        />
         <LandingHeroSectionFeatures landingReport={landingReport!} />
       </div>
     </div>

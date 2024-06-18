@@ -24,7 +24,9 @@ const TeachersSlider = () => {
       try {
         const getTeachers = await getTeachersAPI();
 
-        setTeachers(getTeachers);
+        const getSlicedTeachers = getTeachers.slice(0, 6);
+
+        setTeachers(getSlicedTeachers);
       } catch (error) {
         toast.error("مشکلی در دریافت اساتید به وجود آمد !");
       }

@@ -1,5 +1,6 @@
 import { SyntheticEvent } from "react";
-import { toast } from "../toast";
+
+import { Rating as CommonRating } from "@mui/material";
 
 import emptyRatingIcon from "../../../assets/images/CourseDetails/Icons/star-empty.svg";
 import ratingIcon from "../../../assets/images/CourseDetails/Icons/star.svg";
