@@ -1,22 +1,26 @@
-import { Dispatch, SetStateAction } from "react";
-import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
+import Tab from "@mui/material/Tab";
 import Tabs from "@mui/material/Tabs";
+import { Dispatch, SetStateAction } from "react";
+
+import { BLOGS_SORT_TABS } from "../../../core/data/blogs/blogs-sort-tabs.data";
 
 import { SearchBox } from "../../common/SearchBox";
 
 interface BlogsTopSectionProps {
+  sort: string | undefined;
   setQuery: Dispatch<SetStateAction<string | undefined>>;
   setSort: Dispatch<SetStateAction<string | undefined>>;
   setSortType: Dispatch<SetStateAction<string>>;
-  sort: string | undefined;
+  setCurrentPage: Dispatch<SetStateAction<number>>;
 }
 
 const BlogsTopSection = ({
+  sort,
   setQuery,
   setSort,
   setSortType,
-  sort,
+  setCurrentPage,
 }: BlogsTopSectionProps) => {
   const handleChange = (event: any, newValue: string) => {
     setSort(newValue);
@@ -30,6 +34,7 @@ const BlogsTopSection = ({
             placeholder="دنبال چی میگردی"
             isBlogs={true}
             setQuery={setQuery}
+            setCurrentPage={setCurrentPage}
           />
         </div>
         <div className="w-[92%] lg:w-auto">
@@ -42,50 +47,29 @@ const BlogsTopSection = ({
                   indicator: "hidden",
                 }}
               >
-                <Tab
-                  value=""
-                  label="همه"
-                  classes={{
-                    root: "blogsSortTab",
-                    selected: "blogsSortActiveTab",
-                  }}
-                />
-                <Tab
-                  value="currentRate"
-                  label="محبوب‌ترین‌ها"
-                  classes={{
-                    root: "blogsSortTab",
-                    selected: "blogsSortActiveTab",
-                  }}
-                />
-                <Tab
-                  value="isActive"
-                  label="فعال"
-                  classes={{
-                    root: "blogsSortTab",
-                    selected: "blogsSortActiveTab",
-                  }}
-                />
-                <Tab
-                  value="updateDate"
-                  label="جدیدترین‌ها"
-                  classes={{
-                    root: "blogsSortTab",
-                    selected: "blogsSortActiveTab",
-                  }}
-                />
+                {BLOGS_SORT_TABS.map((tab) => (
+                  <Tab
+                    key={tab.value}
+                    value={tab.value}
+                    label={tab.label}
+                    classes={{
+                      root: "blogsSortTab",
+                      selected: "blogsSortActiveTab",
+                    }}
+                  />
+                ))}
               </Tabs>
             </Box>
           </div>
         </div>
       </div>
-      <div className="w-[16%] customSelectBoxWrapper">
+      <div className="w-[92%] lg:w-[16%] customSelectBoxWrapper">
         <select
           className="customSelectBox"
           onChange={(e) => setSortType(e.target.value)}
         >
-          <option value="ASC">صعودی</option>
           <option value="DESC">نزولی</option>
+          <option value="ASC">صعودی</option>
         </select>
       </div>
     </div>

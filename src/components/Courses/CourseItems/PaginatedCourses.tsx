@@ -28,6 +28,7 @@ const PaginatedCourses = ({
   const handlePageClick = (event: any) => {
     setCurrentPage(event.selected);
   };
+
   return (
     <div className="paginatedCoursesWrapper">
       <div className="paginatedCourses">

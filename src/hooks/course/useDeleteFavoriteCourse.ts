@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { toast } from "react-toastify";
 
-import http from "../core/services/interceptor";
+import http from "../../core/services/interceptor";
 
 const useDeleteFavoriteCourse = () => {
   const queryClient = useQueryClient();

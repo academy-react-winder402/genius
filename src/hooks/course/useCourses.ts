@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 
-import http from "../core/services/interceptor";
+import http from "../../core/services/interceptor";
 
 const useCourses = (
   pageNumber: number | undefined,

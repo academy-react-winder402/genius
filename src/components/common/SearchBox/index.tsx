@@ -38,7 +38,8 @@ const SearchBox = ({
   const searchBoxOnChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchValue && setSearchValue(e.target.value);
     textTimeOut(() => {
-      setCurrentPage && setCurrentPage(1);
+      0;
+      setCurrentPage && setCurrentPage(0);
       setQuery && setQuery(e.target.value);
       setIsValueChanged && setIsValueChanged(true);
     }, 800);
