@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { toast } from "react-toastify";
 
-import http from "../core/services/interceptor";
+import http from "../../core/services/interceptor";
 
 const useDeleteFavoriteCourse = () => {
   const queryClient = useQueryClient();
@@ -23,6 +23,9 @@ const useDeleteFavoriteCourse = () => {
     onSuccess: () => {
       queryClient.invalidateQueries({
         queryKey: ["courses"],
+      });
+      queryClient.invalidateQueries({
+        queryKey: ["course-top"],
       });
 
       toast.success("دوره با موفقیت از علاقه مندی های شما حذف شد");

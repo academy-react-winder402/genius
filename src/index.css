@@ -57,7 +57,7 @@
     @apply mt-10 w-[90%] lg:w-[296px] pb-3 lg:pb-0 lg:h-[389px] rounded-[24px] shadow-primaryShadow px-4;
   }
   .courseItemS2 {
-    @apply courseItem mt-0 dark:bg-gray-900;
+    @apply courseItem w-full lg:w-[296px] mt-0 dark:bg-gray-900;
   }
   .courseItemImage {
     @apply w-[350px] lg:w-auto lg:h-[180px] max-h-[220px] lg:max-h-max object-cover rounded-[20px] mt-[16px] cursor-pointer;
@@ -123,7 +123,7 @@
     @apply bg-white dark:bg-gray-800 w-[40px] h-[40px] flex justify-center items-center rounded-[16px];
   }
   .customSelectBoxWrapper {
-    @apply relative after:content-[''] after:absolute after:top-1 after:left-3 after:bg-coursesSelectOptionBackground after:dark:bg-coursesSelectOptionBackgroundDark after:w-[40px] after:h-[40px] after:bg-no-repeat after:bg-left before:absolute before:top-3 before:right-3 before:bg-coursesSelectOptionSort before:dark:bg-coursesSelectOptionSortDark before:w-[24px] before:h-[24px];
+    @apply relative after:content-[''] after:absolute after:top-1 after:left-2 after:bg-coursesSelectOptionBackground after:dark:bg-coursesSelectOptionBackgroundDark after:w-[40px] after:h-[40px] after:bg-no-repeat after:bg-left before:absolute before:top-3 before:right-3 before:bg-coursesSelectOptionSort before:dark:bg-coursesSelectOptionSortDark before:w-[24px] before:h-[24px] mr-[1.1rem];
   }
   .customSelectBox {
     @apply w-full h-[50px] pr-10 rounded-[16px] outline-none appearance-none dark:bg-gray-900;
@@ -303,7 +303,7 @@
     @apply font-[500] text-text2 dark:text-darkText text-justify mt-3 w-[72%];
   }
   .blogsHeroSectionDot {
-    @apply absolute top-2 lg:-top-10 left-44;
+    @apply hidden lg:block absolute top-2 lg:-top-10 left-44;
   }
   .blogsSearchSortWrapper {
     @apply flex flex-col lg:flex-row justify-center items-center gap-4 mt-4 lg:mt-0;
@@ -313,6 +313,9 @@
   }
   .blogAllSeasCreatedAt {
     @apply font-[400] text-[14px] text-primaryColor mt-1;
+  }
+  .blogsSkeletonWrapper {
+    @apply flex flex-col lg:flex-row justify-center gap-7 lg:w-[1280px] mt-7 mr-2;
   }
   /* Courses */
   .coursesHeroSection {
@@ -528,7 +531,7 @@
   }
   /* Form */
   .formFieldWrapperAndPaginatedWrapper {
-    @apply flex flex-col gap-4 mt-5;
+    @apply flex flex-col flex-wrap gap-4 mt-5 lg:w-[1280px];
   }
   /* Pagination */
   .paginationWrapper {

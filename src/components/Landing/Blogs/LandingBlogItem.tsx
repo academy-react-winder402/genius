@@ -13,7 +13,7 @@ const LandingBlogItem = ({ blog }: { blog: BlogInterface }) => {
   const formattedUpdatedAt = convertDateToPersian(blog.updateDate);
 
   return (
-    <div className="flex flex-col lg:flex-row gap-4 px-4 lg:px-0">
+    <div className="flex flex-col lg:flex-row items-center gap-4 px-4 lg:px-0">
       <div>
         <Link to={`/blogs/${blog.id}`}>
           <img
@@ -31,7 +31,7 @@ const LandingBlogItem = ({ blog }: { blog: BlogInterface }) => {
       </div>
       <div>
         <div className="flex flex-col gap-2">
-          <h3 className="font-[700] text-[20px] text-text1 dark:text-darkText cursor-pointer mt-1">
+          <h3 className="font-[700] text-[20px] text-text1 dark:text-darkText cursor-pointer mt-1 lg:w-[300px]">
             <Link to={`/blogs/${blog.id}`}>{blog.title}</Link>
           </h3>
           <p className="font-[500] lg:text-[14px] text-text2 dark:text-darkText lg:w-[81%] text-justify">

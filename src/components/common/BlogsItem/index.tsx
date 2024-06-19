@@ -1,10 +1,10 @@
-import { BlogItemInterface } from "../../../types/blog-items";
+import { BlogInterface } from "../../../types/blog-items";
 
 import clockIcon from "../../../assets/images/Blogs/eye.svg";
 import calenderIcon from "../../../assets/images/Blogs/calendar.svg";
 
 interface BlogItemProps {
-  blog: BlogItemInterface;
+  blog: BlogInterface;
 }
 
 const BlogItem = ({ blog }: BlogItemProps) => {

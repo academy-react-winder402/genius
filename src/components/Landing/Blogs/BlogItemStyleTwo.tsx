@@ -44,7 +44,7 @@ const BlogItemStyleTwo = ({
       <h3 className="font-[700] text-[20px] lg:text-[32px] text-text1 dark:text-darkText cursor-pointer">
         <Link to={`/blogs/${id}`}>{title}</Link>
       </h3>
-      <p className="font-[500] text-text2 dark:text-darkText text-justify w-[650px]">
+      <p className="font-[500] text-text2 dark:text-darkText text-justify lg:w-[650px]">
         {description}
       </p>
     </div>

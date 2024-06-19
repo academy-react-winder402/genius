@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
 
-import useCourses from "../../hooks/useCourses";
+import useCourses from "../../hooks/course/useCourses";
 
 import { CoursesHeroSection } from "../Courses/CoursesHeroSection";
 import { PaginatedCourses } from "./CourseItems/PaginatedCourses";
@@ -39,7 +39,7 @@ const Courses = () => {
     teacherId
   );
 
-  if (error) toast.error(error.message);
+  if (error) toast.error("مشکلی در دریافت دوره ها به وجود آمد !");
 
   return (
     <>

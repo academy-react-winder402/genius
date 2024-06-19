@@ -23,4 +23,5 @@ export interface CourseInterface {
   tumbImageAddress: string;
   lastUpdate: string;
   courseId: string;
+  isUserFavorite: boolean;
 }
