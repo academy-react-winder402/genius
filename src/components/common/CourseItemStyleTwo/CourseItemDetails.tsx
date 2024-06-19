@@ -1,4 +1,6 @@
-import { CourseItemsInterface } from "../../../types/course-items";
+import { convertDateToPersian } from "../../../core/utils/date-helper.utils";
+
+import { CourseInterface } from "../../../types/courses";
 
 import { useDarkModeSelector } from "../../../redux/darkMode";
 
@@ -16,33 +18,34 @@ import studentsDarkIcon from "../../../assets/images/Courses/Icons/profile-user-
 import teacherDarkIcon from "../../../assets/images/Courses/Icons/teacher-dark.svg";
 
 interface CourseItemDetailsProps {
-  course: CourseItemsInterface;
+  course: CourseInterface;
 }
 
 const CourseItemDetails = ({ course }: CourseItemDetailsProps) => {
   const darkMode = useDarkModeSelector();
+  const formattedLastUpdateDate = convertDateToPersian(course.lastUpdate);
 
   return (
     <div className="courseItemStyleTwoDetailsWrapper">
       <CourseItemDetailItem
-        imageURL={darkMode === true ? teacherDarkIcon : teacherIcon}
+        imageURL={darkMode ? teacherDarkIcon : teacherIcon}
         label={course.teacherName}
       />
       <CourseItemDetailItem
-        imageURL={darkMode === true ? studentsDarkIcon : studentsIcon}
-        label={`${course.studentsCount} دانش‌آموز`}
+        imageURL={darkMode ? studentsDarkIcon : studentsIcon}
+        label={`${course.commandCount} دانش‌آموز`}
       />
       <CourseItemDetailItem
-        imageURL={darkMode === true ? lessonsDarkIcon : lessonsIcon}
-        label={`${course.lessonsCount} درس`}
+        imageURL={darkMode ? lessonsDarkIcon : lessonsIcon}
+        label={`${course.commandCount} درس`}
       />
       <CourseItemDetailItem
-        imageURL={darkMode === true ? clockDarkIcon : clockIcon}
-        label={`${course.hour} ساعت`}
+        imageURL={darkMode ? clockDarkIcon : clockIcon}
+        label={`${course.commandCount} ساعت`}
       />
       <CourseItemDetailItem
-        imageURL={darkMode === true ? calenderDarkIcon : calenderIcon}
-        label={course.createdAt}
+        imageURL={darkMode ? calenderDarkIcon : calenderIcon}
+        label={formattedLastUpdateDate}
       />
     </div>
   );

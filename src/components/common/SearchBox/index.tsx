@@ -1,3 +1,7 @@
+import { ChangeEvent, Dispatch, SetStateAction } from "react";
+
+import { useTimeOut } from "../../../hooks/useTimeOut";
+
 import searchIcon from "../../../assets/images/Landing/search.svg";
 
 interface SearchBoxProps {
@@ -7,6 +11,12 @@ interface SearchBoxProps {
   display?: string;
   isLanding?: boolean;
   isBlogs?: boolean;
+  searchValue?: string | undefined;
+  setQuery?: Dispatch<SetStateAction<string | undefined>>;
+  setIsValueChanged?: Dispatch<SetStateAction<boolean>>;
+  onKeyUp?: () => void;
+  setSearchValue?: Dispatch<SetStateAction<string | undefined>>;
+  setCurrentPage?: Dispatch<SetStateAction<number>>;
 }
 
 const SearchBox = ({
@@ -16,7 +26,24 @@ const SearchBox = ({
   display,
   isLanding,
   isBlogs,
+  searchValue,
+  setQuery,
+  setIsValueChanged,
+  onKeyUp,
+  setSearchValue,
+  setCurrentPage,
 }: SearchBoxProps) => {
+  const textTimeOut = useTimeOut();
+
+  const searchBoxOnChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setSearchValue && setSearchValue(e.target.value);
+    textTimeOut(() => {
+      setCurrentPage && setCurrentPage(1);
+      setQuery && setQuery(e.target.value);
+      setIsValueChanged && setIsValueChanged(true);
+    }, 800);
+  };
+
   return (
     <div className={`${display} ${isMarginTop ? "mt-10" : ""}`}>
       <div className="relative w-[100%] lg:w-auto flex justify-center">
@@ -26,6 +53,9 @@ const SearchBox = ({
             isBlogs === true &&
             "lg:!w-[779px] !shadow-courseDetailsHeroSectionSearchBoxShadow"
           } ${isLanding === true ? "dark:!bg-gray-800" : "dark:bg-gray-900"}`}
+          onChange={searchBoxOnChange}
+          onKeyUp={onKeyUp}
+          value={searchValue}
         />
         <img src={searchIcon} className="absolute left-6 lg:left-4 top-3" />
       </div>

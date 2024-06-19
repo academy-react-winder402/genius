@@ -1,6 +1,7 @@
 import { useState } from "react";
+import { toast } from "react-toastify";
 
-import { courseItems } from "../../core/data/courses/courseItems";
+import useCourses from "../../hooks/useCourses";
 
 import { CoursesHeroSection } from "../Courses/CoursesHeroSection";
 import { PaginatedCourses } from "./CourseItems/PaginatedCourses";
@@ -9,29 +10,81 @@ import { FilterTitleTrash } from "./CoursesFilter/FilterTitleTrash";
 import { CoursesTopSection } from "./CoursesTopSection";
 
 const Courses = () => {
-  const [coursesStyle, setCoursesStyle] = useState<number>(1);
+  const [coursesStyle, setCoursesStyle] = useState(1);
+  const [query, setQuery] = useState<string>();
+  const [currentPage, setCurrentPage] = useState(0);
+  const [sortingCol, setSortingCol] = useState<string>();
+  const [listTechState, setListTechState] = useState<string[]>([]);
+  const [teacherId, setTeacherId] = useState<number>();
+  const [courseLevel, setCourseLevel] = useState<number>();
+  const [courseTypeId, setCourseTypeId] = useState<number>();
+  const [costDown, setCostDown] = useState<number>();
+  const [costUp, setCostUp] = useState<number>();
+  const [sortType, setSortType] = useState<string>();
+
+  const { data, error } = useCourses(
+    currentPage,
+    9,
+    sortingCol,
+    sortType,
+    query ? query : undefined,
+    costDown,
+    costUp,
+    listTechState.length > 0 ? 1 : undefined,
+    listTechState.length > 0 ? listTechState.toString() : undefined,
+    courseLevel,
+    courseTypeId,
+    undefined,
+    undefined,
+    teacherId
+  );
+
+  if (error) toast.error(error.message);
 
   return (
     <>
       <CoursesHeroSection />
-      <div className="flex flex-col lg:flex-row justify-center gap-x-5 w-[90%] mx-auto mt-32 px-5 lg:px-0">
-        <div className="lg:w-[296px] h-[98%] rounded-[24px] shadow-primaryShadow py-4 bg-white dark:bg-gray-900 hidden lg:block">
+      <div className="coursesMainSection">
+        <div className="coursesFilterSectionWrapper">
           <div className="px-2">
-            <FilterTitleTrash />
+            <FilterTitleTrash
+              setSortingCol={setSortingCol}
+              setListTechState={setListTechState}
+              setTeacherId={setTeacherId}
+              setCourseLevel={setCourseLevel}
+              setCourseTypeId={setCourseTypeId}
+              setCostDown={setCostDown}
+              setCostUp={setCostUp}
+              setSortType={setSortType}
+            />
           </div>
           <div className="mt-4">
-            <Filters />
+            <Filters
+              setListTechState={setListTechState}
+              setTeacherId={setTeacherId}
+              setQuery={setQuery}
+              setCourseLevel={setCourseLevel}
+              setCourseTypeId={setCourseTypeId}
+              setCostDown={setCostDown}
+              setCostUp={setCostUp}
+              setSortType={setSortType}
+            />
           </div>
         </div>
         <div className="lg:w-[957px] mt-3">
           <CoursesTopSection
             coursesStyle={coursesStyle}
             setCoursesStyle={setCoursesStyle}
+            setQuery={setQuery}
+            setSortingCol={setSortingCol}
+            setCurrentPage={setCurrentPage}
           />
           <PaginatedCourses
-            courses={courseItems}
+            courses={data?.courseFilterDtos}
+            totalCount={data?.totalCount}
             itemsPerPage={9}
             coursesStyle={coursesStyle}
+            setCurrentPage={setCurrentPage}
           />
         </div>
       </div>

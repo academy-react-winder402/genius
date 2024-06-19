@@ -25,6 +25,7 @@ export default {
         dashboardHoverMenuItem: "#0000001A",
         dashboardTitleBox: "#ECEFF1",
         dashboardDarkMode: "#FFFFFF33",
+        landingServicesBox: "rgb(36 42 56 / 1)",
       },
       backgroundImage: {
         headerBg: "url('/src/assets/images/Header/header-bg.png')",

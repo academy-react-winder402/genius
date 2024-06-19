@@ -1,34 +1,39 @@
-import { commentItems } from "../../../core/data/comments/comment-items";
+import { useEffect, useState } from "react";
 
-import { CommentItem } from "./CommentItem";
+import { getCourseCommentsAPI } from "../../../core/services/api/course/comments/get-course-comments.api";
 
-const Comments = () => {
+import { CommentInterface } from "../../../types/comment";
+
+import { toast } from "../toast";
+import { PaginatedComments } from "./PaginatedComments";
+
+interface CommentsProps {
+  courseId: string;
+}
+
+const Comments = ({ courseId }: CommentsProps) => {
+  const [comments, setComments] = useState<CommentInterface[]>();
+
+  useEffect(() => {
+    const fetchComments = async () => {
+      try {
+        const getComments = await getCourseCommentsAPI(courseId);
+
+        setComments(getComments);
+      } catch (error) {
+        toast.error("مشکلی در دریافت نظرات به وجود آمد !");
+      }
+    };
+
+    fetchComments();
+  }, []);
+
   return (
-    <div className="mt-7 flex flex-col gap-7">
-      {commentItems.map((comment) => (
-        <>
-          <CommentItem
-            key={comment.id}
-            avatarImage={comment.image}
-            createdAt={comment.createdAt}
-            name={comment.title}
-            message={comment.message}
-            isChildren={comment.isChildren}
-          />
-          {comment.children?.map((childMessage) => (
-            <CommentItem
-              key={childMessage.id}
-              avatarImage={childMessage.image}
-              createdAt={childMessage.createdAt}
-              name={childMessage.title}
-              message={childMessage.message}
-              isChildren={childMessage.isChildren}
-            />
-          ))}
-        </>
-      ))}
-      <span className="showMoreComments">مشاهده 12 نظر دیگر</span>
-    </div>
+    <PaginatedComments
+      comments={comments}
+      courseId={courseId}
+      itemsPerPage={5}
+    />
   );
 };
 

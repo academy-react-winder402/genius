@@ -19,7 +19,7 @@ const CourseTeacher = ({
   return (
     <div className="courseDetailsTeacherBox">
       <div>
-        <img src={teacherImage} />
+        <img src={teacherImage} className="w-[90px] h-[90px] rounded-full" />
       </div>
       <div>
         <div className="flex gap-1">

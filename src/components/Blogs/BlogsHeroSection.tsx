@@ -1,7 +1,8 @@
-import { useDarkModeSelector } from "../../redux/darkMode";
+import { Typewriter } from "../common/Typewriter";
 
 import dotIcon from "../../assets/images/Blogs/dot.svg";
 import heroSectionLeftImage from "../../assets/images/Blogs/blogs-hero-section-left-image.svg";
+import { typeWriterOptions } from "../../core/data/typewriter-options";
 
 const BlogsHeroSection = () => {
   return (
@@ -9,7 +10,12 @@ const BlogsHeroSection = () => {
       <div className="relative z-50">
         <img src={dotIcon} className="blogsHeroSectionDot" />
         <div className="relative pr-20 lg:pr-14 mt-10">
-          <h1 className="blogsTitle">اخبار و مقالات نابغه</h1>
+          <h1 className="blogsTitle">
+            <Typewriter options={typeWriterOptions(["اخبار و مقالات نابغه"])} />
+            <div className="hidden dark:flex justify-center relative">
+              <div className="bg-[blue] blur-[150px] w-[130px] h-[130px] rounded-full absolute top-0" />
+            </div>
+          </h1>
           <p className="blogsDescription">
             آموزش برنامه نویسی یکی از دوره‌های محبوب در حوزه فناوری اطلاعات است.
             برنامه نویسی مهارتی است که به افراد امکان می‌دهد تا نرم‌افزارهای
