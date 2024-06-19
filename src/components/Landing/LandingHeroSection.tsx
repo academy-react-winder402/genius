@@ -1,12 +1,14 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { typeWriterOptions } from "../../core/data/typewriter-options";
 
 import { useDarkModeSelector } from "../../redux/darkMode";
 
 import useCourses from "../../hooks/course/useCourses";
-
 import { useLandingReport } from "../../hooks/landing/useLandingReport";
+
+import { CourseInterface } from "../../types/courses";
+
 import { SearchBox } from "../common/SearchBox";
 import { Typewriter } from "../common/Typewriter";
 import { LandingHeroSectionFeatures } from "./HeroSection/LandingHeroSectionFeatures";
@@ -14,6 +16,9 @@ import { LandingSearchModal } from "./HeroSection/LandingSearchModal";
 
 const LandingHeroSection = () => {
   const [open, setOpen] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [courses, setCourses] = useState<CourseInterface[]>([]);
+  const [hasMore, setHasMore] = useState(true);
   const [searchValue, setSearchValue] = useState<string>();
 
   const handleClickOpen = () => {
@@ -21,7 +26,7 @@ const LandingHeroSection = () => {
   };
 
   const { data } = useCourses(
-    1,
+    currentPage,
     5,
     undefined,
     "DESC",
@@ -37,8 +42,20 @@ const LandingHeroSection = () => {
     undefined
   );
 
-  const darkMode = useDarkModeSelector();
+  useEffect(() => {
+    if (data && data.length < 5) {
+      setHasMore(false);
+    }
+    if (data) {
+      setCourses((prevCourses) => [...prevCourses, ...data.courseFilterDtos]);
+    }
+  }, [data]);
 
+  const fetchMoreData = () => {
+    setCurrentPage((prevPage) => prevPage + 1);
+  };
+
+  const darkMode = useDarkModeSelector();
   const { data: landingReport } = useLandingReport();
 
   return (
@@ -78,10 +95,12 @@ const LandingHeroSection = () => {
         <LandingSearchModal
           handleClickOpen={handleClickOpen}
           open={open}
-          searchCourses={data?.courseFilterDtos}
+          searchCourses={courses}
           searchValue={searchValue}
           setOpen={setOpen}
           setSearchValue={setSearchValue}
+          fetchMoreData={fetchMoreData}
+          hasMore={hasMore}
         />
         <LandingHeroSectionFeatures landingReport={landingReport} />
       </div>
