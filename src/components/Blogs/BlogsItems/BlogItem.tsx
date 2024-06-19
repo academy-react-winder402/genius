@@ -1,5 +1,5 @@
 import { convertDateToPersian } from "../../../core/utils/date-helper.utils";
-import { BlogItemInterface } from "../../../types/blog-item";
+import { BlogInterface } from "../../../types/blog";
 
 import { BlogSeasCreatedAt } from "../../common/BlogSeasCreatedAt";
 import { Link } from "../../common/Link";
@@ -7,7 +7,7 @@ import { Link } from "../../common/Link";
 import blankThumbnail from "../../../assets/images/Courses/blank-thumbnail.jpg";
 
 interface BlogItemProps {
-  blog: BlogItemInterface;
+  blog: BlogInterface;
 }
 
 const BlogItem = ({ blog }: BlogItemProps) => {

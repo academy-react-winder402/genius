@@ -1,6 +1,6 @@
-import { BlogItemInterface } from "../../../types/blog-items";
+import { BlogInterface } from "../../../types/blog-items";
 
-export const blogItems: BlogItemInterface[] = [
+export const blogItems: BlogInterface[] = [
   {
     id: 1,
     image: "/src/assets/images/Blogs/items/p1.png",

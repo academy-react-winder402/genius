@@ -2,10 +2,10 @@ import { useQuery } from "@tanstack/react-query";
 
 import http from "../../core/services/interceptor";
 
-import { BlogItemInterface } from "../../types/blog-item";
+import { BlogInterface } from "../../types/blog";
 
 interface News {
-  news: BlogItemInterface[];
+  news: BlogInterface[];
   totalCount: number;
 }
 
@@ -17,7 +17,7 @@ const useNews = (
   query: string | undefined,
   newsCategoryId: number | undefined
 ) => {
-  return useQuery({
+  return useQuery<News, Error>({
     queryKey: [
       "news",
       pageNumber,

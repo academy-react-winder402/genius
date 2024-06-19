@@ -1,13 +1,13 @@
 import { Dispatch, SetStateAction } from "react";
 
-import { BlogItemInterface } from "../../../types/blog-item";
+import { BlogInterface } from "../../../types/blog";
 
 import { Pagination } from "../../common/Pagination";
 import { BlogItem } from "./BlogItem";
 import { BlogItemSkeletonStyleTwo } from "./BlogItemSkeletonStyleTwo";
 
 interface PaginatedBlogsProps {
-  blogs: BlogItemInterface[];
+  blogs: BlogInterface[];
   totalCount: number;
   itemsPerPage: number;
   setCurrentPage: Dispatch<SetStateAction<number>>;

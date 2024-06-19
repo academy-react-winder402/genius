@@ -57,7 +57,7 @@
     @apply mt-10 w-[90%] lg:w-[296px] pb-3 lg:pb-0 lg:h-[389px] rounded-[24px] shadow-primaryShadow px-4;
   }
   .courseItemS2 {
-    @apply courseItem mt-0 dark:bg-gray-900;
+    @apply courseItem w-full lg:w-[296px] mt-0 dark:bg-gray-900;
   }
   .courseItemImage {
     @apply w-[350px] lg:w-auto lg:h-[180px] max-h-[220px] lg:max-h-max object-cover rounded-[20px] mt-[16px] cursor-pointer;
