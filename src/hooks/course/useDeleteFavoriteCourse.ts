@@ -24,6 +24,9 @@ const useDeleteFavoriteCourse = () => {
       queryClient.invalidateQueries({
         queryKey: ["courses"],
       });
+      queryClient.invalidateQueries({
+        queryKey: ["course-top"],
+      });
 
       toast.success("دوره با موفقیت از علاقه مندی های شما حذف شد");
     },
