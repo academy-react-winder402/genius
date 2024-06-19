@@ -1,92 +1,45 @@
-import { forwardRef, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import Dialog from "@mui/material/Dialog";
-import DialogContent from "@mui/material/DialogContent";
-import Slide from "@mui/material/Slide";
-import { Close } from "@mui/icons-material";
+import { useState } from "react";
 
 import { typeWriterOptions } from "../../core/data/typewriter-options";
-import { landingReportAPI } from "../../core/services/api/landing/landing-report.api";
-
-import { LandingReportInterface } from "../../types/landing-report";
 
 import { useDarkModeSelector } from "../../redux/darkMode";
 
-import { getCourseWithPaginationAPI } from "../../core/services/api/course/get-course-with-pagination.api";
+import useCourses from "../../hooks/course/useCourses";
 
-import { CourseInterface } from "../../types/courses";
-
+import { useLandingReport } from "../../hooks/landing/useLandingReport";
 import { SearchBox } from "../common/SearchBox";
 import { Typewriter } from "../common/Typewriter";
-import { toast } from "../common/toast";
 import { LandingHeroSectionFeatures } from "./HeroSection/LandingHeroSectionFeatures";
 import { LandingSearchModal } from "./HeroSection/LandingSearchModal";
 
-const Transition = forwardRef(function Transition(props, ref) {
-  return <Slide direction="up" ref={ref} {...props} />;
-});
-
 const LandingHeroSection = () => {
-  const [landingReport, setLandingReport] = useState<LandingReportInterface>();
   const [open, setOpen] = useState(false);
   const [searchValue, setSearchValue] = useState<string>();
-  const [courses, setCourses] = useState<CourseInterface[]>();
-  const [searchCourses, setSearchCourses] = useState<CourseInterface[]>();
 
   const handleClickOpen = () => {
     setOpen(true);
   };
 
-  const handleClose = () => {
-    setOpen(false);
-  };
+  const { data } = useCourses(
+    1,
+    5,
+    undefined,
+    "DESC",
+    searchValue ? searchValue : undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined
+  );
 
   const darkMode = useDarkModeSelector();
 
-  const fetchCourses = async () => {
-    try {
-      const getCourses = await getCourseWithPaginationAPI(
-        1,
-        5,
-        undefined,
-        "DESC",
-        searchValue ? searchValue : undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined
-      );
-
-      setCourses(getCourses.courseFilterDtos);
-    } catch (error) {
-      toast.error("مشکلی در دریافت دوره ها به وجود آمد !");
-    }
-  };
-
-  useEffect(() => {
-    const fetchLandingReport = async () => {
-      try {
-        const getLandingReport = await landingReportAPI();
-
-        setLandingReport(getLandingReport);
-      } catch (error) {
-        toast.error("مشکلی در دریافت اطلاعات به وجود آمد !");
-      }
-    };
-
-    fetchLandingReport();
-    fetchCourses();
-  }, []);
-
-  useEffect(() => {
-    fetchCourses();
-    setSearchCourses(courses);
-  }, [searchValue]);
+  const { data: landingReport } = useLandingReport();
 
   return (
     <div
@@ -125,12 +78,12 @@ const LandingHeroSection = () => {
         <LandingSearchModal
           handleClickOpen={handleClickOpen}
           open={open}
-          searchCourses={searchCourses}
+          searchCourses={data?.courseFilterDtos}
           searchValue={searchValue}
           setOpen={setOpen}
           setSearchValue={setSearchValue}
         />
-        <LandingHeroSectionFeatures landingReport={landingReport!} />
+        <LandingHeroSectionFeatures landingReport={landingReport} />
       </div>
     </div>
   );

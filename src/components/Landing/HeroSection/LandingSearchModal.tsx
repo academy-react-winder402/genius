@@ -1,7 +1,7 @@
 import { Close } from "@mui/icons-material";
 import Dialog from "@mui/material/Dialog";
 import DialogContent from "@mui/material/DialogContent";
-import Slide from "@mui/material/Slide";
+import Slide, { SlideProps } from "@mui/material/Slide";
 import { Dispatch, SetStateAction, forwardRef } from "react";
 import { Link } from "react-router-dom";
 
@@ -20,7 +20,10 @@ interface LandingSearchModalProps {
   searchCourses: CourseInterface[] | undefined;
 }
 
-const Transition = forwardRef(function Transition(props, ref) {
+const Transition = forwardRef<unknown, SlideProps>(function Transition(
+  props,
+  ref
+) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
