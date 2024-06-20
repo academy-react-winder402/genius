@@ -91,7 +91,9 @@ const LikeDislike = ({
       </span>
       <div className="flex gap-2">
         <button
-          className={`likeDislikeButton ${isLike && "bg-green-400"}`}
+          className={`likeDislikeButton ${
+            isLike && "bg-green-400 dark:bg-green-900"
+          }`}
           onClick={handleLike}
         >
           <img src={darkMode ? likeDarkIcon : likeIcon} />

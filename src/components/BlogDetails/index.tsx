@@ -1,32 +1,28 @@
-import { useEffect, useState } from "react";
+import { SyntheticEvent } from "react";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
-import { getNewsByIdAPI } from "../../core/services/api/news/get-news-by-id";
+import { useNewsById } from "../../hooks/news/useNewsById";
+import { useNewsRate } from "../../hooks/news/useNewsRate";
+import { BlockInterface } from "../../types/block";
+
+import { addCommentNewsAPI } from "../../core/services/api/news/comments/add-comment-news.api";
+import { onFormData } from "../../core/utils/form-data-helper.utils";
+import { loadDescribe } from "../../core/utils/load-describe.utils";
+import { commentFormSchema } from "../../core/validations/comment-form.validation";
 
 import { CommentForm } from "../common/CommentForm";
 import { Comments } from "../common/Comments";
+import { NewsComments } from "../common/NewsComments";
 import { Satisfaction } from "../common/Satisfaction";
 import { BlogHeroSection } from "./BlogHeroSection";
 import { ShareBox } from "./ShareBox";
 
-import { addCommentNewsAPI } from "../../core/services/api/news/comments/add-comment-news.api";
-import { convertDateToPersian } from "../../core/utils/date-helper.utils";
-import { onFormData } from "../../core/utils/form-data-helper.utils";
-import { commentFormSchema } from "../../core/validations/comment-form.validation";
-import { BlogInterface } from "../../types/blog";
-import { NewsComments } from "../common/NewsComments";
-import { useNewsById } from "../../hooks/news/useNewsById";
-import { BlockInterface } from "../../types/block";
-import { loadDescribe } from "../../core/utils/load-describe.utils";
-
 const BlogDetails = () => {
-  const [likeCount, setLikeCount] = useState<number>();
-  const [disLikeCount, setDislikeCount] = useState<number>();
-
   const { blogId } = useParams();
 
   const { data, error } = useNewsById(blogId);
+  const addNewsRate = useNewsRate();
 
   if (error) toast.error("مشکلی در دریافت خبر به وجود آمد !");
 
@@ -40,9 +36,12 @@ const BlogDetails = () => {
     convertedDescribe = data?.detailsNewsDto.describe!;
   }
 
-  // const formattedUpdateDate = convertDateToPersian(
-  //   data?.detailsNewsDto.updateDate!
-  // );
+  const handleRateChange = async (
+    e: SyntheticEvent<Element, Event>,
+    newValue: number | null
+  ) => {
+    addNewsRate.mutate({ newsId: blogId!, rateNumber: newValue! });
+  };
 
   const onSubmit = async (e: { describe: string }) => {
     try {
@@ -81,9 +80,9 @@ const BlogDetails = () => {
             nameData="مقاله"
             likeCount={data?.detailsNewsDto.currentLikeCount!}
             disLikeCount={data?.detailsNewsDto.currentDissLikeCount!}
-            commentCount={0}
-            currentUserRateNumber={0}
-            handleRateChange={(e) => console.log(e)}
+            rateCount={data?.detailsNewsDto.currentRate!}
+            currentUserRateNumber={data?.detailsNewsDto.currentUserRateNumber!}
+            handleRateChange={handleRateChange}
             newsId={data?.detailsNewsDto.id}
             likeId={data?.detailsNewsDto.likeId!}
             isLike={data?.detailsNewsDto.currentUserIsLike!}

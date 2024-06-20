@@ -7,7 +7,7 @@ interface SatisfactionProps {
   nameData: string;
   likeCount: number;
   disLikeCount: number;
-  commentCount: number;
+  rateCount: number;
   courseId?: string;
   newsId?: string;
   currentUserRateNumber: number;
@@ -24,19 +24,19 @@ const Satisfaction = ({
   nameData,
   likeCount,
   disLikeCount,
-  commentCount,
+  rateCount,
   courseId,
   newsId,
   currentUserRateNumber,
   handleRateChange,
   likeId,
   isLike,
-  isDislike
+  isDislike,
 }: SatisfactionProps) => {
   return (
     <div className="satisfaction">
       <Rating
-        commentCount={commentCount}
+        rateCount={rateCount}
         currentUserRateNumber={currentUserRateNumber}
         handleRateChange={handleRateChange}
       />
