@@ -24,7 +24,11 @@ const LandingCoursesMapped = () => {
           </>
         ) : (
           data?.map((course: CourseInterface) => (
-            <CourseItem key={course.courseId} course={course} />
+            <CourseItem
+              key={course.courseId}
+              course={course}
+              isUserFavorite={course.isUserFavorite}
+            />
           ))
         )}
       </div>
