@@ -2,18 +2,17 @@ import { SyntheticEvent } from "react";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
+import { useAddNewsComment } from "../../hooks/news/comments/useAddNewsComment";
 import { useNewsById } from "../../hooks/news/useNewsById";
 import { useNewsRate } from "../../hooks/news/useNewsRate";
-import { BlockInterface } from "../../types/block";
 
-import { addCommentNewsAPI } from "../../core/services/api/news/comments/add-comment-news.api";
-import { onFormData } from "../../core/utils/form-data-helper.utils";
 import { loadDescribe } from "../../core/utils/load-describe.utils";
 import { commentFormSchema } from "../../core/validations/comment-form.validation";
 
+import { BlockInterface } from "../../types/block";
+
 import { CommentForm } from "../common/CommentForm";
 import { Comments } from "../common/Comments";
-import { NewsComments } from "../common/NewsComments";
 import { Satisfaction } from "../common/Satisfaction";
 import { BlogHeroSection } from "./BlogHeroSection";
 import { ShareBox } from "./ShareBox";
@@ -23,6 +22,7 @@ const BlogDetails = () => {
 
   const { data, error } = useNewsById(blogId);
   const addNewsRate = useNewsRate();
+  const addNewsComment = useAddNewsComment();
 
   if (error) toast.error("مشکلی در دریافت خبر به وجود آمد !");
 
@@ -43,23 +43,12 @@ const BlogDetails = () => {
     addNewsRate.mutate({ newsId: blogId!, rateNumber: newValue! });
   };
 
-  const onSubmit = async (e: { describe: string }) => {
-    try {
-      const formData = onFormData({
-        id: blogId,
-        title: e.describe,
-        describe,
-      });
-
-      const sendComment = await toast.promise(addCommentNewsAPI(formData), {
-        pending: "در حال ارسال نظر ...",
-      });
-
-      if (sendComment.success) toast.success("نظر شما با موفقیت ثبت شد !");
-      else toast.error("مشکلی در ارسال نظر به وجود آمد !");
-    } catch (error) {
-      toast.error("مشکلی در ارسال نظر به وجود آمد !");
-    }
+  const onSubmit = async (e: { title: string; describe: string }) => {
+    addNewsComment.mutate({
+      title: e.title,
+      describe: e.describe,
+      newsId: blogId!,
+    });
   };
 
   return (
@@ -92,12 +81,11 @@ const BlogDetails = () => {
             <h3 className="blogDetailsCommentsText">
               نظر کاربران درباره این مقاله
             </h3>
-            <NewsComments id={data?.detailsNewsDto.id!} />
             <CommentForm
               onSubmit={onSubmit}
               validationSchema={commentFormSchema}
             />
-            <Comments courseId={data?.detailsNewsDto.id!} />
+            <Comments newsId={blogId} />
           </div>
         </div>
       </div>

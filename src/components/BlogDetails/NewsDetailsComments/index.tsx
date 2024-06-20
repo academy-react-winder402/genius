@@ -1,40 +1,87 @@
-import { addCommentNewsAPI } from "../../../core/services/api/news/comments/add-comment-news.api";
-import { onFormData } from "../../../core/utils/form-data-helper.utils";
-import { addCommentFormSchema } from "../../../core/validations/add-comment.-formvalidation";
-import { AddComment } from "../../common/AddComment";
-import { NewsComments } from "../../common/NewsComments";
-import { toast } from "../../common/toast";
+import { useState } from "react";
 
-interface NewsDetailsComments {
-  Id: string;
+import { CommentInterface } from "../../../types/comment";
+
+import { CommentItem } from "./CommentsItem";
+import { convertDateToPersian } from "../../../core/utils/date-helper.utils";
+import { useNewsComments } from "../../../hooks/news/comments/useNewsComments";
+import { toast } from "react-toastify";
+
+interface CommentsProps {
+  id: string;
 }
 
-const NewsDetailsComments = ({ Id }: NewsDetailsComments) => {
-  const onSubmit = async (e: { describe: string }) => {
-    try {
-      const formData = onFormData({
-        Id,
-        title: e.describe,
-        describe,
-      });
+const NewsComments = ({ id }: CommentsProps) => {
+  const [replyComment, setReplyComment] = useState<CommentInterface[]>();
 
-      const sendComment = await toast.promise(addCommentNewsAPI(formData), {
-        pending: "در حال ارسال نظر ...",
-      });
+  const { data, error } = useNewsComments(id);
 
-      if (sendComment.success) toast.success("نظر شما با موفقیت ثبت شد !");
-      else toast.error("مشکلی در ارسال نظر به وجود آمد !");
-    } catch (error) {
-      toast.error("مشکلی در ارسال نظر به وجود آمد !");
-    }
-  };
+  if (error) toast.error("مشکلی در دریافت نظرات خبر به وجود آمد!");
 
   return (
-    <div className="mt-3">
-      <AddComment onSubmit={onSubmit} validationSchema={addCommentFormSchema} />
-      <NewsComments Id={Id} />
+    <div className="mt-7 flex flex-col gap-7">
+      {data &&
+        data.map((comment) => {
+          const {
+            id,
+            pictureAddress,
+            insertDate,
+            author,
+            describe,
+            likeCount,
+            currentUserLikeId,
+          } = comment;
+
+          const formattedInsertDate = convertDateToPersian(insertDate);
+
+          return (
+            <>
+              <CommentItem
+                key={id}
+                avatarImage={pictureAddress}
+                createdAt={formattedInsertDate}
+                name={author}
+                message={describe}
+                isChildren={false}
+                id={id}
+                commentId={id}
+                setReplyComment={setReplyComment}
+                likeCount={likeCount}
+                currentUserLikeId={currentUserLikeId}
+              />
+              {replyComment &&
+                replyComment?.map((reply) => {
+                  const {
+                    id,
+                    pictureAddress,
+                    insertDate,
+                    author,
+                    describe,
+                    likeCount,
+                    currentUserLikeId,
+                  } = reply;
+
+                  const formattedInsertDate = convertDateToPersian(insertDate);
+
+                  return (
+                    <CommentItem
+                      key={id}
+                      avatarImage={pictureAddress}
+                      createdAt={formattedInsertDate}
+                      name={author}
+                      message={describe}
+                      isChildren={true}
+                      likeCount={likeCount}
+                      commentId={id}
+                      currentUserLikeId={currentUserLikeId}
+                    />
+                  );
+                })}
+            </>
+          );
+        })}
     </div>
   );
 };
 
-export { NewsDetailsComments };
+export { NewsComments };

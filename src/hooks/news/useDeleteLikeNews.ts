@@ -17,11 +17,9 @@ const useDeleteLikeNews = (newsId: string) => {
     onMutate: () => toast.loading("در حال حذف لایک خبر ..."),
     onSuccess: (data) => {
       toast.dismiss();
-      if (data.success) {
-        toast.success("لایک خبر با موفقیت حذف شد !");
-      } else {
-        toast.error(data.ErrorMessage);
-      }
+      if (data.success) toast.success("لایک خبر با موفقیت حذف شد !");
+      else toast.error(data.ErrorMessage);
+
       queryClient.invalidateQueries({
         queryKey: ["newsDetails", newsId],
       });
