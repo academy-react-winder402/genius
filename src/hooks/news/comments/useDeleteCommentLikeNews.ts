@@ -19,7 +19,7 @@ const useDeleteCommentLikeNews = (newsId: string) => {
     onMutate: () => toast.loading("در حال حذف لایک نظر ..."),
     onSuccess: (data) => {
       toast.dismiss();
-      if (data.success) toast.success("لایک نظر با موفقیت حذغ شد !");
+      if (data.success) toast.success("لایک نظر با موفقیت حذف شد !");
       else
         data.ErrorMessage.map((errorMessage: string) =>
           toast.error(errorMessage)
