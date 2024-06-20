@@ -1,5 +1,7 @@
 import { BlogInterface } from "../../../types/blog";
 
+import blankThumbnail from "../../../assets/images/Courses/blank-thumbnail.jpg";
+
 interface BlogWriterBoxProps {
   blog: BlogInterface;
 }
@@ -7,10 +9,7 @@ interface BlogWriterBoxProps {
 const BlogWriterBox = ({ blog }: BlogWriterBoxProps) => {
   return (
     <div className="blogDetailsWriterWrapper">
-      <img
-        src={blog?.currentImageAddressTumb}
-        className="blogDetailsWriterImage"
-      />
+      <img src={blankThumbnail} className="blogDetailsWriterImage" />
       <span className="blogDetailsWriterName">{blog?.addUserFullName}</span>
     </div>
   );

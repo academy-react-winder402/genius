@@ -1,62 +1,68 @@
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
-import { addLikeForCourseAPI } from "../../../core/services/api/course/add-like-for-course.api";
-import { addDislikeForCourseAPI } from "../../../core/services/api/course/add-dislike-course.api";
+import { useDislikeCourse } from "../../../hooks/course/useDislikeCourse";
+import { useLikeCourse } from "../../../hooks/course/useLikeCourse";
+import { useDeleteLikeNews } from "../../../hooks/news/useDeleteLikeNews";
+import { useNewsDislike } from "../../../hooks/news/useNewsDislike";
+import { useNewsLike } from "../../../hooks/news/useNewsLike";
 
-import { useIsUserLogin } from "../../../redux/user-login";
+import { handleScroll } from "../../../core/utils/scroll-helper.utils";
+
 import { useDarkModeSelector } from "../../../redux/darkMode";
+import { useIsUserLogin } from "../../../redux/user-login";
 
-import likeIcon from "../../../assets/images/CourseDetails/Icons/like.svg";
+import disLikeDarkIcon from "../../../assets/images/CourseDetails/Icons/dislike-dark.svg";
 import disLikeIcon from "../../../assets/images/CourseDetails/Icons/dislike.svg";
 import likeDarkIcon from "../../../assets/images/CourseDetails/Icons/like-dark.svg";
-import disLikeDarkIcon from "../../../assets/images/CourseDetails/Icons/dislike-dark.svg";
-import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import likeIcon from "../../../assets/images/CourseDetails/Icons/like.svg";
 
 interface LikeDislikeProps {
   nameData: string;
   likeCount: number;
   disLikeCount: number;
-  courseId: string;
-  setLikeCount: (likeCount: number) => void;
-  setDislikeCount: (dislikeCount: number) => void;
+  courseId?: string;
+  newsId?: string;
+  likeId: string;
+  isLike: boolean;
+  isDislike: boolean;
 }
 
 const LikeDislike = ({
   nameData,
   likeCount,
   disLikeCount,
-  setLikeCount,
-  setDislikeCount,
   courseId,
+  newsId,
+  likeId,
+  isLike,
+  isDislike,
 }: LikeDislikeProps) => {
-  const [isLike, setIsLike] = useState<boolean>();
-
   const navigate = useNavigate();
 
   const darkMode = useDarkModeSelector();
   const isUserLogin = useIsUserLogin();
 
+  const likeNews = useNewsLike();
+  const deleteNewsLike = useDeleteLikeNews(newsId!);
+  const likeCourse = useLikeCourse();
+  const dislikeNews = useNewsDislike();
+  const dislikeCourse = useDislikeCourse();
+
   const unAuthenticatedLikeDislikeAction = (data: string) => {
     toast.error(`برای ${data} کردن باید وارد سایت شوید ...`);
+
+    handleScroll();
     navigate("/login");
   };
 
-  const handleLike = async () => {
+  const handleLike = () => {
     try {
       if (isUserLogin === true) {
-        const likeCourse = await toast.promise(addLikeForCourseAPI(courseId), {
-          pending: "در حال لایک کردن ...",
-        });
-
-        if (likeCourse.success) {
-          toast.success("دوره با موفقیت لایک شد !");
-          setLikeCount((prevValue: number) => prevValue + 1);
-          setDislikeCount((prevValue: number) => prevValue - 1);
-          setIsLike(true);
-        } else {
-          toast.error(likeCourse.message);
-        }
+        if (newsId) {
+          if (isLike) deleteNewsLike.mutate(likeId);
+          else likeNews.mutate(newsId);
+        } else likeCourse.mutate(courseId!);
       } else unAuthenticatedLikeDislikeAction("لایک");
     } catch (error) {
       toast.error("مشکلی در لایک کردن به وجود آمد ...");
@@ -66,21 +72,10 @@ const LikeDislike = ({
   const handleDislike = async () => {
     if (isUserLogin === true) {
       try {
-        const dislikeCourse = await toast.promise(
-          addDislikeForCourseAPI(courseId),
-          {
-            pending: "در حال دیس لایک کردن ...",
-          }
-        );
-
-        if (dislikeCourse.success) {
-          toast.success("با موفقیت دیس لایک شد !");
-          setLikeCount((prevValue: number) => prevValue - 1);
-          setDislikeCount((prevValue: number) => prevValue + 1);
-          setIsLike(false);
-        } else {
-          toast.error(dislikeCourse.message);
-        }
+        if (newsId) {
+          if (isDislike) deleteNewsLike.mutate(likeId);
+          else dislikeNews.mutate(newsId);
+        } else dislikeCourse.mutate(courseId!);
       } catch (error) {
         toast.error("مشکلی در ثبت دیس لایک به وجود آمد !");
       }
@@ -96,14 +91,16 @@ const LikeDislike = ({
       </span>
       <div className="flex gap-2">
         <button
-          className={`likeDislikeButton ${isLike && "bg-green-400"}`}
+          className={`likeDislikeButton ${
+            isLike && "bg-green-400 dark:bg-green-900"
+          }`}
           onClick={handleLike}
         >
           <img src={darkMode ? likeDarkIcon : likeIcon} />
           <span className="likeDislikeButtonText">{likeCount}</span>
         </button>
         <button
-          className={`likeDislikeButton ${isLike == false && "bg-red/50"}`}
+          className={`likeDislikeButton ${isDislike == true && "bg-red/50"}`}
           onClick={handleDislike}
         >
           <img src={darkMode ? disLikeDarkIcon : disLikeIcon} />

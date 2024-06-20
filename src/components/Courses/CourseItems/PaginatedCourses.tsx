@@ -11,6 +11,7 @@ import { Pagination } from "../../common/Pagination";
 interface PaginatedCoursesProps {
   courses: CourseInterface[];
   totalCount: number;
+  isLoading: boolean;
   itemsPerPage: number;
   coursesStyle: number;
   setCurrentPage: Dispatch<SetStateAction<number>>;
@@ -19,45 +20,52 @@ interface PaginatedCoursesProps {
 const PaginatedCourses = ({
   courses,
   totalCount,
+  isLoading,
   itemsPerPage,
   coursesStyle,
   setCurrentPage,
 }: PaginatedCoursesProps) => {
   const pageCount: number = Math.ceil(totalCount / itemsPerPage);
 
-  const handlePageClick = (event: any) => {
+  const handlePageClick = (event: { selected: number }) => {
     setCurrentPage(event.selected);
   };
 
   return (
     <div className="paginatedCoursesWrapper">
       <div className="paginatedCourses">
-        {courses ? (
+        {isLoading ? (
+          coursesStyle === 1 ? (
+            <>
+              <CourseItemSkeleton />
+              <CourseItemSkeleton />
+              <CourseItemSkeleton />
+              <CourseItemSkeleton />
+              <CourseItemSkeleton />
+              <CourseItemSkeleton />
+            </>
+          ) : (
+            <div className="courseItemSkeletonStyleTwoWrapper">
+              <CourseItemSkeletonStyleTwo />
+              <CourseItemSkeletonStyleTwo />
+              <CourseItemSkeletonStyleTwo />
+              <CourseItemSkeletonStyleTwo />
+              <CourseItemSkeletonStyleTwo />
+              <CourseItemSkeletonStyleTwo />
+            </div>
+          )
+        ) : (
           courses.map((course) =>
             coursesStyle === 1 ? (
-              <CourseItem key={course.courseId} course={course} />
+              <CourseItem
+                key={course.courseId}
+                course={course}
+                isUserFavorite={course.userFavorite}
+              />
             ) : (
               <CourseItemStyleTwo key={course.courseId} course={course} />
             )
           )
-        ) : coursesStyle === 1 ? (
-          <>
-            <CourseItemSkeleton />
-            <CourseItemSkeleton />
-            <CourseItemSkeleton />
-            <CourseItemSkeleton />
-            <CourseItemSkeleton />
-            <CourseItemSkeleton />
-          </>
-        ) : (
-          <div className="courseItemSkeletonStyleTwoWrapper">
-            <CourseItemSkeletonStyleTwo />
-            <CourseItemSkeletonStyleTwo />
-            <CourseItemSkeletonStyleTwo />
-            <CourseItemSkeletonStyleTwo />
-            <CourseItemSkeletonStyleTwo />
-            <CourseItemSkeletonStyleTwo />
-          </div>
         )}
       </div>
       <Pagination handlePageClick={handlePageClick} pageCount={pageCount} />

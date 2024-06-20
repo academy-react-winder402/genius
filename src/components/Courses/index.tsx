@@ -22,7 +22,7 @@ const Courses = () => {
   const [costUp, setCostUp] = useState<number>();
   const [sortType, setSortType] = useState<string>();
 
-  const { data, error } = useCourses(
+  const { data, error, isLoading } = useCourses(
     currentPage,
     9,
     sortingCol,
@@ -80,8 +80,9 @@ const Courses = () => {
             setCurrentPage={setCurrentPage}
           />
           <PaginatedCourses
-            courses={data?.courseFilterDtos}
-            totalCount={data?.totalCount}
+            courses={data?.courseFilterDtos || []}
+            totalCount={data?.totalCount || 0}
+            isLoading={isLoading}
             itemsPerPage={9}
             coursesStyle={coursesStyle}
             setCurrentPage={setCurrentPage}

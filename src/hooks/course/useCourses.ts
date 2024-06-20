@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import http from "../../core/services/interceptor";
 
 const useCourses = (
-  pageNumber: number | undefined,
+  pageNumber: number,
   rowsOfPage: number | undefined,
   sortingCol: string | undefined,
   sortType: string | undefined,
@@ -40,7 +40,7 @@ const useCourses = (
       await http
         .get("/Home/GetCoursesWithPagination", {
           params: {
-            pageNumber,
+            pageNumber: pageNumber + 1,
             rowsOfPage,
             sortingCol,
             sortType,

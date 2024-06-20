@@ -7,7 +7,7 @@ import { CommentInterface } from "../../../types/comment";
 
 import { useDarkModeSelector } from "../../../redux/darkMode";
 
-import { toast } from "../toast";
+import { toast } from "../../common/toast";
 
 import messagesDarkIcon from "../../../assets/images/common/Comments/Icons/messages-dark.svg";
 import messagesIcon from "../../../assets/images/common/Comments/Icons/messages.svg";

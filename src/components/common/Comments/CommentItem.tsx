@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 import { RiHeart3Fill, RiHeart3Line } from "react-icons/ri";
 
-import { getCourseReplyCommentsAPI } from "../../../core/services/api/course/comments/get-course-reply-comments.api";
+import { useCommentLike } from "../../../hooks/news/comments/useCommentLike";
+import { useDeleteCommentLikeNews } from "../../../hooks/news/comments/useDeleteCommentLikeNews";
 
-import { addCourseCommentLikeAPI } from "../../../core/services/api/course/comments/add-course-comment-like.api";
-import { deleteCourseCommentLikeAPI } from "../../../core/services/api/course/comments/delete-course-comment-like.api";
+import { getCourseReplyCommentsAPI } from "../../../core/services/api/course/comments/get-course-reply-comments.api";
 import { convertDateToPersian } from "../../../core/utils/date-helper.utils";
 import { commentFormSchema } from "../../../core/validations/comment-form.validation";
 
-import { CommentInterface } from "../../../types/comment";
+import { NewsComment } from "../../../types/news-comment";
 
 import { useDarkModeSelector } from "../../../redux/darkMode";
 
@@ -18,17 +18,19 @@ import { toast } from "../toast";
 
 import messagesDarkIcon from "../../../assets/images/common/Comments/Icons/messages-dark.svg";
 import messagesIcon from "../../../assets/images/common/Comments/Icons/messages.svg";
+import blankThumbnail from "../../../assets/images/Courses/blank-thumbnail.jpg";
 
 interface CommentItemProps {
-  avatarImage: string;
+  avatarImage: string | null;
   name: string;
   createdAt: string;
   message: string;
   isChildren?: boolean;
-  courseId?: string;
+  id?: string;
   commentId?: string;
   likeCount: number;
   currentUserLikeId: string;
+  isLike: boolean;
 }
 
 const CommentItem = ({
@@ -37,46 +39,23 @@ const CommentItem = ({
   createdAt,
   message,
   isChildren,
-  courseId,
+  id,
   commentId,
   likeCount,
   currentUserLikeId,
+  isLike,
 }: CommentItemProps) => {
-  const [replyComment, setReplyComment] = useState<CommentInterface[]>();
+  const [replyComment, setReplyComment] = useState<NewsComment[]>();
   const [isReplyComment, setIsReplyComment] = useState(false);
 
   const darkMode = useDarkModeSelector();
+  const addCommentLike = useCommentLike(true);
+  const deleteCommentLike = useDeleteCommentLikeNews(id!);
 
-  const handleAddLike = async () => {
-    try {
-      const likeComment = await toast.promise(
-        addCourseCommentLikeAPI(commentId!),
-        {
-          pending: "در حال لایک کردن نظر ...",
-        }
-      );
-
-      if (likeComment.success) toast.success("نظر با موفقیت لایک شد ...");
-      else handleDeleteLike();
-    } catch (error) {
-      toast.error("مشکلی در لایک کردن نظر به وجود آمد ...");
-    }
-  };
-
-  const handleDeleteLike = async () => {
-    try {
-      const deleteLike = await toast.promise(
-        deleteCourseCommentLikeAPI(commentId!),
-        {
-          pending: "در حال حذف لایک ...",
-        }
-      );
-
-      if (deleteLike.success) toast.success("لایک شما با موفقیت حذف شد ...");
-      else toast.error(deleteLike.message);
-    } catch (error) {
-      toast.error("مشکلی در حذف لایک نظر به وجود آمد !");
-    }
+  const handleCommentLike = async () => {
+    isLike
+      ? deleteCommentLike.mutate(currentUserLikeId!)
+      : addCommentLike.mutate(commentId!);
   };
 
   const handleReplyCommentSubmit = (e: { title: string; describe: string }) => {
@@ -87,7 +66,7 @@ const CommentItem = ({
     const fetchReplyComment = async () => {
       try {
         const getReplyComment = await getCourseReplyCommentsAPI(
-          courseId,
+          id!,
           commentId!
         );
 
@@ -98,14 +77,25 @@ const CommentItem = ({
     };
 
     fetchReplyComment();
-  }, [courseId]);
+  }, [id]);
 
   return (
     <>
       <div className={isChildren ? "childrenComment" : ""}>
         <div className="flex justify-between">
           <div className="flex items-center gap-2">
-            <img src={avatarImage} className="commentAvatarImage" />
+            <img
+              src={
+                avatarImage &&
+                avatarImage !== "undefined" &&
+                avatarImage !== "Not-set" &&
+                avatarImage !== "not-set" &&
+                avatarImage !== "<string>"
+                  ? avatarImage
+                  : blankThumbnail
+              }
+              className="commentAvatarImage"
+            />
             <span className="commentName">{name}</span>
           </div>
           <div className={isChildren ? "pl-2" : "pl-4"}>
@@ -118,7 +108,7 @@ const CommentItem = ({
         <div className="flex gap-3 items-center">
           <div
             className="flex gap-1 items-center mt-2 cursor-pointer"
-            onClick={handleAddLike}
+            onClick={handleCommentLike}
           >
             <span className="commentLikeCount">{likeCount}</span>
             {currentUserLikeId ? (
@@ -151,29 +141,29 @@ const CommentItem = ({
           const {
             id,
             pictureAddress,
-            insertDate,
-            author,
+            inserDate: insertDate,
+            autor: author,
             describe,
             likeCount,
             currentUserLikeId,
+            currentUserIsLike,
           } = reply;
 
           const formattedInsertDate = convertDateToPersian(insertDate);
 
           return (
-            <>
-              <CommentItem
-                key={id}
-                avatarImage={pictureAddress}
-                createdAt={formattedInsertDate}
-                name={author}
-                message={describe}
-                isChildren={true}
-                likeCount={likeCount}
-                commentId={id}
-                currentUserLikeId={currentUserLikeId}
-              />
-            </>
+            <CommentItem
+              key={id}
+              avatarImage={pictureAddress}
+              createdAt={formattedInsertDate}
+              name={author}
+              message={describe}
+              isChildren={true}
+              likeCount={+likeCount}
+              commentId={id}
+              currentUserLikeId={currentUserLikeId}
+              isLike={currentUserIsLike}
+            />
           );
         })}
       {replyComment == undefined && <CommentSkeleton />}
@@ -182,4 +172,3 @@ const CommentItem = ({
 };
 
 export { CommentItem };
-

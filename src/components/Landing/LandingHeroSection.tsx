@@ -89,6 +89,7 @@ const LandingHeroSection = () => {
           inputClasses="lg:w-[620px]"
           isLanding={true}
           onKeyUp={handleClickOpen!}
+          onClick={handleClickOpen}
           searchValue={searchValue}
           setSearchValue={setSearchValue}
         />

@@ -2,28 +2,28 @@ import { useState } from "react";
 
 import { convertDateToPersian } from "../../../core/utils/date-helper.utils";
 
-import { CommentInterface } from "../../../types/comment";
+import { NewsComment } from "../../../types/news-comment";
 
 import CommentSkeleton from "../CommentSkeleton";
 import { Pagination } from "../Pagination";
 import { CommentItem } from "./CommentItem";
 
 interface PaginatedCommentsProps {
-  comments: CommentInterface[] | undefined;
+  comments: NewsComment[] | undefined;
   itemsPerPage: number;
-  courseId: string;
+  id: string;
 }
 
 const PaginatedComments = ({
   comments,
   itemsPerPage,
-  courseId,
+  id,
 }: PaginatedCommentsProps) => {
-  const [itemOffset, setItemOffset] = useState<number>(0);
+  const [itemOffset, setItemOffset] = useState(0);
 
   const endOffset = itemOffset + itemsPerPage;
-  const currentItems: CommentInterface[] | undefined =
-    comments && (comments.slice(itemOffset, endOffset) as CommentInterface[]);
+  const currentItems: NewsComment[] | undefined =
+    comments && (comments.slice(itemOffset, endOffset) as NewsComment[]);
   const pageCount: number | undefined =
     comments && Math.ceil(comments?.length / itemsPerPage);
 
@@ -44,30 +44,30 @@ const PaginatedComments = ({
             const {
               id: commentId,
               pictureAddress,
-              insertDate,
-              author,
+              inserDate: insertDate,
+              autor: author,
               describe,
               likeCount,
               currentUserLikeId,
+              currentUserIsLike,
             } = comment;
 
             const formattedInsertDate = convertDateToPersian(insertDate);
 
             return (
-              <>
-                <CommentItem
-                  key={commentId}
-                  avatarImage={pictureAddress}
-                  createdAt={formattedInsertDate}
-                  name={author}
-                  message={describe}
-                  isChildren={false}
-                  courseId={courseId}
-                  commentId={commentId}
-                  likeCount={likeCount}
-                  currentUserLikeId={currentUserLikeId}
-                />
-              </>
+              <CommentItem
+                key={commentId}
+                avatarImage={pictureAddress}
+                createdAt={formattedInsertDate}
+                name={author}
+                message={describe}
+                isChildren={false}
+                id={id}
+                commentId={commentId}
+                likeCount={+likeCount}
+                currentUserLikeId={currentUserLikeId}
+                isLike={currentUserIsLike}
+              />
             );
           })
         ) : (
@@ -86,4 +86,3 @@ const PaginatedComments = ({
 };
 
 export { PaginatedComments };
-
