@@ -23,6 +23,9 @@ const useAddNewsReplyComment = () => {
       queryClient.invalidateQueries({
         queryKey: ["newsDetails"],
       });
+      queryClient.invalidateQueries({
+        queryKey: ["newsReplyComments"],
+      });
     },
     onError: () => {
       toast.dismiss();

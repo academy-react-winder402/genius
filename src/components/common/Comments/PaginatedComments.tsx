@@ -42,7 +42,6 @@ const PaginatedComments = ({
         {currentItems && currentItems !== undefined ? (
           currentItems.map((comment) => {
             const {
-              parentId,
               id: commentId,
               pictureAddress,
               inserDate: insertDate,

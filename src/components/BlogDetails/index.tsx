@@ -1,3 +1,4 @@
+import { useQueryClient } from "@tanstack/react-query";
 import { SyntheticEvent } from "react";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -20,6 +21,7 @@ import { ShareBox } from "./ShareBox";
 const BlogDetails = () => {
   const { blogId } = useParams();
 
+  const queryClient = useQueryClient();
   const { data, error } = useNewsById(blogId);
   const addNewsRate = useNewsRate();
   const addNewsComment = useAddNewsComment();
@@ -48,6 +50,13 @@ const BlogDetails = () => {
       title: e.title,
       describe: e.describe,
       newsId: blogId!,
+    });
+
+    e.title = "";
+    e.describe = "";
+
+    queryClient.invalidateQueries({
+      queryKey: ["newsReplyComments"],
     });
   };
 

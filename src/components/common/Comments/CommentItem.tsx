@@ -1,21 +1,18 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { RiHeart3Fill, RiHeart3Line } from "react-icons/ri";
 
 import { useAddNewsReplyComment } from "../../../hooks/news/comments/useAddNewsReplyComment";
 import { useCommentLike } from "../../../hooks/news/comments/useCommentLike";
 import { useDeleteCommentLikeNews } from "../../../hooks/news/comments/useDeleteCommentLikeNews";
+import { useNewsReplyComments } from "../../../hooks/news/comments/useNewsReplyComments";
 
-import { getCourseReplyCommentsAPI } from "../../../core/services/api/course/comments/get-course-reply-comments.api";
 import { convertDateToPersian } from "../../../core/utils/date-helper.utils";
 import { commentFormSchema } from "../../../core/validations/comment-form.validation";
-
-import { NewsComment } from "../../../types/news-comment";
 
 import { useDarkModeSelector } from "../../../redux/darkMode";
 
 import { CommentForm } from "../CommentForm";
 import CommentSkeleton from "../CommentSkeleton";
-import { toast } from "../toast";
 
 import messagesDarkIcon from "../../../assets/images/common/Comments/Icons/messages-dark.svg";
 import messagesIcon from "../../../assets/images/common/Comments/Icons/messages.svg";
@@ -48,15 +45,18 @@ const CommentItem = ({
   currentUserLikeId,
   isLike,
 }: CommentItemProps) => {
-  const [replyComment, setReplyComment] = useState<NewsComment[]>();
+  const [showReplyComments, setShowReplyComments] = useState(false);
   const [isReplyComment, setIsReplyComment] = useState(false);
 
   const darkMode = useDarkModeSelector();
   const addCommentLike = useCommentLike(true);
   const deleteCommentLike = useDeleteCommentLikeNews(id!);
   const addReplyComment = useAddNewsReplyComment();
+  const { data: replyComments, isLoading: isReplyCommentsLoading } =
+    useNewsReplyComments(commentId!);
 
   const handleCommentLike = async () => {
+    console.log(currentUserLikeId, isLike);
     isLike
       ? deleteCommentLike.mutate(currentUserLikeId!)
       : addCommentLike.mutate(commentId!);
@@ -69,24 +69,10 @@ const CommentItem = ({
       describe: e.describe,
       parentId,
     });
+
+    e.title = "";
+    e.describe = "";
   };
-
-  useEffect(() => {
-    const fetchReplyComment = async () => {
-      try {
-        const getReplyComment = await getCourseReplyCommentsAPI(
-          id!,
-          commentId!
-        );
-
-        setReplyComment(getReplyComment);
-      } catch (error) {
-        toast.error("مشکلی در دریافت رپلای های کامنت به وجود آمد !");
-      }
-    };
-
-    fetchReplyComment();
-  }, [id]);
 
   return (
     <>
@@ -107,7 +93,7 @@ const CommentItem = ({
             />
             <span className="commentName">{name}</span>
           </div>
-          <div className={isChildren ? "pl-2" : "pl-4"}>
+          <div>
             <span className="commentCreatedAtText">{createdAt}</span>
           </div>
         </div>
@@ -135,6 +121,15 @@ const CommentItem = ({
             </span>
             <img src={darkMode ? messagesDarkIcon : messagesIcon} />
           </div>
+          <div
+            className="flex gap-1 mt-1 cursor-pointer"
+            onClick={() => setShowReplyComments(!showReplyComments)}
+          >
+            <span className="commentAnswerText">
+              {showReplyComments ? "پنهان پاسخ ها" : "پاسخ ها"}
+            </span>
+            <img src={darkMode ? messagesDarkIcon : messagesIcon} />
+          </div>
         </div>
         {isReplyComment && (
           <div className="w-full mt-4">
@@ -144,40 +139,52 @@ const CommentItem = ({
             />
           </div>
         )}
+        {showReplyComments && (
+          <div className="flex flex-col gap-9 mt-5">
+            {isReplyCommentsLoading && <CommentSkeleton />}
+            {!isReplyCommentsLoading &&
+            replyComments &&
+            replyComments.length === 0 ? (
+              <span className="text-center text-sm text-text1 dark:text-darkText">
+                پاسخی برای این نظر پیدا نشد !
+              </span>
+            ) : (
+              replyComments!.map((reply) => {
+                const {
+                  id,
+                  newsId,
+                  pictureAddress,
+                  inserDate: insertDate,
+                  autor: author,
+                  describe,
+                  likeCount,
+                  currentUserLikeId,
+                  currentUserIsLike,
+                } = reply;
+
+                const formattedInsertDate = convertDateToPersian(insertDate);
+
+                return (
+                  <CommentItem
+                    key={id}
+                    id={newsId}
+                    avatarImage={pictureAddress}
+                    createdAt={formattedInsertDate}
+                    name={author}
+                    message={describe}
+                    isChildren={true}
+                    likeCount={+likeCount}
+                    commentId={id}
+                    currentUserLikeId={currentUserLikeId}
+                    parentId={id}
+                    isLike={currentUserIsLike}
+                  />
+                );
+              })
+            )}
+          </div>
+        )}
       </div>
-      {replyComment &&
-        replyComment.map((reply) => {
-          const {
-            parentId,
-            id,
-            pictureAddress,
-            inserDate: insertDate,
-            autor: author,
-            describe,
-            likeCount,
-            currentUserLikeId,
-            currentUserIsLike,
-          } = reply;
-
-          const formattedInsertDate = convertDateToPersian(insertDate);
-
-          return (
-            <CommentItem
-              key={id}
-              avatarImage={pictureAddress}
-              createdAt={formattedInsertDate}
-              name={author}
-              message={describe}
-              isChildren={true}
-              likeCount={+likeCount}
-              commentId={id}
-              currentUserLikeId={currentUserLikeId}
-              parentId={parentId}
-              isLike={currentUserIsLike}
-            />
-          );
-        })}
-      {replyComment == undefined && <CommentSkeleton />}
     </>
   );
 };

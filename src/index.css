@@ -492,7 +492,7 @@
     @apply border border-solid border-commentsBorder dark:border-darkBorder outline-none w-full min-h-[100px] rounded-[10px] px-4 py-4 font-[400] text-[14px] text-text3 dark:text-darkText dark:bg-gray-900;
   }
   .childrenComment {
-    @apply border-r border-commentsBorder dark:border-darkBorder mr-8 pr-5;
+    @apply lg:border-r lg:border-commentsBorder lg:dark:border-darkBorder mr-1 lg:mr-8 lg:pr-5;
   }
   .commentAvatarImage {
     @apply w-[32px] h-[32px] rounded-full;
