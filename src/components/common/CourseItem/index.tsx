@@ -16,13 +16,14 @@ import calenderIcon from "../../../assets/images/Landing/LandingCourses/calendar
 import noteDarkIcon from "../../../assets/images/Landing/LandingCourses/note-dark.svg";
 import clockDarkIcon from "../../../assets/images/Landing/LandingCourses/clock-dark.svg";
 import calenderDarkIcon from "../../../assets/images/Landing/LandingCourses/calendar-dark.svg";
-import blackThumbnail from "../../../assets/images/Courses/blank-thumbnail.jpg";
+import blankThumbnail from "../../../assets/images/Courses/blank-thumbnail.jpg";
 
 interface CourseItemProps {
   course: CourseInterface;
+  isUserFavorite: boolean;
 }
 
-const CourseItem = ({ course }: CourseItemProps) => {
+const CourseItem = ({ course, isUserFavorite }: CourseItemProps) => {
   const darkMode = useDarkModeSelector();
   const formattedPrice = priceWithCommas(+course.cost);
   const formattedDate = convertDateToPersian(course.lastUpdate);
@@ -33,9 +34,14 @@ const CourseItem = ({ course }: CourseItemProps) => {
         <Link to={`/courses/${course.courseId}`}>
           <img
             src={
-              course.tumbImageAddress !== "<string>" || !course.tumbImageAddress
-                ? course.tumbImageAddress
-                : blackThumbnail
+              course.tumbImageAddress == undefined ||
+              course.tumbImageAddress === "Not-set" ||
+              course.tumbImageAddress === "not-set" ||
+              course.tumbImageAddress === "undefined" ||
+              course.tumbImageAddress === "<string>" ||
+              !course.tumbImageAddress
+                ? blankThumbnail
+                : course.tumbImageAddress
             }
             className="courseItemImage"
           />
@@ -80,7 +86,7 @@ const CourseItem = ({ course }: CourseItemProps) => {
         <div className="flex justify-between items-center mt-4">
           <CourseLikeBox
             courseId={course.courseId}
-            isUserFavorite={course.userFavorite}
+            isUserFavorite={isUserFavorite}
             courseFavoriteCourseId={course.userFavoriteId}
           />
           <div className="font-[500] text-[12px] text-text1 dark:text-darkText flex">

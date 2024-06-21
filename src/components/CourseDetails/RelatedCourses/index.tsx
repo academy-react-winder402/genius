@@ -54,7 +54,10 @@ const RelatedCourses = () => {
                 key={course.courseId}
                 className="lg:!w-[296px] lg:h-[389px] mr-4 py-5 mb-6"
               >
-                <CourseItem course={course} />
+                <CourseItem
+                  course={course}
+                  isUserFavorite={course?.isUserFavorite}
+                />
               </SwiperSlide>
             ))}
         </Swiper>

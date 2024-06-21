@@ -13,7 +13,7 @@ export const getTeacherDetailsAPI = async (teacherId: number) => {
       }
     );
 
-    return response;
+    return response.data;
   } catch (error) {
     return false;
   }

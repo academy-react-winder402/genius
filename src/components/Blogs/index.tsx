@@ -1,65 +1,28 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { toast } from "react-toastify";
 
-import { newsAPI } from "../../core/services/api/news/news.api";
-
-import { BlogItemInterface } from "../../types/blog-item";
+import { useNews } from "../../hooks/news/useNews";
 
 import { BlogsHeroSection } from "./BlogsHeroSection";
 import { PaginatedBlogs } from "./BlogsItems/PaginatedBlogs";
 import { BlogsTopSection } from "./BlogsTopSection";
-import { toast } from "../common/toast";
 
 const Blogs = () => {
-  const [blogs, setBlogs] = useState<BlogItemInterface[]>();
-  const [totalCount, setTotalCount] = useState<number>();
   const [query, setQuery] = useState<string>();
   const [sort, setSort] = useState<string>();
   const [sortType, setSortType] = useState("DESC");
   const [currentPage, setCurrentPage] = useState(0);
 
-  useEffect(() => {
-    const fetchBlogs = async () => {
-      try {
-        const getBlogs = await newsAPI(
-          1,
-          9,
-          undefined,
-          undefined,
-          undefined,
-          undefined
-        );
+  const { data, error } = useNews(
+    currentPage,
+    9,
+    sort || undefined,
+    sortType,
+    query || undefined,
+    undefined
+  );
 
-        setBlogs(getBlogs.news);
-        setTotalCount(getBlogs.totalCount);
-      } catch (error) {
-        toast.error("مشکلی در دریافت مقالات به وجود آمد !");
-      }
-    };
-
-    fetchBlogs();
-  }, []);
-
-  useEffect(() => {
-    const fetchBlogs = async () => {
-      try {
-        const getBlogs = await newsAPI(
-          1,
-          9,
-          sort ? sort : undefined,
-          sortType,
-          query ? query : undefined,
-          undefined
-        );
-
-        setBlogs(getBlogs.news);
-        setTotalCount(getBlogs.totalCount);
-      } catch (error) {
-        toast.error("مشکلی در دریافت مقالات به وجود آمد !");
-      }
-    };
-
-    fetchBlogs();
-  }, [query, currentPage, sort, sortType]);
+  if (error) toast.error("مشکلی در دریافت اخبار به وجود آمد !");
 
   return (
     <div className="w-[95%] mx-auto">
@@ -67,16 +30,17 @@ const Blogs = () => {
       <div className="flex flex-col lg:flex-row justify-center gap-x-5 mt-32 !p-0">
         <div className="mx-auto">
           <BlogsTopSection
+            sort={sort}
             setQuery={setQuery}
             setSort={setSort}
             setSortType={setSortType}
-            sort={sort}
+            setCurrentPage={setCurrentPage}
           />
           <PaginatedBlogs
-            blogs={blogs!}
+            blogs={data?.news || []}
+            totalCount={data?.totalCount || 0}
             itemsPerPage={9}
             setCurrentPage={setCurrentPage}
-            totalCount={totalCount!}
           />
         </div>
       </div>

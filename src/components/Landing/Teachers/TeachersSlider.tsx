@@ -1,37 +1,27 @@
-import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 import { Swiper, SwiperSlide } from "swiper/react";
+
 // import required modules
 import { Navigation, Pagination } from "swiper/modules";
 
-import { getTeachersAPI } from "../../../core/services/api/teacher/get-teachers.api";
+import { useTeachers } from "../../../hooks/teacher/useTeachers";
 
-import { TeacherItemsInterface } from "../../../types/teacher-items";
-
-import { toast } from "../../common/toast";
 import { TeacherItem } from "./TeacherItem";
+import { TeacherSkeleton } from "./TeacherSkeleton";
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { TeacherSkeleton } from "./TeacherSkeleton";
 
 const TeachersSlider = () => {
-  const [teachers, setTeachers] = useState<TeacherItemsInterface[]>();
+  const { data, isLoading, error } = useTeachers();
 
-  useEffect(() => {
-    const fetchTeachers = async () => {
-      try {
-        const getTeachers = await getTeachersAPI();
+  if (error) toast.error("مشکلی در دریافت اساتید به وجود آمد !");
 
-        setTeachers(getTeachers);
-      } catch (error) {
-        toast.error("مشکلی در دریافت اساتید به وجود آمد !");
-      }
-    };
+  const teachersSkeleton = [1, 2, 3, 4, 5];
 
-    fetchTeachers();
-  }, []);
+  const teachers = data?.slice(0, 7);
 
   return (
     <Swiper
@@ -50,8 +40,16 @@ const TeachersSlider = () => {
         },
       }}
     >
-      {teachers ? (
-        teachers.map((teacher) => (
+      {isLoading ? (
+        <div className="flex gap-5">
+          {teachersSkeleton.map((value) => (
+            <SwiperSlide>
+              <TeacherSkeleton key={value} />
+            </SwiperSlide>
+          ))}
+        </div>
+      ) : (
+        teachers?.map((teacher) => (
           <SwiperSlide
             key={teacher.teacherId}
             className="even:mt-10 min-h-[200px]"
@@ -59,14 +57,6 @@ const TeachersSlider = () => {
             <TeacherItem teacher={teacher} />
           </SwiperSlide>
         ))
-      ) : (
-        <div className="flex gap-5">
-          {[1, 2, 3, 4, 5].map((value) => (
-            <SwiperSlide>
-              <TeacherSkeleton key={value} />
-            </SwiperSlide>
-          ))}
-        </div>
       )}
     </Swiper>
   );

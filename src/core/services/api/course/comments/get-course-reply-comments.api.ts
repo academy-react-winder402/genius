@@ -9,7 +9,7 @@ export const getCourseReplyCommentsAPI = async (
       `/Course/GetCourseReplyCommnets/${courseId}/${commentId}`
     );
 
-    return response;
+    return response.data;
   } catch (error) {
     return false;
   }

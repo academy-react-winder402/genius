@@ -20,6 +20,6 @@ export interface FieldBoxProps {
     value: any,
     shouldValidate?: boolean
   ) => Promise<void | FormikErrors<EditProfileGeneralFormInterface>>;
-  dateValue: string;
+  dateValue?: string;
   options?: { value: boolean; label: string }[];
 }

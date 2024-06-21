@@ -1,3 +1,5 @@
+import { AxiosResponse } from "axios";
+
 import http from "../../../interceptor";
 
 export const registerAPI = async (
@@ -6,13 +8,13 @@ export const registerAPI = async (
   phoneNumber: string
 ) => {
   try {
-    const response = await http.post("/Sign/Register", {
+    const response: AxiosResponse = await http.post("/Sign/Register", {
       password,
       gmail,
       phoneNumber,
     });
 
-    return response;
+    return response.data;
   } catch (error) {
     return false;
   }

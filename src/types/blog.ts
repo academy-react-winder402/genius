@@ -5,6 +5,7 @@ export interface BlogInterface {
   googleDescribe: string;
   miniDescribe: string;
   describe: string;
+  keyword: string;
   shortLink: string | null;
   currentImageAddress: string;
   currentImageAddressTumb: string;

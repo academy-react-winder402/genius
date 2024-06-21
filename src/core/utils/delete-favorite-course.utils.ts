@@ -17,7 +17,7 @@ export const deleteFavoriteCourse = async (
     if (deleteFavoriteCourse.success) {
       toast.success("دوره با موفقیت از علاقه مندی های شما حذف شد");
       setIsUserFavorite(true);
-    } else toast.error(deleteFavoriteCourse.message);
+    }
   } catch (error) {
     toast.error("مشکلی در حذف دوره از علاقه مندی های شما به وجود آمد !");
   }

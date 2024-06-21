@@ -1,91 +1,62 @@
-import { forwardRef, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import Dialog from "@mui/material/Dialog";
-import DialogContent from "@mui/material/DialogContent";
-import Slide from "@mui/material/Slide";
-import { Close } from "@mui/icons-material";
+import { useEffect, useState } from "react";
 
 import { typeWriterOptions } from "../../core/data/typewriter-options";
-import { landingReportAPI } from "../../core/services/api/landing/landing-report.api";
-
-import { LandingReportInterface } from "../../types/landing-report";
 
 import { useDarkModeSelector } from "../../redux/darkMode";
 
-import { getCourseWithPaginationAPI } from "../../core/services/api/course/get-course-with-pagination.api";
+import useCourses from "../../hooks/course/useCourses";
+import { useLandingReport } from "../../hooks/landing/useLandingReport";
 
 import { CourseInterface } from "../../types/courses";
 
 import { SearchBox } from "../common/SearchBox";
 import { Typewriter } from "../common/Typewriter";
-import { toast } from "../common/toast";
 import { LandingHeroSectionFeatures } from "./HeroSection/LandingHeroSectionFeatures";
-
-const Transition = forwardRef(function Transition(props, ref) {
-  return <Slide direction="up" ref={ref} {...props} />;
-});
+import { LandingSearchModal } from "./HeroSection/LandingSearchModal";
 
 const LandingHeroSection = () => {
-  const [landingReport, setLandingReport] = useState<LandingReportInterface>();
   const [open, setOpen] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [courses, setCourses] = useState<CourseInterface[]>([]);
+  const [hasMore, setHasMore] = useState(true);
   const [searchValue, setSearchValue] = useState<string>();
-  const [courses, setCourses] = useState<CourseInterface[]>();
-  const [searchCourses, setSearchCourses] = useState<CourseInterface[]>();
 
   const handleClickOpen = () => {
     setOpen(true);
   };
 
-  const handleClose = () => {
-    setOpen(false);
+  const { data } = useCourses(
+    currentPage,
+    5,
+    undefined,
+    "DESC",
+    searchValue ? searchValue : undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined
+  );
+
+  useEffect(() => {
+    if (data && data.length < 5) {
+      setHasMore(false);
+    }
+    if (data) {
+      setCourses((prevCourses) => [...prevCourses, ...data.courseFilterDtos]);
+    }
+  }, [data]);
+
+  const fetchMoreData = () => {
+    setCurrentPage((prevPage) => prevPage + 1);
   };
 
   const darkMode = useDarkModeSelector();
-
-  const fetchCourses = async () => {
-    try {
-      const getCourses = await getCourseWithPaginationAPI(
-        1,
-        5,
-        undefined,
-        "DESC",
-        searchValue ? searchValue : undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined
-      );
-
-      setCourses(getCourses.courseFilterDtos);
-    } catch (error) {
-      toast.error("مشکلی در دریافت دوره ها به وجود آمد !");
-    }
-  };
-
-  useEffect(() => {
-    const fetchLandingReport = async () => {
-      try {
-        const getLandingReport = await landingReportAPI();
-
-        setLandingReport(getLandingReport);
-      } catch (error) {
-        toast.error("مشکلی در دریافت اطلاعات به وجود آمد !");
-      }
-    };
-
-    fetchLandingReport();
-    fetchCourses();
-  }, []);
-
-  useEffect(() => {
-    fetchCourses();
-    setSearchCourses(courses);
-  }, [searchValue]);
+  const { data: landingReport } = useLandingReport();
 
   return (
     <div
@@ -118,72 +89,21 @@ const LandingHeroSection = () => {
           inputClasses="lg:w-[620px]"
           isLanding={true}
           onKeyUp={handleClickOpen!}
+          onClick={handleClickOpen}
           searchValue={searchValue}
           setSearchValue={setSearchValue}
         />
-        <Dialog
+        <LandingSearchModal
+          handleClickOpen={handleClickOpen}
           open={open}
-          TransitionComponent={Transition}
-          keepMounted
-          onClose={handleClose}
-          aria-describedby="alert-dialog-slide-description"
-          maxWidth="xl"
-          classes={{
-            paper: "min-h-[400px]",
-          }}
-        >
-          <DialogContent>
-            <Close
-              className="text-red absolute top-2 left-2 cursor-pointer"
-              onClick={handleClose}
-            />
-            <div className="mt-5">
-              <SearchBox
-                placeholder="چی میخوای یاد بگیری ؟"
-                display="flex justify-center items-center"
-                inputClasses="lg:w-[800px] shadow-primaryShadow"
-                isLanding={true}
-                onKeyUp={handleClickOpen}
-                searchValue={searchValue}
-                setSearchValue={setSearchValue}
-              />
-              <h2 className="font-bold mt-5">
-                نتایج جستجوجوی شما :{" "}
-                {searchCourses && searchCourses.length + " دوره"}
-              </h2>
-              <div className="flex flex-col gap-4">
-                <div className="grid lg:grid-cols-2 gap-3 mt-5">
-                  {searchCourses &&
-                    searchCourses.map((course) => (
-                      <div key={course.courseId} className="flex gap-3">
-                        <Link to={`/courses/${course.courseId}`}>
-                          <img
-                            src={course.tumbImageAddress}
-                            className="w-[100px] h-[70px] rounded-md"
-                          />
-                        </Link>
-                        <div>
-                          <Link to={`/courses/${course.courseId}`}>
-                            <h4 className="font-bold">{course.title}</h4>
-                          </Link>
-                          <span>
-                            <span className="mr-2">مدرس دوره :</span>{" "}
-                            {course.teacherName}
-                          </span>
-                        </div>
-                      </div>
-                    ))}
-                </div>
-                {searchCourses?.length !== 0 && (
-                  <Link to="/courses" className="text-primaryColor underline">
-                    نمایش بیشتر
-                  </Link>
-                )}
-              </div>
-            </div>
-          </DialogContent>
-        </Dialog>
-        <LandingHeroSectionFeatures landingReport={landingReport!} />
+          searchCourses={courses}
+          searchValue={searchValue}
+          setOpen={setOpen}
+          setSearchValue={setSearchValue}
+          fetchMoreData={fetchMoreData}
+          hasMore={hasMore}
+        />
+        <LandingHeroSectionFeatures landingReport={landingReport} />
       </div>
     </div>
   );

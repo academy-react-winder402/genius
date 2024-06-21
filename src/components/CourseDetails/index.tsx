@@ -1,23 +1,25 @@
 import { SyntheticEvent, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 
-import { priceWithCommas } from "../../core/utils/number-helper.utils";
+import { courseLessons } from "../../core/data/courses/courseLessons";
 import { getCourseByIdAPI } from "../../core/services/api/course/get-course-by-id";
+import { setCourseRatingAPI } from "../../core/services/api/course/set-course-rating.api";
 import { getTeacherDetailsAPI } from "../../core/services/api/teacher/get-teachers-details.api";
 import { convertDateToPersian } from "../../core/utils/date-helper.utils";
-import { courseLessons } from "../../core/data/courses/courseLessons";
+import { priceWithCommas } from "../../core/utils/number-helper.utils";
 
 import { CourseDetailsInterface } from "../../types/course-details";
 import { TeacherDetailsInterface } from "../../types/teacher-details";
 
 import { useDarkModeSelector } from "../../redux/darkMode";
 
+import { CourseLikeButton } from "../common/CourseLikeBox/CourseLikeButton";
+import { Satisfaction } from "../common/Satisfaction";
 import { CourseDetailsInformationBox } from "./CourseDetailsInformation/CourseDetailsInformationBox";
 import { CourseTeacher } from "./CourseDetailsInformation/CourseTeacher";
 import { CourseTabs } from "./CourseTabs";
 import { RelatedCourses } from "./RelatedCourses";
-import { Satisfaction } from "../common/Satisfaction";
-import { CourseLikeButton } from "../common/CourseLikeBox/CourseLikeButton";
 
 import clockDarkIcon from "../../assets/images/CourseDetails/Icons/clock-dark2.svg";
 import clockIcon from "../../assets/images/CourseDetails/Icons/clock.svg";
@@ -28,8 +30,6 @@ import calenderIcon from "../../assets/images/CourseDetails/Information/calendar
 import courseStatusIcon from "../../assets/images/CourseDetails/Information/monitor-recorder.svg";
 import studentsCountIcon from "../../assets/images/CourseDetails/Information/profile-user.svg";
 import blackThumbnail from "../../assets/images/Courses/blank-thumbnail.jpg";
-import { setCourseRatingAPI } from "../../core/services/api/course/set-course-rating.api";
-import { toast } from "react-toastify";
 
 const CourseDetails = () => {
   const [course, setCourse] = useState<CourseDetailsInterface>();

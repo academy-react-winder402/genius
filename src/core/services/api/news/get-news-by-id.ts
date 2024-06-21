@@ -1,12 +1,12 @@
 import http from "../../interceptor";
 
-import { NewsInterface } from "../../../../types/news";
+import { BlogInterface } from "../../../../types/blog";
 
 export const getNewsByIdAPI = async (id: string) => {
   try {
-    const response = await http.get<NewsInterface>(`/News/${id}`);
+    const response = await http.get<BlogInterface>(`/News/${id}`);
 
-    return response;
+    return response.data;
   } catch (error) {
     return false;
   }

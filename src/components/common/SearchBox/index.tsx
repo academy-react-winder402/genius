@@ -15,7 +15,9 @@ interface SearchBoxProps {
   setQuery?: Dispatch<SetStateAction<string | undefined>>;
   setIsValueChanged?: Dispatch<SetStateAction<boolean>>;
   onKeyUp?: () => void;
+  onClick?: () => void;
   setSearchValue?: Dispatch<SetStateAction<string | undefined>>;
+  setCurrentPage?: Dispatch<SetStateAction<number>>;
 }
 
 const SearchBox = ({
@@ -29,13 +31,17 @@ const SearchBox = ({
   setQuery,
   setIsValueChanged,
   onKeyUp,
+  onClick,
   setSearchValue,
+  setCurrentPage,
 }: SearchBoxProps) => {
   const textTimeOut = useTimeOut();
 
   const searchBoxOnChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchValue && setSearchValue(e.target.value);
     textTimeOut(() => {
+      0;
+      setCurrentPage && setCurrentPage(0);
       setQuery && setQuery(e.target.value);
       setIsValueChanged && setIsValueChanged(true);
     }, 800);
@@ -52,6 +58,7 @@ const SearchBox = ({
           } ${isLanding === true ? "dark:!bg-gray-800" : "dark:bg-gray-900"}`}
           onChange={searchBoxOnChange}
           onKeyUp={onKeyUp}
+          onClick={onClick}
           value={searchValue}
         />
         <img src={searchIcon} className="absolute left-6 lg:left-4 top-3" />

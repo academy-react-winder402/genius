@@ -8,7 +8,7 @@ export const getCourseTypesAPI = async () => {
       "/CourseType/GetCourseTypes"
     );
 
-    return response;
+    return response.data;
   } catch (error) {
     return false;
   }
