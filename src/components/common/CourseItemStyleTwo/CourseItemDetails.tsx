@@ -1,6 +1,6 @@
 import { convertDateToPersian } from "../../../core/utils/date-helper.utils";
 
-import { CourseInterface } from "../../../types/courses";
+import { CourseInterface } from "../../../tyoes/course";
 
 import { useDarkModeSelector } from "../../../redux/darkMode";
 

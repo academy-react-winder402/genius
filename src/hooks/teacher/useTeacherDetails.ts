@@ -2,20 +2,18 @@ import { useQuery } from "@tanstack/react-query";
 
 import http from "../../core/services/interceptor";
 
-import { CourseInterface } from "../../tyoes/course";
-
-const useCourseTop = (count: number) => {
+const useTeacherDetails = (teacherId: number) => {
   return useQuery({
-    queryKey: ["course-top", count],
+    queryKey: ["teacherDetails", teacherId],
     queryFn: async () =>
       await http
-        .get<CourseInterface[]>("/Home/GetCoursesTop", {
+        .get("/Home/GetTeacherDetails", {
           params: {
-            count,
+            teacherId,
           },
         })
         .then((res) => res.data),
   });
 };
 
-export { useCourseTop };
+export { useTeacherDetails };

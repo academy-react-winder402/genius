@@ -16,8 +16,8 @@ interface SatisfactionProps {
     newValue: number | null
   ) => void;
   likeId: string;
-  isLike: boolean;
-  isDislike: boolean;
+  isLike?: boolean;
+  isDislike?: boolean;
 }
 
 const Satisfaction = ({
@@ -47,8 +47,8 @@ const Satisfaction = ({
         disLikeCount={disLikeCount}
         courseId={courseId}
         likeId={likeId}
-        isLike={isLike}
-        isDislike={isDislike}
+        isLike={isLike!}
+        isDislike={isDislike!}
       />
     </div>
   );

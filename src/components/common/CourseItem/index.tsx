@@ -3,7 +3,7 @@ import Tilt from "react-parallax-tilt";
 import { priceWithCommas } from "../../../core/utils/number-helper.utils";
 import { convertDateToPersian } from "../../../core/utils/date-helper.utils";
 
-import { CourseInterface } from "../../../types/courses";
+import { CourseInterface } from "../../../tyoes/course";
 
 import { useDarkModeSelector } from "../../../redux/darkMode";
 

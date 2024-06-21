@@ -2,7 +2,7 @@ import { AxiosResponse } from "axios";
 
 import http from "../../interceptor";
 
-import { CourseInterface } from "../../../../types/courses";
+import { CourseInterface } from "../../../../tyoes/course";
 
 export const getCourseTopAPI = async (count: number) => {
   try {

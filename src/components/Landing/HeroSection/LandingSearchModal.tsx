@@ -6,7 +6,7 @@ import { Dispatch, SetStateAction, forwardRef } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { Link } from "react-router-dom";
 
-import { CourseInterface } from "../../../types/courses";
+import { CourseInterface } from "../../../tyoes/course";
 
 import { SearchBox } from "../../common/SearchBox";
 
