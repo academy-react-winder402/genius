@@ -2,12 +2,14 @@ import { useQuery } from "@tanstack/react-query";
 
 import http from "../../../core/services/interceptor";
 
+import { NewsComment } from "../../../types/news-comment";
+
 const useNewsComments = (newsId: string) => {
   return useQuery({
     queryKey: ["newsComments", newsId],
     queryFn: async () =>
       await http
-        .get("/News/GetNewsComments", {
+        .get<NewsComment[]>("/News/GetNewsComments", {
           params: {
             newsId,
           },

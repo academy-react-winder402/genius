@@ -2,10 +2,10 @@ import { useQuery } from "@tanstack/react-query";
 
 import http from "../../core/services/interceptor";
 
-import { BlogInterface } from "../../types/blog";
+import { NewsInterface } from "../../types/news";
 
 interface News {
-  news: BlogInterface[];
+  news: NewsInterface[];
   totalCount: number;
 }
 

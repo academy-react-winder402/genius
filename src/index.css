@@ -71,17 +71,17 @@
   .categoryItem {
     @apply w-[94%] lg:w-[328px] h-[328px] shadow-landingCategoryItemShadow rounded-[32px] bg-white dark:bg-gray-900 flex flex-col justify-center items-center mt-4;
   }
-  .landingBlogItemStyleTwoBackground {
+  .landingNewsItemStyleTwoBackground {
     @apply flex gap-1 justify-center items-center bg-secondary dark:bg-gray-900 w-[102px] h-[40px] rounded-[80px];
   }
-  .landingBlogItemsStyleTwoColor {
+  .landingNewsItemsStyleTwoColor {
     @apply font-[500] text-primaryColor mt-[1px];
   }
-  .landingBlogItemsSkeleton {
+  .landingNewsItemsSkeleton {
     @apply flex flex-col gap-4;
   }
-  .landingBlogItemsSkeletonHidden {
-    @apply landingBlogItemsSkeleton hidden lg:flex;
+  .landingNewsItemsSkeletonHidden {
+    @apply landingNewsItemsSkeleton hidden lg:flex;
   }
   .landingTeacherItemCoursesCount {
     @apply absolute top-8 right-7 flex justify-center items-center w-[88px] h-[36px] bg-white dark:bg-gray-900 rounded-[50px] shadow-landingTeacherCoursesCount;
@@ -186,7 +186,7 @@
   .coursesHeroSectionSpanText {
     @apply font-[700] text-[24px] text-primaryColor dark:text-darkText lg:bg-no-repeat lg:bg-[right_top_2.4rem] h-[50px] pr-10 pt-20 pb-9;
   }
-  .blogItemText {
+  .newsItemText {
     @apply font-[500] text-[14px] text-primaryColor;
   }
   .landingCategorySectionTitleAfter {
@@ -286,36 +286,36 @@
   .forgetPasswordStepTwoSubmitButton {
     @apply bg-primary text-white w-[200px] h-[50px] rounded-md shadow-primaryShadow cursor-pointer;
   }
-  /* Blogs Page */
-  .blogsHeroSectionWrapper {
-    @apply relative flex flex-col-reverse lg:flex-row justify-between items-center lg:w-[1120px] mx-auto mt-5 lg:bg-coursesLandingPageDots dark:lg:bg-coursesLandingPageDotsDark lg:bg-no-repeat lg:bg-[bottom_left_10rem] after:hidden lg:after:block after:absolute after:top-0 after:right-0 after:w-[320px] after:h-[320px] after:bg-blogsHeroSectionTitleDescriptionBeforeBackground dark:after:bg-blogsHeroSectionTitleDescriptionBeforeDarkBackground after:bg-no-repeat after:z-0 before:hidden lg:before:block before:absolute before:top-64 before:right-72 before:w-[120px] before:h-[120px] before:bg-blogsHeroSectionTitleDescriptionCircleBackground before:bg-no-repeat;
+  /* News Page */
+  .newsHeroSectionWrapper {
+    @apply relative flex flex-col-reverse lg:flex-row justify-between items-center lg:w-[1120px] mx-auto mt-5 lg:bg-coursesLandingPageDots dark:lg:bg-coursesLandingPageDotsDark lg:bg-no-repeat lg:bg-[bottom_left_10rem] after:hidden lg:after:block after:absolute after:top-0 after:right-0 after:w-[320px] after:h-[320px] after:bg-newsHeroSectionTitleDescriptionBeforeBackground dark:after:bg-newsHeroSectionTitleDescriptionBeforeDarkBackground after:bg-no-repeat after:z-0 before:hidden lg:before:block before:absolute before:top-64 before:right-72 before:w-[120px] before:h-[120px] before:bg-newsHeroSectionTitleDescriptionCircleBackground before:bg-no-repeat;
   }
-  .blogsSortTab {
+  .newsSortTab {
     @apply px-6 lg:!px-4 !h-[20px] !rounded-[12px] dark:bg-gray-900 dark:text-darkText;
   }
-  .blogsSortActiveTab {
-    @apply !bg-primary !text-white flex justify-center items-center shadow-blogsSortActiveTabShadow;
+  .newsSortActiveTab {
+    @apply !bg-primary !text-white flex justify-center items-center shadow-newsSortActiveTabShadow;
   }
-  .blogsTitle {
-    @apply relative font-[800] text-[40px] text-text1 dark:text-darkText mt-5 w-[85%] after:absolute after:-top-8 after:-right-8 after:bg-blogsHeroSectionTitleDescriptionBackground dark:after:hidden after:w-[112px] after:h-[112px] after:-z-10;
+  .newsTitle {
+    @apply relative font-[800] text-[40px] text-text1 dark:text-darkText mt-5 w-[85%] after:absolute after:-top-8 after:-right-8 after:bg-newsHeroSectionTitleDescriptionBackground dark:after:hidden after:w-[112px] after:h-[112px] after:-z-10;
   }
-  .blogsDescription {
+  .newsDescription {
     @apply font-[500] text-text2 dark:text-darkText text-justify mt-3 w-[72%];
   }
-  .blogsHeroSectionDot {
+  .newsHeroSectionDot {
     @apply hidden lg:block absolute top-2 lg:-top-10 left-44;
   }
-  .blogsSearchSortWrapper {
+  .newsSearchSortWrapper {
     @apply flex flex-col lg:flex-row justify-center items-center gap-4 mt-4 lg:mt-0;
   }
-  .blogsSortTabsBoxWrapper {
+  .newsSortTabsBoxWrapper {
     @apply w-full lg:w-[450px] bg-white dark:bg-gray-900 rounded-2xl lg:px-4 py-1;
   }
-  .blogAllSeasCreatedAt {
+  .newsAllSeasCreatedAt {
     @apply font-[400] text-[14px] text-primaryColor mt-1;
   }
-  .blogsSkeletonWrapper {
-    @apply flex flex-col lg:flex-row justify-center gap-7 lg:w-[1280px] mt-7 mr-2;
+  .newsSkeletonWrapper {
+    @apply flex flex-col lg:flex-row justify-center gap-7 mx-auto mt-7 lg:mr-3;
   }
   /* Courses */
   .coursesHeroSection {
@@ -340,38 +340,38 @@
   .coursesTab {
     @apply dark:text-darkText;
   }
-  /* Blog Details */
-  .blogDetailsTitle {
+  /* News Details */
+  .newsDetailsTitle {
     @apply font-[700] text-[32px] text-text1 dark:text-darkText;
   }
-  .blogDetailsDescription {
+  .newsDetailsDescription {
     @apply font-[400] text-text2 dark:text-darkText mt-2;
   }
-  .blogDetailsWriterWrapper {
+  .newsDetailsWriterWrapper {
     @apply flex gap-3 items-center bg-white dark:bg-gray-900 shadow-primaryShadow w-[230px] h-[64px] rounded-[16px] px-3 !mt-4 lg:mt-0;
   }
-  .blogDetailsWriterImage {
+  .newsDetailsWriterImage {
     @apply w-[40px] h-[40px] rounded-[12px];
   }
-  .blogDetailsWriterName {
+  .newsDetailsWriterName {
     @apply font-[700] text-text1 dark:text-darkText;
   }
-  .blogDetailsMainSectionTitle {
+  .newsDetailsMainSectionTitle {
     @apply font-[700] text-[24px] text-text1 dark:text-darkText mb-3;
   }
-  .blogDetailsMainSectionDescription {
+  .newsDetailsMainSectionDescription {
     @apply font-[400] text-text2 dark:text-darkText leading-[28px];
   }
-  .blogDetailsMainSectionLiSpan {
+  .newsDetailsMainSectionLiSpan {
     @apply font-[500] text-text1 dark:text-darkText;
   }
-  .blogDetailsMainSectionListItem {
-    @apply mr-4 pr-2 list-image-[url('/src/assets/images/BlogDetails/Icons/list-item-dot.svg')];
+  .newsDetailsMainSectionListItem {
+    @apply mr-4 pr-2 list-image-[url('/src/assets/images/NewsDetails/Icons/list-item-dot.svg')];
   }
-  .blogDetailsCommentsSection {
+  .newsDetailsCommentsSection {
     @apply bg-white dark:bg-gray-900 shadow-primaryShadow rounded-[24px] mt-12 px-8 py-6;
   }
-  .blogDetailsCommentsText {
+  .newsDetailsCommentsText {
     @apply font-[700] text-[24px] text-text1 dark:text-darkText text-center mb-6;
   }
   /* Dashboard Layout */
@@ -492,7 +492,7 @@
     @apply border border-solid border-commentsBorder dark:border-darkBorder outline-none w-full min-h-[100px] rounded-[10px] px-4 py-4 font-[400] text-[14px] text-text3 dark:text-darkText dark:bg-gray-900;
   }
   .childrenComment {
-    @apply border-r border-commentsBorder dark:border-darkBorder mr-8 pr-5;
+    @apply lg:border-r lg:border-commentsBorder lg:dark:border-darkBorder mr-1 lg:mr-8 lg:pr-5;
   }
   .commentAvatarImage {
     @apply w-[32px] h-[32px] rounded-full;

@@ -2,7 +2,7 @@ import { toast } from "react-toastify";
 
 import { useCourseTop } from "../../../hooks/course/useCourseTop";
 
-import { CourseInterface } from "../../../types/courses";
+import { CourseInterface } from "../../../tyoes/course";
 
 import { CourseItem } from "../../common/CourseItem";
 import { CourseItemSkeleton } from "../../common/CourseItemSkeleton";

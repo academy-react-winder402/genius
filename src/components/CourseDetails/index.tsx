@@ -1,16 +1,17 @@
-import { SyntheticEvent, useEffect, useState } from "react";
+import { SyntheticEvent } from "react";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import { courseLessons } from "../../core/data/courses/courseLessons";
-import { getCourseByIdAPI } from "../../core/services/api/course/get-course-by-id";
 import { setCourseRatingAPI } from "../../core/services/api/course/set-course-rating.api";
-import { getTeacherDetailsAPI } from "../../core/services/api/teacher/get-teachers-details.api";
 import { convertDateToPersian } from "../../core/utils/date-helper.utils";
 import { priceWithCommas } from "../../core/utils/number-helper.utils";
 
-import { CourseDetailsInterface } from "../../types/course-details";
-import { TeacherDetailsInterface } from "../../types/teacher-details";
+import { useCourseReserve } from "../../hooks/course/course-reserve/useCourseReserve";
+import { useDeleteCourseReserve } from "../../hooks/course/course-reserve/useDeleteCourseReserve";
+import { useCourseDetails } from "../../hooks/course/useCourseDetails";
+import { useTeacherDetails } from "../../hooks/teacher/useTeacherDetails";
+import { useCourseRating } from "../../hooks/course/useCourseRating";
 
 import { useDarkModeSelector } from "../../redux/darkMode";
 
@@ -32,14 +33,14 @@ import studentsCountIcon from "../../assets/images/CourseDetails/Information/pro
 import blackThumbnail from "../../assets/images/Courses/blank-thumbnail.jpg";
 
 const CourseDetails = () => {
-  const [course, setCourse] = useState<CourseDetailsInterface>();
-  const [teacher, setTeacher] = useState<TeacherDetailsInterface>();
-  const [likeCount, setLikeCount] = useState<number>();
-  const [dislikeCount, setDislikeCount] = useState<number>();
-
   const { courseId } = useParams();
-
+  const { data: course } = useCourseDetails(courseId!);
+  const { data: teacher } = useTeacherDetails(course?.teacherId!);
+  const addCourseReserve = useCourseReserve();
+  const deleteCourseReserve = useDeleteCourseReserve();
+  const addCourseRating = useCourseRating();
   const darkMode = useDarkModeSelector();
+
   const formattedPrice = priceWithCommas(+course?.cost!);
   const formattedStartTime = convertDateToPersian(course?.startTime!);
   const formattedEndTime = convertDateToPersian(course?.endTime!);
@@ -48,54 +49,14 @@ const CourseDetails = () => {
     e: SyntheticEvent<Element, Event>,
     newValue: number | null
   ) => {
-    try {
-      const addRate = await toast.promise(
-        setCourseRatingAPI(course?.courseId!, newValue!),
-        {
-          pending: "در حال افزودن امتیاز ...",
-        }
-      );
-
-      if (addRate.success) toast.success("امتیاز شما با موفقیت ثبت شد !");
-      else toast.error(addRate.message);
-    } catch (error) {
-      toast.error("مشکلی در افزودن امتیاز به وجود آمد !");
-    }
+    addCourseRating.mutate({ courseId: courseId!, rateNumber: newValue! });
   };
 
-  const fetchCourse = async () => {
-    try {
-      const getCourse = await getCourseByIdAPI(courseId!);
-
-      setCourse(getCourse);
-      setLikeCount(getCourse!.likeCount);
-      setDislikeCount(getCourse!.dissLikeCount);
-    } catch (error) {
-      return false;
-    }
+  const handleCourseReserve = () => {
+    if (course?.isCourseReseve == "0")
+      addCourseReserve.mutate(course?.courseId);
+    else deleteCourseReserve.mutate(course?.courseReseveId!);
   };
-
-  useEffect(() => {
-    fetchCourse();
-  }, []);
-
-  useEffect(() => {
-    const fetchTeacher = async () => {
-      try {
-        const response = await getTeacherDetailsAPI(course?.teacherId!);
-
-        setTeacher(response);
-      } catch (error) {
-        return false;
-      }
-    };
-
-    if (course) fetchTeacher();
-  }, [course]);
-
-  useEffect(() => {
-    fetchCourse();
-  }, [courseId]);
 
   return (
     <div className="mt-4 w-[90%] lg:w-[1100px] mx-auto">
@@ -103,8 +64,17 @@ const CourseDetails = () => {
         <div className="lg:w-[75%]">
           <div className="relative">
             <img
-              src={course?.imageAddress || blackThumbnail}
-              className="rounded-[24px] w-full max-h-[500px] object-cover"
+              src={
+                course?.imageAddress &&
+                course?.imageAddress !== "undefined" &&
+                course?.imageAddress !== "<string>" &&
+                course?.imageAddress !== "Not-set" &&
+                course?.imageAddress !== "not-set" &&
+                course?.imageAddress !== "testimg"
+                  ? course?.imageAddress
+                  : blackThumbnail
+              }
+              className="rounded-[24px] w-full lg:max-h-[500px] object-cover"
             />
             <CourseLikeButton
               classes="courseLikeBox absolute top-10 right-8 bg-white dark:bg-gray-900"
@@ -141,14 +111,13 @@ const CourseDetails = () => {
           </div>
           <Satisfaction
             nameData="دوره"
-            likeCount={likeCount!}
-            disLikeCount={dislikeCount!}
-            setLikeCount={setLikeCount}
-            setDislikeCount={setDislikeCount}
-            commentCount={course?.commentCount!}
+            likeCount={course?.likeCount!}
+            disLikeCount={course?.dissLikeCount!}
             courseId={course?.courseId!}
             currentUserRateNumber={course?.currentUserRateNumber!}
             handleRateChange={handleRateChange}
+            rateCount={course?.currentRate!}
+            likeId={course?.userLikeId!}
           />
           <CourseTabs
             courseLessons={courseLessons}
@@ -184,10 +153,13 @@ const CourseDetails = () => {
               />
             </div>
             <div className="flex justify-between items-center mt-6 w-[90%] mx-auto">
-              <button className="bg-primary shadow-courseAddToCarButtonShadow text-white w-[40%] lg:w-[132px] h-[56px] rounded-[80px]">
-                شرکت در دوره
+              <button
+                className="bg-primary shadow-courseAddToCarButtonShadow text-white w-[40%] lg:w-[132px] h-[56px] rounded-[80px]"
+                onClick={handleCourseReserve}
+              >
+                {course?.isCourseReseve === "0" ? "شرکت در دوره" : "حذف رزرو"}
               </button>
-              <span className="font-[700] text-[24px] text-primaryColor">
+              <span className="font-[700] text-[20px] text-primaryColor mt-1">
                 {formattedPrice}{" "}
                 <span className="font-[500] text-text1 dark:text-darkText">
                   تومان

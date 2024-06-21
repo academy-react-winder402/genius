@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction } from "react";
 
-import { CourseInterface } from "../../../types/courses";
+import { CourseInterface } from "../../../tyoes/course";
 
 import { CourseItem } from "../../common/CourseItem";
 import { CourseItemSkeleton } from "../../common/CourseItemSkeleton";

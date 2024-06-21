@@ -20,7 +20,7 @@ export default {
         likeDislikeIcon: "#ECEFF1",
         courseDetailsAccordion: "#ECEFF1",
         darkBackground: "#1A1A2E",
-        blogDetailsShareBox: "#ECEFF1",
+        newsDetailsShareBox: "#ECEFF1",
         dashboardActiveMenuItem: "#00000099",
         dashboardHoverMenuItem: "#0000001A",
         dashboardTitleBox: "#ECEFF1",
@@ -51,14 +51,14 @@ export default {
           "url('/src/assets/images/Courses/Icons/sort.svg')",
         coursesSelectOptionSortDark:
           "url('/src/assets/images/Courses/Icons/sort-dark.svg')",
-        blogsHeroSectionTitleDescriptionBeforeBackground:
-          "url('/src/assets/images/Blogs/blogs-hero-section-right-image.svg')",
-        blogsHeroSectionTitleDescriptionBeforeDarkBackground:
-          "url('/src/assets/images/Blogs/blogs-hero-section-right-image-dark.svg')",
-        blogsHeroSectionTitleDescriptionCircleBackground:
-          "url('/src/assets/images/Blogs/blogs-hero-section-circle.svg')",
-        blogsHeroSectionTitleDescriptionBackground:
-          "url('/src/assets/images/Blogs/dots.svg')",
+        newsHeroSectionTitleDescriptionBeforeBackground:
+          "url('/src/assets/images/News/news-hero-section-right-image.svg')",
+        newsHeroSectionTitleDescriptionBeforeDarkBackground:
+          "url('/src/assets/images/News/news-hero-section-right-image-dark.svg')",
+        newsHeroSectionTitleDescriptionCircleBackground:
+          "url('/src/assets/images/News/news-hero-section-circle.svg')",
+        newsHeroSectionTitleDescriptionBackground:
+          "url('/src/assets/images/News/dots.svg')",
         dashboardMyCoursesCoursesPerPageAndEditProfileSelectBoxIcon:
           "url('/src/assets/images/Courses/Icons/select-icon.svg')",
         dashboardMyCoursesCoursesPerPageAndEditProfileSelectBoxDarkIcon:
@@ -86,7 +86,7 @@ export default {
         courseAddCommentButton: "0px 0px 20px 0px #0000000D",
         authInputShadow: "0px 0px 20px 0px #00000005",
         courseDetailsHeroSectionSearchBoxShadow: "0px 0px 20px 0px #0000000D",
-        blogsSortActiveTabShadow: "0px 0px 20px 0px #0000001A",
+        newsSortActiveTabShadow: "0px 0px 20px 0px #0000001A",
         dashboardNotificationHomeShadow: "0px 0px 20px 0px #0000000D",
       },
       borderColor: {

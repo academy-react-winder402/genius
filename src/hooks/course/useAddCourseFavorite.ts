@@ -19,6 +19,9 @@ const useAddCourseFavorite = () => {
       queryClient.invalidateQueries({
         queryKey: ["course-top"],
       });
+      queryClient.invalidateQueries({
+        queryKey: ["courseDetails"],
+      });
 
       toast.success("دوره با موفقیت به لیست علاقه مندی های شما اضافه شد !");
     },

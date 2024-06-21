@@ -8,7 +8,7 @@ export interface CourseDetailsInterface {
   title: string;
   imageAddress: string;
   currentRate: number;
-  cost: string;
+  cost: number;
   googleTitle: string;
   googleSchema: string;
   capacity: number;
@@ -21,14 +21,14 @@ export interface CourseDetailsInterface {
   commentCount: number;
   likeCount: number;
   dissLikeCount: number;
-  currentUserLike: number;
-  currentUserDissLike: number;
+  currentUserLike: string;
+  currentUserDissLike: string;
   courseGroupCount: number;
-  isCourseUser: number;
-  isCourseReseve: number;
+  isCourseUser: string;
+  isCourseReseve: string;
   courseReseveId: string;
   userFavoriteId: string;
-  isUserFavorite: false;
+  isUserFavorite: boolean;
   userLikeId: string;
   currentUserSetRate: boolean;
   currentUserRateNumber: number;

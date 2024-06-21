@@ -63,6 +63,7 @@ const PaginatedComments = ({
                 message={describe}
                 isChildren={false}
                 id={id}
+                parentId={commentId}
                 commentId={commentId}
                 likeCount={+likeCount}
                 currentUserLikeId={currentUserLikeId}

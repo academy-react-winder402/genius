@@ -2,11 +2,11 @@
 import { LandingLayout } from "../../components/Layout/LandingLayout";
 import { MainLayout } from "../../components/Layout/Layout";
 
-import { BlogDetailsPage } from "../../screens/BlogDetails";
-import { BlogsPage } from "../../screens/Blogs";
 import { CourseDetailsPage } from "../../screens/CourseDetails";
 import { CoursesPage } from "../../screens/Courses";
 import { LandingPage } from "../../screens/Landing";
+import { NewsPage } from "../../screens/News";
+import { NewsDetailsPage } from "../../screens/NewsDetails";
 import { NotFoundPage } from "../../screens/NotFound";
 
 export const commonRoute = [
@@ -33,12 +33,12 @@ export const commonRoute = [
         element: <CourseDetailsPage />,
       },
       {
-        path: "/blogs",
-        element: <BlogsPage />,
+        path: "/news",
+        element: <NewsPage />,
       },
       {
-        path: "/blogs/:blogId",
-        element: <BlogDetailsPage />,
+        path: "/news/:newsId",
+        element: <NewsDetailsPage />,
       },
       {
         path: "*",

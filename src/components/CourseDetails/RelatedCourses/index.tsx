@@ -1,37 +1,37 @@
-import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 import { Swiper, SwiperSlide } from "swiper/react";
 // import required modules
 import { Navigation, Pagination } from "swiper/modules";
 
-import { getCourseTopAPI } from "../../../core/services/api/course/get-course-top.api";
-
-import { CourseInterface } from "../../../types/courses";
+import { useCourseTop } from "../../../hooks/course/useCourseTop";
 
 import { CourseItem } from "../../common/CourseItem";
+import { CourseItemSkeleton } from "../../common/CourseItemSkeleton";
 import { Heading } from "../../common/Heading";
 
 // Import Swiper styles
-import "swiper/css/pagination";
 import "swiper/css";
 import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 const RelatedCourses = () => {
-  const [courses, setCourses] = useState<CourseInterface[]>();
+  const { data, isLoading, error } = useCourseTop(5);
 
-  useEffect(() => {
-    const fetchCourses = async () => {
-      const getCourses = await getCourseTopAPI(5);
+  if (error) toast.error("مشکلی در دریافت دوره های مشابه به وجود آمد !");
 
-      setCourses(getCourses);
-    };
-
-    fetchCourses();
-  }, []);
+  const courseItemSkeletons = [1, 2, 3, 4];
 
   return (
     <div className="mt-16 w-full">
       <Heading>دوره‌های مشابه</Heading>
       <div className="mt-5">
+        {isLoading && (
+          <div className="flex gap-2">
+            {courseItemSkeletons.map((skeleton) => (
+              <CourseItemSkeleton key={skeleton} />
+            ))}
+          </div>
+        )}
         <Swiper
           pagination={{
             clickable: true,
@@ -48,8 +48,8 @@ const RelatedCourses = () => {
             },
           }}
         >
-          {courses &&
-            courses?.map((course: CourseInterface) => (
+          {data &&
+            data?.map((course) => (
               <SwiperSlide
                 key={course.courseId}
                 className="lg:!w-[296px] lg:h-[389px] mr-4 py-5 mb-6"

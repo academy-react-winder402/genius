@@ -1,13 +1,11 @@
 import axios, { AxiosError, AxiosInstance, AxiosResponse } from "axios";
-import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
-
-import { isUserLoginChange } from "../../../redux/user-login";
 
 import { getItem, removeItem } from "../common/storage.services";
 
 interface AxiosErrorMessage {
   ErrorMessage: string[];
+  status: number;
 }
 
 const baseURL: string = import.meta.env.VITE_BASE_URL;
@@ -21,14 +19,17 @@ const onSuccess = (response: AxiosResponse) => {
 };
 
 const onError = (err: AxiosError<AxiosErrorMessage>) => {
-  const dispatch = useDispatch();
+  if (err.response?.data.ErrorMessage) {
+    err.response.data.ErrorMessage.forEach((errorMessage) => {
+      toast.error(errorMessage, { autoClose: false });
+    });
+  } else {
+    toast.error("مشکل غیر منتظره ای رخ داد !");
+  }
 
-  err.response?.ErrorMessage.map((error) => toast.error(error));
-
-  if (err.response?.status === 401) {
+  if (err.response?.data.status === 401) {
     removeItem("token");
 
-    dispatch(isUserLoginChange(false));
     window.location.pathname = "/login";
   }
 
