@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { RiHeart3Fill, RiHeart3Line } from "react-icons/ri";
 
+import { useAddNewsReplyComment } from "../../../hooks/news/comments/useAddNewsReplyComment";
 import { useCommentLike } from "../../../hooks/news/comments/useCommentLike";
 import { useDeleteCommentLikeNews } from "../../../hooks/news/comments/useDeleteCommentLikeNews";
 
@@ -27,6 +28,7 @@ interface CommentItemProps {
   message: string;
   isChildren?: boolean;
   id?: string;
+  parentId: string;
   commentId?: string;
   likeCount: number;
   currentUserLikeId: string;
@@ -40,6 +42,7 @@ const CommentItem = ({
   message,
   isChildren,
   id,
+  parentId,
   commentId,
   likeCount,
   currentUserLikeId,
@@ -51,6 +54,7 @@ const CommentItem = ({
   const darkMode = useDarkModeSelector();
   const addCommentLike = useCommentLike(true);
   const deleteCommentLike = useDeleteCommentLikeNews(id!);
+  const addReplyComment = useAddNewsReplyComment();
 
   const handleCommentLike = async () => {
     isLike
@@ -59,7 +63,12 @@ const CommentItem = ({
   };
 
   const handleReplyCommentSubmit = (e: { title: string; describe: string }) => {
-    console.log(e);
+    addReplyComment.mutate({
+      newsId: id!,
+      title: e.title,
+      describe: e.describe,
+      parentId,
+    });
   };
 
   useEffect(() => {
@@ -139,6 +148,7 @@ const CommentItem = ({
       {replyComment &&
         replyComment.map((reply) => {
           const {
+            parentId,
             id,
             pictureAddress,
             inserDate: insertDate,
@@ -162,6 +172,7 @@ const CommentItem = ({
               likeCount={+likeCount}
               commentId={id}
               currentUserLikeId={currentUserLikeId}
+              parentId={parentId}
               isLike={currentUserIsLike}
             />
           );

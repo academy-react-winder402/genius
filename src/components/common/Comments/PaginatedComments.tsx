@@ -42,6 +42,7 @@ const PaginatedComments = ({
         {currentItems && currentItems !== undefined ? (
           currentItems.map((comment) => {
             const {
+              parentId,
               id: commentId,
               pictureAddress,
               inserDate: insertDate,
@@ -63,6 +64,7 @@ const PaginatedComments = ({
                 message={describe}
                 isChildren={false}
                 id={id}
+                parentId={commentId}
                 commentId={commentId}
                 likeCount={+likeCount}
                 currentUserLikeId={currentUserLikeId}
