@@ -12,18 +12,22 @@ interface RatingProps {
     e: SyntheticEvent<Element, Event>,
     newValue: number | null
   ) => void;
+  nameData: string;
 }
 
 const Rating = ({
   rateCount,
   currentUserRateNumber,
   handleRateChange,
+  nameData,
 }: RatingProps) => {
   return (
     <div className="flex items-center gap-4">
       <Tooltip
         title={
-          currentUserRateNumber ? "شما قبلا به این خبر امتیاز داده اید !" : ""
+          currentUserRateNumber
+            ? `شما قبلا به این ${nameData} امتیاز داده اید !`
+            : ""
         }
         placement="top"
         arrow

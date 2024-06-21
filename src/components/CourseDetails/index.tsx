@@ -11,6 +11,7 @@ import { useCourseReserve } from "../../hooks/course/course-reserve/useCourseRes
 import { useDeleteCourseReserve } from "../../hooks/course/course-reserve/useDeleteCourseReserve";
 import { useCourseDetails } from "../../hooks/course/useCourseDetails";
 import { useTeacherDetails } from "../../hooks/teacher/useTeacherDetails";
+import { useCourseRating } from "../../hooks/course/useCourseRating";
 
 import { useDarkModeSelector } from "../../redux/darkMode";
 
@@ -37,6 +38,7 @@ const CourseDetails = () => {
   const { data: teacher } = useTeacherDetails(course?.teacherId!);
   const addCourseReserve = useCourseReserve();
   const deleteCourseReserve = useDeleteCourseReserve();
+  const addCourseRating = useCourseRating();
   const darkMode = useDarkModeSelector();
 
   const formattedPrice = priceWithCommas(+course?.cost!);
@@ -47,19 +49,7 @@ const CourseDetails = () => {
     e: SyntheticEvent<Element, Event>,
     newValue: number | null
   ) => {
-    try {
-      const addRate = await toast.promise(
-        setCourseRatingAPI(course?.courseId!, newValue!),
-        {
-          pending: "در حال افزودن امتیاز ...",
-        }
-      );
-
-      if (addRate.success) toast.success("امتیاز شما با موفقیت ثبت شد !");
-      else toast.error(addRate.message);
-    } catch (error) {
-      toast.error("مشکلی در افزودن امتیاز به وجود آمد !");
-    }
+    addCourseRating.mutate({ courseId: courseId!, rateNumber: newValue! });
   };
 
   const handleCourseReserve = () => {
@@ -74,8 +64,17 @@ const CourseDetails = () => {
         <div className="lg:w-[75%]">
           <div className="relative">
             <img
-              src={course?.imageAddress || blackThumbnail}
-              className="rounded-[24px] w-full max-h-[500px] object-cover"
+              src={
+                course?.imageAddress &&
+                course?.imageAddress !== "undefined" &&
+                course?.imageAddress !== "<string>" &&
+                course?.imageAddress !== "Not-set" &&
+                course?.imageAddress !== "not-set" &&
+                course?.imageAddress !== "testimg"
+                  ? course?.imageAddress
+                  : blackThumbnail
+              }
+              className="rounded-[24px] w-full lg:max-h-[500px] object-cover"
             />
             <CourseLikeButton
               classes="courseLikeBox absolute top-10 right-8 bg-white dark:bg-gray-900"
@@ -117,7 +116,7 @@ const CourseDetails = () => {
             courseId={course?.courseId!}
             currentUserRateNumber={course?.currentUserRateNumber!}
             handleRateChange={handleRateChange}
-            rateCount={course?.currentUserRateNumber!}
+            rateCount={course?.currentRate!}
             likeId={course?.userLikeId!}
           />
           <CourseTabs

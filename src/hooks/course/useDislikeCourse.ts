@@ -8,7 +8,7 @@ const useDislikeCourse = () => {
     mutationKey: ["dislikeCourse"],
     mutationFn: async (courseId: string) =>
       await http
-        .post("/Course/AddCourseDissLike", {
+        .post("/Course/AddCourseDissLike", undefined, {
           params: {
             courseId,
           },

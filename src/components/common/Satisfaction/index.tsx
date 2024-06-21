@@ -39,13 +39,14 @@ const Satisfaction = ({
         rateCount={rateCount}
         currentUserRateNumber={currentUserRateNumber}
         handleRateChange={handleRateChange}
+        nameData={nameData}
       />
       <LikeDislike
         newsId={newsId}
+        courseId={courseId}
         nameData={nameData}
         likeCount={likeCount}
         disLikeCount={disLikeCount}
-        courseId={courseId}
         likeId={likeId}
         isLike={isLike!}
         isDislike={isDislike!}
