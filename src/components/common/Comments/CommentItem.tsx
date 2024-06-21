@@ -106,7 +106,7 @@ const CommentItem = ({
             onClick={handleCommentLike}
           >
             <span className="commentLikeCount">{likeCount}</span>
-            {currentUserLikeId ? (
+            {isLike ? (
               <RiHeart3Fill className="text-red" />
             ) : (
               <RiHeart3Line className="text-red" />
