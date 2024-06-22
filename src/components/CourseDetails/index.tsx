@@ -1,17 +1,16 @@
+import { Tooltip } from "@mui/material";
 import { SyntheticEvent } from "react";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
-import { courseLessons } from "../../core/data/courses/courseLessons";
-import { setCourseRatingAPI } from "../../core/services/api/course/set-course-rating.api";
 import { convertDateToPersian } from "../../core/utils/date-helper.utils";
 import { priceWithCommas } from "../../core/utils/number-helper.utils";
 
 import { useCourseReserve } from "../../hooks/course/course-reserve/useCourseReserve";
 import { useDeleteCourseReserve } from "../../hooks/course/course-reserve/useDeleteCourseReserve";
 import { useCourseDetails } from "../../hooks/course/useCourseDetails";
-import { useTeacherDetails } from "../../hooks/teacher/useTeacherDetails";
 import { useCourseRating } from "../../hooks/course/useCourseRating";
+import { useTeacherDetails } from "../../hooks/teacher/useTeacherDetails";
 
 import { useDarkModeSelector } from "../../redux/darkMode";
 
@@ -21,6 +20,7 @@ import { CourseDetailsInformationBox } from "./CourseDetailsInformation/CourseDe
 import { CourseTeacher } from "./CourseDetailsInformation/CourseTeacher";
 import { CourseTabs } from "./CourseTabs";
 import { RelatedCourses } from "./RelatedCourses";
+import { Skeleton } from "../common/Skeleton";
 
 import clockDarkIcon from "../../assets/images/CourseDetails/Icons/clock-dark2.svg";
 import clockIcon from "../../assets/images/CourseDetails/Icons/clock.svg";
@@ -34,8 +34,12 @@ import blackThumbnail from "../../assets/images/Courses/blank-thumbnail.jpg";
 
 const CourseDetails = () => {
   const { courseId } = useParams();
-  const { data: course } = useCourseDetails(courseId!);
-  const { data: teacher } = useTeacherDetails(course?.teacherId!);
+  const { data: course, isLoading: isCourseLoading } = useCourseDetails(
+    courseId!
+  );
+  const { data: teacher, isLoading: isTeacherLoading } = useTeacherDetails(
+    course?.teacherId!
+  );
   const addCourseReserve = useCourseReserve();
   const deleteCourseReserve = useDeleteCourseReserve();
   const addCourseRating = useCourseRating();
@@ -53,9 +57,13 @@ const CourseDetails = () => {
   };
 
   const handleCourseReserve = () => {
-    if (course?.isCourseReseve == "0")
-      addCourseReserve.mutate(course?.courseId);
-    else deleteCourseReserve.mutate(course?.courseReseveId!);
+    if (course?.isCourseUser === "1") {
+      toast.error("شما دانشجوی دوره هستید و قادر به حذف رزرو نیستید !");
+    } else {
+      if (course?.isCourseReseve == "0")
+        addCourseReserve.mutate(course?.courseId);
+      else deleteCourseReserve.mutate(course?.courseReseveId!);
+    }
   };
 
   return (
@@ -63,19 +71,23 @@ const CourseDetails = () => {
       <div className="courseDetailsBox">
         <div className="lg:w-[75%]">
           <div className="relative">
-            <img
-              src={
-                course?.imageAddress &&
-                course?.imageAddress !== "undefined" &&
-                course?.imageAddress !== "<string>" &&
-                course?.imageAddress !== "Not-set" &&
-                course?.imageAddress !== "not-set" &&
-                course?.imageAddress !== "testimg"
-                  ? course?.imageAddress
-                  : blackThumbnail
-              }
-              className="rounded-[24px] w-full lg:max-h-[500px] object-cover"
-            />
+            {isCourseLoading ? (
+              <Skeleton width="100%" height={500} borderRadius={24} />
+            ) : (
+              <img
+                src={
+                  course?.imageAddress &&
+                  course?.imageAddress !== "undefined" &&
+                  course?.imageAddress !== "<string>" &&
+                  course?.imageAddress !== "Not-set" &&
+                  course?.imageAddress !== "not-set" &&
+                  course?.imageAddress !== "testimg"
+                    ? course?.imageAddress
+                    : blackThumbnail
+                }
+                className="rounded-[24px] w-full lg:max-h-[500px] object-cover"
+              />
+            )}
             <CourseLikeButton
               classes="courseLikeBox absolute top-10 right-8 bg-white dark:bg-gray-900"
               courseId={course?.courseId!}
@@ -89,7 +101,7 @@ const CourseDetails = () => {
                   className="-mt-[3px]"
                 />
                 <span className="courseDetailImageBoxTitle">
-                  {course?.commentCount} درس
+                  {course?.commentCount || 0} درس
                 </span>
               </div>
               <div className="courseDetailImageBox">
@@ -102,12 +114,21 @@ const CourseDetails = () => {
             </div>
           </div>
           <div className="mt-7">
-            <h1 className="font-[700] text-[32px] text-text1 dark:text-darkText">
-              {course?.title}
-            </h1>
-            <p className="font-[500] text-text2 dark:text-darkText mt-2">
-              {course?.miniDescribe}
-            </p>
+            {isCourseLoading ? (
+              <>
+                <Skeleton width="80%" height={7} />
+                <Skeleton width="100%" height={7} count={3} />
+              </>
+            ) : (
+              <>
+                <h1 className="font-[700] text-[32px] text-text1 dark:text-darkText">
+                  {course?.title}
+                </h1>
+                <p className="font-[500] text-text2 dark:text-darkText mt-2">
+                  {course?.miniDescribe}
+                </p>
+              </>
+            )}
           </div>
           <Satisfaction
             nameData="دوره"
@@ -118,12 +139,10 @@ const CourseDetails = () => {
             handleRateChange={handleRateChange}
             rateCount={course?.currentRate!}
             likeId={course?.userLikeId!}
+            isLike={course?.currentUserLike === "1"}
+            isDislike={course?.currentUserDissLike === "1"}
           />
-          <CourseTabs
-            courseLessons={courseLessons}
-            description={course?.describe!}
-            courseId={course?.courseId!}
-          />
+          <CourseTabs description={course?.describe!} courseId={courseId!} />
         </div>
         <div className="lg:w-[405px]">
           <div className="courseDetailsSidebar">
@@ -134,43 +153,87 @@ const CourseDetails = () => {
               <CourseDetailsInformationBox
                 imageURL={studentsCountIcon}
                 label="تعداد دانشجو"
-                value={String(course?.commentCount)}
+                value={
+                  isCourseLoading ? (
+                    <Skeleton width={100} height={7} />
+                  ) : (
+                    String(course?.commentCount)
+                  )
+                }
               />
               <CourseDetailsInformationBox
                 imageURL={courseStatusIcon}
                 label="وضعیت دوره"
-                value={course?.courseStatusName!}
+                value={
+                  isCourseLoading ? (
+                    <Skeleton width={100} height={7} />
+                  ) : (
+                    course?.courseStatusName! || "نا معلوم"
+                  )
+                }
               />
               <CourseDetailsInformationBox
                 imageURL={calenderIcon}
                 label="تاریخ شروع"
-                value={formattedStartTime}
+                value={
+                  isCourseLoading ? (
+                    <Skeleton width={100} height={7} />
+                  ) : (
+                    formattedStartTime
+                  )
+                }
               />
               <CourseDetailsInformationBox
                 imageURL={calenderTickIcon}
                 label="تاریخ پایان"
-                value={formattedEndTime}
+                value={
+                  isCourseLoading ? (
+                    <Skeleton width={100} height={7} />
+                  ) : (
+                    formattedEndTime
+                  )
+                }
               />
             </div>
             <div className="flex justify-between items-center mt-6 w-[90%] mx-auto">
-              <button
-                className="bg-primary shadow-courseAddToCarButtonShadow text-white w-[40%] lg:w-[132px] h-[56px] rounded-[80px]"
-                onClick={handleCourseReserve}
+              <Tooltip
+                title={
+                  course?.isCourseUser === "1" &&
+                  "شما دانشجوی دوره هستید و قادر به حذف رزرو نیستید !"
+                }
+                placement="top"
+                arrow
               >
-                {course?.isCourseReseve === "0" ? "شرکت در دوره" : "حذف رزرو"}
-              </button>
-              <span className="font-[700] text-[20px] text-primaryColor mt-1">
-                {formattedPrice}{" "}
-                <span className="font-[500] text-text1 dark:text-darkText">
-                  تومان
+                <button
+                  className="bg-primary shadow-courseAddToCarButtonShadow text-white w-[40%] lg:w-[145px] h-[56px] rounded-[80px]"
+                  onClick={handleCourseReserve}
+                  disabled={course?.isCourseUser === "1"}
+                >
+                  {course?.isCourseUser === "1"
+                    ? "دانشجوی دوره"
+                    : course?.isCourseReseve === "0"
+                    ? "شرکت در دوره"
+                    : "حذف رزرو"}
+                </button>
+              </Tooltip>
+
+              {isCourseLoading ? (
+                <Skeleton width={100} height={7} />
+              ) : (
+                <span className="font-[700] text-[20px] text-primaryColor mt-1">
+                  {formattedPrice}{" "}
+                  <span className="font-[500] text-text1 dark:text-darkText">
+                    تومان
+                  </span>
                 </span>
-              </span>
+              )}
             </div>
           </div>
           <CourseTeacher
             teacherImage={teacher?.pictureAddress!}
             teacherName={teacher?.fullName!}
             teacherJob={teacher?.fullName!}
+            isTeacherLoading={isTeacherLoading}
           />
         </div>
       </div>

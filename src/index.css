@@ -195,6 +195,12 @@
   .showMoreComments {
     @apply font-[500] text-[14px] text-center text-primaryColor cursor-pointer mb-2;
   }
+  .courseDetailsList {
+    @apply flex flex-col gap-4;
+  }
+  .courseDetailsList li {
+    @apply list-disc pr-1;
+  }
   /* Auth Pages */
   .authFormWrapper {
     @apply flex flex-col gap-3 mt-7;
@@ -434,7 +440,7 @@
   }
   /* Dashboard Page */
   .dashboardProfileInformationWrapper {
-    @apply relative border border-solid border-dashboardUserInfoEditProfileBorder w-full rounded-[12px] mt-12 py-5 px-5 grid grid-cols-2 lg:grid-cols-3 place-content-center gap-y-8;
+    @apply relative border border-solid border-dashboardUserInfoEditProfileBorder dark:border-darkBorder w-full rounded-[12px] mt-12 py-5 px-5 grid grid-cols-2 lg:grid-cols-3 place-content-center gap-y-8;
   }
   .dashboardInformationBoxLabel {
     @apply font-[500] text-text2 dark:text-darkText;
@@ -443,7 +449,7 @@
     @apply text-primaryColor font-[700];
   }
   .dashboardEditProfileLink {
-    @apply mr-auto font-[500] text-primaryColor dark:text-darkText border-t border-r border-solid border-dashboardUserInfoEditProfileBorder w-[120px] h-[40px] mt-0 absolute bottom-0 left-0 rounded-tr-[12px] flex justify-center items-center;
+    @apply mr-auto font-[500] text-primaryColor dark:text-darkText border-t border-r border-solid border-dashboardUserInfoEditProfileBorder dark:border-darkBorder w-[120px] h-[40px] mt-0 absolute bottom-0 left-0 rounded-tr-[12px] flex justify-center items-center;
   }
   .dashboardCoursesSection {
     @apply flex flex-col lg:flex-row gap-7 lg:gap-0 justify-between mt-14;
@@ -461,7 +467,7 @@
     @apply lg:w-[120px] rounded-[24px];
   }
   .dashboardPageCourseItemLeftSide {
-    @apply flex lg:gap-7 w-[70%];
+    @apply flex justify-between w-[70%];
   }
   .dashboardPageCourseItemTitle {
     @apply font-[600] text-text2 dark:text-darkText truncate;
@@ -512,8 +518,8 @@
   .commentMessageText {
     @apply font-[400] text-[14px] text-text2 dark:text-darkText mt-2;
   }
-  .commentLikeCount {
-    @apply font-[700] text-[14px] text-red;
+  .commentLikeDislikeCount {
+    @apply font-[700] text-[14px] text-red mt-1 block;
   }
   .commentAnswerText {
     @apply font-[400] text-[14px] text-text2 dark:text-darkText;

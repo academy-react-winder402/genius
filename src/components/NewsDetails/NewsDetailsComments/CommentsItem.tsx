@@ -108,7 +108,7 @@ const CommentItem = ({
           className="flex gap-1 items-center mt-2 cursor-pointer"
           onClick={handleAddLike}
         >
-          <span className="commentLikeCount">{likeCount}</span>
+          <span className="commentLikeDislikeCount">{likeCount}</span>
           {currentUserLikeId ? (
             <RiHeart3Fill className="text-red" />
           ) : (

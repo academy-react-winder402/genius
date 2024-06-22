@@ -2,28 +2,29 @@ import { useState } from "react";
 
 import { convertDateToPersian } from "../../../core/utils/date-helper.utils";
 
-import { NewsComment } from "../../../types/news-comment";
-
 import CommentSkeleton from "../CommentSkeleton";
 import { Pagination } from "../Pagination";
 import { CommentItem } from "./CommentItem";
 
-interface PaginatedCommentsProps {
-  comments: NewsComment[] | undefined;
+interface PaginatedCommentsProps<T extends any[]> {
+  comments: T;
   itemsPerPage: number;
   id: string;
+  isCourse?: boolean;
+  courseId?: string;
 }
 
-const PaginatedComments = ({
+const PaginatedComments = <T extends any[]>({
   comments,
   itemsPerPage,
   id,
-}: PaginatedCommentsProps) => {
+  isCourse,
+  courseId,
+}: PaginatedCommentsProps<T>) => {
   const [itemOffset, setItemOffset] = useState(0);
 
   const endOffset = itemOffset + itemsPerPage;
-  const currentItems: NewsComment[] | undefined =
-    comments && (comments.slice(itemOffset, endOffset) as NewsComment[]);
+  const currentItems = comments && comments.slice(itemOffset, endOffset);
   const pageCount: number | undefined =
     comments && Math.ceil(comments?.length / itemsPerPage);
 
@@ -40,34 +41,44 @@ const PaginatedComments = ({
     <>
       <div className="commentsWrapper">
         {currentItems && currentItems !== undefined ? (
-          currentItems.map((comment) => {
+          currentItems.map((comment: any) => {
             const {
               id: commentId,
               pictureAddress,
-              inserDate: insertDate,
-              autor: author,
+              inserDate,
+              insertDate,
+              autor,
+              author,
               describe,
               likeCount,
+              disslikeCount: dislikeCount,
               currentUserLikeId,
               currentUserIsLike,
+              currentUserEmotion,
             } = comment;
 
-            const formattedInsertDate = convertDateToPersian(insertDate);
+            const formattedInsertDate = convertDateToPersian(
+              inserDate || insertDate
+            );
 
             return (
               <CommentItem
                 key={commentId}
                 avatarImage={pictureAddress}
                 createdAt={formattedInsertDate}
-                name={author}
+                name={autor || author}
                 message={describe}
                 isChildren={false}
                 id={id}
                 parentId={commentId}
                 commentId={commentId}
                 likeCount={+likeCount}
+                dislikeCount={dislikeCount}
                 currentUserLikeId={currentUserLikeId}
                 isLike={currentUserIsLike}
+                isCourse={isCourse}
+                courseId={courseId}
+                currentUserEmotion={currentUserEmotion}
               />
             );
           })

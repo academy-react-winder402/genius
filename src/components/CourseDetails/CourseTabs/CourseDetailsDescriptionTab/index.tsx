@@ -5,23 +5,13 @@ import { BlockInterface } from "../../../../types/block";
 import { CustomTabPanel } from "../../../common/CustomTabPanel";
 interface CourseDetailsDescriptionTabProps {
   value: number;
-  description: string;
+  convertedDescribe: string | { blocks: BlockInterface[] };
 }
 
 const CourseDetailsDescriptionTab = ({
   value,
-  description,
+  convertedDescribe,
 }: CourseDetailsDescriptionTabProps) => {
-  let convertedDescribe: string | { blocks: BlockInterface[] };
-
-  try {
-    const convertDescribe = JSON.parse(description);
-
-    convertedDescribe = convertDescribe;
-  } catch (error) {
-    convertedDescribe = description;
-  }
-
   return (
     <CustomTabPanel value={value} index={0}>
       {loadDescribe(convertedDescribe)}

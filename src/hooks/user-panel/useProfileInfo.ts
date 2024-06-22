@@ -8,7 +8,9 @@ const useProfileInfo = () => {
   return useQuery({
     queryKey: ["profileInfo"],
     queryFn: async () =>
-      await http.get<ProfileInfoInterface>("/SharePanel/GetProfileInfo"),
+      await http
+        .get<ProfileInfoInterface>("/SharePanel/GetProfileInfo")
+        .then((res) => res.data),
   });
 };
 

@@ -32,6 +32,9 @@ const RelatedCourses = () => {
             ))}
           </div>
         )}
+        {error && (
+          <h3 className="text-center font-bold">دوره ی مشابه ای پیدا نشد !</h3>
+        )}
         <Swiper
           pagination={{
             clickable: true,

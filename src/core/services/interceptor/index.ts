@@ -21,7 +21,7 @@ const onSuccess = (response: AxiosResponse) => {
 const onError = (err: AxiosError<AxiosErrorMessage>) => {
   if (err.response?.data.ErrorMessage) {
     err.response.data.ErrorMessage.forEach((errorMessage) => {
-      toast.error(errorMessage, { autoClose: false });
+      toast.error(errorMessage);
     });
   } else {
     toast.error("مشکل غیر منتظره ای رخ داد !");

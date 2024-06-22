@@ -1,4 +1,4 @@
-import { CourseLessonType } from "../../../../types/course-lessons";
+import { CourseLessonInterface } from "../../../../types/course-lesson";
 
 import { useDarkModeSelector } from "../../../../redux/darkMode";
 
@@ -14,15 +14,19 @@ import importIcon from "../../../../assets/images/CourseDetails/Icons/import.svg
 import clockDarkIcon from "../../../../assets/images/CourseDetails/Icons/clock-dark3.svg";
 
 interface CourseDetailsAccordionProps {
-  lesson: CourseLessonType;
+  lesson: CourseLessonInterface;
+  lessonIndex: number;
 }
 
-const CourseDetailsAccordion = ({ lesson }: CourseDetailsAccordionProps) => {
+const CourseDetailsAccordion = ({
+  lesson,
+  lessonIndex,
+}: CourseDetailsAccordionProps) => {
   const darkMode = useDarkModeSelector();
 
   return (
     <Accordion
-      key={lesson.id}
+      key={lessonIndex}
       defaultExpanded={lesson.isOpen}
       classes={{
         root: "flex flex-col justify-center bg-transparent",
@@ -44,18 +48,18 @@ const CourseDetailsAccordion = ({ lesson }: CourseDetailsAccordionProps) => {
         <div className="w-full flex justify-between items-center">
           <div>{lesson.title}</div>
           <div className="flex gap-2">
-            <span className="mt-1">{lesson.hour}</span>
+            <span className="mt-1">{lesson.time}</span>
             <img src={clockWhiteIcon} />
           </div>
         </div>
       </AccordionSummary>
-      {lesson.items.map((lessonItem) => (
-        <AccordionDetails key={lessonItem.id}>
+      {lesson.items.map((lessonItem, index) => (
+        <AccordionDetails key={index}>
           <div className="bg-courseDetailsAccordion dark:bg-gray-700 mt-3 h-[56px] rounded-[12px] flex justify-between items-center px-4">
             <div>
               <div className="flex gap-2 items-center">
                 <span className="pt-1 w-[24px] h-[24px] rounded-full bg-primary text-white flex justify-center items-center">
-                  <span>{lessonItem.id}</span>
+                  <span>{index + 1}</span>
                 </span>
                 <span className="mt-1 font-[500] text-text1 dark:text-darkText">
                   {lessonItem.title}
@@ -65,7 +69,7 @@ const CourseDetailsAccordion = ({ lesson }: CourseDetailsAccordionProps) => {
             <div className="flex gap-3 items-center">
               <div className="flex gap-1 items-center">
                 <span className="font-[400] text-text2 dark:text-darkText mt-1">
-                  {lessonItem.hour}
+                  {lessonItem.time}
                 </span>
                 <img src={darkMode ? clockDarkIcon : clockIcon} />
               </div>

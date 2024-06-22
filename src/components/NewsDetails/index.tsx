@@ -12,18 +12,20 @@ import { commentFormSchema } from "../../core/validations/comment-form.validatio
 
 import { BlockInterface } from "../../types/block";
 
+import { useNewsComments } from "../../hooks/news/comments/useNewsComments";
 import { CommentForm } from "../common/CommentForm";
 import { Comments } from "../common/Comments";
 import { Satisfaction } from "../common/Satisfaction";
+import { Skeleton } from "../common/Skeleton";
 import { NewsHeroSection } from "./NewsHeroSection";
 import { ShareBox } from "./ShareBox";
-import { Skeleton } from "../common/Skeleton";
 
 const NewsDetails = () => {
   const { newsId } = useParams();
 
   const queryClient = useQueryClient();
   const { data, isLoading, error } = useNewsById(newsId);
+  const { data: comments } = useNewsComments(newsId!);
   const addNewsRate = useNewsRate();
   const addNewsComment = useAddNewsComment();
 
@@ -43,7 +45,9 @@ const NewsDetails = () => {
     e: SyntheticEvent<Element, Event>,
     newValue: number | null
   ) => {
-    addNewsRate.mutate({ newsId: newsId!, rateNumber: newValue! });
+    const newsCommentObj = { newsId: newsId!, rateNumber: newValue! };
+
+    addNewsRate.mutate(newsCommentObj);
   };
 
   const onSubmit = async (e: { title: string; describe: string }) => {
@@ -108,7 +112,7 @@ const NewsDetails = () => {
               onSubmit={onSubmit}
               validationSchema={commentFormSchema}
             />
-            <Comments newsId={newsId} />
+            <Comments newsId={newsId} comments={comments!} />
           </div>
         </div>
       </div>
@@ -117,3 +121,4 @@ const NewsDetails = () => {
 };
 
 export { NewsDetails };
+
