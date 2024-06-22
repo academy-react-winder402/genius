@@ -1,9 +1,11 @@
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { toast } from "react-toastify";
 
 import http from "../../core/services/interceptor";
 
 const useDislikeCourse = () => {
+  const queryClient = useQueryClient();
+
   return useMutation({
     mutationKey: ["dislikeCourse"],
     mutationFn: async (courseId: string) =>
@@ -15,9 +17,13 @@ const useDislikeCourse = () => {
         })
         .then((res) => res.data),
     onMutate: () => toast.loading("در حال دیس لایک دوره ..."),
-    onSuccess: () => {
+    onSuccess: (data) => {
       toast.dismiss();
-      toast.success("دوره با موفقیت دیس لایک شد");
+      if (data.success) toast.success("دوره با موفقیت دیس لایک شد");
+
+      queryClient.invalidateQueries({
+        queryKey: ["courseDetails"],
+      });
     },
     onError: () => {
       toast.dismiss();

@@ -1,17 +1,17 @@
+import { Tooltip } from "@mui/material";
 import { SyntheticEvent } from "react";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import { courseLessons } from "../../core/data/courses/courseLessons";
-import { setCourseRatingAPI } from "../../core/services/api/course/set-course-rating.api";
 import { convertDateToPersian } from "../../core/utils/date-helper.utils";
 import { priceWithCommas } from "../../core/utils/number-helper.utils";
 
 import { useCourseReserve } from "../../hooks/course/course-reserve/useCourseReserve";
 import { useDeleteCourseReserve } from "../../hooks/course/course-reserve/useDeleteCourseReserve";
 import { useCourseDetails } from "../../hooks/course/useCourseDetails";
-import { useTeacherDetails } from "../../hooks/teacher/useTeacherDetails";
 import { useCourseRating } from "../../hooks/course/useCourseRating";
+import { useTeacherDetails } from "../../hooks/teacher/useTeacherDetails";
 
 import { useDarkModeSelector } from "../../redux/darkMode";
 
@@ -53,9 +53,13 @@ const CourseDetails = () => {
   };
 
   const handleCourseReserve = () => {
-    if (course?.isCourseReseve == "0")
-      addCourseReserve.mutate(course?.courseId);
-    else deleteCourseReserve.mutate(course?.courseReseveId!);
+    if (course?.isCourseUser === "1") {
+      toast.error("شما دانشجوی دوره هستید و قادر به حذف رزرو نیستید !");
+    } else {
+      if (course?.isCourseReseve == "0")
+        addCourseReserve.mutate(course?.courseId);
+      else deleteCourseReserve.mutate(course?.courseReseveId!);
+    }
   };
 
   return (
@@ -118,6 +122,8 @@ const CourseDetails = () => {
             handleRateChange={handleRateChange}
             rateCount={course?.currentRate!}
             likeId={course?.userLikeId!}
+            isLike={course?.currentUserLike === "1"}
+            isDislike={course?.currentUserDissLike === "1"}
           />
           <CourseTabs
             courseLessons={courseLessons}
@@ -153,12 +159,27 @@ const CourseDetails = () => {
               />
             </div>
             <div className="flex justify-between items-center mt-6 w-[90%] mx-auto">
-              <button
-                className="bg-primary shadow-courseAddToCarButtonShadow text-white w-[40%] lg:w-[132px] h-[56px] rounded-[80px]"
-                onClick={handleCourseReserve}
+              <Tooltip
+                title={
+                  course?.isCourseUser === "1" &&
+                  "شما دانشجوی دوره هستید و قادر به حذف رزرو نیستید !"
+                }
+                placement="top"
+                arrow
               >
-                {course?.isCourseReseve === "0" ? "شرکت در دوره" : "حذف رزرو"}
-              </button>
+                <button
+                  className="bg-primary shadow-courseAddToCarButtonShadow text-white w-[40%] lg:w-[145px] h-[56px] rounded-[80px]"
+                  onClick={handleCourseReserve}
+                  disabled={course?.isCourseUser === "1"}
+                >
+                  {course?.isCourseUser === "1"
+                    ? "دانشجوی دوره"
+                    : course?.isCourseReseve === "0"
+                    ? "شرکت در دوره"
+                    : "حذف رزرو"}
+                </button>
+              </Tooltip>
+
               <span className="font-[700] text-[20px] text-primaryColor mt-1">
                 {formattedPrice}{" "}
                 <span className="font-[500] text-text1 dark:text-darkText">

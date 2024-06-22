@@ -16,6 +16,7 @@ import disLikeDarkIcon from "../../../assets/images/CourseDetails/Icons/dislike-
 import disLikeIcon from "../../../assets/images/CourseDetails/Icons/dislike.svg";
 import likeDarkIcon from "../../../assets/images/CourseDetails/Icons/like-dark.svg";
 import likeIcon from "../../../assets/images/CourseDetails/Icons/like.svg";
+import { useDeleteCourseLike } from "../../../hooks/course/useDeleteCourseLike";
 
 interface LikeDislikeProps {
   nameData: string;
@@ -46,6 +47,7 @@ const LikeDislike = ({
   const likeNews = useNewsLike();
   const deleteNewsLike = useDeleteLikeNews(newsId!);
   const likeCourse = useLikeCourse();
+  const deleteCourseLike = useDeleteCourseLike();
   const dislikeNews = useNewsDislike();
   const dislikeCourse = useDislikeCourse();
 
@@ -59,10 +61,11 @@ const LikeDislike = ({
   const handleLike = () => {
     try {
       if (isUserLogin === true) {
-        if (newsId) {
-          if (isLike) deleteNewsLike.mutate(likeId);
-          else likeNews.mutate(newsId);
-        } else likeCourse.mutate(courseId!);
+        if (isLike)
+          newsId
+            ? deleteNewsLike.mutate(likeId)
+            : deleteCourseLike.mutate(likeId);
+        else newsId ? likeNews.mutate(newsId) : likeCourse.mutate(courseId!);
       } else unAuthenticatedLikeDislikeAction("لایک");
     } catch (error) {
       toast.error("مشکلی در لایک کردن به وجود آمد ...");
@@ -72,10 +75,12 @@ const LikeDislike = ({
   const handleDislike = async () => {
     if (isUserLogin === true) {
       try {
-        if (newsId) {
-          if (isDislike) deleteNewsLike.mutate(likeId);
-          else dislikeNews.mutate(newsId);
-        } else dislikeCourse.mutate(courseId!);
+        if (isDislike)
+          newsId
+            ? deleteNewsLike.mutate(likeId)
+            : deleteCourseLike.mutate(likeId);
+        else
+          newsId ? dislikeNews.mutate(newsId) : dislikeCourse.mutate(courseId!);
       } catch (error) {
         toast.error("مشکلی در ثبت دیس لایک به وجود آمد !");
       }
