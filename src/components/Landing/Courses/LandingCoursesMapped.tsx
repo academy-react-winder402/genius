@@ -2,7 +2,7 @@ import { toast } from "react-toastify";
 
 import { useCourseTop } from "../../../hooks/course/useCourseTop";
 
-import { CourseInterface } from "../../../tyoes/course";
+import { CourseInterface } from "../../../types/course";
 
 import { CourseItem } from "../../common/CourseItem";
 import { CourseItemSkeleton } from "../../common/CourseItemSkeleton";
@@ -24,11 +24,7 @@ const LandingCoursesMapped = () => {
           </>
         ) : (
           data?.map((course: CourseInterface) => (
-            <CourseItem
-              key={course.courseId}
-              course={course}
-              isUserFavorite={course.isUserFavorite}
-            />
+            <CourseItem key={course.courseId} course={course} />
           ))
         )}
       </div>

@@ -1,29 +1,28 @@
 import Tilt from "react-parallax-tilt";
 
-import { priceWithCommas } from "../../../core/utils/number-helper.utils";
 import { convertDateToPersian } from "../../../core/utils/date-helper.utils";
+import { priceWithCommas } from "../../../core/utils/number-helper.utils";
 
-import { CourseInterface } from "../../../tyoes/course";
+import { CourseInterface } from "../../../types/course";
 
 import { useDarkModeSelector } from "../../../redux/darkMode";
 
 import { CourseLikeBox } from "../CourseLikeBox";
 import { Link } from "../Link";
 
-import noteIcon from "../../../assets/images/Landing/LandingCourses/note.svg";
-import clockIcon from "../../../assets/images/Landing/LandingCourses/clock.svg";
-import calenderIcon from "../../../assets/images/Landing/LandingCourses/calendar.svg";
-import noteDarkIcon from "../../../assets/images/Landing/LandingCourses/note-dark.svg";
-import clockDarkIcon from "../../../assets/images/Landing/LandingCourses/clock-dark.svg";
-import calenderDarkIcon from "../../../assets/images/Landing/LandingCourses/calendar-dark.svg";
 import blankThumbnail from "../../../assets/images/Courses/blank-thumbnail.jpg";
+import calenderDarkIcon from "../../../assets/images/Landing/LandingCourses/calendar-dark.svg";
+import calenderIcon from "../../../assets/images/Landing/LandingCourses/calendar.svg";
+import clockDarkIcon from "../../../assets/images/Landing/LandingCourses/clock-dark.svg";
+import clockIcon from "../../../assets/images/Landing/LandingCourses/clock.svg";
+import noteDarkIcon from "../../../assets/images/Landing/LandingCourses/note-dark.svg";
+import noteIcon from "../../../assets/images/Landing/LandingCourses/note.svg";
 
 interface CourseItemProps {
   course: CourseInterface;
-  isUserFavorite: boolean;
 }
 
-const CourseItem = ({ course, isUserFavorite }: CourseItemProps) => {
+const CourseItem = ({ course }: CourseItemProps) => {
   const darkMode = useDarkModeSelector();
   const formattedPrice = priceWithCommas(+course.cost);
   const formattedDate = convertDateToPersian(course.lastUpdate);
@@ -86,7 +85,7 @@ const CourseItem = ({ course, isUserFavorite }: CourseItemProps) => {
         <div className="flex justify-between items-center mt-4">
           <CourseLikeBox
             courseId={course.courseId}
-            isUserFavorite={isUserFavorite}
+            isUserFavorite={course.isUserFavorite}
             courseFavoriteCourseId={course.userFavoriteId}
           />
           <div className="font-[500] text-[12px] text-text1 dark:text-darkText flex">

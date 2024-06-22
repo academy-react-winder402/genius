@@ -1,6 +1,6 @@
 import { priceWithCommas } from "../../../core/utils/number-helper.utils";
 
-import { CourseInterface } from "../../../tyoes/course";
+import { CourseInterface } from "../../../types/course";
 
 import { CourseLikeBox } from "../CourseLikeBox";
 import { Link } from "../Link";
