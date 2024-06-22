@@ -3,7 +3,6 @@ import { SyntheticEvent } from "react";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
-import { courseLessons } from "../../core/data/courses/courseLessons";
 import { convertDateToPersian } from "../../core/utils/date-helper.utils";
 import { priceWithCommas } from "../../core/utils/number-helper.utils";
 
@@ -125,11 +124,7 @@ const CourseDetails = () => {
             isLike={course?.currentUserLike === "1"}
             isDislike={course?.currentUserDissLike === "1"}
           />
-          <CourseTabs
-            courseLessons={courseLessons}
-            description={course?.describe!}
-            courseId={course?.courseId!}
-          />
+          <CourseTabs description={course?.describe!} courseId={courseId!} />
         </div>
         <div className="lg:w-[405px]">
           <div className="courseDetailsSidebar">

@@ -195,6 +195,12 @@
   .showMoreComments {
     @apply font-[500] text-[14px] text-center text-primaryColor cursor-pointer mb-2;
   }
+  .courseDetailsList {
+    @apply flex flex-col gap-4;
+  }
+  .courseDetailsList li {
+    @apply list-disc pr-1;
+  }
   /* Auth Pages */
   .authFormWrapper {
     @apply flex flex-col gap-3 mt-7;
@@ -512,8 +518,8 @@
   .commentMessageText {
     @apply font-[400] text-[14px] text-text2 dark:text-darkText mt-2;
   }
-  .commentLikeCount {
-    @apply font-[700] text-[14px] text-red;
+  .commentLikeDislikeCount {
+    @apply font-[700] text-[14px] text-red mt-1 block;
   }
   .commentAnswerText {
     @apply font-[400] text-[14px] text-text2 dark:text-darkText;
