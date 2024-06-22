@@ -50,7 +50,7 @@ const Rating = ({
         </div>
       </Tooltip>
       <span className="font-[500] text-text1 dark:text-darkText mt-2">
-        امتیاز <span className="mx-[1px]">{rateCount}</span> نفر
+        امتیاز <span className="mx-[1px]">{rateCount || 0}</span> نفر
       </span>
       <button className="courseDetailAddComment">ثبت دیدگاه</button>
     </div>

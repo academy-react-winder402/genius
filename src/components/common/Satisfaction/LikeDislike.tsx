@@ -102,14 +102,14 @@ const LikeDislike = ({
           onClick={handleLike}
         >
           <img src={darkMode ? likeDarkIcon : likeIcon} />
-          <span className="likeDislikeButtonText">{likeCount}</span>
+          <span className="likeDislikeButtonText">{likeCount || 0}</span>
         </button>
         <button
           className={`likeDislikeButton ${isDislike == true && "bg-red/50"}`}
           onClick={handleDislike}
         >
           <img src={darkMode ? disLikeDarkIcon : disLikeIcon} />
-          <span className="likeDislikeButtonText">{disLikeCount}</span>
+          <span className="likeDislikeButtonText">{disLikeCount || 0}</span>
         </button>
       </div>
     </div>
