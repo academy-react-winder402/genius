@@ -1,22 +1,23 @@
-import { useProfileInfo } from "../../hooks/user-panel/useProfileInfo";
 import { useCourseTop } from "../../hooks/course/useCourseTop";
+import { useMyCourses } from "../../hooks/user-panel/useMyCourses";
+import { useProfileInfo } from "../../hooks/user-panel/useProfileInfo";
 
 import { convertDateToPersian } from "../../core/utils/date-helper.utils";
 
 import { DashboardTitleBox } from "../common/DashboardTitleBox";
 import { Link } from "../common/Link";
+import { Skeleton } from "../common/Skeleton";
 import { DashboardCourseItem } from "./DashboardCourseItem";
 import { DashboardInformationBox } from "./DashboardInformationBox";
 import { DashboardTitle } from "./DashboardTitle";
-import { Skeleton } from "../common/Skeleton";
 
 import blankThumbnail from "../../assets/images/Courses/blank-thumbnail.jpg";
-import { useMyCourses } from "../../hooks/user-panel/useMyCourses";
+import { DashboardCourseItemSkeleton } from "./DashboardCourseItemSkeleton";
 
 const Dashboard = () => {
   const { data, isLoading } = useProfileInfo();
-  const { data: topCourses } = useCourseTop(2);
-  const { data: myCourses } = useMyCourses(1, 2);
+  const { data: topCourses, isLoading: isCourseTopLoading } = useCourseTop(2);
+  const { data: myCourses, isLoading: isMyCoursesLoading } = useMyCourses(1, 2);
 
   const formattedDate = convertDateToPersian(data?.birthDay!);
 
@@ -92,29 +93,45 @@ const Dashboard = () => {
         <div>
           <DashboardTitle>آخرین دوره های ثبت شده</DashboardTitle>
           <div className="dashboardMappedCoursesWrapper">
-            {topCourses?.map((course) => (
-              <DashboardCourseItem
-                key={course.courseId}
-                image={renderThumbnail(course.tumbImageAddress)}
-                title={course.title}
-                teacherName={course.teacherName || "کاربر نابغه"}
-                price={+course.cost}
-              />
-            ))}
+            {isCourseTopLoading ? (
+              <>
+                <DashboardCourseItemSkeleton />
+                <DashboardCourseItemSkeleton />
+              </>
+            ) : (
+              topCourses?.map((course) => (
+                <DashboardCourseItem
+                  key={course.courseId}
+                  image={renderThumbnail(course.tumbImageAddress)}
+                  title={course.title}
+                  teacherName={course.teacherName || "کاربر نابغه"}
+                  price={+course.cost}
+                  isLoading={isCourseTopLoading}
+                />
+              ))
+            )}
           </div>
         </div>
         <div>
           <DashboardTitle>آخرین دوره های خریداری شده</DashboardTitle>
           <div className="dashboardMappedCoursesWrapper">
-            {myCourses?.listOfMyCourses.map((course) => (
-              <DashboardCourseItem
-                key={course.courseId}
-                image={renderThumbnail(course.tumbImageAddress)}
-                title={course.courseTitle}
-                teacherName={course.fullName}
-                price={+course.cost}
-              />
-            ))}
+            {isMyCoursesLoading ? (
+              <>
+                <DashboardCourseItemSkeleton />
+                <DashboardCourseItemSkeleton />
+              </>
+            ) : (
+              myCourses?.listOfMyCourses.map((course) => (
+                <DashboardCourseItem
+                  key={course.courseId}
+                  image={renderThumbnail(course.tumbImageAddress)}
+                  title={course.courseTitle}
+                  teacherName={course.fullName}
+                  price={+course.cost}
+                  isLoading={isMyCoursesLoading}
+                />
+              ))
+            )}
           </div>
         </div>
       </div>
