@@ -603,7 +603,7 @@
     @apply flex flex-col gap-4 mt-6;
   }
   .dashboardCoursesInformationBox {
-    @apply hidden lg:flex lg:gap-0 lg:items-center bg-primary dark:bg-gray-900 text-white rounded-[7px] h-[50px] px-16;
+    @apply hidden lg:flex lg:justify-between items-center lg:gap-0 lg:items-center bg-primary dark:bg-gray-900 text-white rounded-[7px] h-[50px] px-16;
   }
   .dashboardCourseItem {
     @apply w-full lg:h-[60px] bg-primary/10 rounded-[7px] hidden lg:flex flex-col lg:flex-row justify-around items-center px-5;

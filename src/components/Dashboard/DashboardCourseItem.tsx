@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import { useDarkModeSelector } from "../../redux/darkMode";
 
 import { priceWithCommas } from "../../core/utils/number-helper.utils";
@@ -7,6 +9,7 @@ import teacherDarkIcon from "../../assets/images/Courses/Icons/teacher-dark.svg"
 import { Skeleton } from "../common/Skeleton";
 
 interface DashboardCourseItemProps {
+  id: string;
   image: string;
   title: string;
   teacherName: string;
@@ -15,6 +18,7 @@ interface DashboardCourseItemProps {
 }
 
 const DashboardCourseItem = ({
+  id,
   image,
   title,
   teacherName,
@@ -25,15 +29,15 @@ const DashboardCourseItem = ({
 
   const formattedPrice = priceWithCommas(price);
 
-  console.log(isLoading);
-
   return (
     <div className="dashboardPageCourseItem">
       <div className="w-[30%]">
         {isLoading ? (
           <Skeleton width={120} height={80} borderRadius={20} />
         ) : (
-          <img src={image} className="dashboardPageCourseItemImage" />
+          <Link to={`/courses/${id}`}>
+            <img src={image} className="dashboardPageCourseItemImage" />
+          </Link>
         )}
       </div>
       <div className="dashboardPageCourseItemLeftSide">
@@ -41,7 +45,9 @@ const DashboardCourseItem = ({
           {isLoading ? (
             <Skeleton width={120} height={7} />
           ) : (
-            <h4 className="dashboardPageCourseItemTitle">{title}</h4>
+            <Link to={`/courses/${id}`}>
+              <h4 className="dashboardPageCourseItemTitle">{title}</h4>
+            </Link>
           )}
           <div className="dashboardPageCourseItemTeacherBoxWrapper">
             {isLoading ? (

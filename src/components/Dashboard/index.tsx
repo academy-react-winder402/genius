@@ -102,6 +102,7 @@ const Dashboard = () => {
               topCourses?.map((course) => (
                 <DashboardCourseItem
                   key={course.courseId}
+                  id={course.courseId}
                   image={renderThumbnail(course.tumbImageAddress)}
                   title={course.title}
                   teacherName={course.teacherName || "کاربر نابغه"}
@@ -124,6 +125,7 @@ const Dashboard = () => {
               myCourses?.listOfMyCourses.map((course) => (
                 <DashboardCourseItem
                   key={course.courseId}
+                  id={course.courseId}
                   image={renderThumbnail(course.tumbImageAddress)}
                   title={course.courseTitle}
                   teacherName={course.fullName}

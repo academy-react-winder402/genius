@@ -1,63 +1,49 @@
-import { useState } from "react";
-
 import { priceWithCommas } from "../../../core/utils/number-helper.utils";
 
-import { CourseItemsInterface } from "../../../types/course-items";
+import { DashboardCourses } from "../../../types/user-panel/dashboard-courses";
 
 import { Pagination } from "../Pagination";
 import { DashboardCourseItem } from "./DashboardCourseItem";
 import { DashboardMobileCourseItem } from "./DashboardMobileCourseItem";
 
-interface PaginatedDashboardCoursesProps {
-  courses: CourseItemsInterface[];
-  itemsPerPage: number;
-}
+import blankThumbnail from "../../../assets/images/Courses/blank-thumbnail.jpg";
 
 const PaginatedDashboardCourses = ({
   courses,
-  itemsPerPage,
-}: PaginatedDashboardCoursesProps) => {
-  const [itemOffset, setItemOffset] = useState<number>(0);
-  const endOffset = itemOffset + itemsPerPage;
-  const currentItems: CourseItemsInterface[] = courses.slice(
-    itemOffset,
-    endOffset
-  ) as CourseItemsInterface[];
-  const pageCount: number = Math.ceil(courses.length / itemsPerPage);
-
-  const handlePageClick = (event: any) => {
-    const newOffset = (event.selected * itemsPerPage) % courses.length;
-
-    setItemOffset(newOffset);
+  totalCount,
+  rowsOfPage,
+  setCurrentPage,
+}: DashboardCourses) => {
+  const handlePageClick = (event: { selected: number }) => {
+    setCurrentPage(event.selected + 1);
   };
 
   return (
     <div>
       <div className="flex flex-col gap-4">
-        {currentItems &&
-          currentItems.map((course) => {
-            const formattedPrice = priceWithCommas(course.price);
+        {courses &&
+          courses.map((course) => {
+            const formattedPrice = priceWithCommas(+course.cost);
 
             return (
-              <>
+              <div key={course.courseId}>
                 <DashboardCourseItem
-                  key={course.image}
                   course={course}
                   formattedPrice={formattedPrice}
                 />
                 <DashboardMobileCourseItem
-                  key={course.id}
-                  image={course.image}
-                  id={course.id}
-                  title={course.title}
-                  teacherName={course.teacherName}
+                  key={course.courseId}
+                  image={course.tumbImageAddress || blankThumbnail}
+                  id={course.courseId}
+                  title={course.courseTitle}
+                  teacherName={course.fullName}
                   formattedPrice={formattedPrice}
                 />
-              </>
+              </div>
             );
           })}
       </div>
-      <Pagination handlePageClick={handlePageClick} pageCount={pageCount} />
+      <Pagination handlePageClick={handlePageClick} pageCount={totalCount} />
     </div>
   );
 };
