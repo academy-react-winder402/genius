@@ -39,7 +39,7 @@ const CoursesTopSection = ({
             }`}
             onClick={() => setCoursesStyle(1)}
           >
-            {darkMode === true ? (
+            {darkMode ? (
               <img src={gridStyleOneDark} />
             ) : (
               <img src={gridStyleOne} />
