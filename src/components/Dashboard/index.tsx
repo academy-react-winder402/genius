@@ -1,3 +1,7 @@
+import { useDispatch } from "react-redux";
+
+import { onUserProfileChange } from "../../redux/user-profile";
+
 import { useCourseTop } from "../../hooks/course/useCourseTop";
 import { useMyCourses } from "../../hooks/user-panel/useMyCourses";
 import { useProfileInfo } from "../../hooks/user-panel/useProfileInfo";
@@ -15,9 +19,12 @@ import blankThumbnail from "../../assets/images/Courses/blank-thumbnail.jpg";
 import { DashboardCourseItemSkeleton } from "./DashboardCourseItemSkeleton";
 
 const Dashboard = () => {
+  const dispatch = useDispatch();
   const { data, isLoading } = useProfileInfo();
   const { data: topCourses, isLoading: isCourseTopLoading } = useCourseTop(2);
   const { data: myCourses, isLoading: isMyCoursesLoading } = useMyCourses(0, 2);
+
+  dispatch(onUserProfileChange(data!));
 
   const formattedDate = convertDateToPersian(data?.birthDay!);
 
