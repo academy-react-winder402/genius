@@ -10,7 +10,7 @@ interface DashboardMobileCourseItemProps {
   id: React.Key;
   title: string;
   teacherName: string;
-  formattedPrice: string;
+  formattedPrice?: string;
 }
 
 const DashboardMobileCourseItem = ({
