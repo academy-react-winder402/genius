@@ -17,7 +17,7 @@ import { DashboardCourseItemSkeleton } from "./DashboardCourseItemSkeleton";
 const Dashboard = () => {
   const { data, isLoading } = useProfileInfo();
   const { data: topCourses, isLoading: isCourseTopLoading } = useCourseTop(2);
-  const { data: myCourses, isLoading: isMyCoursesLoading } = useMyCourses(1, 2);
+  const { data: myCourses, isLoading: isMyCoursesLoading } = useMyCourses(0, 2);
 
   const formattedDate = convertDateToPersian(data?.birthDay!);
 

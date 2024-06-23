@@ -621,7 +621,7 @@
     @apply font-[500] text-text1 dark:text-darkText;
   }
   .dashboardCourseItemIconsWrapper {
-    @apply flex gap-3;
+    @apply flex gap-3 w-[57px];
   }
   .dashboardCourseItemShowIcon {
     @apply !fill-primaryColor cursor-pointer;

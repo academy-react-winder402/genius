@@ -8,6 +8,8 @@ export default {
       backgroundColor: {
         primary: "#2196F3",
         secondary: "#DAEEFF",
+        success: "rgba(40, 199, 111, 0.12)",
+        danger: "rgba(234, 84, 85, 0.12)",
         footerBackground: "#252641",
         footerCopyRightBackground: "#00000033",
         socialMediaIcon: "#263238",
@@ -69,6 +71,8 @@ export default {
         text1: "#263238",
         text2: "#455A64",
         text3: "#607D8B",
+        successText: "rgb(40, 199, 111)",
+        dangerText: "rgb(234, 84, 85)",
         red: "#F44336",
         darkText: "#CCCCCC",
         dashboardDarkModeLightModeIcon: "#e9e9e9",

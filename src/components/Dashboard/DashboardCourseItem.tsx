@@ -4,9 +4,12 @@ import { useDarkModeSelector } from "../../redux/darkMode";
 
 import { priceWithCommas } from "../../core/utils/number-helper.utils";
 
+import { Skeleton } from "../common/Skeleton";
+
+import blankThumbnail from "../../assets/images/Courses/blank-thumbnail.jpg";
 import teacherIcon from "../../assets/images/Courses/Icons/teacher.svg";
 import teacherDarkIcon from "../../assets/images/Courses/Icons/teacher-dark.svg";
-import { Skeleton } from "../common/Skeleton";
+import { useState } from "react";
 
 interface DashboardCourseItemProps {
   id: string;
@@ -25,6 +28,8 @@ const DashboardCourseItem = ({
   price,
   isLoading,
 }: DashboardCourseItemProps) => {
+  const [courseImage, setCourseImage] = useState(image);
+
   const darkMode = useDarkModeSelector();
 
   const formattedPrice = priceWithCommas(price);
@@ -36,7 +41,11 @@ const DashboardCourseItem = ({
           <Skeleton width={120} height={80} borderRadius={20} />
         ) : (
           <Link to={`/courses/${id}`}>
-            <img src={image} className="dashboardPageCourseItemImage" />
+            <img
+              src={courseImage}
+              onError={() => setCourseImage(blankThumbnail)}
+              className="dashboardPageCourseItemImage"
+            />
           </Link>
         )}
       </div>

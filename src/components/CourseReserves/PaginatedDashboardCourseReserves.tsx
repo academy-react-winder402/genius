@@ -1,12 +1,10 @@
 import { useState } from "react";
 
-import { useCourseDetails } from "../../hooks/course/useCourseDetails";
-
 import { CourseReserves } from "../../types/user-panel/course-reserves";
 
-import { DashboardMobileCourseItem } from "../common/DashboardCourses/DashboardMobileCourseItem";
 import { Pagination } from "../common/Pagination";
 import { DashboardCourseReserveItem } from "./DashboardCourseReserveItem";
+import { DashboardMobileCorseReserveItem } from "./DashboardMobileCourseReserveItem";
 
 interface PaginatedDashboardCourseReservesProps {
   courseReserves: CourseReserves[];
@@ -40,19 +38,11 @@ const PaginatedDashboardCourseReserves = ({
         )}
         {currentItems &&
           currentItems.map((courseReserve) => {
-            const { data: course } = useCourseDetails(courseReserve.courseId);
-
             return (
               <div key={courseReserve.courseId}>
-                <DashboardCourseReserveItem
+                <DashboardCourseReserveItem courseReserve={courseReserve} />
+                <DashboardMobileCorseReserveItem
                   courseReserve={courseReserve}
-                  imageAddress={course?.imageAddress}
-                />
-                <DashboardMobileCourseItem
-                  id={courseReserve.courseId}
-                  image={course?.imageAddress!}
-                  teacherName={course?.teacherName!}
-                  title={course?.title!}
                 />
               </div>
             );

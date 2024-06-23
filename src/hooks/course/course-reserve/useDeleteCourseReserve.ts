@@ -21,7 +21,7 @@ const useDeleteCourseReserve = () => {
       else toast.error("مشکلی در حذف رزرو به وجود آمد !");
 
       queryClient.invalidateQueries({
-        queryKey: ["courseDetails"],
+        queryKey: ["myReserveCourses"],
       });
     },
     onError: () => {

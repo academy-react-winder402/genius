@@ -39,7 +39,7 @@ const PaginatedDashboardCourses = ({
                   tumbImageAddress={course.tumbImageAddress || blankThumbnail}
                   courseTitle={course.courseTitle}
                   lastUpdate={course.lastUpdate}
-                  teacherName={course.teacherName}
+                  teacherName={course.teacherName || "کاربر نابغه"}
                   formattedPrice={formattedPrice}
                 />
                 <DashboardMobileCourseItem
