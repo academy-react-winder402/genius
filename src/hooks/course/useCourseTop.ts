@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 
 import http from "../../core/services/interceptor";
 
-import { CourseInterface } from "../../types/courses";
+import { CourseInterface } from "../../types/course";
 
 const useCourseTop = (count: number) => {
   return useQuery({

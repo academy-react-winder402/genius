@@ -2,17 +2,17 @@ import { useQuery } from "@tanstack/react-query";
 
 import http from "../../core/services/interceptor";
 
-import { BlogInterface } from "../../types/blog";
+import { NewsInterface } from "../../types/news";
 
-interface NewsInterface {
-  detailsNewsDto: BlogInterface;
+interface newsAPIInterface {
+  detailsNewsDto: NewsInterface;
 }
 
 const useNewsById = (id: string | undefined) => {
   return useQuery({
     queryKey: ["newsDetails", id],
     queryFn: async () =>
-      await http.get<NewsInterface>(`/News/${id}`).then((res) => res.data),
+      await http.get<newsAPIInterface>(`/News/${id}`).then((res) => res.data),
   });
 };
 

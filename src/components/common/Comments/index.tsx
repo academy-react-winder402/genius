@@ -1,24 +1,25 @@
-import { toast } from "../toast";
-
-import { useNewsComments } from "../../../hooks/news/comments/useNewsComments";
-
 import { PaginatedComments } from "./PaginatedComments";
 
-interface CommentsProps {
+interface CommentsProps<T extends any[]> {
   courseId?: string;
   newsId?: string;
+  comments: T;
+  isCourse?: boolean;
 }
 
-const Comments = ({ courseId, newsId }: CommentsProps) => {
-  const { data, error } = useNewsComments(newsId!);
-
-  if (error) toast.error("مشکلی در دریافت نظرات خبر به وجود آمد !");
-
+const Comments = <T extends any[]>({
+  comments,
+  courseId,
+  newsId,
+  isCourse,
+}: CommentsProps<T>) => {
   return (
     <PaginatedComments
-      comments={data}
+      comments={comments}
       id={courseId || newsId!}
       itemsPerPage={5}
+      isCourse={isCourse}
+      courseId={courseId}
     />
   );
 };

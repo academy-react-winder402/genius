@@ -16,14 +16,12 @@ const useLikeCourse = () => {
           },
         })
         .then((res) => res.data),
-    onMutate: () => toast.loading("در حال لایک دوره ..."),
+    onMutate: () =>
+      toast.loading("در حال لایک دوره ...", { toastId: "deleteLikeCourse" }),
     onSuccess: (data, courseId) => {
-      toast.dismiss();
+      toast.dismiss("deleteLikeCourse");
       if (data.success) {
         toast.success("دوره با موفقیت لایک شد");
-      } else {
-        console.log(data);
-        toast.error(data.ErrorMessage);
       }
 
       queryClient.invalidateQueries({
@@ -31,7 +29,7 @@ const useLikeCourse = () => {
       });
     },
     onError: () => {
-      toast.dismiss();
+      toast.dismiss("deleteLikeCourse");
       toast.error("مشکلی در لایک دوره به وجود آمد !");
     },
   });

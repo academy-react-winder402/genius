@@ -10,7 +10,7 @@ interface SearchBoxProps {
   isMarginTop?: boolean;
   display?: string;
   isLanding?: boolean;
-  isBlogs?: boolean;
+  isNews?: boolean;
   searchValue?: string | undefined;
   setQuery?: Dispatch<SetStateAction<string | undefined>>;
   setIsValueChanged?: Dispatch<SetStateAction<boolean>>;
@@ -26,7 +26,7 @@ const SearchBox = ({
   isMarginTop,
   display,
   isLanding,
-  isBlogs,
+  isNews,
   searchValue,
   setQuery,
   setIsValueChanged,
@@ -53,7 +53,7 @@ const SearchBox = ({
         <input
           placeholder={placeholder}
           className={`outline-none px-3 pl-12 rounded-[8px] placeholder:text-text-2 dark:text-darkText w-[97%] h-[50px] ${inputClasses} ${
-            isBlogs === true &&
+            isNews === true &&
             "lg:!w-[779px] !shadow-courseDetailsHeroSectionSearchBoxShadow"
           } ${isLanding === true ? "dark:!bg-gray-800" : "dark:bg-gray-900"}`}
           onChange={searchBoxOnChange}

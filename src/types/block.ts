@@ -1,5 +1,7 @@
 import { JSXElementConstructor, ReactElement, ReactNode } from "react";
 
+import { CourseLessonInterface } from "./course-lesson";
+
 export interface BlockInterface {
   type: string;
   data: {
@@ -11,5 +13,9 @@ export interface BlockInterface {
       | Iterable<ReactNode>
       | null
       | undefined;
+    level?: number;
+    style?: string;
+    items: string[];
+    lessons: CourseLessonInterface[];
   };
 }

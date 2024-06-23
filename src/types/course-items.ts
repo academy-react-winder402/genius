@@ -1,4 +1,4 @@
-import { CourseLessonType } from "./course-lessons";
+import { CourseLessonInterface } from "./course-lesson";
 
 export interface CourseItemsInterface {
   slice?: any;
@@ -17,5 +17,5 @@ export interface CourseItemsInterface {
   price: number;
   courseStatus?: string;
   courseEndTime?: string;
-  courseLessons?: CourseLessonType[];
+  courseLessons?: CourseLessonInterface[];
 }

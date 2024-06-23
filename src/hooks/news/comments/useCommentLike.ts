@@ -25,6 +25,9 @@ const useCommentLike = (likeType: boolean) => {
       queryClient.invalidateQueries({
         queryKey: ["newsComments"],
       });
+      queryClient.invalidateQueries({
+        queryKey: ["newsReplyComments"],
+      });
     },
     onError: () => {
       toast.dismiss();

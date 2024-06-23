@@ -7,7 +7,7 @@ import { useDarkModeSelector } from "../../redux/darkMode";
 import useCourses from "../../hooks/course/useCourses";
 import { useLandingReport } from "../../hooks/landing/useLandingReport";
 
-import { CourseInterface } from "../../types/courses";
+import { CourseInterface } from "../../types/course";
 
 import { SearchBox } from "../common/SearchBox";
 import { Typewriter } from "../common/Typewriter";

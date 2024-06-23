@@ -4,12 +4,14 @@ import { priceWithCommas } from "../../core/utils/number-helper.utils";
 
 import teacherIcon from "../../assets/images/Courses/Icons/teacher.svg";
 import teacherDarkIcon from "../../assets/images/Courses/Icons/teacher-dark.svg";
+import { Skeleton } from "../common/Skeleton";
 
 interface DashboardCourseItemProps {
   image: string;
   title: string;
   teacherName: string;
   price: number;
+  isLoading: boolean;
 }
 
 const DashboardCourseItem = ({
@@ -17,32 +19,53 @@ const DashboardCourseItem = ({
   title,
   teacherName,
   price,
+  isLoading,
 }: DashboardCourseItemProps) => {
   const darkMode = useDarkModeSelector();
 
   const formattedPrice = priceWithCommas(price);
 
+  console.log(isLoading);
+
   return (
     <div className="dashboardPageCourseItem">
       <div className="w-[30%]">
-        <img src={image} className="dashboardPageCourseItemImage" />
+        {isLoading ? (
+          <Skeleton width={120} height={80} borderRadius={20} />
+        ) : (
+          <img src={image} className="dashboardPageCourseItemImage" />
+        )}
       </div>
       <div className="dashboardPageCourseItemLeftSide">
         <div>
-          <h4 className="dashboardPageCourseItemTitle">{title}</h4>
+          {isLoading ? (
+            <Skeleton width={120} height={7} />
+          ) : (
+            <h4 className="dashboardPageCourseItemTitle">{title}</h4>
+          )}
           <div className="dashboardPageCourseItemTeacherBoxWrapper">
-            <img src={darkMode ? teacherDarkIcon : teacherIcon} />
-            <span className="dashboardPageCourseItemTeacherName">
-              {teacherName}
-            </span>
+            {isLoading ? (
+              <Skeleton width={100} height={7} />
+            ) : (
+              <>
+                <img src={darkMode ? teacherDarkIcon : teacherIcon} />
+                <span className="dashboardPageCourseItemTeacherName">
+                  {teacherName}
+                </span>
+              </>
+            )}
           </div>
         </div>
         <div className="mt-auto">
           <div className="-mb-[3px]">
-            <span className="dashboardPageCourseItemPrice">
-              {formattedPrice}{" "}
-              <span className="text-text1 dark:text-darkText">تومان</span>
-            </span>
+            {isLoading ? (
+              <Skeleton width={90} height={7} />
+            ) : (
+              <span className="dashboardPageCourseItemPrice">
+                {formattedPrice}{" "}
+                <span className="text-text1 dark:text-darkText">تومان</span>
+              </span>
+            )}
           </div>
         </div>
       </div>

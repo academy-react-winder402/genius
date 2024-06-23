@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { a11Props } from "../../../core/utils/tab-helper.utils";
 
-import { CourseLessonType } from "../../../types/course-lessons";
+import { BlockInterface } from "../../../types/block";
 
 import { Tabs } from "../../common/Tabs";
 import { Tab } from "../../common/Tabs/Tab";
@@ -11,21 +11,26 @@ import { CourseDetailsDescriptionTab } from "./CourseDetailsDescriptionTab";
 import { CourseDetailsLessonsTab } from "./CourseDetailsLessonsTab";
 
 interface CourseTabsProps {
-  courseLessons: CourseLessonType[];
   description: string;
   courseId: string;
 }
 
-const CourseTabs = ({
-  courseLessons,
-  description,
-  courseId,
-}: CourseTabsProps) => {
+const CourseTabs = ({ description, courseId }: CourseTabsProps) => {
   const [value, setValue] = useState<number>(0);
 
   const handleChange = (event: any, newValue: any) => {
     setValue(newValue);
   };
+
+  let convertedDescribe: string | { blocks: BlockInterface[] };
+
+  try {
+    const convertDescribe = JSON.parse(description);
+
+    convertedDescribe = convertDescribe;
+  } catch (error) {
+    convertedDescribe = description;
+  }
 
   return (
     <div
@@ -60,8 +65,14 @@ const CourseTabs = ({
           />
         </Tabs>
       </div>
-      <CourseDetailsDescriptionTab value={value} description={description} />
-      <CourseDetailsLessonsTab value={value} courseLessons={courseLessons} />
+      <CourseDetailsDescriptionTab
+        value={value}
+        convertedDescribe={convertedDescribe}
+      />
+      <CourseDetailsLessonsTab
+        value={value}
+        convertedDescribe={convertedDescribe}
+      />
       <CourseDetailsCommentsTab value={value} courseId={courseId} />
     </div>
   );

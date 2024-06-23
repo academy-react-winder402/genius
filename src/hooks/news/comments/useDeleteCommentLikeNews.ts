@@ -28,6 +28,9 @@ const useDeleteCommentLikeNews = (newsId: string) => {
       queryClient.invalidateQueries({
         queryKey: ["newsComments", newsId],
       });
+      queryClient.invalidateQueries({
+        queryKey: ["newsReplyComments"],
+      });
     },
     onError: () => {
       toast.dismiss();
