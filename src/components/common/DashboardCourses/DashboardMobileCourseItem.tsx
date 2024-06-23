@@ -41,9 +41,7 @@ const DashboardMobileCourseItem = ({
               {teacherName}
             </h5>
           </div>
-          <h6 className="dashboardMobileCourseItemPrice">
-            {formattedPrice} تومان
-          </h6>
+          <h6 className="dashboardMobileCourseItemPrice">{formattedPrice}</h6>
         </div>
       </div>
     </div>

@@ -609,7 +609,7 @@
     @apply w-full lg:h-[60px] bg-primary/10 rounded-[7px] hidden lg:flex flex-col lg:flex-row justify-around items-center px-5;
   }
   .dashboardCourseItemImage {
-    @apply w-[75px] rounded-[7px];
+    @apply w-[75px] h-[50px] rounded-[7px];
   }
   .dashboardCourseTitleLink {
     @apply flex items-center gap-4;
@@ -633,7 +633,7 @@
     @apply flex items-center gap-5 bg-primary/10 rounded-[7px] py-2 px-5 lg:hidden;
   }
   .dashboardMobileCourseItemImage {
-    @apply w-[100px] rounded-[7px];
+    @apply w-[100px] h-[65px] rounded-[7px];
   }
   .dashboardMobileCourseItemTitle {
     @apply font-[500] text-text1 dark:text-darkText;

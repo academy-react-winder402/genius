@@ -4,13 +4,13 @@ import { SearchBox } from "../SearchBox";
 import { DashboardCoursesPerPageFilter } from "./DashboardCoursesPerPageFilter";
 
 interface DashboardCoursesSearchFilterBoxProps {
-  query: string | undefined;
+  setCurrentPage: Dispatch<SetStateAction<number>>;
   setCoursesPerPage: (coursesPerPage: number) => void;
   setQuery: Dispatch<SetStateAction<string | undefined>>;
 }
 
 const DashboardCoursesSearchFilterBox = ({
-  query,
+  setCurrentPage,
   setCoursesPerPage,
   setQuery,
 }: DashboardCoursesSearchFilterBoxProps) => {
@@ -21,6 +21,7 @@ const DashboardCoursesSearchFilterBox = ({
           placeholder="جستجوی دوره ..."
           inputClasses="pl-4 w-full"
           setQuery={setQuery}
+          setCurrentPage={setCurrentPage}
         />
       </div>
       <DashboardCoursesPerPageFilter setCoursesPerPage={setCoursesPerPage} />

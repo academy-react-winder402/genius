@@ -10,7 +10,7 @@ import { NewsItemStyleTwo } from "./NewsItemStyleTwo";
 
 const LandingNewsItemsMapped = () => {
   const { data, isLoading, error } = useNews(
-    1,
+    0,
     undefined,
     undefined,
     undefined,

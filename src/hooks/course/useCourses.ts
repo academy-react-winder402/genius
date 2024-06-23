@@ -8,15 +8,15 @@ const useCourses = (
   sortingCol: string | undefined,
   sortType: string | undefined,
   query: string | undefined,
-  costDown: number | undefined,
-  costUp: number | undefined,
-  techCount: number | undefined,
-  listTech: string | string[] | undefined,
-  courseLevelId: number | undefined,
-  courseTypeId: number | undefined,
-  startDate: string | undefined,
-  endDate: string | undefined,
-  teacherId: number | undefined
+  costDown?: number | undefined,
+  costUp?: number | undefined,
+  techCount?: number | undefined,
+  listTech?: string | string[] | undefined,
+  courseLevelId?: number | undefined,
+  courseTypeId?: number | undefined,
+  startDate?: string | undefined,
+  endDate?: string | undefined,
+  teacherId?: number | undefined
 ) => {
   return useQuery({
     queryKey: [

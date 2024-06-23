@@ -24,7 +24,7 @@ const useMyCourses = (
       await http
         .get<MyCourses>("/SharePanel/GetMyCourses", {
           params: {
-            pageNumber,
+            pageNumber: pageNumber ? pageNumber + 1 : undefined,
             rowsOfPage,
             sortingCol,
             sortType,

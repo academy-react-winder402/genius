@@ -1,7 +1,7 @@
 import { priceWithCommas } from "../../../core/utils/number-helper.utils";
 
+import { CourseInterface } from "../../../types/course";
 import { DashboardCourses } from "../../../types/user-panel/dashboard-courses";
-import { MyCoursesList } from "../../../types/user-panel/my-courses-list";
 
 import { Pagination } from "../Pagination";
 import { DashboardCourseItem } from "./DashboardCourseItem";
@@ -9,17 +9,18 @@ import { DashboardMobileCourseItem } from "./DashboardMobileCourseItem";
 
 import blankThumbnail from "../../../assets/images/Courses/blank-thumbnail.jpg";
 
-const PaginatedDashboardCourses = ({
+const PaginatedDashboardAllCourses = ({
   courses,
   totalCount,
   rowsOfPage,
   setCurrentPage,
-}: DashboardCourses<MyCoursesList>) => {
+}: DashboardCourses<CourseInterface>) => {
   const pageCount = Math.ceil(totalCount / rowsOfPage!);
 
   const handlePageClick = (event: { selected: number }) => {
     setCurrentPage(event.selected);
   };
+
   return (
     <div>
       <div className="flex flex-col gap-4">
@@ -37,7 +38,7 @@ const PaginatedDashboardCourses = ({
                 <DashboardCourseItem
                   courseId={course.courseId}
                   tumbImageAddress={course.tumbImageAddress || blankThumbnail}
-                  courseTitle={course.courseTitle}
+                  courseTitle={course.title}
                   lastUpdate={course.lastUpdate}
                   teacherName={course.teacherName}
                   formattedPrice={formattedPrice}
@@ -46,17 +47,19 @@ const PaginatedDashboardCourses = ({
                   key={course.courseId}
                   image={course.tumbImageAddress || blankThumbnail}
                   id={course.courseId}
-                  title={course.courseTitle}
-                  teacherName={course.fullName}
+                  title={course.title}
+                  teacherName={course.teacherName}
                   formattedPrice={formattedPrice}
                 />
               </div>
             );
           })}
       </div>
-      <Pagination handlePageClick={handlePageClick} pageCount={pageCount} />
+      {pageCount > 1 && (
+        <Pagination handlePageClick={handlePageClick} pageCount={pageCount} />
+      )}
     </div>
   );
 };
 
-export { PaginatedDashboardCourses };
+export { PaginatedDashboardAllCourses };

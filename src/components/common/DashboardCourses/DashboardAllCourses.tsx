@@ -1,16 +1,16 @@
+import { CourseInterface } from "../../../types/course";
 import { DashboardCourses as DashboardCoursesInterface } from "../../../types/user-panel/dashboard-courses";
-import { MyCoursesList } from "../../../types/user-panel/my-courses-list";
 
 import { Skeleton } from "../Skeleton";
-import { PaginatedDashboardCourses } from "./PaginatedDashboardCourses";
+import { PaginatedDashboardAllCourses } from "./PaginatedDashboardAllCourses";
 
-const DashboardCourses = ({
+const DashboardAllCourses = ({
   courses,
   totalCount,
   rowsOfPage,
   setCurrentPage,
   isLoading,
-}: DashboardCoursesInterface<MyCoursesList>) => {
+}: DashboardCoursesInterface<CourseInterface>) => {
   const dashboardAllCoursesItemSkeletons = [1, 2, 3, 4, 5, 6, 7];
 
   return (
@@ -27,7 +27,7 @@ const DashboardCourses = ({
             ))}
           </div>
         ) : (
-          <PaginatedDashboardCourses
+          <PaginatedDashboardAllCourses
             courses={courses || []}
             totalCount={totalCount || 0}
             rowsOfPage={rowsOfPage}
@@ -39,4 +39,4 @@ const DashboardCourses = ({
   );
 };
 
-export { DashboardCourses };
+export { DashboardAllCourses };

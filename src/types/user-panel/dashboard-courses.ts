@@ -1,10 +1,9 @@
 import { Dispatch, SetStateAction } from "react";
 
-import { MyCoursesList } from "./my-courses-list";
-
-export interface DashboardCourses {
-  courses: MyCoursesList[];
+export interface DashboardCourses<T> {
+  courses: T[];
   totalCount: number;
   setCurrentPage: Dispatch<SetStateAction<number>>;
-  rowsOfPage: number;
+  rowsOfPage?: number;
+  isLoading?: boolean;
 }

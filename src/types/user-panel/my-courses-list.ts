@@ -1,4 +1,5 @@
 export interface MyCoursesList {
+  teacherName: string;
   fullName: string;
   termName: string;
   statusName: string;
