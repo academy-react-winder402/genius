@@ -8,7 +8,6 @@ import { DeleteFilterState } from "../../../common/DeleteFilterState";
 import { FilterCheckbox } from "../../../common/FilterCheckbox";
 import { toast } from "../../../common/toast";
 import { FilterAccordion } from "../FilterAccordion";
-import { ClearAll } from "@mui/icons-material";
 
 interface CategoryFilterProps {
   setListTechState: Dispatch<SetStateAction<string[]>>;

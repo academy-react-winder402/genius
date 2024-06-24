@@ -375,7 +375,7 @@
     @apply mr-4 pr-2 list-image-[url('/src/assets/images/NewsDetails/Icons/list-item-dot.svg')];
   }
   .newsDetailsCommentsSection {
-    @apply bg-white dark:bg-gray-900 shadow-primaryShadow rounded-[24px] mt-12 px-8 py-6;
+    @apply bg-white dark:bg-gray-900 shadow-primaryShadow rounded-[24px] mt-12 px-8 py-6 w-[410px] lg:w-full;
   }
   .newsDetailsCommentsText {
     @apply font-[700] text-[24px] text-text1 dark:text-darkText text-center mb-6;

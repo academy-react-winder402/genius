@@ -85,7 +85,7 @@ const CourseItem = ({ course }: CourseItemProps) => {
         <div className="flex justify-between items-center mt-4">
           <CourseLikeBox
             courseId={course.courseId}
-            isUserFavorite={course.isUserFavorite}
+            isUserFavorite={course.userFavorite || course.isUserFavorite}
             courseFavoriteCourseId={course.userFavoriteId}
           />
           <div className="font-[500] text-[12px] text-text1 dark:text-darkText flex">

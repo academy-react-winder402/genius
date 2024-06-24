@@ -30,7 +30,7 @@ const NewsHeroSection = ({ news, isLoading, error }: NewsHeroSectionProps) => {
               ? news?.currentImageAddress
               : blankThumbnail
           }
-          className="w-[400px] rounded-[10px]"
+          className="lg:w-[400px] rounded-[10px]"
         />
       )}
       <div className="w-full">

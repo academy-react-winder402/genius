@@ -33,15 +33,15 @@ const DashboardSidebar = () => {
       <div className="dashboardSideBarTopSectionWrapper">
         <div className="dashboardSidebarUserInfoWrapper">
           <img
-            src={userProfile.currentPictureAddress}
+            src={userProfile?.currentPictureAddress}
             className="dashboardSidebarAvatar"
           />
           <div className="mt-2">
             <h5 className="dashboardSidebarUsername">{`${
-              userProfile.fName || "کاربر"
-            } ${userProfile.lName || "نابغه"}`}</h5>
+              userProfile?.fName || "کاربر"
+            } ${userProfile?.lName || "نابغه"}`}</h5>
             <span className="dashboardSidebarUserPhoneNumber">
-              {userProfile.phoneNumber}
+              {userProfile?.phoneNumber}
             </span>
           </div>
         </div>

@@ -104,6 +104,16 @@ export default {
         dashboardUserInfoEditProfileBorder: "#CFD8DC",
         editProfileFormInputBorder: "#CCCCCC",
       },
+      animation: {
+        pulse: "pulse 1s infinite",
+      },
+      keyframes: {
+        pulse: {
+          "0%": { transform: "scale(1)" },
+          "50%": { transform: "scale(1.2)" },
+          "100%": { transform: "scale(1)" },
+        },
+      },
     },
   },
   plugins: [],

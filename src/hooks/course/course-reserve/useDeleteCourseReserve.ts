@@ -23,6 +23,9 @@ const useDeleteCourseReserve = () => {
       queryClient.invalidateQueries({
         queryKey: ["myReserveCourses"],
       });
+      queryClient.invalidateQueries({
+        queryKey: ["courseDetails"],
+      });
     },
     onError: () => {
       toast.dismiss();

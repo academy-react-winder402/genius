@@ -20,7 +20,7 @@ const EditProfileGeneralSettingsTab = ({
       <div className="editProfileUploadImageSection">
         <div className="editProfileImageBox">
           <img
-            src={profileInfo.userImage[0].puctureAddress || blankThumbnail}
+            src={profileInfo?.userImage[0]?.puctureAddress || blankThumbnail}
             className="editProfileImage"
           />
           <div className="editProfileUploadImageIconWrapper">
