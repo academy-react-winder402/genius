@@ -1,8 +1,10 @@
-import { CustomTabPanel } from "../../../common/CustomTabPanel";
-import { EditProfileGeneralForm } from "./EditProfileGeneralForm";
-import { AddProfileImageForm } from "./AddProfileImageForm";
+import { useUserProfile } from "../../../../redux/user-profile";
 
-import avatar from "../../../../assets/images/Dashboard/Avatars/avatar2.jpg";
+import { CustomTabPanel } from "../../../common/CustomTabPanel";
+import { AddProfileImageForm } from "./AddProfileImageForm";
+import { EditProfileGeneralForm } from "./EditProfileGeneralForm";
+
+import blankThumbnail from "../../../../assets/images/Courses/blank-thumbnail.jpg";
 
 interface EditProfileGeneralSettingsTabProps {
   value: number;
@@ -11,11 +13,16 @@ interface EditProfileGeneralSettingsTabProps {
 const EditProfileGeneralSettingsTab = ({
   value,
 }: EditProfileGeneralSettingsTabProps) => {
+  const profileInfo = useUserProfile();
+
   return (
     <CustomTabPanel value={value} index={0} className="w-full">
       <div className="editProfileUploadImageSection">
         <div className="editProfileImageBox">
-          <img src={avatar} className="editProfileImage" />
+          <img
+            src={profileInfo?.userImage[0]?.puctureAddress || blankThumbnail}
+            className="editProfileImage"
+          />
           <div className="editProfileUploadImageIconWrapper">
             <AddProfileImageForm />
           </div>

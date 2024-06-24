@@ -1,6 +1,8 @@
+import { ReactNode } from "react";
+
 interface DashboardInformationBoxProps {
   label: string;
-  value: string;
+  value: string | ReactNode;
 }
 
 const DashboardInformationBox = ({

@@ -3,7 +3,7 @@ import { landingHeroSectionFeaturesItems } from "../../../core/data/landing/land
 import { LandingReportInterface } from "../../../types/landing-report";
 
 interface LandingHeroSectionFeaturesProps {
-  landingReport: LandingReportInterface;
+  landingReport: LandingReportInterface | undefined;
 }
 
 const LandingHeroSectionFeatures = ({

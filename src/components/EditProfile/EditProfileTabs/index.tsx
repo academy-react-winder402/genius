@@ -6,6 +6,7 @@ import { Tabs } from "../../common/Tabs";
 import { Tab } from "../../common/Tabs/Tab";
 import { EditProfileEditPasswordTab } from "./EditProfileEditPasswordTab";
 import { EditProfileGeneralSettingsTab } from "./EditProfileGeneralSettingsTab";
+import { EditProfileSecurityTab } from "./EditProfileSecurityTab";
 
 const EditProfileTabs = () => {
   const [value, setValue] = useState<number>(0);
@@ -29,9 +30,17 @@ const EditProfileTabs = () => {
           }`}
           {...a11Props(1)}
         />
+        <Tab
+          label="تنظیمات امنیتی"
+          className={`dark:text-darkText ${
+            value == 2 && "dark:text-primaryColor"
+          }`}
+          {...a11Props(2)}
+        />
       </Tabs>
       <EditProfileGeneralSettingsTab value={value} />
       <EditProfileEditPasswordTab value={value} />
+      <EditProfileSecurityTab value={value} />
     </>
   );
 };

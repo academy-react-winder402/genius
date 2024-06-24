@@ -1,9 +1,9 @@
-import React from "react";
+import { ReactNode } from "react";
 
 interface CourseDetailsInformationBoxProps {
   imageURL: string;
   label: string;
-  value: string;
+  value: string | ReactNode;
 }
 
 const CourseDetailsInformationBox = ({

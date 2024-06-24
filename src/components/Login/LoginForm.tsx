@@ -1,42 +1,50 @@
 import { Form, Formik } from "formik";
-import { useDispatch } from "react-redux";
-import { toast } from "react-toastify";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogTitle from "@mui/material/DialogTitle";
+import Slide from "@mui/material/Slide";
+import { TransitionProps } from "@mui/material/transitions";
 
 import { LOGIN_FORM } from "../../core/data/login/login-form";
-import { loginAPI } from "../../core/services/api/auth/login.api";
-import { setItem } from "../../core/services/common/storage.services";
 import { loginFormSchema } from "../../core/validations/login-form.validation";
-
-import { isUserLoginChange } from "../../redux/user-login";
 
 import { UserDataInterface } from "../../types/login/user-data";
 
+import { useLogin } from "../../hooks/auth/login/useLogin";
 import { FieldBox } from "../common/FieldBox";
 import { Link } from "../common/Link";
+import {
+  isTwoStepAuthChange,
+  useIsTwoStepAuth,
+} from "../../redux/isTwoStepAuth";
+import { forwardRef } from "react";
+import { useDispatch } from "react-redux";
+import { Button } from "@mui/material";
+
+const Transition = forwardRef(function Transition(
+  props: TransitionProps & {
+    children: React.ReactElement<any, any>;
+  },
+  ref: React.Ref<unknown>
+) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
 
 const LoginForm = () => {
+  const loginUser = useLogin();
+  const isTwoStepAuth = useIsTwoStepAuth();
   const dispatch = useDispatch();
 
   const onSubmit = async (values: UserDataInterface) => {
-    try {
-      const user = await toast.promise(loginAPI(values), {
-        pending: "شما در حال ورود می باشید ...",
-      });
-      if (user.success) {
-        if (user.token && user.token !== null) {
-          setItem("token", user.token);
-          dispatch(isUserLoginChange(true));
-          toast.success("در حال انتقال به پنل کاربری ...");
-          window.location.pathname = "/dashboard";
-        } else {
-          toast.error("مشکلی در فرایند ورود به وجود آمد !");
-        }
-      } else {
-        toast.error(user.message);
-      }
-    } catch (error) {
-      toast.error("مشکلی در فرایند ورود به وجود آمد !");
-    }
+    loginUser.mutate(values);
+
+    console.log(isTwoStepAuth);
+  };
+
+  const handleClose = () => {
+    dispatch(isTwoStepAuthChange(false));
   };
 
   return (

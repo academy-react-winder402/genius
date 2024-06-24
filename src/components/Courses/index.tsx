@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
 
-import useCourses from "../../hooks/useCourses";
+import useCourses from "../../hooks/course/useCourses";
 
 import { CoursesHeroSection } from "../Courses/CoursesHeroSection";
 import { PaginatedCourses } from "./CourseItems/PaginatedCourses";
@@ -22,7 +22,9 @@ const Courses = () => {
   const [costUp, setCostUp] = useState<number>();
   const [sortType, setSortType] = useState<string>();
 
-  const { data, error } = useCourses(
+  console.log("Level", courseLevel);
+
+  const { data, error, isLoading } = useCourses(
     currentPage,
     9,
     sortingCol,
@@ -39,7 +41,7 @@ const Courses = () => {
     teacherId
   );
 
-  if (error) toast.error(error.message);
+  if (error) toast.error("مشکلی در دریافت دوره ها به وجود آمد !");
 
   return (
     <>
@@ -80,8 +82,9 @@ const Courses = () => {
             setCurrentPage={setCurrentPage}
           />
           <PaginatedCourses
-            courses={data?.courseFilterDtos}
-            totalCount={data?.totalCount}
+            courses={data?.courseFilterDtos || []}
+            totalCount={data?.totalCount || 0}
+            isLoading={isLoading}
             itemsPerPage={9}
             coursesStyle={coursesStyle}
             setCurrentPage={setCurrentPage}

@@ -1,45 +1,31 @@
-import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
-import { getCourseTopAPI } from "../../../core/services/api/course/get-course-top.api";
+import { useCourseTop } from "../../../hooks/course/useCourseTop";
 
-import { CourseInterface } from "../../../types/courses";
+import { CourseInterface } from "../../../types/course";
 
 import { CourseItem } from "../../common/CourseItem";
 import { CourseItemSkeleton } from "../../common/CourseItemSkeleton";
 
 const LandingCoursesMapped = () => {
-  const [courses, setCourses] = useState<CourseInterface[] | false>();
+  const { data, isLoading, isError } = useCourseTop(4);
 
-  useEffect(() => {
-    const fetchCourses = async () => {
-      try {
-        const getCourses = await getCourseTopAPI(4);
-
-        setCourses(getCourses);
-
-        console.log(courses);
-      } catch (error) {
-        return false;
-      }
-    };
-
-    fetchCourses();
-  }, []);
+  if (isError) toast.error("مشکلی در دریافت دوره های برتر به وجود آمد !");
 
   return (
     <>
       <div className="landingCoursesMappedWrapper">
-        {courses ? (
-          courses.map((course: CourseInterface) => (
-            <CourseItem key={course.courseId} course={course} />
-          ))
-        ) : (
+        {isLoading ? (
           <>
             <CourseItemSkeleton />
             <CourseItemSkeleton />
             <CourseItemSkeleton />
             <CourseItemSkeleton />
           </>
+        ) : (
+          data?.map((course: CourseInterface) => (
+            <CourseItem key={course.courseId} course={course} />
+          ))
         )}
       </div>
     </>

@@ -1,4 +1,5 @@
 import { SyntheticEvent } from "react";
+
 import { LikeDislike } from "./LikeDislike";
 import { Rating } from "./Rating";
 
@@ -6,42 +7,49 @@ interface SatisfactionProps {
   nameData: string;
   likeCount: number;
   disLikeCount: number;
-  setLikeCount: (prevValue: number) => void;
-  setDislikeCount: (dislikeCount: number) => void;
-  commentCount: number;
-  courseId: string;
+  rateCount: number;
+  courseId?: string;
+  newsId?: string;
   currentUserRateNumber: number;
   handleRateChange: (
     e: SyntheticEvent<Element, Event>,
     newValue: number | null
   ) => void;
+  likeId: string;
+  isLike?: boolean;
+  isDislike?: boolean;
 }
 
 const Satisfaction = ({
   nameData,
   likeCount,
   disLikeCount,
-  setLikeCount,
-  setDislikeCount,
-  commentCount,
+  rateCount,
   courseId,
+  newsId,
   currentUserRateNumber,
   handleRateChange,
+  likeId,
+  isLike,
+  isDislike,
 }: SatisfactionProps) => {
   return (
     <div className="satisfaction">
       <Rating
-        commentCount={commentCount}
+        rateCount={rateCount}
         currentUserRateNumber={currentUserRateNumber}
         handleRateChange={handleRateChange}
+        nameData={nameData}
       />
       <LikeDislike
+        newsId={newsId}
+        courseId={courseId}
         nameData={nameData}
         likeCount={likeCount}
         disLikeCount={disLikeCount}
-        courseId={courseId}
-        setLikeCount={setLikeCount}
-        setDislikeCount={setDislikeCount}
+        likeId={likeId}
+        isLike={isLike!}
+        isDislike={isDislike!}
       />
     </div>
   );

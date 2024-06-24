@@ -1,31 +1,42 @@
-import { courseItems } from "../../../core/data/courses/courseItems";
+import { DashboardCourses as DashboardCoursesInterface } from "../../../types/user-panel/dashboard-courses";
+import { MyCoursesList } from "../../../types/user-panel/my-courses-list";
 
+import { Skeleton } from "../Skeleton";
 import { PaginatedDashboardCourses } from "./PaginatedDashboardCourses";
 
-interface DashboardCoursesProps {
-  coursesPerPage: number;
-}
+const DashboardCourses = ({
+  courses,
+  totalCount,
+  rowsOfPage,
+  setCurrentPage,
+  isLoading,
+}: DashboardCoursesInterface<MyCoursesList>) => {
+  const dashboardAllCoursesItemSkeletons = [1, 2, 3, 4, 5, 6, 7];
 
-const DashboardCourses = ({ coursesPerPage }: DashboardCoursesProps) => {
   return (
     <div className="dashboardCoursesSectionWrapper">
-      <div className="dashboardCoursesInformationBox">
-        <span className="lg:w-[130px]">تصویر</span>
-        <span className="lg:w-[235px]">نام دوره</span>
-        <span className="lg:w-[145px]">مدرس</span>
-        <span className="lg:w-[124px]">تاریخ شروع</span>
-        <span className="lg:w-[163px]">قیمت</span>
-        <span>مدیریت</span>
-      </div>
       <div>
-        <PaginatedDashboardCourses
-          courses={courseItems}
-          itemsPerPage={coursesPerPage}
-        />
+        {isLoading ? (
+          <div className="flex flex-col gap-4">
+            {dashboardAllCoursesItemSkeletons.map((skeleton) => (
+              <Skeleton
+                key={skeleton}
+                width="100%"
+                className="h-[80px] lg:h-[60px]"
+              />
+            ))}
+          </div>
+        ) : (
+          <PaginatedDashboardCourses
+            courses={courses || []}
+            totalCount={totalCount || 0}
+            rowsOfPage={rowsOfPage}
+            setCurrentPage={setCurrentPage}
+          />
+        )}
       </div>
     </div>
   );
 };
 
 export { DashboardCourses };
-

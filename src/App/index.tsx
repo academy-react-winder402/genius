@@ -34,7 +34,7 @@ const App = () => {
           </ThemeProvider>
         </PersistGate>
       </Provider>
-      <ReactQueryDevtools buttonPosition="bottom-left" />
+      {/* <ReactQueryDevtools buttonPosition="bottom-left" /> */}
     </QueryClientProvider>
   );
 };

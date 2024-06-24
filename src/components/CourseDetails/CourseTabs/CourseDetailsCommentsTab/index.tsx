@@ -1,6 +1,8 @@
 import { addCommentCourseAPI } from "../../../../core/services/api/course/comments/add-comment-course.api";
 import { onFormData } from "../../../../core/utils/form-data-helper.utils";
 import { commentFormSchema } from "../../../../core/validations/comment-form.validation";
+import { useAddCourseComment } from "../../../../hooks/course/comments/useAddCourseComment";
+import { useCourseComments } from "../../../../hooks/course/comments/useCourseComments";
 
 import { CommentForm } from "../../../common/CommentForm";
 import { Comments } from "../../../common/Comments";
@@ -16,32 +18,28 @@ const CourseDetailsCommentsTab = ({
   value,
   courseId,
 }: CourseDetailsCommentsTabProps) => {
+  const { data: comments } = useCourseComments(courseId);
+  const addCourseComment = useAddCourseComment();
+
   const onSubmit = async (e: { title: string; describe: string }) => {
-    try {
-      const { title, describe } = e;
+    const commentObj = {
+      courseId,
+      title: e.title,
+      describe: e.describe,
+    };
+    const commentFormData = onFormData(commentObj);
 
-      const formData = onFormData({
-        courseId,
-        title,
-        describe,
-      });
+    addCourseComment.mutate(commentFormData);
 
-      const sendComment = await toast.promise(addCommentCourseAPI(formData), {
-        pending: "در حال ارسال نظر ...",
-      });
-
-      if (sendComment.success) toast.success("نظر شما با موفقیت ثبت شد !");
-      else toast.error("مشکلی در ارسال نظر به وجود آمد !");
-    } catch (error) {
-      toast.error("مشکلی در ارسال نظر به وجود آمد !");
-    }
+    e.title = "";
+    e.describe = "";
   };
 
   return (
     <CustomTabPanel value={value} index={2}>
       <div className="mt-3">
         <CommentForm onSubmit={onSubmit} validationSchema={commentFormSchema} />
-        <Comments courseId={courseId} />
+        <Comments courseId={courseId} comments={comments!} isCourse />
       </div>
     </CustomTabPanel>
   );

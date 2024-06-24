@@ -1,6 +1,6 @@
 import http from "../../interceptor";
 
-import { BlogInterface } from "../../../../types/blog";
+import { NewsInterface } from "../../../../types/news";
 
 export const newsAPI = async (
   pageNumber: number | undefined,
@@ -11,7 +11,7 @@ export const newsAPI = async (
   newsCategoryId: number | undefined
 ) => {
   try {
-    const response = await http.get<{ news: BlogInterface[] }>("/News", {
+    const response = await http.get<{ news: NewsInterface[] }>("/News", {
       params: {
         pageNumber: pageNumber ? pageNumber : undefined,
         rowsOfPage: rowsOfPage ? rowsOfPage : undefined,

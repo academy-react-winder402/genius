@@ -1,16 +1,24 @@
+import { Delete } from "@mui/icons-material";
+import { Tooltip } from "@mui/material";
+
 import { useDarkModeSelector } from "../../../redux/darkMode";
+
+import { useDeleteCourseReserve } from "../../../hooks/course/course-reserve/useDeleteCourseReserve";
 
 import { Link } from "../Link";
 
-import teacherIcon from "../../../assets/images/CourseDetails/Icons/teacher.svg";
 import teacherDarkIcon from "../../../assets/images/CourseDetails/Icons/teacher-dark.svg";
+import teacherIcon from "../../../assets/images/CourseDetails/Icons/teacher.svg";
 
 interface DashboardMobileCourseItemProps {
   image: string;
   id: React.Key;
   title: string;
   teacherName: string;
-  formattedPrice: string;
+  formattedPrice?: string;
+  isCourseReserve?: boolean;
+  isCourseReserveAccepted?: boolean;
+  courseReserveId?: string;
 }
 
 const DashboardMobileCourseItem = ({
@@ -19,8 +27,16 @@ const DashboardMobileCourseItem = ({
   title,
   teacherName,
   formattedPrice,
+  isCourseReserve,
+  isCourseReserveAccepted,
+  courseReserveId,
 }: DashboardMobileCourseItemProps) => {
   const darkMode = useDarkModeSelector();
+  const deleteCourseReserve = useDeleteCourseReserve();
+
+  const handleDeleteCourseReserve = () => {
+    deleteCourseReserve.mutate(courseReserveId!);
+  };
 
   return (
     <div className="dashboardMobileCourseItem">
@@ -41,9 +57,15 @@ const DashboardMobileCourseItem = ({
               {teacherName}
             </h5>
           </div>
-          <h6 className="dashboardMobileCourseItemPrice">
-            {formattedPrice} تومان
-          </h6>
+          <h6 className="dashboardMobileCourseItemPrice">{formattedPrice}</h6>
+          {isCourseReserve && !isCourseReserveAccepted && (
+            <Tooltip title="حذف رزرو" arrow placement="top">
+              <Delete
+                className="dashboardCourseItemDeleteIcon"
+                onClick={handleDeleteCourseReserve}
+              />
+            </Tooltip>
+          )}
         </div>
       </div>
     </div>

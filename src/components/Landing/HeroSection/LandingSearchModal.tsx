@@ -1,11 +1,12 @@
 import { Close } from "@mui/icons-material";
 import Dialog from "@mui/material/Dialog";
 import DialogContent from "@mui/material/DialogContent";
-import Slide from "@mui/material/Slide";
+import Slide, { SlideProps } from "@mui/material/Slide";
 import { Dispatch, SetStateAction, forwardRef } from "react";
+import InfiniteScroll from "react-infinite-scroll-component";
 import { Link } from "react-router-dom";
 
-import { CourseInterface } from "../../../types/courses";
+import { CourseInterface } from "../../../types/course";
 
 import { SearchBox } from "../../common/SearchBox";
 
@@ -18,9 +19,14 @@ interface LandingSearchModalProps {
   handleClickOpen: () => void;
   searchValue: string | undefined;
   searchCourses: CourseInterface[] | undefined;
+  fetchMoreData: () => void;
+  hasMore: boolean;
 }
 
-const Transition = forwardRef(function Transition(props, ref) {
+const Transition = forwardRef<unknown, SlideProps>(function Transition(
+  props,
+  ref
+) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
@@ -28,9 +34,11 @@ const LandingSearchModal = ({
   open,
   searchValue,
   searchCourses,
+  fetchMoreData,
   setOpen,
   setSearchValue,
   handleClickOpen,
+  hasMore,
 }: LandingSearchModalProps) => {
   const handleClose = () => {
     setOpen(false);
@@ -50,7 +58,7 @@ const LandingSearchModal = ({
     >
       <DialogContent>
         <Close
-          className="text-red absolute top-2 left-2 cursor-pointer"
+          className="text-red absolute top-2 right-2 cursor-pointer"
           onClick={handleClose}
         />
         <div className="mt-5">
@@ -67,40 +75,61 @@ const LandingSearchModal = ({
             نتایج جستجوی شما : {searchCourses && searchCourses.length + " دوره"}
           </h2>
           <div className="flex flex-col gap-4">
-            <div className="grid lg:grid-cols-2 gap-3 mt-5">
-              {searchCourses &&
-                searchCourses.map((course) => (
-                  <div key={course.courseId} className="flex gap-3">
-                    <Link to={`/courses/${course.courseId}`}>
-                      <img
-                        src={
-                          !course.tumbImageAddress ||
-                          course.tumbImageAddress === "Not-set" ||
-                          course.tumbImageAddress === "<string>"
-                            ? blankThumbnail
-                            : course.tumbImageAddress
-                        }
-                        className="w-[100px] h-[70px] rounded-md"
-                      />
-                    </Link>
-                    <div>
+            {searchCourses && (
+              <InfiniteScroll
+                dataLength={searchCourses.length}
+                next={fetchMoreData}
+                hasMore={hasMore}
+                loader={undefined}
+                endMessage={
+                  <p style={{ textAlign: "center" }}>
+                    <b>شما همه را دیده اید!</b>
+                  </p>
+                }
+                refreshFunction={() => {}}
+                pullDownToRefresh
+                pullDownToRefreshThreshold={50}
+                pullDownToRefreshContent={
+                  <h3 style={{ textAlign: "center" }}>
+                    &#8595; برای آپدیت،پایین بکشید
+                  </h3>
+                }
+                releaseToRefreshContent={
+                  <h3 style={{ textAlign: "center" }}>
+                    &#8593; برای بازخوانی رها کنید
+                  </h3>
+                }
+              >
+                <div className="grid lg:grid-cols-2 gap-3 mt-5">
+                  {searchCourses.map((course) => (
+                    <div key={course.courseId} className="flex gap-3">
                       <Link to={`/courses/${course.courseId}`}>
-                        <h4 className="font-bold dark:text-[#8f8e8e]">
-                          {course.title}
-                        </h4>
+                        <img
+                          src={
+                            !course.tumbImageAddress ||
+                            course.tumbImageAddress === "Not-set" ||
+                            course.tumbImageAddress === "<string>"
+                              ? blankThumbnail
+                              : course.tumbImageAddress
+                          }
+                          className="w-[100px] h-[70px] rounded-md"
+                        />
                       </Link>
-                      <span className="dark:text-[#8f8e8e]">
-                        <span className="mr-2">مدرس دوره :</span>{" "}
-                        {course.teacherName}
-                      </span>
+                      <div>
+                        <Link to={`/courses/${course.courseId}`}>
+                          <h4 className="font-bold dark:text-[#8f8e8e]">
+                            {course.title}
+                          </h4>
+                        </Link>
+                        <span className="dark:text-[#8f8e8e]">
+                          <span className="mr-2">مدرس دوره :</span>{" "}
+                          {course.teacherName}
+                        </span>
+                      </div>
                     </div>
-                  </div>
-                ))}
-            </div>
-            {searchCourses?.length !== 0 && (
-              <Link to="/courses" className="text-primaryColor underline">
-                نمایش بیشتر
-              </Link>
+                  ))}
+                </div>
+              </InfiniteScroll>
             )}
           </div>
         </div>
