@@ -5,6 +5,9 @@ import storage from "redux-persist/lib/storage";
 import darkModeSlice from "./darkMode";
 import registerSlice from "./register";
 import isUserLoginSlice from "./user-login";
+import userProfileSlice from "./user-profile";
+import userProfileImageSlice from "./user-profile-image";
+import isTwoStepAuthSlice from "./isTwoStepAuth";
 
 // Dark Mode Slice
 const darkModePersistConfig = {
@@ -28,11 +31,47 @@ const isUserLoginPersistedReducer = persistReducer(
   isUserLoginSlice
 );
 
+// User Profile Slice
+const userProfilePersistedConfig = {
+  key: "root",
+  storage,
+};
+
+const userProfilePersistedReducer = persistReducer(
+  userProfilePersistedConfig,
+  userProfileSlice
+);
+
+// User Profile Image Slice
+const userProfileImagePersistedConfig = {
+  key: "root",
+  storage,
+};
+
+const userProfileImagePersistedReducer = persistReducer(
+  userProfileImagePersistedConfig,
+  userProfileImageSlice
+);
+
+// Is Two Step Auth Slice
+const isTwoStepAuthPersistedConfig = {
+  key: "root",
+  storage,
+};
+
+const isTwoStepAuthPersistedReducer = persistReducer(
+  isTwoStepAuthPersistedConfig,
+  isTwoStepAuthSlice
+);
+
 export const store = configureStore({
   reducer: {
     darkMode: darkModePersistedReducer,
     register: registerSlice,
     isUserLogin: isUserLoginPersistedReducer,
+    userProfile: userProfilePersistedReducer,
+    userProfileImage: userProfileImagePersistedReducer,
+    isTwoStepAuth: isTwoStepAuthPersistedReducer,
   },
 });
 

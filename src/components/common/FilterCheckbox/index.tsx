@@ -23,6 +23,7 @@ const FilterCheckbox = ({
   value,
   onChange,
 }: FilterCheckboxProps) => {
+  console.log("v", value);
   return (
     <div className={className}>
       <FormGroup>

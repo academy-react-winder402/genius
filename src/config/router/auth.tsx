@@ -6,6 +6,7 @@ import { commonRoute } from "./common.router";
 import { DashboardLayout } from "../../components/Layout/Dashboard/DashboardLayout";
 
 import { AllCoursesPage } from "../../screens/AllCourses";
+import { CourseReservesPage } from "../../screens/CourseReserves";
 import { DashboardPage } from "../../screens/Dashboard";
 import { EditProfilePage } from "../../screens/EditProfile";
 import { MyCoursesPage } from "../../screens/MyCourses";
@@ -25,12 +26,16 @@ export const authRoutes = createBrowserRouter([
         element: <MyCoursesPage />,
       },
       {
+        path: "/dashboard/all-courses",
+        element: <AllCoursesPage />,
+      },
+      {
         path: "/dashboard/edit-Profile",
         element: <EditProfilePage />,
       },
       {
-        path: "/dashboard/all-courses",
-        element: <AllCoursesPage />,
+        path: "/dashboard/course-reserves",
+        element: <CourseReservesPage />,
       },
     ],
   },

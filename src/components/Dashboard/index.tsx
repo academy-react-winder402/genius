@@ -1,3 +1,7 @@
+import { useDispatch } from "react-redux";
+
+import { onUserProfileChange } from "../../redux/user-profile";
+
 import { useCourseTop } from "../../hooks/course/useCourseTop";
 import { useMyCourses } from "../../hooks/user-panel/useMyCourses";
 import { useProfileInfo } from "../../hooks/user-panel/useProfileInfo";
@@ -15,9 +19,12 @@ import blankThumbnail from "../../assets/images/Courses/blank-thumbnail.jpg";
 import { DashboardCourseItemSkeleton } from "./DashboardCourseItemSkeleton";
 
 const Dashboard = () => {
+  const dispatch = useDispatch();
   const { data, isLoading } = useProfileInfo();
   const { data: topCourses, isLoading: isCourseTopLoading } = useCourseTop(2);
-  const { data: myCourses, isLoading: isMyCoursesLoading } = useMyCourses(1, 2);
+  const { data: myCourses, isLoading: isMyCoursesLoading } = useMyCourses(0, 2);
+
+  dispatch(onUserProfileChange(data!));
 
   const formattedDate = convertDateToPersian(data?.birthDay!);
 
@@ -102,6 +109,7 @@ const Dashboard = () => {
               topCourses?.map((course) => (
                 <DashboardCourseItem
                   key={course.courseId}
+                  id={course.courseId}
                   image={renderThumbnail(course.tumbImageAddress)}
                   title={course.title}
                   teacherName={course.teacherName || "کاربر نابغه"}
@@ -124,6 +132,7 @@ const Dashboard = () => {
               myCourses?.listOfMyCourses.map((course) => (
                 <DashboardCourseItem
                   key={course.courseId}
+                  id={course.courseId}
                   image={renderThumbnail(course.tumbImageAddress)}
                   title={course.courseTitle}
                   teacherName={course.fullName}

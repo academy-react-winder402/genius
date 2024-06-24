@@ -12,12 +12,19 @@ const useMyCourses = (
   query?: string
 ) => {
   return useQuery({
-    queryKey: ["myCourses"],
+    queryKey: [
+      "myCourses",
+      pageNumber,
+      rowsOfPage,
+      sortingCol,
+      sortType,
+      query,
+    ],
     queryFn: async () =>
       await http
         .get<MyCourses>("/SharePanel/GetMyCourses", {
           params: {
-            pageNumber,
+            pageNumber: pageNumber ? pageNumber + 1 : undefined,
             rowsOfPage,
             sortingCol,
             sortType,

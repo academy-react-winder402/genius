@@ -23,14 +23,18 @@ interface LevelFilterProps {
 const LevelFilter = ({ setCourseLevel }: LevelFilterProps) => {
   const [courseLevels, setCourseLevels] = useState<CourseLevelsInterface[]>();
   const [isValueChanged, setIsValueChanged] = useState<boolean>(false);
+  const [refetch, setRefetch] = useState<boolean>(false);
 
   const handleDeleteValueChange = () => {
     setCourseLevel(undefined);
+    setCourseLevels([]);
+    setRefetch((prev) => !prev);
     setIsValueChanged(false);
   };
 
   const handleCourseLevelChange = (e: ChangeEvent<HTMLInputElement>) => {
     setCourseLevel(+e.target.value);
+
     setIsValueChanged(true);
   };
 
@@ -46,7 +50,7 @@ const LevelFilter = ({ setCourseLevel }: LevelFilterProps) => {
     };
 
     fetchCourseLevels();
-  }, []);
+  }, [refetch]);
 
   return (
     <FilterAccordion title="سطح دوره" isOpen>
@@ -55,16 +59,15 @@ const LevelFilter = ({ setCourseLevel }: LevelFilterProps) => {
         isValueChanged={isValueChanged}
       />
       <RadioGroup name="courseLevelGroup">
-        {courseLevels &&
-          courseLevels.map((level) => (
-            <FilterCheckbox
-              type="radio"
-              key={level.id}
-              label={level.levelName}
-              value={level.id}
-              onChange={handleCourseLevelChange}
-            />
-          ))}
+        {courseLevels?.map((level) => (
+          <FilterCheckbox
+            type="radio"
+            key={level.id}
+            label={level.levelName}
+            value={level.id}
+            onChange={handleCourseLevelChange}
+          />
+        ))}
       </RadioGroup>
     </FilterAccordion>
   );

@@ -26,7 +26,7 @@ const FieldBox = ({
   options,
 }: FieldBoxProps) => {
   const datePickerOnChange = (e: any) => {
-    const date = e.year + "-" + e.month + "-" + e.day;
+    const date = e.day + "/" + e.month + "/" + e.year;
 
     setFieldValue && setFieldValue(name, date);
   };

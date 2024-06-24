@@ -121,4 +121,3 @@ const NewsDetails = () => {
 };
 
 export { NewsDetails };
-

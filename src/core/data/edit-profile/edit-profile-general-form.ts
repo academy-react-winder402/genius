@@ -71,7 +71,7 @@ export const EDIT_PROFILE_GENERAL_FORM: EditProfileGeneralFormFieldsInterface[] 
       id: "Gender",
       isCheckbox: false,
       wrapperClassName:
-        "editProfileGenderAndReceiveMessageEventSelectBoxWrapper",
+        "editProfileGenderAndReceiveMessageEventSelectBoxWrapper mt-0",
       className: "editProfileGenderAndReceiveMessageEventSelectBox",
       as: "select",
       isGender: true,
