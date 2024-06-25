@@ -2,6 +2,8 @@ import { useDispatch } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
 
+import { useUserProfile } from "../../../redux/user-profile";
+
 import { DASHBOARD_MENU_ITEMS } from "../../../core/data/dashboard/dashboard-menu-items";
 import { removeItem } from "../../../core/services/common/storage.services";
 
@@ -17,6 +19,8 @@ const DashboardSidebar = () => {
   const { pathname } = useLocation();
   const dispatch = useDispatch();
 
+  const userProfile = useUserProfile();
+
   const onLogout = () => {
     removeItem("token");
     dispatch(isUserLoginChange(false));
@@ -28,11 +32,16 @@ const DashboardSidebar = () => {
     <div className="dashboardSidebar">
       <div className="dashboardSideBarTopSectionWrapper">
         <div className="dashboardSidebarUserInfoWrapper">
-          <img src={avatarImage} className="dashboardSidebarAvatar" />
+          <img
+            src={userProfile?.currentPictureAddress}
+            className="dashboardSidebarAvatar"
+          />
           <div className="mt-2">
-            <h5 className="dashboardSidebarUsername">محمد بکران</h5>
+            <h5 className="dashboardSidebarUsername">{`${
+              userProfile?.fName || "کاربر"
+            } ${userProfile?.lName || "نابغه"}`}</h5>
             <span className="dashboardSidebarUserPhoneNumber">
-              +989195461847
+              {userProfile?.phoneNumber}
             </span>
           </div>
         </div>

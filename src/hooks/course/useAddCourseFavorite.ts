@@ -1,10 +1,15 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import http from "../../core/services/interceptor";
 
+import { useIsUserLogin } from "../../redux/user-login";
+
 const useAddCourseFavorite = () => {
   const queryClient = useQueryClient();
+  const isUserLogin = useIsUserLogin();
+  const navigate = useNavigate();
 
   return useMutation({
     mutationKey: ["favorite-course"],
@@ -12,7 +17,17 @@ const useAddCourseFavorite = () => {
       await http
         .post("/Course/AddCourseFavorite", { courseId })
         .then((res) => res.data),
-    onSuccess: () => {
+    onSuccess: (data) => {
+      if (!data.success) {
+        if (!isUserLogin) {
+          toast.error(
+            "برای افزودن دوره به علاقه مندی ها باید وارد سایت شوید !"
+          );
+
+          navigate("/login");
+        }
+      }
+
       queryClient.invalidateQueries({
         queryKey: ["courses"],
       });
@@ -22,8 +37,6 @@ const useAddCourseFavorite = () => {
       queryClient.invalidateQueries({
         queryKey: ["courseDetails"],
       });
-
-      toast.success("دوره با موفقیت به لیست علاقه مندی های شما اضافه شد !");
     },
     onError: () => {
       toast.error(
@@ -34,3 +47,4 @@ const useAddCourseFavorite = () => {
 };
 
 export { useAddCourseFavorite };
+

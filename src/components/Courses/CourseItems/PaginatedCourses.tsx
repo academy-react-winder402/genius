@@ -25,11 +25,13 @@ const PaginatedCourses = ({
   coursesStyle,
   setCurrentPage,
 }: PaginatedCoursesProps) => {
-  const pageCount: number = Math.ceil(totalCount / itemsPerPage);
+  const pageCount = Math.ceil(totalCount / itemsPerPage);
 
   const handlePageClick = (event: { selected: number }) => {
     setCurrentPage(event.selected);
   };
+
+  console.log(courses);
 
   return (
     <div className="paginatedCoursesWrapper">
@@ -57,11 +59,7 @@ const PaginatedCourses = ({
         ) : (
           courses.map((course) =>
             coursesStyle === 1 ? (
-              <CourseItem
-                key={course.courseId}
-                course={course}
-                isUserFavorite={course.userFavorite}
-              />
+              <CourseItem key={course.courseId} course={course} />
             ) : (
               <CourseItemStyleTwo key={course.courseId} course={course} />
             )

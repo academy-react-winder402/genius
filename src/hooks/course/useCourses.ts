@@ -5,18 +5,18 @@ import http from "../../core/services/interceptor";
 const useCourses = (
   pageNumber: number,
   rowsOfPage: number | undefined,
-  sortingCol: string | undefined,
-  sortType: string | undefined,
-  query: string | undefined,
-  costDown: number | undefined,
-  costUp: number | undefined,
-  techCount: number | undefined,
-  listTech: string | string[] | undefined,
-  courseLevelId: number | undefined,
-  courseTypeId: number | undefined,
-  startDate: string | undefined,
-  endDate: string | undefined,
-  teacherId: number | undefined
+  sortingCol?: string | undefined,
+  sortType?: string | undefined,
+  query?: string | undefined,
+  costDown?: number | undefined,
+  costUp?: number | undefined,
+  techCount?: number | undefined,
+  listTech?: string | string[] | undefined,
+  courseLevelId?: number | undefined,
+  courseTypeId?: number | undefined,
+  startDate?: string | undefined,
+  endDate?: string | undefined,
+  teacherId?: number | undefined
 ) => {
   return useQuery({
     queryKey: [

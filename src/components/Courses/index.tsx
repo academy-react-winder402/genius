@@ -22,6 +22,8 @@ const Courses = () => {
   const [costUp, setCostUp] = useState<number>();
   const [sortType, setSortType] = useState<string>();
 
+  console.log("Level", courseLevel);
+
   const { data, error, isLoading } = useCourses(
     currentPage,
     9,
